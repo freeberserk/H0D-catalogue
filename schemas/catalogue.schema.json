@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/freeberserk/h0d-catalogue/blob/main/schemas/catalogue.schema.json",
+  "title": "H0D — catalogue de définitions",
+  "type": "object",
+  "required": ["format", "formatVersion", "version", "definitions"],
+  "properties": {
+    "format": {"const": "H0D_EQUIPMENT_CATALOG"},
+    "formatVersion": {"const": 1},
+    "version": {"type": "string", "minLength": 1},
+    "principes": {"type": "object"},
+    "definitions": {"type": "array", "items": {"$ref": "#/$defs/definition"}},
+    "a_valider": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "definition": {
+      "type": "object",
+      "required": ["key", "name", "kind", "templateKey", "props", "catalogue"],
+      "properties": {
+        "key": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "name": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["object", "resource", "weapon", "armor"]},
+        "templateKey": {"enum": ["item-objet", "item-ressource", "item-arme", "item-armure"]},
+        "originKey": {"type": "string"},
+        "origin": {"type": "string"},
+        "tier": {"type": "integer", "minimum": 1},
+        "source": {"type": "string"},
+        "props": {"type": "object"},
+        "catalogue": {"$ref": "#/$defs/catalogue"}
+      },
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "object"}}}, "then": {"properties": {"templateKey": {"const": "item-objet"}}}},
+        {"if": {"properties": {"kind": {"const": "resource"}}}, "then": {"properties": {"templateKey": {"const": "item-ressource"}}}},
+        {"if": {"properties": {"kind": {"const": "weapon"}}}, "then": {"properties": {"templateKey": {"const": "item-arme"}}}},
+        {"if": {"properties": {"kind": {"const": "armor"}}}, "then": {"properties": {"templateKey": {"const": "item-armure"}}}}
+      ],
+      "additionalProperties": true
+    },
+    "catalogue": {
+      "type": "object",
+      "properties": {
+        "rarete": {"type": ["string", "null"]},
+        "prix_ressources": {"oneOf": [{"type": "null"}, {"type": "object", "properties": {"base": {"type": ["number", "null"], "minimum": 0}, "supplements": {"type": "object"}, "texte": {"type": "string"}}}]},
+        "valeur_troc": {"type": ["object", "null"]},
+        "disponibilite": {"type": "object"},
+        "etiquettes": {"type": "array", "items": {"type": "string"}},
+        "visible_au_stock_standard": {"type": "boolean"},
+        "fabrication": {"type": "object"},
+        "statut": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  }
+}

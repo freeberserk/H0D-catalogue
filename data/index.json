@@ -1,0 +1,12 @@
+{
+  "format": "H0D_CATALOGUE_INDEX",
+  "formatVersion": 1,
+  "version": "0.1.0",
+  "catalogues": [
+    "data/catalogue-objets-artefacts.json"
+  ],
+  "stocks": [
+    "data/stocks/longue-corde-p03.json"
+  ],
+  "notes": "Fichiers locaux versionnés ; aucune récupération distante depuis GitHub en cours de partie. Prix inconnus laissés null."
+}

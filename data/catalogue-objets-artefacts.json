@@ -1,0 +1,3602 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.0-draft",
+  "targetBuilder": {
+    "id": "h0d-equipment-builder",
+    "version_testee": "0.1.0",
+    "targetCSB": "6.0.2+",
+    "templateManager": "H0D Template Manager",
+    "supportedTemplates": [
+      "item-objet",
+      "item-ressource"
+    ],
+    "intégration": "Le module H0D Catalogue publie une API. Enregistrement additif non destructif des 58 références de stock standard dans H0D Equipment Builder v0.1.0 ; 21 références protégées visibles uniquement via API/stock sur demande. Génération de stocks prédéfinis nécessitera une mise à jour du Builder."
+  },
+  "source_documents": [
+    {
+      "name": "Zero_Dawn_Commerce_v2(1).pdf",
+      "role": "commerce, objets courants, ressources/loot, prix, vendeurs"
+    },
+    {
+      "name": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf",
+      "role": "offres Senn, prix en jetons, protections spéciales"
+    },
+    {
+      "name": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf",
+      "role": "référence Flèches renforcées, armures/armes reportées à une autre phase"
+    },
+    {
+      "name": "H0D Equipment Builder v0.1.0 + H0D Template Manager",
+      "role": "clés de propriétés Foundry et formats de définitions"
+    },
+    {
+      "name": "Conversation campagne - octobre 2026",
+      "role": "quatre fabrications explicitement validées"
+    }
+  ],
+  "principes": {
+    "pas_de_conversion_auto_jetons_ressources": true,
+    "aucune_invention_de_prix_absent": true,
+    "une_reference_par_fonction": true,
+    "prix_variables_ne_sont_pas_des_valeurs_fixees": true,
+    "n_importer_que_les_definitions_sans_dupliquer_le_catalogue_de_depart": true,
+    "respect_des_objets_et_artefacts_MJ": true
+  },
+  "definitions": [
+    {
+      "key": "balise-de-route-usee",
+      "name": "Balise de route usée",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Technique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Balise ancienne usée ; fonctionnement à préciser",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Balise ancienne usée ; fonctionnement à préciser",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "baume-anti-poussiere",
+      "name": "Baume anti-poussière",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Consommable",
+        "H0D_Objet_Sous_Type": "Consommable",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Route / désert",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Consommable",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Route / désert",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "billes-de-fuite",
+      "name": "Billes de fuite",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Consommable",
+        "H0D_Objet_Sous_Type": "Consommable",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Zone glissante",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "2"
+      },
+      "catalogue": {
+        "categorie": "Consommable",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Zone glissante",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "cape-de-poussiere-renforcee",
+      "name": "Cape de poussière renforcée",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Vêtement",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Équipement distinct à examiner face à Cape de voyage (builder v0.1)",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Vêtement",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Équipement distinct à examiner face à Cape de voyage (builder v0.1)",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03",
+          "a_reconcilier"
+        ],
+        "politique_revente": "standard",
+        "reconciliation": {
+          "existing_key": "cape-voyage",
+          "status": "a_verifier",
+          "reason": "Cape de voyage est déjà dans STARTER_CATALOG ; ne pas écraser sans vérification de l’effet de renfort"
+        },
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "capsules-incendiaires-2",
+      "name": "Capsules incendiaires ×2",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "dent-ambre",
+      "origin": "Artisanat de la Dent d’Ambre",
+      "tier": 1,
+      "source": "Fabrication validée dans la conversation du projet (octobre 2026)",
+      "props": {
+        "H0D_Objet_Type": "Munition",
+        "H0D_Objet_Sous_Type": "Consommable",
+        "H0D_Objet_Quantite": "2",
+        "H0D_Objet_Origine": "Artisanat de la Dent d’Ambre",
+        "H0D_Objet_Description": "Lot de 2 munitions : +1d4 feu sur touche ; munition consommée même sur échec ; ne déclenche pas automatiquement Enflammé",
+        "H0D_Objet_Effet": "Lot de 2 munitions : +1d4 feu sur touche ; munition consommée même sur échec ; ne déclenche pas automatiquement Enflammé",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Munition_Active": true,
+        "H0D_Objet_Munition_Element": "Feu"
+      },
+      "catalogue": {
+        "categorie": "Consommable",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Lot de 2 munitions : +1d4 feu sur touche ; munition consommée même sur échec ; ne déclenche pas automatiquement Enflammé",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "fabrication_validee",
+          "hors_stock_marchand"
+        ],
+        "politique_revente": "standard",
+        "fabrication": {
+          "composants": {
+            "fluide-elementaire-blaze": 1
+          },
+          "dd": 15,
+          "duree": "2 heures",
+          "artisan": "Brok",
+          "rendement": 2
+        },
+        "statut": "valide",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "carquois",
+      "name": "Carquois",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Munition",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "20 flèches",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "1"
+      },
+      "catalogue": {
+        "categorie": "Munition",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "20 flèches",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "carte-raturee-du-sud",
+      "name": "Carte raturée du Sud",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Donnee",
+        "H0D_Objet_Sous_Type": "Donnée",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Carte de scénario et handout ; aucun prix normal précisé",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Donnée",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Carte de scénario et handout ; aucun prix normal précisé",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "condensateur-de-lumiere",
+      "name": "Condensateur de lumière",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Technique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Héritiers du Soleil",
+        "H0D_Objet_Description": "Technologie Héritiers",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "10"
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 10,
+          "supplements": {},
+          "texte": "10"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "occasionnel",
+          "caravanes": "exceptionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Technologie Héritiers",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "corde-tressee-15-m",
+      "name": "Corde tressée 15 m",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Voyage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "2 FS conseillées",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "2"
+      },
+      "catalogue": {
+        "categorie": "Voyage",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "2 FS conseillées",
+        "source_page": 1,
+        "alias": [
+          "Corde tressée"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "corde-lame",
+      "name": "Corde-lame",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Outil tactique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "FS + PM",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "4"
+      },
+      "catalogue": {
+        "categorie": "Outil tactique",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "FS + PM",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "couverture-de-voyage",
+      "name": "Couverture de voyage",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Voyage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "FS",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "1"
+      },
+      "catalogue": {
+        "categorie": "Voyage",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "FS",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "crochet-descalade",
+      "name": "Crochet d’escalade",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Voyage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "PM + FS",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "3"
+      },
+      "catalogue": {
+        "categorie": "Voyage",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "PM + FS",
+        "source_page": 1,
+        "alias": [
+          "Crochet pliant (séance 3)"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "flash-de-lentille",
+      "name": "Flash de lentille",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Outil tactique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "LO + CE faible",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "5"
+      },
+      "catalogue": {
+        "categorie": "Outil tactique",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "LO + CE faible",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "fleches-renforcees",
+      "name": "Flèches renforcées",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 3)",
+      "props": {
+        "H0D_Objet_Type": "Munition",
+        "H0D_Objet_Sous_Type": "Munition",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Flèches renforcées : Compendium p. 3, conditionnement conseillé x20 ; effet chiffré non documenté",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Munition_Active": true,
+        "H0D_Objet_Munition_Famille": "Fleche"
+      },
+      "catalogue": {
+        "categorie": "Munition",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Flèches renforcées : Compendium p. 3, conditionnement conseillé x20 ; effet chiffré non documenté",
+        "source_page": 3,
+        "alias": [],
+        "etiquettes": [
+          "stats_a_confirmer"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "fragment-de-protocole-elysium",
+      "name": "Fragment de protocole ELYSIUM",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "elysium",
+      "origin": "Anciens / ELYSIUM",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 3)",
+      "props": {
+        "H0D_Objet_Type": "Donnee",
+        "H0D_Objet_Sous_Type": "Archive ELYSIUM",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Anciens / ELYSIUM",
+        "H0D_Objet_Description": "Objet de scénario ; non marchand",
+        "H0D_Objet_Identifie": false,
+        "H0D_Objet_Valeur": "0"
+      },
+      "catalogue": {
+        "categorie": "Donnée",
+        "rarete": "Ancien",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "analyse",
+          "caravanes": "indisponible",
+          "heritiers": "analyse"
+        },
+        "notes_source": "Objet de scénario",
+        "source_page": 3,
+        "alias": [],
+        "etiquettes": [
+          "mj_seul",
+          "non_marchand"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "fumigene-de-route",
+      "name": "Fumigène de route",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Consommable",
+        "H0D_Objet_Sous_Type": "Consommable",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Écran de fumée",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "3"
+      },
+      "catalogue": {
+        "categorie": "Consommable",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Écran de fumée",
+        "source_page": 2,
+        "alias": [
+          "Fumigène artisanal (séance 3)"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "genouilleres-de-caravane-depareillees",
+      "name": "Genouillères de caravane dépareillées",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Vêtement",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "+1 narratif sur un test de déplacement difficile ; ou vaut 1 PM + 1 FS",
+        "H0D_Objet_Effet": "+1 narratif sur un test de déplacement difficile ; ou vaut 1 PM + 1 FS",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Vêtement",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "+1 narratif sur un test de déplacement difficile ; ou vaut 1 PM + 1 FS",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "gourde-renforcee",
+      "name": "Gourde renforcée",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Voyage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Peau / fibres",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "1"
+      },
+      "catalogue": {
+        "categorie": "Voyage",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Peau / fibres",
+        "source_page": 1,
+        "alias": [
+          "Gourde"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "grenade-iem-artisanale",
+      "name": "Grenade IEM artisanale",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Consommable",
+        "H0D_Objet_Sous_Type": "Consommable",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "CE + CA + LO",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "8"
+      },
+      "catalogue": {
+        "categorie": "Consommable",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 8,
+          "supplements": {},
+          "texte": "8"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "CE + CA + LO",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "herbes-durgence",
+      "name": "Herbes d’urgence",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Consommable",
+        "H0D_Objet_Sous_Type": "Consommable",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Herbes de soins ; pas d’effet chiffré documenté",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Consommable",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Herbes de soins ; pas d’effet chiffré documenté",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "huile-de-harnais",
+      "name": "Huile de harnais",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Consommable",
+        "H0D_Objet_Sous_Type": "Consommable",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Entretien des harnais",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Consommable",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Entretien des harnais",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "kit-de-reparation",
+      "name": "Kit de réparation",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Technique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Outils techniques",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "5"
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Outils techniques",
+        "source_page": 1,
+        "alias": [
+          "Kit de réparation nomade (séance 3)"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "kit-de-soins-tribal",
+      "name": "Kit de soins tribal",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Kit",
+        "H0D_Objet_Sous_Type": "Soins",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Soins simples",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "4"
+      },
+      "catalogue": {
+        "categorie": "Soins",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "Soins simples",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "kit-de-survie-leger",
+      "name": "Kit de survie léger",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Kit",
+        "H0D_Objet_Sous_Type": "Survie",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Matériel de base",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "3"
+      },
+      "catalogue": {
+        "categorie": "Survie",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Matériel de base",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "lanterne-artisanale",
+      "name": "Lanterne artisanale",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Voyage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Source lumineuse faible",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "2"
+      },
+      "catalogue": {
+        "categorie": "Voyage",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Source lumineuse faible",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "lunettes-de-protection",
+      "name": "Lunettes de protection",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Technique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Forge / poussière / chaleur",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "2"
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Forge / poussière / chaleur",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "manteau-de-pisteur",
+      "name": "Manteau de pisteur",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Vêtement",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Exploration",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "6"
+      },
+      "catalogue": {
+        "categorie": "Vêtement",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 6,
+          "supplements": {},
+          "texte": "6"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "Exploration",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "masque-anti-poussiere",
+      "name": "Masque anti-poussière",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Voyage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Route / désert",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "2"
+      },
+      "catalogue": {
+        "categorie": "Voyage",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Route / désert",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "miroir-de-signal",
+      "name": "Miroir de signal",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Outil tactique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Signalisation",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Outil tactique",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Signalisation",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "miroir-solaire-technique",
+      "name": "Miroir solaire technique",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Technique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Héritiers du Soleil",
+        "H0D_Objet_Description": "Optique solaire",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "5"
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Optique solaire",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "module-de-refroidissement",
+      "name": "Module de refroidissement",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Technique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Héritiers du Soleil",
+        "H0D_Objet_Description": "Projecteurs thermiques",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "10"
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 10,
+          "supplements": {},
+          "texte": "10"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "exceptionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Projecteurs thermiques",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "module-de-visee",
+      "name": "Module de visée",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Composant",
+        "H0D_Objet_Sous_Type": "Amélioration",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Optique / précision",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Amélioration",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 12,
+          "supplements": {
+            "LO": 1,
+            "CA": 1
+          },
+          "texte": "12 + 1 LO + 1 CA"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Optique / précision",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "proche_de": [
+          {
+            "key": "viseur-du-chasseur",
+            "statut": "a_comparer",
+            "commentaire": "Même usage optique possible, mais prix rare 12 + LO + CA documenté ; ne pas fusionner sans aval MJ."
+          }
+        ],
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "outils-de-demontage",
+      "name": "Outils de démontage",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Technique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Pinces, leviers, coupe-câbles",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "4"
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Pinces, leviers, coupe-câbles",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "petit-accumulateur",
+      "name": "Petit accumulateur",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Composant",
+        "H0D_Objet_Sous_Type": "Énergie",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Recharge d’outils",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "4"
+      },
+      "catalogue": {
+        "categorie": "Énergie",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Recharge d’outils",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "petit-filet-de-chasse",
+      "name": "Petit filet de chasse",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Chasse",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "FS",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "2"
+      },
+      "catalogue": {
+        "categorie": "Chasse",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "FS",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "piege-a-cable",
+      "name": "Piège à câble",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Piège",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Contrôle / entrave",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "3"
+      },
+      "catalogue": {
+        "categorie": "Piège",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Contrôle / entrave",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "piege-elementaire-avance",
+      "name": "Piège élémentaire avancé",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Piège",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Effet avancé",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Piège",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 10,
+          "supplements": {
+            "CE": 1,
+            "FE": 1
+          },
+          "texte": "10 + 1 CE + 1 FE"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Effet avancé",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "piege-elementaire-simple",
+      "name": "Piège élémentaire simple",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Piège",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Effet élémentaire",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Piège",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 5,
+          "supplements": {
+            "FE": 1
+          },
+          "texte": "5 + 1 FE"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Effet élémentaire",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "plaque-polie-solaire",
+      "name": "Plaque polie solaire",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Technique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Héritiers du Soleil",
+        "H0D_Objet_Description": "Armure / reflet / capteur",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "6"
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 6,
+          "supplements": {},
+          "texte": "6"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Armure / reflet / capteur",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "pointe-du-predateur",
+      "name": "Pointe du Prédateur",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "dent-ambre",
+      "origin": "Artisanat de la Dent d’Ambre",
+      "tier": 1,
+      "source": "Fabrication validée dans la conversation du projet (octobre 2026)",
+      "props": {
+        "H0D_Objet_Type": "Composant",
+        "H0D_Objet_Sous_Type": "Amélioration",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat de la Dent d’Ambre",
+        "H0D_Objet_Description": "1 fois/combat : +2 dégâts sur une pièce de machine marquée au Focus",
+        "H0D_Objet_Effet": "1 fois/combat : +2 dégâts sur une pièce de machine marquée au Focus",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Amélioration",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "1 fois/combat : +2 dégâts sur une pièce de machine marquée au Focus",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "fabrication_validee",
+          "hors_stock_marchand"
+        ],
+        "politique_revente": "standard",
+        "fabrication": {
+          "composants": {
+            "griffe-de-machine-intacte": 1,
+            "plaque-de-machine-propre": 1
+          },
+          "dd": 15,
+          "duree": "½ journée",
+          "artisan": "Brok",
+          "rendement": 1,
+          "familles_alternatives": [
+            "Griffe, mandibule ou pointe de machine intacte et tranchante, sous validation MJ"
+          ]
+        },
+        "statut": "valide",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "rations-2-jours",
+      "name": "Rations, 2 jours",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Kit",
+        "H0D_Objet_Sous_Type": "Survie",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Nourriture conservée",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "1"
+      },
+      "catalogue": {
+        "categorie": "Survie",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Nourriture conservée",
+        "source_page": 1,
+        "alias": [
+          "Rations épicées (séance 3)"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "sac-de-recuperateur",
+      "name": "Sac de récupérateur",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Transport",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Sangles et poches",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "3"
+      },
+      "catalogue": {
+        "categorie": "Transport",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "Sangles et poches",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "sacoche-etanche",
+      "name": "Sacoche étanche",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Transport",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Protège petits composants",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "2"
+      },
+      "catalogue": {
+        "categorie": "Transport",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Protège petits composants",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "sangles-de-route",
+      "name": "Sangles de route",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Voyage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Sangles de rechange",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Voyage",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Sangles de rechange",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "tablier-de-recuperateur",
+      "name": "Tablier de récupérateur",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Vêtement",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Forge / démontage",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "6"
+      },
+      "catalogue": {
+        "categorie": "Vêtement",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 6,
+          "supplements": {},
+          "texte": "6"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Forge / démontage",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "talisman-de-route",
+      "name": "Talisman de route",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Divers",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Talisman de caravane ; pas d’effet chiffré documenté",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Divers",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Talisman de caravane ; pas d’effet chiffré documenté",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "toile-impermeable",
+      "name": "Toile imperméable",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Voyage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Protection contre l’humidité",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Voyage",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Protection contre l’humidité",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "torche-chimique-antique",
+      "name": "Torche chimique antique",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Éclairage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Usage limité",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "3"
+      },
+      "catalogue": {
+        "categorie": "Éclairage",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "occasionnel",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Usage limité",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "trousse-couture-reparation",
+      "name": "Trousse couture / réparation",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Artisanat",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "Vêtements, sacs",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "2"
+      },
+      "catalogue": {
+        "categorie": "Artisanat",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "Vêtements, sacs",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "veilleur-du-scrapper",
+      "name": "Veilleur du Scrapper",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "dent-ambre",
+      "origin": "Artisanat de la Dent d’Ambre",
+      "tier": 1,
+      "source": "Fabrication validée dans la conversation du projet (octobre 2026)",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Outil tactique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat de la Dent d’Ambre",
+        "H0D_Objet_Description": "1 fois/repos complet : +2 Perception durant 1 min contre machines mobiles à 15 m ; activation action de mouvement",
+        "H0D_Objet_Effet": "1 fois/repos complet : +2 Perception durant 1 min contre machines mobiles à 15 m ; activation action de mouvement",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Outil tactique",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "1 fois/repos complet : +2 Perception durant 1 min contre machines mobiles à 15 m ; activation action de mouvement",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "fabrication_validee",
+          "hors_stock_marchand"
+        ],
+        "politique_revente": "standard",
+        "fabrication": {
+          "composants": {
+            "radar-de-scrapper-intact": 1,
+            "cellule-faible-chargee": 1
+          },
+          "dd": 18,
+          "duree": "1 journée",
+          "artisan": "Brok et Nerys",
+          "rendement": 1,
+          "familles_alternatives": [
+            "Radar dorsal ou capteur de mouvement actif de fonction équivalente, sous validation MJ"
+          ]
+        },
+        "statut": "valide",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "viseur-du-chasseur",
+      "name": "Viseur du Chasseur",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "dent-ambre",
+      "origin": "Artisanat de la Dent d’Ambre",
+      "tier": 1,
+      "source": "Fabrication validée dans la conversation du projet (octobre 2026)",
+      "props": {
+        "H0D_Objet_Type": "Composant",
+        "H0D_Objet_Sous_Type": "Amélioration",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat de la Dent d’Ambre",
+        "H0D_Objet_Description": "1 fois/combat : +2 à un tir sur pièce de machine identifiée par scan complet ; action de mouvement pour viser, sans déplacement",
+        "H0D_Objet_Effet": "1 fois/combat : +2 à un tir sur pièce de machine identifiée par scan complet ; action de mouvement pour viser, sans déplacement",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Amélioration",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "1 fois/combat : +2 à un tir sur pièce de machine identifiée par scan complet ; action de mouvement pour viser, sans déplacement",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "fabrication_validee",
+          "hors_stock_marchand"
+        ],
+        "politique_revente": "standard",
+        "fabrication": {
+          "composants": {
+            "circuit-ancien-abime": 1
+          },
+          "dd": 15,
+          "duree": "1 journée",
+          "artisan": "Brok et Nerys",
+          "rendement": 1,
+          "composants_alternatifs": [
+            {
+              "quantite": 1,
+              "references": [
+                "oeil-optique-intact",
+                "lentille-optique-intacte"
+              ],
+              "fonction": "optique intacte permettant la mise au point"
+            }
+          ],
+          "tests": [
+            {
+              "etape": "Réparer le circuit ancien abîmé",
+              "dd": 15
+            },
+            {
+              "etape": "Monter le viseur",
+              "dd": 15
+            }
+          ]
+        },
+        "proche_de": [
+          {
+            "key": "module-de-visee",
+            "statut": "a_comparer",
+            "commentaire": "Fabrication artisanale validée ; bonus et recette propres conservés."
+          }
+        ],
+        "statut": "valide",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "epaulieres-de-route",
+      "name": "Épaulières de route",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Vêtement",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Description": "Réduit 1 dégât physique ou de chute une fois avant la fin du Prologue ; ou vaut 2 PM",
+        "H0D_Objet_Effet": "Réduit 1 dégât physique ou de chute une fois avant la fin du Prologue ; ou vaut 2 PM",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "categorie": "Vêtement",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Réduit 1 dégât physique ou de chute une fois avant la fin du Prologue ; ou vaut 2 PM",
+        "source_page": 5,
+        "alias": [],
+        "etiquettes": [
+          "scenario_p03"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "etui-a-carreaux",
+      "name": "Étui à carreaux",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "artisanat-commun",
+      "origin": "Artisanat commun",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 1)",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Munition",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Artisanat commun",
+        "H0D_Objet_Description": "10 carreaux",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Valeur": "1"
+      },
+      "catalogue": {
+        "categorie": "Munition",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "10 carreaux",
+        "source_page": 1,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "batterie-vide",
+      "name": "Batterie vide",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Cellule",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "Recyclage",
+        "H0D_Ressource_Qualite": "Abimee",
+        "H0D_Ressource_Valeur_Unitaire": "1"
+      },
+      "catalogue": {
+        "categorie": "Cellule",
+        "rarete": "Courant",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Recyclage",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "canon-de-ravager-intact",
+      "name": "Canon de Ravager intact",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 3)",
+      "props": {
+        "H0D_Ressource_Type": "PieceRare",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "PR / projet spécial",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Valeur de troc variable : 20–25 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+      },
+      "catalogue": {
+        "categorie": "Pièce rare",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "fourchette": [
+            20,
+            25
+          ],
+          "base": null,
+          "supplements": {},
+          "texte": "20–25"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "exceptionnel",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "PR / projet spécial",
+        "source_page": 3,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "cellule-faible-chargee",
+      "name": "Cellule faible chargée",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Cellule",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "CE",
+        "H0D_Ressource_Qualite": "Commune",
+        "H0D_Ressource_Valeur_Unitaire": "2"
+      },
+      "catalogue": {
+        "categorie": "Cellule",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "CE",
+        "source_page": 2,
+        "alias": [
+          "Cellule d’énergie faible"
+        ],
+        "etiquettes": [
+          "disponible_commerce_v2"
+        ],
+        "politique_revente": "standard",
+        "source_commerce_page": 2,
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "cellule-solaire",
+      "name": "Cellule solaire",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Cellule",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Héritiers du Soleil",
+        "H0D_Ressource_Usage": "Armes et modules solaires",
+        "H0D_Ressource_Valeur_Unitaire": "6"
+      },
+      "catalogue": {
+        "categorie": "Énergie",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 6,
+          "supplements": {},
+          "texte": "6"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "occasionnel",
+          "caravanes": "exceptionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Armes et modules solaires",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "cellule-stable",
+      "name": "Cellule stable",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Cellule",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "CE avancée",
+        "H0D_Ressource_Qualite": "Stable",
+        "H0D_Ressource_Valeur_Unitaire": "4"
+      },
+      "catalogue": {
+        "categorie": "Cellule",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "disponibilite": {
+          "brok": "occasionnel",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "CE avancée",
+        "source_page": 2,
+        "alias": [
+          "Cellule stable",
+          "cellule-stable-recuperee"
+        ],
+        "etiquettes": [
+          "disponible_commerce_v2"
+        ],
+        "politique_revente": "standard",
+        "source_commerce_page": 2,
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "circuit-ancien-abime",
+      "name": "Circuit ancien abîmé",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Circuit",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "CA",
+        "H0D_Ressource_Qualite": "Abimee",
+        "H0D_Ressource_Valeur_Unitaire": "2"
+      },
+      "catalogue": {
+        "categorie": "Circuit",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "CA",
+        "source_page": 2,
+        "alias": [
+          "Circuit ancien abîmé",
+          "circuit-ancien-abime-recupere"
+        ],
+        "etiquettes": [
+          "disponible_commerce_v2"
+        ],
+        "politique_revente": "standard",
+        "source_commerce_page": 2,
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "circuit-ancien-intact",
+      "name": "Circuit ancien intact",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Circuit",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "CA avancé",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "4"
+      },
+      "catalogue": {
+        "categorie": "Circuit",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "disponibilite": {
+          "brok": "occasionnel",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "CA avancé",
+        "source_page": 2,
+        "alias": [
+          "Circuit ancien intact",
+          "circuit-ancien-intact-recupere"
+        ],
+        "etiquettes": [
+          "disponible_commerce_v2"
+        ],
+        "politique_revente": "standard",
+        "source_commerce_page": 2,
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "circuit-brule",
+      "name": "Circuit brûlé",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Circuit",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "Ferraille technique",
+        "H0D_Ressource_Qualite": "Abimee",
+        "H0D_Ressource_Valeur_Unitaire": "1"
+      },
+      "catalogue": {
+        "categorie": "Circuit",
+        "rarete": "Courant",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "Ferraille technique",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "composant-blanc-elysium",
+      "name": "Composant blanc ELYSIUM",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "elysium",
+      "origin": "Anciens / ELYSIUM",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 3)",
+      "props": {
+        "H0D_Ressource_Type": "Antique",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Anciens / ELYSIUM",
+        "H0D_Ressource_Usage": "Pas de prix standard",
+        "H0D_Ressource_Qualite": "Rare",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire."
+      },
+      "catalogue": {
+        "categorie": "Matériau antique",
+        "rarete": "Ancien",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "analyse",
+          "caravanes": "indisponible",
+          "heritiers": "analyse"
+        },
+        "notes_source": "Pas de prix standard",
+        "source_page": 3,
+        "alias": [],
+        "etiquettes": [
+          "mj_seul",
+          "non_marchand"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "faisceau-de-fibres-intactes",
+      "name": "Faisceau de fibres intactes",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Fibre",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "FS",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "1"
+      },
+      "catalogue": {
+        "categorie": "Fibre",
+        "rarete": "Courant",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "FS",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "fluide-elementaire",
+      "name": "Fluide élémentaire",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Fluide",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "Feu / Gel / Acide / Choc",
+        "H0D_Ressource_Valeur_Unitaire": "2"
+      },
+      "catalogue": {
+        "categorie": "Technique",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "Feu / Gel / Acide / Choc",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "fluide-elementaire-blaze",
+      "name": "Fluide élémentaire — Blaze",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Butin confirmé en conversation",
+      "props": {
+        "H0D_Ressource_Type": "Fluide",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "1 unité récupérée par les PJ ; élément feu",
+        "H0D_Ressource_Element": "Feu",
+        "H0D_Ressource_Qualite": "Commune",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire."
+      },
+      "catalogue": {
+        "categorie": "Fluide",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "1 unité récupérée par les PJ ; élément feu",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "butin_pj_confirme",
+          "variante_elementaire"
+        ],
+        "politique_revente": "standard",
+        "statut": "a_revoir",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "griffe-de-machine-intacte",
+      "name": "Griffe de machine intacte",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Butin confirmé en conversation — machine non spécifiée",
+      "props": {
+        "H0D_Ressource_Type": "PieceRare",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "Pièce intacte des PJ ; machine non précisée",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire."
+      },
+      "catalogue": {
+        "categorie": "Pièce rare",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Pièce intacte des PJ ; machine non précisée",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "butin_pj_confirme",
+          "prix_a_definir"
+        ],
+        "politique_revente": "standard",
+        "statut": "a_revoir",
+        "visible_au_stock_standard": false
+      }
+    },
+    {
+      "key": "generateur-de-bouclier",
+      "name": "Générateur de bouclier",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "PieceRare",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "CE + CA + PR",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Valeur de troc variable : 15–25 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+      },
+      "catalogue": {
+        "categorie": "Pièce rare",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "fourchette": [
+            15,
+            25
+          ],
+          "base": null,
+          "supplements": {},
+          "texte": "15–25"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "CE + CA + PR",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "generateur-furtif-de-stalker",
+      "name": "Générateur furtif de Stalker",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 3)",
+      "props": {
+        "H0D_Ressource_Type": "PieceRare",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "PR",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Valeur de troc variable : 20–25 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+      },
+      "catalogue": {
+        "categorie": "Pièce rare",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "fourchette": [
+            20,
+            25
+          ],
+          "base": null,
+          "supplements": {},
+          "texte": "20–25"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "exceptionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "PR",
+        "source_page": 3,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "lentille-optique-intacte",
+      "name": "Lentille optique intacte",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Lentille",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "LO",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "2"
+      },
+      "catalogue": {
+        "categorie": "Lentille",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "LO",
+        "source_page": 2,
+        "alias": [
+          "Lentille optique"
+        ],
+        "etiquettes": [
+          "disponible_commerce_v2"
+        ],
+        "politique_revente": "standard",
+        "source_commerce_page": 2,
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "lentille-rayee",
+      "name": "Lentille rayée",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Lentille",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "Restauration",
+        "H0D_Ressource_Qualite": "Abimee",
+        "H0D_Ressource_Valeur_Unitaire": "1"
+      },
+      "catalogue": {
+        "categorie": "Lentille",
+        "rarete": "Courant",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "Restauration",
+        "source_page": 2,
+        "alias": [
+          "Lentille fissurée (séance 3, état à vérifier)"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "noyau-lourd",
+      "name": "Noyau lourd",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Noyau",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "NM",
+        "H0D_Ressource_Qualite": "Rare",
+        "H0D_Ressource_Valeur_Unitaire": "20"
+      },
+      "catalogue": {
+        "categorie": "Noyau",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 20,
+          "supplements": {},
+          "texte": "20"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "exceptionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "NM",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "noyau-moyen",
+      "name": "Noyau moyen",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Noyau",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "NM",
+        "H0D_Ressource_Qualite": "Stable",
+        "H0D_Ressource_Valeur_Unitaire": "10"
+      },
+      "catalogue": {
+        "categorie": "Noyau",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 10,
+          "supplements": {},
+          "texte": "10"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "NM",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "petit-noyau-de-machine",
+      "name": "Petit noyau de machine",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Noyau",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "NM",
+        "H0D_Ressource_Qualite": "Commune",
+        "H0D_Ressource_Valeur_Unitaire": "5"
+      },
+      "catalogue": {
+        "categorie": "Noyau",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "NM",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "plaque-de-machine-propre",
+      "name": "Plaque de machine propre",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Plaque",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "PM",
+        "H0D_Ressource_Qualite": "Commune",
+        "H0D_Ressource_Valeur_Unitaire": "1"
+      },
+      "catalogue": {
+        "categorie": "Plaque",
+        "rarete": "Courant",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 1,
+          "supplements": {},
+          "texte": "1"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "PM",
+        "source_page": 2,
+        "alias": [
+          "Plaque métallique"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "radar-de-scrapper-intact",
+      "name": "Radar de Scrapper intact",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "PieceRare",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "CA / LO",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Valeur de troc variable : 8–12 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+      },
+      "catalogue": {
+        "categorie": "Pièce rare",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "fourchette": [
+            8,
+            12
+          ],
+          "base": null,
+          "supplements": {},
+          "texte": "8–12"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "CA / LO",
+        "source_page": 2,
+        "alias": [
+          "Radar dorsal de Scrapper intact"
+        ],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "reservoir-blaze-intact",
+      "name": "Réservoir Blaze intact",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "PieceRare",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "FE / PR",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Valeur de troc variable : 6–10 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+      },
+      "catalogue": {
+        "categorie": "Pièce rare",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "fourchette": [
+            6,
+            10
+          ],
+          "base": null,
+          "supplements": {},
+          "texte": "6–10"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "occasionnel"
+        },
+        "notes_source": "FE / PR",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "reservoir-de-fluide-intact",
+      "name": "Réservoir de fluide intact",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "Fluide",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "FE",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "2"
+      },
+      "catalogue": {
+        "categorie": "Fluide",
+        "rarete": "Peu courant",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "oui"
+        },
+        "notes_source": "FE",
+        "source_page": 2,
+        "alias": [
+          "Fluide élémentaire — Blaze (version non conditionnée)"
+        ],
+        "etiquettes": [],
+        "politique_revente": "standard",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "il-de-watcher-intact",
+      "name": "Œil de Watcher intact",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Zero_Dawn_Commerce_v2(1).pdf (p. 2)",
+      "props": {
+        "H0D_Ressource_Type": "PieceRare",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "LO / PR",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Valeur de troc variable : 5–8 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+      },
+      "catalogue": {
+        "categorie": "Pièce rare",
+        "rarete": "Rare",
+        "prix_ressources": null,
+        "valeur_troc": {
+          "fourchette": [
+            5,
+            8
+          ],
+          "base": null,
+          "supplements": {},
+          "texte": "5–8"
+        },
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
+        },
+        "notes_source": "LO / PR",
+        "source_page": 2,
+        "alias": [],
+        "etiquettes": [],
+        "politique_revente": "estimation_MJ",
+        "statut": "source_pdf",
+        "visible_au_stock_standard": true
+      }
+    },
+    {
+      "key": "oeil-optique-intact",
+      "name": "Œil optique intact (générique)",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "machines",
+      "origin": "Machines / récupération",
+      "tier": 1,
+      "source": "Butin confirmé en conversation — machine non spécifiée",
+      "props": {
+        "H0D_Ressource_Type": "Lentille",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Usage": "Pièce intacte des PJ ; origine machine non précisée",
+        "H0D_Ressource_Qualite": "Intacte",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire."
+      },
+      "catalogue": {
+        "categorie": "Lentille",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Pièce intacte des PJ ; origine machine non précisée",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "butin_pj_confirme",
+          "prix_a_definir"
+        ],
+        "politique_revente": "standard",
+        "statut": "a_revoir",
+        "visible_au_stock_standard": false
+      }
+    }
+  ],
+  "a_valider": [
+    "Le coût en ressources des douze objets exclusifs à Senn n’est pas défini dans les sources.",
+    "Une fourchette de valeur pour les pièces rares ne peut pas être convertie en prix fixe automatiquement.",
+    "La réduction de dégâts des épaulières et le +1 narratif des genouillères sont temporaires ou contextualisés ; aucune DEF permanente ne doit être appliquée.",
+    "La cape de poussière renforcée pourrait être une variante de la Cape de voyage déjà présente dans le Builder.",
+    "Une lentille fissurée peut être en plus mauvais état qu’une lentille rayée : correspondance de stock à confirmer.",
+    "Le résultat mécanique des flèches renforcées n’est pas chiffré dans le Compendium.",
+    "Le PDF ne précise pas les stocks exacts sauf pour les deux protections : aucune quantité illimitée ne doit être présumée.",
+    "Les définitions du catalogue ne suffisent pas à alimenter automatiquement la fonction buildStock pour les vendeurs multiples : le builder doit utiliser la table disponibilite.",
+    "Les deux catalogues d’armes/armures (PDF vs Template Manager de référence) doivent être comparés avant import.",
+    "Le Module de visée commercial (rare ; 12 + LO + CA) et le Viseur du Chasseur validé ont un rôle proche : ne pas les fusionner sans décision MJ.",
+    "Les effets de fabrication sont validés, mais leur intégration comme bonus automatique sur les armes est différée."
+  ],
+  "stocks_path": [
+    "data/stocks/longue-corde-p03.json"
+  ]
+}

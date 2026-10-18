@@ -1,0 +1,16 @@
+{
+  "id": "h0d-catalogue",
+  "title": "H0D Catalogue — Objets & Artefacts",
+  "description": "Référentiel H0D versionné : objets, ressources, artefacts, fabrications validées et stocks de scénario. API en lecture et pont conservateur vers H0D Equipment Builder.",
+  "version": "0.1.0",
+  "authors": [{"name": "JDR Zero Dawn"}],
+  "compatibility": {"minimum": "14", "verified": "14"},
+  "relationships": {
+    "systems": [{"id": "custom-system-builder", "type": "system", "compatibility": {"minimum": "6.0.2"}}]
+  },
+  "esmodules": ["scripts/h0d-catalogue.js"],
+  "styles": ["styles/h0d-catalogue.css"],
+  "url": "https://github.com/freeberserk/h0d-catalogue",
+  "manifest": "https://github.com/freeberserk/h0d-catalogue/releases/latest/download/module.json",
+  "download": "https://github.com/freeberserk/h0d-catalogue/releases/latest/download/h0d-catalogue.zip"
+}

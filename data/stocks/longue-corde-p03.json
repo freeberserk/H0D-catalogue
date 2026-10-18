@@ -1,0 +1,206 @@
+{
+  "format": "H0D_EQUIPMENT_STOCK",
+  "formatVersion": 1,
+  "version": "0.1.0-draft",
+  "key": "longue-corde-senn-p03",
+  "name": "La Longue-Corde — Senn — séance P-03",
+  "scenario": "Prologue P-03",
+  "merchant": "Senn",
+  "faction": "Caravanes Libres",
+  "source": "Fiche_MJ_Prologue_3_Preparatifs_du_Sud(1).pdf (p. 5)",
+  "notes": "Jetons de Reconnaissance : monnaie de scène, PAS de conversion automatique en points de ressources. Prix spécifiques de cette séance. Nombre non précisé = inconnu, pas stock illimité.",
+  "offres": [
+    {
+      "reference": "rations-2-jours",
+      "nom_pour_la_scene": "Rations épicées",
+      "prix_jetons": 1,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Le PDF ne précise pas si ce lot couvre 2 jours",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "corde-tressee-15-m",
+      "nom_pour_la_scene": "Corde tressée",
+      "prix_jetons": 1,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Corde tressée du catalogue commun",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "baume-anti-poussiere",
+      "nom_pour_la_scene": "Baume anti-poussière",
+      "prix_jetons": 1,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "gourde-renforcee",
+      "nom_pour_la_scene": "Gourde",
+      "prix_jetons": 1,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Variante commerciale sans bonus distinct",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "sangles-de-route",
+      "nom_pour_la_scene": "Sangles",
+      "prix_jetons": 1,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "miroir-de-signal",
+      "nom_pour_la_scene": "Miroir de signal",
+      "prix_jetons": 1,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "talisman-de-route",
+      "nom_pour_la_scene": "Talisman de route",
+      "prix_jetons": 1,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "kit-de-reparation",
+      "nom_pour_la_scene": "Kit de réparation nomade",
+      "prix_jetons": 2,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Variante ; effets d’atelier de base seulement",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "herbes-durgence",
+      "nom_pour_la_scene": "Herbes d’urgence",
+      "prix_jetons": 2,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "crochet-descalade",
+      "nom_pour_la_scene": "Crochet pliant",
+      "prix_jetons": 2,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Variante repliable, sans bonus chiffré indiqué",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "lentille-rayee",
+      "nom_pour_la_scene": "Lentille fissurée",
+      "prix_jetons": 2,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "État fissuré : éventuellement plus grave que rayée ; à vérifier",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "huile-de-harnais",
+      "nom_pour_la_scene": "Huile de harnais",
+      "prix_jetons": 2,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "toile-impermeable",
+      "nom_pour_la_scene": "Toile imperméable",
+      "prix_jetons": 2,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "fleches-renforcees",
+      "nom_pour_la_scene": "Flèches renforcées ×5",
+      "prix_jetons": 2,
+      "quantite_disponible": null,
+      "quantite_par_achat": 5,
+      "notes": "Lot de cinq ; référence munition décrite dans Compendium p.3",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "epaulieres-de-route",
+      "nom_pour_la_scene": "Paire d’épaulières de route",
+      "prix_jetons": 2,
+      "quantite_disponible": 1,
+      "quantite_par_achat": 1,
+      "notes": "Réduit 1 dégât physique/chute une fois avant la fin du Prologue ; sinon 2 PM",
+      "disponibilite": "limitee"
+    },
+    {
+      "reference": "genouilleres-de-caravane-depareillees",
+      "nom_pour_la_scene": "Genouillères de caravane dépareillées",
+      "prix_jetons": {
+        "min": 1,
+        "max": 2
+      },
+      "quantite_disponible": 1,
+      "quantite_par_achat": 1,
+      "notes": "+1 narratif déplacement difficile ; sinon 1 PM + 1 FS",
+      "disponibilite": "limitee"
+    },
+    {
+      "reference": "fumigene-de-route",
+      "nom_pour_la_scene": "Fumigène artisanal",
+      "prix_jetons": 3,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Stock très limité, quantité exacte non indiquée",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "balise-de-route-usee",
+      "nom_pour_la_scene": "Balise de route usée",
+      "prix_jetons": 3,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Stock très limité, quantité exacte non indiquée",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "carte-raturee-du-sud",
+      "nom_pour_la_scene": "Carte raturée du Sud",
+      "prix_jetons": 3,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Stock très limité, quantité exacte non indiquée",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "lentille-optique-intacte",
+      "nom_pour_la_scene": "Lentille claire intacte",
+      "prix_jetons": 3,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Stock très limité, quantité exacte non indiquée",
+      "disponibilite": "non_precisee"
+    },
+    {
+      "reference": "cape-de-poussiere-renforcee",
+      "nom_pour_la_scene": "Cape de poussière renforcée",
+      "prix_jetons": 3,
+      "quantite_disponible": null,
+      "quantite_par_achat": 1,
+      "notes": "Stock très limité, quantité exacte non indiquée",
+      "disponibilite": "non_precisee"
+    }
+  ]
+}
