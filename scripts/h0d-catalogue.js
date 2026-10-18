@@ -1,5 +1,5 @@
 /**
- * H0D Catalogue v0.1.1
+ * H0D Catalogue v0.1.2
  * Foundry VTT v14 / Custom System Builder v6.0.2+
  *
  * Principes : module de données, aucune création d'Item au démarrage ;
@@ -7,7 +7,7 @@
  * export additif et non destructif des références non réservées vers Equipment Builder.
  */
 const H0D_CATALOGUE_ID = "h0d-catalogue";
-const H0D_CATALOGUE_VERSION = "0.1.1";
+const H0D_CATALOGUE_VERSION = "0.1.2";
 const H0D_BUILDER_ID = "h0d-equipment-builder";
 
 const h0dState = {

@@ -1,0 +1,528 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.2",
+  "source_documents": [
+    "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+    "Map et image.txt — Culte du Renouveau",
+    "Validation MJ — armures du Culte du Renouveau V1/V2, 19 octobre 2026"
+  ],
+  "scope": {
+    "faction": "culte-renouveau",
+    "V1": [
+      "Marqués"
+    ],
+    "V2": [
+      "Greffés",
+      "Inquisiteurs"
+    ],
+    "exclus": [
+      "Élus de Zalem : profils PNJ dédiés"
+    ]
+  },
+  "principes": {
+    "portabilite": "V1 : équipements amovibles ; V2 Greffés : harnais amovible ou greffes permanentes ; V2 Inquisiteurs : exosquelette motorisé amovible ou fusionné. Les Élus sont gérés dans le Bestiaire.",
+    "defense": "Les protections alternatives ne se cumulent pas automatiquement. Les greffes légères et lourdes sont exclusives l'une de l'autre.",
+    "vitesse": "L'Equipment Builder actuel n'automatise pas la variation de vitesse. L'affichage est descriptif, avec malus_vitesse_metres structuré.",
+    "exosquelette": "Son assistance motrice annule encombrement EFFECTIF, malus physique et ralentissement des greffes : DEF+3, Enc0, malus0 ; aucun bonus de Force ou capacité de transport non validé.",
+    "loot": "Aucun commerce régulier pour le Culte. Les blindages greffés ne sont pas des objets récupérables comme une armure amovible."
+  },
+  "definitions": [
+    {
+      "key": "robe-armure-initie-renouveau",
+      "name": "Robe-armure d’initié",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4) ; Map et image.txt — Culte du Renouveau",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Culte du Renouveau",
+        "H0D_Armure_Description": "Longue robe en tissu blanc sale et gris, renforts légers cousus dans la doublure, petits câbles tressés comme chapelets et fragments de Focus morts. Silhouette de pèlerin des ruines.\n\nArmure rituelle légère pour initiés. Aucune résistance élémentaire ni effet de Focus automatiquement accordé.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "autre",
+            "H0D_Armure_Trait_Perso": "RITUELLE",
+            "H0D_Armure_Trait_Valeur": 0,
+            "H0D_Armure_Trait_Parametre": "",
+            "H0D_Armure_Trait_Note": "Descriptif uniquement ; aucun bonus chiffré attribué"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Armure rituelle légère pour initiés. Aucune résistance élémentaire ni effet de Focus automatiquement accordé.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2",
+          "culte_renouveau",
+          "rituelle"
+        ],
+        "politique_revente": "butin",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "utilisable_comme_item_pj": true,
+        "categorie_transformation": "V1",
+        "type_protection": "amovible",
+        "malus_vitesse_metres": 0,
+        "vitesse_non_automatisee": false,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Longue robe en tissu blanc sale et gris, renforts légers cousus dans la doublure, petits câbles tressés comme chapelets et fragments de Focus morts. Silhouette de pèlerin des ruines.",
+        "emplacements_amelioration_max": 3,
+        "limites": "Ne jamais additionner automatiquement le bonus DEF d'un blindage greffé à un harnais ou à une exo-armure. Les Élus de Zalem sont des profils PNJ dédiés et ne font pas partie de ce catalogue."
+      }
+    },
+    {
+      "key": "armure-zelote-renouveau",
+      "name": "Armure de zélote",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4) ; Map et image.txt — Culte du Renouveau",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "-2 aux tests physiques concernés",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Culte du Renouveau",
+        "H0D_Armure_Description": "Masque blanc lisse, plastron sombre de récupération issu d'un ancien écran, plaques rituelles, câbles autour du cou et bras marqués de peintures cultuelles.\n\nArmure intermédiaire de combattant fanatique. L'ancienne vitesse indicative du compendium est 7,5 m, mais aucun malus de déplacement séparé n'est ici appliqué automatiquement.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "autre",
+            "H0D_Armure_Trait_Perso": "RITUELLE",
+            "H0D_Armure_Trait_Valeur": 0,
+            "H0D_Armure_Trait_Parametre": "",
+            "H0D_Armure_Trait_Note": "Descriptif uniquement ; aucun bonus chiffré attribué"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Armure intermédiaire de combattant fanatique. L'ancienne vitesse indicative du compendium est 7,5 m, mais aucun malus de déplacement séparé n'est ici appliqué automatiquement.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2",
+          "culte_renouveau",
+          "rituelle"
+        ],
+        "politique_revente": "butin",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "utilisable_comme_item_pj": true,
+        "categorie_transformation": "V1",
+        "type_protection": "amovible",
+        "malus_vitesse_metres": null,
+        "vitesse_non_automatisee": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Masque blanc lisse, plastron sombre de récupération issu d'un ancien écran, plaques rituelles, câbles autour du cou et bras marqués de peintures cultuelles.",
+        "emplacements_amelioration_max": 3,
+        "limites": "Ne jamais additionner automatiquement le bonus DEF d'un blindage greffé à un harnais ou à une exo-armure. Les Élus de Zalem sont des profils PNJ dédiés et ne font pas partie de ce catalogue."
+      }
+    },
+    {
+      "key": "tenue-oracle-renouveau",
+      "name": "Tenue d’Oracle",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4) ; Map et image.txt — Culte du Renouveau",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Culte du Renouveau",
+        "H0D_Armure_Description": "Voile pâle, manteau couvert de prières gravées, couronne de lentilles et de Focus désactivés, mains entourées d'anneaux de circuits.\n\nTenue rituelle légère. Les ondes Focus et pouvoirs d'Oracle relèvent de la fiche PNJ, pas de cette armure.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "autre",
+            "H0D_Armure_Trait_Perso": "RITUELLE",
+            "H0D_Armure_Trait_Valeur": 0,
+            "H0D_Armure_Trait_Parametre": "",
+            "H0D_Armure_Trait_Note": "Descriptif uniquement ; aucun bonus chiffré attribué"
+          },
+          "1": {
+            "H0D_Armure_Trait_Type": "autre",
+            "H0D_Armure_Trait_Perso": "FOCUS",
+            "H0D_Armure_Trait_Valeur": 0,
+            "H0D_Armure_Trait_Parametre": "",
+            "H0D_Armure_Trait_Note": "Descriptif uniquement ; aucun bonus chiffré attribué"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Tenue rituelle légère. Les ondes Focus et pouvoirs d'Oracle relèvent de la fiche PNJ, pas de cette armure.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2",
+          "culte_renouveau",
+          "rituelle",
+          "focus"
+        ],
+        "politique_revente": "butin",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "utilisable_comme_item_pj": true,
+        "categorie_transformation": "V1",
+        "type_protection": "amovible",
+        "malus_vitesse_metres": 0,
+        "vitesse_non_automatisee": false,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Voile pâle, manteau couvert de prières gravées, couronne de lentilles et de Focus désactivés, mains entourées d'anneaux de circuits.",
+        "emplacements_amelioration_max": 3,
+        "limites": "Ne jamais additionner automatiquement le bonus DEF d'un blindage greffé à un harnais ou à une exo-armure. Les Élus de Zalem sont des profils PNJ dédiés et ne font pas partie de ce catalogue."
+      }
+    },
+    {
+      "key": "harnais-converti-renouveau",
+      "name": "Harnais de converti augmenté",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Validation MJ — armures du Culte du Renouveau V1/V2, 19 octobre 2026",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "-1 aux tests physiques concernés",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Culte du Renouveau",
+        "H0D_Armure_Description": "Harnais dorsal de stabilisation, attaches pectorales, plaques aux articulations, câbles d'alimentation reliant les premières greffes et fragments de robe de culte.\n\nHarnais amovible destiné aux Greffés, stabilisant les implants. Pas de ralentissement supplémentaire validé. Son bonus de DEF ne se cumule pas automatiquement avec la protection du blindage greffé.\n\nAmovible, démontable et éventuellement adaptable après réparation. Les implants du porteur ne le sont pas.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "autre",
+            "H0D_Armure_Trait_Perso": "RITUELLE",
+            "H0D_Armure_Trait_Valeur": 0,
+            "H0D_Armure_Trait_Parametre": "",
+            "H0D_Armure_Trait_Note": "Descriptif uniquement ; aucun bonus chiffré attribué"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Harnais amovible destiné aux Greffés, stabilisant les implants. Pas de ralentissement supplémentaire validé. Son bonus de DEF ne se cumule pas automatiquement avec la protection du blindage greffé.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2",
+          "culte_renouveau",
+          "rituelle",
+          "technologique",
+          "greffe"
+        ],
+        "politique_revente": "butin_conditionnel",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "utilisable_comme_item_pj": true,
+        "categorie_transformation": "V2-Greffés",
+        "type_protection": "amovible",
+        "malus_vitesse_metres": 0,
+        "vitesse_non_automatisee": false,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Harnais dorsal de stabilisation, attaches pectorales, plaques aux articulations, câbles d'alimentation reliant les premières greffes et fragments de robe de culte.",
+        "emplacements_amelioration_max": 3,
+        "limites": "Ne jamais additionner automatiquement le bonus DEF d'un blindage greffé à un harnais ou à une exo-armure. Les Élus de Zalem sont des profils PNJ dédiés et ne font pas partie de ce catalogue."
+      }
+    },
+    {
+      "key": "blindage-greffe-leger-renouveau",
+      "name": "Blindage greffé léger",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Validation MJ — armures du Culte du Renouveau V1/V2, 19 octobre 2026",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "Vitesse -1,5 m (greffe permanente, non automatisé)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Culte du Renouveau",
+        "H0D_Armure_Description": "Petites plaques de récupération rivetées ou greffées dans les épaules, les avant-bras et les côtes. Câbles sous la peau et cicatrices visibles.\n\nProtection corporelle permanente, NON RETIRABLE normalement et NON ÉQUIPABLE en armure d'inventaire classique. Le porteur perd 1,5 m de vitesse tant qu'il possède cette greffe. Ce malus de déplacement est descriptif et ne s'applique pas automatiquement dans Foundry. Ne pas cumuler automatiquement la DEF avec celle du harnais ni d'un autre blindage.\n\nRéférence de protection intégrée aux PNJ pour le Builder ; utilisation sur un PJ seulement après règle de greffe validée.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Blindage intégré (PNJ)",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Greffe permanente : interdite comme armure amovible standard. Accessible au Builder comme référence de protection PNJ uniquement.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2",
+          "culte_renouveau",
+          "technologique",
+          "greffe",
+          "pnj_uniquement"
+        ],
+        "politique_revente": "non_revendable",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": false,
+        "utilisable_comme_item_pj": false,
+        "categorie_transformation": "V2-Greffés",
+        "type_protection": "greffe_permanente",
+        "malus_vitesse_metres": -1.5,
+        "vitesse_non_automatisee": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Petites plaques de récupération rivetées ou greffées dans les épaules, les avant-bras et les côtes. Câbles sous la peau et cicatrices visibles.",
+        "emplacements_amelioration_max": 3,
+        "limites": "Ne jamais additionner automatiquement le bonus DEF d'un blindage greffé à un harnais ou à une exo-armure. Les Élus de Zalem sont des profils PNJ dédiés et ne font pas partie de ce catalogue."
+      }
+    },
+    {
+      "key": "blindage-greffe-lourd-renouveau",
+      "name": "Blindage greffé lourd",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Validation MJ — armures du Culte du Renouveau V1/V2, 19 octobre 2026",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "Vitesse -3 m (greffe permanente, non automatisé)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Culte du Renouveau",
+        "H0D_Armure_Description": "Grandes plaques vissées ou soudées aux côtes, au dos et aux jambes ; articulations rigidifiées, chair cicatrisée autour du métal.\n\nProtection corporelle permanente, NON RETIRABLE normalement et NON ÉQUIPABLE en armure d'inventaire classique. Le porteur perd 3 m de vitesse. Le ralentissement est descriptif et non automatisé dans Foundry. Ce blindage est une alternative au léger et ne cumule pas automatiquement sa DEF avec un harnais.\n\nMême encombrement de référence (2) que la version légère, mais blindage plus protecteur et ralentissement plus important.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Blindage intégré (PNJ)",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Greffe permanente : interdite comme armure amovible standard. Accessible au Builder comme référence de protection PNJ uniquement.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2",
+          "culte_renouveau",
+          "technologique",
+          "greffe",
+          "pnj_uniquement"
+        ],
+        "politique_revente": "non_revendable",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": false,
+        "utilisable_comme_item_pj": false,
+        "categorie_transformation": "V2-Greffés",
+        "type_protection": "greffe_permanente",
+        "malus_vitesse_metres": -3,
+        "vitesse_non_automatisee": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Grandes plaques vissées ou soudées aux côtes, au dos et aux jambes ; articulations rigidifiées, chair cicatrisée autour du métal.",
+        "emplacements_amelioration_max": 3,
+        "limites": "Ne jamais additionner automatiquement le bonus DEF d'un blindage greffé à un harnais ou à une exo-armure. Les Élus de Zalem sont des profils PNJ dédiés et ne font pas partie de ce catalogue."
+      }
+    },
+    {
+      "key": "exo-armure-transfiguration-renouveau",
+      "name": "Exo-armure de Transfiguration",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Validation MJ — armures du Culte du Renouveau V1/V2, 19 octobre 2026",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 3,
+        "H0D_Armure_Encombrement": 0,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Culte du Renouveau",
+        "H0D_Armure_Description": "Exosquelette motorisé intégral blanc ivoire, structures de soutien des membres, colonne mécanique, plaques de céramique et haillons rituels fixés aux articulations.\n\nExo-armure des Inquisiteurs. Son assistance motorisée neutralise le malus physique, la charge effective et le ralentissement dû au blindage greffé du porteur : DEF +3, encombrement EFFECTIF 0, malus 0, pénalité de vitesse 0. Cela n'augmente ni la Force ni la capacité de portage sans règle supplémentaire. Versions amovibles récupérables sous conditions ; modèles fusionnés réservés aux profils PNJ. Pas de cumul automatique avec un blindage de Greffé.\n\nL'encombrement effectif de 0 représente l'assistance motrice, pas une masse physique nulle.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "autre",
+            "H0D_Armure_Trait_Perso": "RITUELLE",
+            "H0D_Armure_Trait_Valeur": 0,
+            "H0D_Armure_Trait_Parametre": "",
+            "H0D_Armure_Trait_Note": "Descriptif uniquement ; aucun bonus chiffré attribué"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Exo-armure des Inquisiteurs. Son assistance motorisée neutralise le malus physique, la charge effective et le ralentissement dû au blindage greffé du porteur : DEF +3, encombrement EFFECTIF 0, malus 0, pénalité de vitesse 0. Cela n'augmente ni la Force ni la capacité de portage sans règle supplémentaire. Versions amovibles récupérables sous conditions ; modèles fusionnés réservés aux profils PNJ. Pas de cumul automatique avec un blindage de Greffé.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2",
+          "culte_renouveau",
+          "rituelle",
+          "technologique",
+          "motorisee"
+        ],
+        "politique_revente": "butin_conditionnel",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "utilisable_comme_item_pj": true,
+        "categorie_transformation": "V2-Inquisiteurs",
+        "type_protection": "motorisee_amovible_ou_fusionnee",
+        "malus_vitesse_metres": 0,
+        "vitesse_non_automatisee": false,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Exosquelette motorisé intégral blanc ivoire, structures de soutien des membres, colonne mécanique, plaques de céramique et haillons rituels fixés aux articulations.",
+        "emplacements_amelioration_max": 3,
+        "limites": "Ne jamais additionner automatiquement le bonus DEF d'un blindage greffé à un harnais ou à une exo-armure. Les Élus de Zalem sont des profils PNJ dédiés et ne font pas partie de ce catalogue."
+      }
+    }
+  ],
+  "a_valider": [
+    "Automatisation de la réduction de vitesse des Greffés : le Builder actuel ne dispose pas de champ natif dédié ; les valeurs -1,5 m et -3 m sont descriptives.",
+    "Les deux blindages greffés sont publiés dans le Builder pour consultation PNJ ; le filtre generable_stock_aleatoire n'est PAS appliqué automatiquement par le Builder v0.1.1, donc des tirages aléatoires peuvent inclure ces références. Ne pas les proposer comme butin équipable.",
+    "Récupération/adaptation des exo-armures amovibles : fabrication, prérequis et coûts non fixés.",
+    "Les Élus de Zalem (corps humain, cyborg, synthétique) relèvent de fiches PNJ dédiées, pas d'item-armure."
+  ]
+}

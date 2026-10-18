@@ -2,7 +2,7 @@
   "id": "h0d-catalogue",
   "title": "H0D Catalogue — Objets & Artefacts",
   "description": "Référentiel H0D versionné : objets, ressources, artefacts, fabrications validées et stocks de scénario. API en lecture et pont conservateur vers H0D Equipment Builder.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "authors": [
     {
       "name": "JDR Zero Dawn"

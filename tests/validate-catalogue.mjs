@@ -44,7 +44,38 @@ for (const d of defs) {
   }
 }
 const armures = defs.filter(d=>d.kind === "armor");
-assert.equal(armures.length,18);
+assert.equal(armures.length,25);
+const culte = armures.filter(x=>x.originKey==="culte-renouveau");
+assert.equal(culte.length,7);
+assert.equal(defs.length,104);
+const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
+for (const a of culte) {
+  assert.equal(a.templateKey,"item-armure");
+  assert.equal(a.catalogue.prix_ressources,null);
+  assert.equal(a.catalogue.disponibilite.brok,"indisponible");
+  assert.equal(a.catalogue.resistances_validees.feu,0);
+}
+const greffeLegere = byKey["blindage-greffe-leger-renouveau"];
+const greffeLourde = byKey["blindage-greffe-lourd-renouveau"];
+for (const b of [greffeLegere,greffeLourde]) {
+  assert.equal(b.props.H0D_Armure_Encombrement,2);
+  assert.equal(b.catalogue.type_protection,"greffe_permanente");
+  assert.equal(b.catalogue.utilisable_comme_item_pj,false);
+  assert.equal(b.catalogue.generable_stock_aleatoire,false);
+}
+assert.equal(greffeLegere.props.H0D_Armure_Bonus_Defense,1);
+assert.equal(greffeLegere.catalogue.malus_vitesse_metres,-1.5);
+assert.equal(greffeLourde.props.H0D_Armure_Bonus_Defense,2);
+assert.equal(greffeLourde.catalogue.malus_vitesse_metres,-3);
+const exo=byKey["exo-armure-transfiguration-renouveau"];
+assert.equal(exo.props.H0D_Armure_Bonus_Defense,3);
+assert.equal(exo.props.H0D_Armure_Encombrement,0);
+assert.equal(exo.props.H0D_Armure_Malus,"0");
+assert.equal(exo.catalogue.malus_vitesse_metres,0);
+assert.equal(byKey["harnais-converti-renouveau"].props.H0D_Armure_Bonus_Defense,2);
+assert.equal(byKey["harnais-converti-renouveau"].props.H0D_Armure_Encombrement,2);
+assert.equal(byKey["armure-zelote-renouveau"].props.H0D_Armure_Malus,"-2 aux tests physiques concernés");
+assert.ok(!armures.some(d=>d.key.includes("elu-zalem")));
 for (const a of armures) {
   assert.equal(a.props.H0D_Armure_Type,"armure");
   assert.ok(["corps","tete","torse","bras","jambes","autre"].includes(a.props.H0D_Armure_Zone));
@@ -81,4 +112,4 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
   assert.ok(existsSync(path.join(root,f)),`Fichier manquant : ${f}`);
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
-console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);
+console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);

@@ -33,3 +33,13 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
 - Pillards Rouges : casques, tassettes et genouillères dans les assemblages de base, sans cumul défensif. Pièces exceptionnelles à effets particuliers reportées.
 - HELIOS, ELYSIUM et Culte du Renouveau V1/V2 réservés à une validation ultérieure.
 - Les 18 prix restent inconnus, pas gratuits.
+
+
+## Culte du Renouveau V1/V2 (v0.1.2)
+
+- Les 7 armures/protections sont enregistrées dans le Catalogue. Les Élus de Zalem relèvent du Bestiaire et n'ont **aucune référence item-armure**.
+- Greffés : Enc. 2 pour les blindages léger et lourd ; vitesse respectivement −1,5 m et −3 m ; cette vitesse n'est pas automatisée par le Builder actuel.
+- L'exo-armure des Inquisiteurs annule la charge effective, les malus et le ralentissement des greffes. Ni Force ni capacité de transport accrue ne sont accordées.
+- Les fiches de blindages greffés sont utilisables comme références dans le Builder mais **ne sont pas des objets portable standard**. `generable_stock_aleatoire` est informatif, sans filtre automatique au sein du Builder v0.1.1.
+- Un ralentissement additionnel pour le Zélote n'est pas automatisé ; l'ancien compendium documente 7,5 m comme vitesse indicative.
+- Recettes, coûts et disponibilité dans le commerce : non définis (jamais gratuits).

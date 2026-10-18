@@ -1,6 +1,6 @@
 # H0D Catalogue — Objets & Artefacts
 
-**Version du module : 0.1.1** · **Objets et ressources : v0.1.0-draft ; armures : v0.1.1**  
+**Version du module : 0.1.2** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2**  
 **Cible : Foundry VTT 14 + Custom System Builder 6.0.2+**  
 **Compatible de manière facultative avec H0D Equipment Builder v0.1.0.**
 
@@ -12,13 +12,13 @@ Ce module est **la source centralisée des données H0D**, pas un second génér
 
 Il embarque :
 
-- **97 références** : 53 objets, 26 ressources et 18 armures validées ;
+- **104 références** : 53 objets, 26 ressources et 25 armures validées ;
 - **4 fabrications validées** dans ces références ;
 - **21 offres de la Longue-Corde (Senn, Prologue P-03)** ;
 - **21 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
 - les coûts, raretés, descriptions et disponibilités tels que fournis par les sources, **sans inventer les données manquantes**.
 
-Les armes ainsi que les armures HELIOS, ELYSIUM et Culte du Renouveau restent à valider. Les 18 armures actuelles se trouvent dans `data/catalogue-armures-factions.json`. Les résistances Feu et Choc validées utilisent la table de traits du template H0D Armure v2.0.
+Les armes et les armures HELIOS / ELYSIUM restent à valider. Les 18 armures précédentes se trouvent dans `data/catalogue-armures-factions.json` ; les 7 armures/protections du Culte sont dans `data/catalogue-armures-renouveau.json`. Les Élus de Zalem ne sont pas des Items d'armure : leurs protections appartiennent aux profils PNJ. Les résistances Feu et Choc des Héritiers utilisent la table de traits du template H0D Armure v2.0.
 
 Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copiés** dans ces 79 entrées.
 
@@ -30,13 +30,13 @@ Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copié
 2. Créer le répertoire `FoundryVTT/Data/modules/h0d-catalogue/`.
 3. Décompresser **`h0d-catalogue.zip`** directement dedans : le fichier `module.json` doit être à la racine de ce dossier.
 4. Relancer Foundry, activer **H0D Catalogue — Objets & Artefacts** dans le monde Custom System Builder.
-5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 97`, `stocks: 1`.
+5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 104`, `stocks: 1`.
 
 Aucun Item, aucune macro et aucun dossier ne sont créés automatiquement lors de l'activation.
 
 ### B. Installation depuis GitHub
 
-Après la publication de la release **v0.1.1**, installer dans Foundry avec ce manifeste :
+Depuis la release **v0.1.2**, installer dans Foundry avec ce manifeste :
 
 `https://github.com/freeberserk/H0D-catalogue/releases/latest/download/module.json`
 
@@ -46,7 +46,7 @@ Les releases sont construites par GitHub Actions, à partir du code validé dans
 
 Le pont d'intégration est **facultatif et conservateur** :
 
-- à l'initialisation, les **76 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
+- à l'initialisation, les **83 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
 - une définition possédant déjà la même clé dans le Builder n'est **jamais remplacée** ;
 - les **21 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
 - aucune synchronisation ne crée ni ne modifie les Items du monde ou des fiches de PJ.
@@ -103,6 +103,7 @@ h0d-catalogue/
 │   ├── index.json
 │   ├── catalogue-objets-artefacts.json  (79 références)
 │   ├── catalogue-armures-factions.json  (18 armures)
+│   ├── catalogue-armures-renouveau.json  (7 protections)
 │   └── stocks/
 │       └── longue-corde-p03.json       (21 offres)
 ├── scripts/h0d-catalogue.js
@@ -154,6 +155,41 @@ Aucune licence open source n'est attribuée automatiquement. Choisir une licence
 - Pillards Rouges : 4 assemblages fragmentaires ; genouillères et tassettes intégrées sans bonus de DEF cumulable.
 - Héritiers du Soleil : 4 armures complètes, dont tenue de technicien Feu 3 / Choc 3.
 - Les 3 emplacements d'amélioration du template H0D Armure v2.0 restent vides à la création.
-- Aucun prix inconnu n'a été remplacé par zéro. HELIOS, ELYSIUM et le Culte sont hors périmètre.
+- Aucun prix inconnu n'a été remplacé par zéro. HELIOS et ELYSIUM restent hors périmètre.
 
 Avant le déploiement en partie, vérifier dans un monde test la lecture des traits de résistance par Custom System Builder.
+
+
+## Culte du Renouveau — v0.1.2
+
+Sept références `item-armure` figurent dans `data/catalogue-armures-renouveau.json` :
+trois équipements V1 (Robe-armure d'initié, Armure de zélote, Tenue d'Oracle)
+et quatre protections V2 (Harnais de converti augmenté, Blindage greffé léger,
+Blindage greffé lourd, Exo-armure de Transfiguration).
+
+| Référence | DEF | Encombrement | Malus | Vitesse |
+|---|---:|---:|---|---|
+| Robe-armure d'initié | +1 | 1 | 0 | pas de pénalité distincte |
+| Armure de zélote | +2 | 2 | −2 tests | 7,5 m indicatifs dans l'ancien compendium |
+| Tenue d'Oracle | +1 | 1 | 0 | pas de pénalité distincte |
+| Harnais de converti augmenté | +2 | 2 | −1 tests | 0 |
+| Blindage greffé léger | +1 | 2 | non défini pour tests | −1,5 m |
+| Blindage greffé lourd | +2 | 2 | non défini pour tests | −3 m |
+| Exo-armure de Transfiguration | +3 | **0 effectif** | **0** | **0** |
+
+**Attention :** les blindages greffés sont permanents et **ne sont pas des armures amovibles**.
+Leur enregistrement comme `item-armure` sert à la consultation des références PNJ
+dans le Builder. Les attributs `utilisable_comme_item_pj: false` et
+`generable_stock_aleatoire: false` sont pour l'instant informatifs :
+**le Builder v0.1.1 ne les applique pas automatiquement aux tirages de stocks**.
+N'utilisez pas ces blindages comme butin portable.
+
+L'Equipment Builder n'a pas de champ natif de vitesse. Les malus des greffes
+sont inscrits dans `H0D_Armure_Malus`, dans la description et dans
+`catalogue.malus_vitesse_metres`, **sans automatisation de la vitesse dans Foundry**.
+
+L'exo-armure neutralise la charge effective, les malus et le ralentissement
+liés aux greffes du porteur. Elle n'octroie **ni bonus de Force ni capacité de portage supplémentaire**
+sans règle validée. Les variantes fusionnées demandent un démontage spécialisé.
+Les **Élus de Zalem** (humains augmentés, cyborgs, corps synthétiques)
+relèvent de fiches PNJ dédiées et sont absents du catalogue d'armures.

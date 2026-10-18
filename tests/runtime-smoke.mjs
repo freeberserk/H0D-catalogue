@@ -34,10 +34,10 @@ callbacks.ready();
 const api=context.game.h0dCatalogue;
 await api.whenReady();
 const s=api.getStatus();
-assert.equal(s.references,97);
+assert.equal(s.references,104);
 assert.equal(s.stocks,1);
 assert.equal(s.protected,21);
-assert.equal(s.bridge.added,75);
+assert.equal(s.bridge.added,82);
 assert.equal(s.bridge.skipped,1);
 assert.equal(s.bridge.protected,21);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
@@ -45,7 +45,7 @@ assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
 assert.equal(api.getRecipes().length,4);
 // Armures validées et résistances spécialisées.
 const armors=api.getDefinitions({kind:"armor"});
-assert.equal(armors.length,18);
+assert.equal(armors.length,25);
 const tech=api.getDefinition("tenue-technicien-solaire");
 assert.equal(tech.props.H0D_Armure_Bonus_Defense,1);
 assert.equal(tech.props.H0D_Armure_Encombrement,1);
@@ -55,6 +55,26 @@ assert.equal(recup.props.H0D_Armure_Bonus_Defense,2);
 assert.equal(recup.props.H0D_Armure_Encombrement,1);
 assert.equal(api.getDefinition("harnais-dompteur-rouge").catalogue.resistances_validees.choc,0);
 
+// Armures du Culte v0.1.2 : pas de profil d'Élu ni de cumul de DEF.
+const cult=api.getDefinitions({kind:"armor",originKey:"culte-renouveau"});
+assert.equal(cult.length,7);
+assert.ok(cult.every(x=>builder.getDefinition(x.key)));
+const greffeL=api.getDefinition("blindage-greffe-leger-renouveau");
+const greffeH=api.getDefinition("blindage-greffe-lourd-renouveau");
+assert.equal(greffeL.props.H0D_Armure_Encombrement,2);
+assert.equal(greffeH.props.H0D_Armure_Encombrement,2);
+assert.equal(greffeL.catalogue.malus_vitesse_metres,-1.5);
+assert.equal(greffeH.catalogue.malus_vitesse_metres,-3);
+assert.equal(greffeH.catalogue.utilisable_comme_item_pj,false);
+const exo=api.getDefinition("exo-armure-transfiguration-renouveau");
+assert.equal(exo.props.H0D_Armure_Bonus_Defense,3);
+assert.equal(exo.props.H0D_Armure_Encombrement,0);
+assert.equal(exo.props.H0D_Armure_Malus,"0");
+assert.equal(exo.catalogue.malus_vitesse_metres,0);
+assert.equal(api.getDefinition("robe-armure-initie-renouveau").props.H0D_Armure_Bonus_Defense,1);
+assert.ok(!cult.some(x=>/elu-zalem/i.test(x.key)));
+assert.equal(api.getRecipes().length,4);
+
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
 const original=api.getDefinition("rations-2-jours");
 original.name="MUTÉ";
@@ -62,6 +82,6 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 // Synchronisation idempotente.
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
-assert.equal(after.skipped,76);
+assert.equal(after.skipped,83);
 assert.equal(after.protected,21);
-console.log("OK — API Foundry simulée, 97 définitions, 18 armures, 21 offres, 4 fabrications, synchronisation conservative, aucun doublon.");
+console.log("OK — API Foundry simulée, 104 définitions, 25 armures, 21 offres, 4 fabrications, synchronisation conservative, aucun doublon.");

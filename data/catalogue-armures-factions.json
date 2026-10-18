@@ -1,7 +1,7 @@
 {
   "format": "H0D_EQUIPMENT_CATALOG",
   "formatVersion": 1,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "source_documents": [
     "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
     "H0D-template-manager/reference/equipment-reference.json (2026-10)",
@@ -16,8 +16,7 @@
     ],
     "reservees_a_version_ulterieure": [
       "HELIOS",
-      "ELYSIUM",
-      "Culte du Renouveau v1/v2"
+      "ELYSIUM"
     ]
   },
   "notes": "18 armures consolidées. Résistances définies via la table de traits CSB. Protections fragmentaires des Pillards sans bonus cumulés ; pièces indépendantes à effets spéciaux reportées.",
@@ -1057,6 +1056,6 @@
     "Malus exact de la Veste de récupérateur itinérant encore à harmoniser ; 0 est une valeur de travail.",
     "Maximum de DEX, vitesse et contraintes de Force issus des anciennes tables : pas d'automatisation sans validation.",
     "Genouillères et tassettes des Pillards : éléments visuels intégrés ; pièces indépendantes à effets spéciaux non définies.",
-    "HELIOS, ELYSIUM et Culte du Renouveau v1/v2 exclus en attente de validation finale."
+    "HELIOS et ELYSIUM exclus en attente de validation ; Culte du Renouveau V1/V2 (hors Élus) traité dans data/catalogue-armures-renouveau.json."
   ]
 }

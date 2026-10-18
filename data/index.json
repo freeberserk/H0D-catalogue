@@ -1,10 +1,11 @@
 {
   "format": "H0D_CATALOGUE_INDEX",
   "formatVersion": 1,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "catalogues": [
     "data/catalogue-objets-artefacts.json",
-    "data/catalogue-armures-factions.json"
+    "data/catalogue-armures-factions.json",
+    "data/catalogue-armures-renouveau.json"
   ],
   "stocks": [
     "data/stocks/longue-corde-p03.json"
