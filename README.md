@@ -1,10 +1,10 @@
 # H0D Catalogue — Objets & Artefacts
 
-**Version du module : 0.1.0** · **État des données : v0.1.0-draft**  
+**Version du module : 0.1.1** · **Objets et ressources : v0.1.0-draft ; armures : v0.1.1**  
 **Cible : Foundry VTT 14 + Custom System Builder 6.0.2+**  
 **Compatible de manière facultative avec H0D Equipment Builder v0.1.0.**
 
-Dépôt prévu : `https://github.com/freeberserk/h0d-catalogue` (le créer puis publier une release ; il n'est **pas** créé par ce ZIP).
+Dépôt officiel : `https://github.com/freeberserk/H0D-catalogue`.
 
 ## Rôle
 
@@ -12,13 +12,13 @@ Ce module est **la source centralisée des données H0D**, pas un second génér
 
 Il embarque :
 
-- **79 références** du catalogue `Objets & Artefacts` (53 objets et 26 ressources) ;
+- **97 références** : 53 objets, 26 ressources et 18 armures validées ;
 - **4 fabrications validées** dans ces références ;
 - **21 offres de la Longue-Corde (Senn, Prologue P-03)** ;
 - **21 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
 - les coûts, raretés, descriptions et disponibilités tels que fournis par les sources, **sans inventer les données manquantes**.
 
-Les armes et armures du Compendium PDF sont **hors périmètre de cette première version**, car des versions plus récentes de leurs caractéristiques existent dans H0D Template Manager. Elles pourront être intégrées après rapprochement, sans écraser les Items actuels.
+Les armes ainsi que les armures HELIOS, ELYSIUM et Culte du Renouveau restent à valider. Les 18 armures actuelles se trouvent dans `data/catalogue-armures-factions.json`. Les résistances Feu et Choc validées utilisent la table de traits du template H0D Armure v2.0.
 
 Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copiés** dans ces 79 entrées.
 
@@ -30,24 +30,23 @@ Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copié
 2. Créer le répertoire `FoundryVTT/Data/modules/h0d-catalogue/`.
 3. Décompresser **`h0d-catalogue.zip`** directement dedans : le fichier `module.json` doit être à la racine de ce dossier.
 4. Relancer Foundry, activer **H0D Catalogue — Objets & Artefacts** dans le monde Custom System Builder.
-5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 79`, `stocks: 1`.
+5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 97`, `stocks: 1`.
 
 Aucun Item, aucune macro et aucun dossier ne sont créés automatiquement lors de l'activation.
 
-### B. Depuis GitHub — après publication du dépôt
+### B. Installation depuis GitHub
 
-1. Créer le dépôt GitHub **`freeberserk/h0d-catalogue`** et y copier le contenu du **ZIP source** à la racine.
-2. Pousser un tag `v0.1.0` (la GitHub Action jointe crée alors la release avec un ZIP et le manifeste).
-3. Dans Foundry, installer via le manifeste :  
-   `https://github.com/freeberserk/h0d-catalogue/releases/latest/download/module.json`
+Après la publication de la release **v0.1.1**, installer dans Foundry avec ce manifeste :
 
-**Attention : l'URL ne fonctionnera qu'après création du dépôt et publication d'une release.**
+`https://github.com/freeberserk/H0D-catalogue/releases/latest/download/module.json`
+
+Les releases sont construites par GitHub Actions, à partir du code validé dans la branche `main`.
 
 ## Lien avec Equipment Builder
 
 Le pont d'intégration est **facultatif et conservateur** :
 
-- à l'initialisation, les **58 références communes** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
+- à l'initialisation, les **76 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
 - une définition possédant déjà la même clé dans le Builder n'est **jamais remplacée** ;
 - les **21 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
 - aucune synchronisation ne crée ni ne modifie les Items du monde ou des fiches de PJ.
@@ -103,6 +102,7 @@ h0d-catalogue/
 ├── data/
 │   ├── index.json
 │   ├── catalogue-objets-artefacts.json  (79 références)
+│   ├── catalogue-armures-factions.json  (18 armures)
 │   └── stocks/
 │       └── longue-corde-p03.json       (21 offres)
 ├── scripts/h0d-catalogue.js
@@ -145,3 +145,15 @@ Le premier contrôle l'intégrité des références et les 21 offres. Le second 
 ## Licence
 
 Aucune licence open source n'est attribuée automatiquement. Choisir une licence avant d'ouvrir éventuellement le code à des contributions externes.
+
+
+## Armures des factions — v0.1.1
+
+- Dent d'Ambre : 7, dont armure de récupérateur DEF +2 / Enc. 1.
+- Caravanes Libres : 3, dont veste de récupérateur itinérant.
+- Pillards Rouges : 4 assemblages fragmentaires ; genouillères et tassettes intégrées sans bonus de DEF cumulable.
+- Héritiers du Soleil : 4 armures complètes, dont tenue de technicien Feu 3 / Choc 3.
+- Les 3 emplacements d'amélioration du template H0D Armure v2.0 restent vides à la création.
+- Aucun prix inconnu n'a été remplacé par zéro. HELIOS, ELYSIUM et le Culte sont hors périmètre.
+
+Avant le déploiement en partie, vérifier dans un monde test la lecture des traits de résistance par Custom System Builder.

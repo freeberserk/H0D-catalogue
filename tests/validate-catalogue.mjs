@@ -43,6 +43,16 @@ for (const d of defs) {
     }
   }
 }
+const armures = defs.filter(d=>d.kind === "armor");
+assert.equal(armures.length,18);
+for (const a of armures) {
+  assert.equal(a.props.H0D_Armure_Type,"armure");
+  assert.ok(["corps","tete","torse","bras","jambes","autre"].includes(a.props.H0D_Armure_Zone));
+  assert.ok(Number.isInteger(a.props.H0D_Armure_Bonus_Defense));
+  assert.ok(Number.isInteger(a.props.H0D_Armure_Encombrement));
+  assert.ok(Object.values(a.props.H0D_Armure_Traits_Table).every(row=>
+    typeof row.H0D_Armure_Trait_Type==="string" && Number.isFinite(row.H0D_Armure_Trait_Valeur)));
+}
 for (const d of defs) {
   const craft = d.catalogue.fabrication;
   if (!craft) continue;
@@ -71,4 +81,4 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
   assert.ok(existsSync(path.join(root,f)),`Fichier manquant : ${f}`);
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
-console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées.`);
+console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);

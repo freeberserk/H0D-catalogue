@@ -1,0 +1,41 @@
+name: Publish H0D Catalogue
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - module.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate catalogue and bridge
+        run: |
+          node tests/validate-catalogue.mjs
+          node tests/runtime-smoke.mjs
+          node --check scripts/h0d-catalogue.js
+      - name: Extract and validate version
+        id: meta
+        run: |
+          VERSION=$(node -p "require('./module.json').version")
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+      - name: Build Foundry package
+        run: |
+          zip -r h0d-catalogue.zip module.json scripts styles data macros schemas README.md CHANGELOG.md docs
+          unzip -t h0d-catalogue.zip
+      - name: Create or update release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.meta.outputs.tag }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" module.json h0d-catalogue.zip --clobber
+          else
+            gh release create "$TAG" module.json h0d-catalogue.zip --target "$GITHUB_SHA" --title "H0D Catalogue $TAG" --notes-file CHANGELOG.md
+          fi

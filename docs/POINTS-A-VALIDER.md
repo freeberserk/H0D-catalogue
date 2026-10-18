@@ -23,3 +23,13 @@ Ces décisions ne doivent PAS être tranchées par le module, car les sources ne
 - Décisions de campagne : Pointe du Prédateur, Veilleur du Scrapper, Viseur du Chasseur, Capsules incendiaires.
 
 Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts.json`.
+
+
+## Armures — v0.1.1
+
+- La résistance Choc +2 du harnais de dompteur était provisoire ; elle n'est pas activée.
+- La Veste de récupérateur itinérant conserve un malus indicatif de 0, en attente de bilan.
+- Vitesse, DEX maximum et prérequis de Force des tableaux historiques sont uniquement mentionnés dans les descriptions.
+- Pillards Rouges : casques, tassettes et genouillères dans les assemblages de base, sans cumul défensif. Pièces exceptionnelles à effets particuliers reportées.
+- HELIOS, ELYSIUM et Culte du Renouveau V1/V2 réservés à une validation ultérieure.
+- Les 18 prix restent inconnus, pas gratuits.

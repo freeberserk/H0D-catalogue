@@ -1,0 +1,1062 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.1",
+  "source_documents": [
+    "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+    "H0D-template-manager/reference/equipment-reference.json (2026-10)",
+    "Validation MJ — catalogue des armures (2026-10-18)"
+  ],
+  "scope": {
+    "factions_validees": [
+      "dent-ambre",
+      "caravanes-libres",
+      "pillards-rouges",
+      "heritiers-soleil"
+    ],
+    "reservees_a_version_ulterieure": [
+      "HELIOS",
+      "ELYSIUM",
+      "Culte du Renouveau v1/v2"
+    ]
+  },
+  "notes": "18 armures consolidées. Résistances définies via la table de traits CSB. Protections fragmentaires des Pillards sans bonus cumulés ; pièces indépendantes à effets spéciaux reportées.",
+  "definitions": [
+    {
+      "key": "tenue-chasseur-dent",
+      "name": "Tenue de chasseur de la Dent",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Armure_Description": "Tenue mobile de chasse, cuirs et plaques de machines modestes, adaptée à la forêt et aux sorties du village.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Tenue mobile de chasse, cuirs et plaques de machines modestes, adaptée à la forêt et aux sorties du village.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-recuperateur-dent",
+      "name": "Armure de récupérateur",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "H0D-template-manager/reference/equipment-reference.json (2026-10) ; Validation MJ — catalogue des armures (2026-10-18)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Armure_Description": "Tenue en cuir tressé avec nombreuses poches, outils et protections légères en pièces de machines. DEF +2 / Enc. 1 retenus depuis le Template Manager.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "La référence Template Manager remplace les anciens DEF +1/Enc. 2 du Compendium. Ne pas écraser les Items existants.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Tenue en cuir tressé avec nombreuses poches, outils et protections légères en pièces de machines. DEF +2 / Enc. 1 retenus depuis le Template Manager.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-gardien-dent",
+      "name": "Armure de gardien de la Dent",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 3,
+        "H0D_Armure_Encombrement": 4,
+        "H0D_Armure_Malus": "-3 aux tests physiques concernés ; vitesse 6 m (PDF)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Armure_Description": "Blindage lourd de récupération et plaques de machines, conçu pour protéger la Dent et tenir une position.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Blindage lourd de récupération et plaques de machines, conçu pour protéger la Dent et tenir une position.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "tenue-maitre-cercle",
+      "name": "Tenue de maître du Cercle",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Armure_Description": "Tenue rituelle des maîtres, tissages renforcés et pièces anciennes portant les marques d'occupation.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Tenue rituelle des maîtres, tissages renforcés et pièces anciennes portant les marques d'occupation.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "cuir-renforce-machine",
+      "name": "Cuir renforcé de machine",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "H0D-template-manager/reference/equipment-reference.json (2026-10)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "-1,5 m déplacement (réf. Template Manager)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Armure_Description": "Cuir épais renforcé par un plastron en pièces de machines. Alternative polyvalente, distincte de l'armure de récupérateur.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Référence Template Manager : FOR min 14, malus de déplacement de 1,5 m. Les propriétés mécaniques fines restent à vérifier avant création Foundry.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Cuir épais renforcé par un plastron en pièces de machines. Alternative polyvalente, distincte de l'armure de récupérateur.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "tenue-soigneur-dent",
+      "name": "Tenue de soigneur",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "H0D-template-manager/reference/equipment-reference.json (2026-10)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 0,
+        "H0D_Armure_Malus": "Aucun malus confirmé",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Armure_Description": "Tenue légère en tissus, avec renforts ponctuels et poches de soin. Mobilité recherchée.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "La référence TM contient une indication de mobilité '3' sans effet validé au catalogue ; aucun bonus chiffré appliqué par défaut.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Tenue légère en tissus, avec renforts ponctuels et poches de soin. Mobilité recherchée.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-rapide-dent",
+      "name": "Armure rapide",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "H0D-template-manager/reference/equipment-reference.json (2026-10)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "torse",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Armure_Description": "Harnais court et épaulières de cuir avec petites pièces de machines. Protection du torse, discrétion et déplacement rapide.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Zone 'torse' conservée depuis la référence TM ; trait discret avec valeur -3 visible dans la source mais non automatisé ici sans examen.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Harnais court et épaulières de cuir avec petites pièces de machines. Protection du torse, discrétion et déplacement rapide.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "tenue-caravanier",
+      "name": "Tenue de caravanier",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Caravanes Libres",
+        "H0D_Armure_Description": "Manteau de voyage, couches de tissu anti-poussière, plaques souples, lunettes et foulard. Adapté au biome de la caravane sans créer de nouveau modèle.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "variable",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Manteau de voyage, couches de tissu anti-poussière, plaques souples, lunettes et foulard. Adapté au biome de la caravane sans créer de nouveau modèle.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-garde-caravane",
+      "name": "Armure de garde de caravane",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "-1 aux tests de mobilité concernés",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Caravanes Libres",
+        "H0D_Armure_Description": "Cuir renforcé de plaques réparées, éléments de protection assortis à la route, casque léger et sangles utilitaires.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "variable",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Cuir renforcé de plaques réparées, éléments de protection assortis à la route, casque léger et sangles utilitaires.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "veste-recuperateur-itinerant",
+      "name": "Veste de récupérateur itinérant",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Validation MJ — catalogue des armures (2026-10-18)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "0 (proposé)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Caravanes Libres",
+        "H0D_Armure_Description": "Veste de travail renforcée au torse et aux bras contre les frottements, avec poches, attaches et harnais de démontage.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "variable",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Armure validée : DEF +1 / Enc. 2 ; malus nul proposé à confirmer en usage. Aucun bonus automatique de récupération.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "nouvelle_validee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Veste de travail renforcée au torse et aux bras contre les frottements, avec poches, attaches et harnais de démontage.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-maraudeur-rouge",
+      "name": "Armure de maraudeur rouge",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 3,
+        "H0D_Armure_Malus": "-2 aux tests physiques concernés ; vitesse 7,5 m (PDF)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Pillards Rouges",
+        "H0D_Armure_Description": "Assemblage asymétrique : plastron de machine incomplet, épaulière hirsute massive d'un côté, cuir épais, genouillère ou tassette isolée selon le pillard.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "butin",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Assemblage asymétrique : plastron de machine incomplet, épaulière hirsute massive d'un côté, cuir épais, genouillère ou tassette isolée selon le pillard.",
+        "protection_fractionnee": true,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-briseur-rouge",
+      "name": "Armure de briseur",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 3,
+        "H0D_Armure_Encombrement": 5,
+        "H0D_Armure_Malus": "-4 aux tests physiques concernés ; vitesse 6 m (PDF)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Pillards Rouges",
+        "H0D_Armure_Description": "Blindages lourds bruts fixés au torse et aux épaules, casque épais, genouillères et tassettes massives dépareillées ; protection des jambes incomplète.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "butin",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Blindages lourds bruts fixés au torse et aux épaules, casque épais, genouillères et tassettes massives dépareillées ; protection des jambes incomplète.",
+        "protection_fractionnee": true,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "harnais-dompteur-rouge",
+      "name": "Harnais de dompteur",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 3,
+        "H0D_Armure_Malus": "-2 aux tests physiques concernés ; vitesse 7,5 m (PDF)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Pillards Rouges",
+        "H0D_Armure_Description": "Harnais technique de capture et de manipulation de machines, câbles, accumulateurs et genouillères isolantes. Une tassette légère facultative.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Ancien PDF : Choc +2 PROVISOIRE, NON VALIDÉ mécaniquement. Résistance Choc laissée à 0 ; à examiner après le matériel de la faction.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "butin",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Harnais technique de capture et de manipulation de machines, câbles, accumulateurs et genouillères isolantes. Une tassette légère facultative.",
+        "protection_fractionnee": true,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "protection-eclaireur-rouge",
+      "name": "Protection d’éclaireur rouge",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Validation MJ — catalogue des armures (2026-10-18)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Pillards Rouges",
+        "H0D_Armure_Description": "Protection légère morcelée : demi-masque, épaulière unique, protège-bras et genouillère souple éventuelle ; pas de tassette rigide.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "butin",
+        "statut": "nouvelle_validee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Protection légère morcelée : demi-masque, épaulière unique, protège-bras et genouillère souple éventuelle ; pas de tassette rigide.",
+        "protection_fractionnee": true,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-soldat-solaire",
+      "name": "Armure de soldat solaire",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4) ; Validation MJ — catalogue des armures (2026-10-18)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "-1 aux tests concernés",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Héritiers du Soleil",
+        "H0D_Armure_Description": "Armure militaire complète et symétrique : plastron, protections de bras et de jambes, casque à visière et finitions solaires disciplinées.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "ignifuge",
+            "H0D_Armure_Trait_Perso": "",
+            "H0D_Armure_Trait_Valeur": 1,
+            "H0D_Armure_Trait_Parametre": "Feu",
+            "H0D_Armure_Trait_Note": "Réduction de dégâts Feu 1 validée"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "selon_reputation"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 1,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Armure militaire complète et symétrique : plastron, protections de bras et de jambes, casque à visière et finitions solaires disciplinées.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-artilleur-solaire",
+      "name": "Armure d’artilleur solaire",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4) ; Validation MJ — catalogue des armures (2026-10-18)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 3,
+        "H0D_Armure_Encombrement": 4,
+        "H0D_Armure_Malus": "-3 aux tests concernés",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Héritiers du Soleil",
+        "H0D_Armure_Description": "Armure lourde complète d'artilleur : plaques articulées, protections thermiques, refroidissement dorsal et casque fermé filtrant.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "ignifuge",
+            "H0D_Armure_Trait_Perso": "",
+            "H0D_Armure_Trait_Valeur": 2,
+            "H0D_Armure_Trait_Parametre": "Feu",
+            "H0D_Armure_Trait_Note": "Réduction de dégâts Feu 2 validée"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "selon_reputation"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 2,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Armure lourde complète d'artilleur : plaques articulées, protections thermiques, refroidissement dorsal et casque fermé filtrant.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "armure-capitaine-solaire",
+      "name": "Armure de capitaine solaire",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4) ; Validation MJ — catalogue des armures (2026-10-18)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 3,
+        "H0D_Armure_Encombrement": 3,
+        "H0D_Armure_Malus": "-2 aux tests concernés",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Héritiers du Soleil",
+        "H0D_Armure_Description": "Armure complète de commandement, plaques raffinées articulées, emblèmes solaires et casque statutaire de capitaine.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "ignifuge",
+            "H0D_Armure_Trait_Perso": "",
+            "H0D_Armure_Trait_Valeur": 1,
+            "H0D_Armure_Trait_Parametre": "Feu",
+            "H0D_Armure_Trait_Note": "Réduction de dégâts Feu 1 validée"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "selon_reputation"
+        },
+        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "source_page": 4,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "source_documentee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 1,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "description_visuelle": "Armure complète de commandement, plaques raffinées articulées, emblèmes solaires et casque statutaire de capitaine.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    },
+    {
+      "key": "tenue-technicien-solaire",
+      "name": "Tenue de technicien solaire",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Validation MJ — catalogue des armures (2026-10-18)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 1,
+        "H0D_Armure_Encombrement": 1,
+        "H0D_Armure_Malus": "0",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "Héritiers du Soleil",
+        "H0D_Armure_Description": "Combinaison technique intégrale légère, gants et bottes isolants, fibres résistantes à la chaleur, céramique protectrice et visière thermique. Protection élevée contre incendie et courant électrique sans blindage lourd.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "ignifuge",
+            "H0D_Armure_Trait_Perso": "",
+            "H0D_Armure_Trait_Valeur": 3,
+            "H0D_Armure_Trait_Parametre": "Feu",
+            "H0D_Armure_Trait_Note": "Réduction de dégâts Feu 3 validée"
+          },
+          "1": {
+            "H0D_Armure_Trait_Type": "anti_choc",
+            "H0D_Armure_Trait_Perso": "",
+            "H0D_Armure_Trait_Valeur": 3,
+            "H0D_Armure_Trait_Parametre": "Choc",
+            "H0D_Armure_Trait_Note": "Réduction de dégâts Choc 3 validée"
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Armure",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "selon_reputation"
+        },
+        "notes_source": "Feu 3 / Choc 3 explicitement validés ; sans bonus de Réparation ni Technologie.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "armure_faction_validee",
+          "h0d_armure_v2"
+        ],
+        "politique_revente": "standard",
+        "statut": "nouvelle_validee",
+        "visible_au_stock_standard": true,
+        "resistances_validees": {
+          "feu": 3,
+          "gel": 0,
+          "choc": 3,
+          "acide": 0
+        },
+        "description_visuelle": "Combinaison technique intégrale légère, gants et bottes isolants, fibres résistantes à la chaleur, céramique protectrice et visière thermique. Protection élevée contre incendie et courant électrique sans blindage lourd.",
+        "protection_fractionnee": false,
+        "emplacements_amelioration_max": 3,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+      }
+    }
+  ],
+  "a_valider": [
+    "Résistance Choc +2 de l’ancien harnais de dompteur : valeur provisoire, non appliquée en v0.1.1.",
+    "Malus exact de la Veste de récupérateur itinérant encore à harmoniser ; 0 est une valeur de travail.",
+    "Maximum de DEX, vitesse et contraintes de Force issus des anciennes tables : pas d'automatisation sans validation.",
+    "Genouillères et tassettes des Pillards : éléments visuels intégrés ; pièces indépendantes à effets spéciaux non définies.",
+    "HELIOS, ELYSIUM et Culte du Renouveau v1/v2 exclus en attente de validation finale."
+  ]
+}

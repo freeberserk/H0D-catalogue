@@ -34,15 +34,27 @@ callbacks.ready();
 const api=context.game.h0dCatalogue;
 await api.whenReady();
 const s=api.getStatus();
-assert.equal(s.references,79);
+assert.equal(s.references,97);
 assert.equal(s.stocks,1);
 assert.equal(s.protected,21);
-assert.equal(s.bridge.added,57);
+assert.equal(s.bridge.added,75);
 assert.equal(s.bridge.skipped,1);
 assert.equal(s.bridge.protected,21);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
 assert.equal(api.getRecipes().length,4);
+// Armures validées et résistances spécialisées.
+const armors=api.getDefinitions({kind:"armor"});
+assert.equal(armors.length,18);
+const tech=api.getDefinition("tenue-technicien-solaire");
+assert.equal(tech.props.H0D_Armure_Bonus_Defense,1);
+assert.equal(tech.props.H0D_Armure_Encombrement,1);
+assert.deepEqual(Object.values(tech.props.H0D_Armure_Traits_Table).map(x=>[x.H0D_Armure_Trait_Type,x.H0D_Armure_Trait_Valeur]),[["ignifuge",3],["anti_choc",3]]);
+const recup=api.getDefinition("armure-recuperateur-dent");
+assert.equal(recup.props.H0D_Armure_Bonus_Defense,2);
+assert.equal(recup.props.H0D_Armure_Encombrement,1);
+assert.equal(api.getDefinition("harnais-dompteur-rouge").catalogue.resistances_validees.choc,0);
+
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
 const original=api.getDefinition("rations-2-jours");
 original.name="MUTÉ";
@@ -50,6 +62,6 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 // Synchronisation idempotente.
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
-assert.equal(after.skipped,58);
+assert.equal(after.skipped,76);
 assert.equal(after.protected,21);
-console.log("OK — API Foundry simulée, 79 définitions, 21 offres, 4 fabrications, synchronisation conservative, aucun doublon.");
+console.log("OK — API Foundry simulée, 97 définitions, 18 armures, 21 offres, 4 fabrications, synchronisation conservative, aucun doublon.");
