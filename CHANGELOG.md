@@ -1,5 +1,14 @@
 # Journal des versions — H0D Catalogue
 
+## v0.1.4 — Sept objets bricolés des Caravanes Libres (19 octobre 2026)
+
+- 7 objets `item-objet` validés : bouclier-bâche, crochet de décrochage, crochet de sauvetage, caisse-leurre, attaches de largage, amortisseur de harnais, coffret à double fond.
+- 26 champs Foundry remplis par objet ; charges, valeurs, DD et effets validés par le MJ.
+- 7 recettes à base de PM et FS ajoutées aux 4 précédentes (11 fabrications validées) ; effets appliqués manuellement.
+- 131 références totales : 64 objets/plans de modules, 26 ressources, 41 armures/plans.
+- Pont vers Equipment Builder conservateur, 90 références standards (contre 83), 41 protégées inchangées.
+- Les 21 offres de Senn restent intactes ; la phase 1/2 ECHO et HelioSium ne changent pas.
+
 ## v0.1.3 — Forge ECHO, modules énergétiques, HelioSium (19 octobre 2026)
 
 - 20 nouvelles références : 15 plans de protections spéciales ECHO (cinq familles × paliers +1/+2/+3), 4 plans de modules énergétiques, 1 armure blanche HelioSium.

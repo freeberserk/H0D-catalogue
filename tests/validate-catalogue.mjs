@@ -45,7 +45,7 @@ for (const d of defs) {
 }
 const armures = defs.filter(d=>d.kind === "armor");
 assert.equal(armures.length,41);
-assert.equal(defs.length,124);
+assert.equal(defs.length,131);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -75,9 +75,44 @@ assert.equal(blanc.catalogue.instabilite.seuils[3].dd,18);
 assert.equal(blanc.catalogue.deblocage.pas_avant_acte_v,true);
 assert.equal(blanc.catalogue.pret_pour_builder,true);
 assert.equal(blanc.catalogue.visible_au_stock_standard,false);
+
+const caravanes=defs.filter(d=>d.catalogue?.etiquettes?.includes("objet_caravane_valide"));
+const ids=["bouclier-bache-renforce","crochet-de-decrochage","crochet-de-sauvetage-caravanier","caisse-leurre","attaches-de-largage-rapide","amortisseur-de-harnais-nomade","coffret-a-double-fond"];
+assert.equal(caravanes.length,7);
+assert.deepEqual(caravanes.map(x=>x.key).sort(),ids.slice().sort());
+const objFields=[
+"H0D_Objet_Type","H0D_Objet_Sous_Type","H0D_Objet_Quantite","H0D_Stockage",
+"H0D_Objet_Actif","H0D_Objet_Identifie","H0D_Objet_Charge_Unitaire","H0D_Objet_Valeur",
+"H0D_Objet_Utilisations","H0D_Objet_Utilisations_Max","H0D_Objet_Recharge","H0D_Objet_Etat",
+"H0D_Objet_Origine","H0D_Objet_Compatibilite","H0D_Objet_Effet","H0D_Objet_Description",
+"H0D_Objet_Traits_Table","H0D_Objet_Munition_Active","H0D_Objet_Munition_Famille","H0D_Objet_Munition_Element",
+"H0D_Objet_Munition_Recuperable","H0D_Objet_Munition_Bonus_Attaque","H0D_Objet_Munition_Bonus_Degats",
+"H0D_Objet_Munition_Type_Degats","H0D_Objet_Munition_Anti_Blindage","H0D_Objet_Munition_Effet_Court"
+];
+for(const d of caravanes){
+ assert.equal(d.kind,"object");
+ assert.equal(d.templateKey,"item-objet");
+ assert.equal(d.originKey,"caravanes-libres");
+ assert.deepEqual(Object.keys(d.props).sort(),objFields.slice().sort());
+ assert.ok(d.props.H0D_Objet_Effet && d.props.H0D_Objet_Description);
+ assert.ok(Number.isFinite(Number(d.props.H0D_Objet_Charge_Unitaire)));
+ assert.ok(Number.isFinite(Number(d.props.H0D_Objet_Valeur)));
+ assert.equal(d.catalogue.statut,"validee_mj");
+ assert.equal(d.catalogue.pret_pour_builder,true);
+ assert.equal(d.catalogue.visible_au_stock_standard,true);
+ assert.equal(d.catalogue.generable_stock_aleatoire,true);
+ assert.equal(d.catalogue.fabrication.statut,"validee_mj");
+ assert.ok(d.catalogue.etiquettes.includes("fabrication_validee"));
+ assert.ok(!d.catalogue.etiquettes.includes("proposition_mj"));
+}
+const hook=caravanes.find(d=>d.key==="crochet-de-sauvetage-caravanier");
+assert.ok(hook.props.H0D_Objet_Effet.includes("DD 18"));
+assert.ok(hook.props.H0D_Objet_Effet.includes("Athlétisme DD 12"));
+assert.ok(hook.props.H0D_Objet_Effet.includes("9 m"));
+assert.equal(hook.catalogue.fabrication.dd,12);
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,124);
+assert.equal(defs.length,131);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -148,4 +183,6 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
   assert.ok(existsSync(path.join(root,f)),`Fichier manquant : ${f}`);
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
+assert.equal(crafted.length,11);
+assert.equal(privateDefs.length,41);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);

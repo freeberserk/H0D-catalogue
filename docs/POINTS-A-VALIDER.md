@@ -54,3 +54,14 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
 - L'armure blanche HelioSium relève de l'Acte V ; régénération et confusion sont enregistrées comme règles descriptives, pas des automatismes CSB/Builder.
 - Une procédure future est nécessaire pour rendre les plans ECHO importables lorsque leurs valeurs ont été validées, sans permettre l'apparition de prototypes incomplets dans les stocks.
 - La phase 2 du boss HelioSium par fusion de Machines Blanches est une idée validée comme piste, pas une création d'équipement.
+
+
+## Objets caravaniers (validation v0.1.4)
+
+- Les sept objets et leurs sept recettes sont validés par le MJ ; aucun coût,
+  DD ou effet de cette série n'attend encore son accord.
+- Les effets tactiques restent manuels dans le Builder et dans Foundry :
+  couvert, décrochage, grappin de sauvetage, leurre, largage, amortissement et fouille.
+- Si les règles de poursuite sont développées, les DD du crochet de sauvetage
+  pourront être revus au cas par cas, sans remettre en cause l'approbation de ses valeurs actuelles.
+- Aucun des sept objets n'a été inséré dans les 21 offres du stock fixe Senn P-03.

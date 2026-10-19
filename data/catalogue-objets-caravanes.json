@@ -1,0 +1,607 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.4",
+  "source_documents": [
+    "Factions.txt (canon des tactiques caravanières)",
+    "Zero_Dawn_Commerce_v2(1).pdf (échelle de valeurs et disponibilités)",
+    "Récapitulatif DD.txt (échelle DD et actions techniques)",
+    "H0D Equipment Builder v0.1.1 (schéma item-objet)",
+    "H0D Catalogue v0.1.3 (références existantes / compatibilité)"
+  ],
+  "principes": {
+    "statut": "Validé par le MJ le 19 octobre 2026 : sept outils des Caravanes Libres, compatibles Equipment Builder.",
+    "valeurs": "Effets, charges, valeur de commerce, DD et recettes proposés puis approuvés par le MJ (ne proviennent pas directement des sources canoniques).",
+    "prix": "Valeurs de commerce générales, sans conversion en jetons de Senn.",
+    "effets": "Effets décrits pour arbitrage en séance, sans macros automatiques.",
+    "stocks": "Les 21 offres fixes de Senn / P-03 ne sont pas modifiées par ces ajouts.",
+    "types": "Sept fiches item-objet, aucune ne doit être traitée comme une arme.",
+    "poursuites": "Le crochet de sauvetage est distinct du crochet de décrochage."
+  },
+  "definitions": [
+    {
+      "key": "bouclier-bache-renforce",
+      "name": "Bouclier-bâche renforcé",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Validation MJ du 19 octobre 2026 — objets bricolés des Caravanes Libres, Factions.txt et calibrage Foundry",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Protection tactique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "2",
+        "H0D_Objet_Valeur": "6",
+        "H0D_Objet_Utilisations": "0",
+        "H0D_Objet_Utilisations_Max": "0",
+        "H0D_Objet_Recharge": "",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Compatibilite": "À tenir à deux mains ; peut protéger un porteur ou un petit groupe derrière le panneau ; pas une armure.",
+        "H0D_Objet_Effet": "Action standard pour déployer et orienter. Tant que le porteur le tient à deux mains, il obtient un couvert léger (+2 DEF) contre les attaques à distance venant de la direction couverte. Déplacement à demi-vitesse. Aucun bonus contre les attaques au contact ou venant d'ailleurs. Ne se cumule pas avec un autre couvert ; pas de DEF permanente.",
+        "H0D_Objet_Description": "Bâche épaisse, fibres synthétiques et petites plaques de machine cousues entre des couches souples. Repliée : matériel de convoi. Déployée : panneau de protection improvisée ou écran pour évacuation. L'objet n'est pas une armure et ne confère aucun bonus permanent. Un porteur doit avoir ses deux mains libres pour maintenir le couvert.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": ""
+      },
+      "catalogue": {
+        "categorie": "Protection tactique",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 6,
+          "supplements": {},
+          "texte": "6"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Objet, valeur, utilisation et recette approuvés par le MJ le 19 octobre 2026. Description d'origine : Déjà décrit dans Factions.txt ; bonus, charge, valeur et recette proposés pour Foundry.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "caravanes_libres",
+          "objet_caravane_valide",
+          "fabrication_validee"
+        ],
+        "politique_revente": "standard",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "pret_pour_builder": true,
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 3
+          },
+          "dd": 12,
+          "duree": "3 heures",
+          "artisan": "Couture / Artisanat (caravanier)",
+          "rendement": 1,
+          "statut": "validee_mj"
+        },
+        "regles_manuel": true,
+        "restrictions": "Objet approuvé, effet manuel, sans automatisation. Ne pas modifier les 21 offres P-03 de Senn."
+      }
+    },
+    {
+      "key": "crochet-de-decrochage",
+      "name": "Crochet de décrochage",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Validation MJ du 19 octobre 2026 — objets bricolés des Caravanes Libres, Factions.txt et calibrage Foundry",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Outil de convoi",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "1",
+        "H0D_Objet_Valeur": "3",
+        "H0D_Objet_Utilisations": "0",
+        "H0D_Objet_Utilisations_Max": "0",
+        "H0D_Objet_Recharge": "",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Compatibilite": "Cordes, mousquetons, sangles, dispositifs de traction et attaches accessibles.",
+        "H0D_Objet_Effet": "Décrocher une attache préparée, une sangle ou un harnais accessible demande une action de mouvement, sans jet hors pression. En urgence : Réparation DD 12 (action de mouvement). Pour une attache bloquée ou hostile : DD 15 et accès physique préalable ; une réussite évite de casser la fixation. Ce crochet ne permet pas de retirer instantanément la batterie portée par un ennemi en plein combat.",
+        "H0D_Objet_Description": "Perche courte terminée par un crochet et une lame de dégagement, conçue pour libérer un attelage ou une charge en urgence, ou tirer à soi une attache inaccessible à la main. Ce n'est pas une arme à dégâts et n'accorde pas de bonus d'attaque.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": ""
+      },
+      "catalogue": {
+        "categorie": "Outil de convoi",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Objet, valeur, utilisation et recette approuvés par le MJ le 19 octobre 2026. Description d'origine : Outil canon décrit dans Factions.txt ; usage et paramètres Foundry proposés.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "caravanes_libres",
+          "objet_caravane_valide",
+          "fabrication_validee"
+        ],
+        "politique_revente": "standard",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "pret_pour_builder": true,
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 1
+          },
+          "dd": 10,
+          "duree": "1 heure",
+          "artisan": "Réparation / Artisanat (caravanier)",
+          "rendement": 1,
+          "statut": "validee_mj"
+        },
+        "regles_manuel": true,
+        "restrictions": "Objet approuvé, effet manuel, sans automatisation. Ne pas modifier les 21 offres P-03 de Senn."
+      }
+    },
+    {
+      "key": "crochet-de-sauvetage-caravanier",
+      "name": "Crochet de sauvetage caravanier",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Validation MJ du 19 octobre 2026 — objets bricolés des Caravanes Libres, Factions.txt et calibrage Foundry",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Outil de sauvetage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "1",
+        "H0D_Objet_Valeur": "5",
+        "H0D_Objet_Utilisations": "0",
+        "H0D_Objet_Utilisations_Max": "0",
+        "H0D_Objet_Recharge": "Aucune ; réutilisable si grappin et corde récupérés intacts",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Compatibilite": "Crochet mécanique avec corde renforcée de 9 m ; accroche sur anneau, rambarde, traverse ou autre point solide accessible d’un chariot. Ne fonctionne pas sur une surface lisse sans prise. Une main pour lancer ; deux mains libres recommandées pour se hisser.",
+        "H0D_Objet_Effet": "SAUVETAGE EN POURSUITE — Action standard : lancer le grappin sur un point d’accroche solide d’un chariot situé à 6 m maximum. Jet de Dextérité DD 12 (chariot lent), DD 15 (rapide), DD 18 (pleine vitesse). Une réussite fixe le grappin mais ne fait PAS monter instantanément à bord. Action de mouvement suivante : Athlétisme DD 12 pour se hisser, DD 15 si le chariot est à pleine vitesse. Si le jet pour se hisser échoue, le personnage reste suspendu ou tracté si son équipement le permet ; son ascension n’est pas achevée. Une chute, une traction sur terrain dangereux ou un obstacle peuvent imposer un jet de Réflexes ou des conséquences adaptées par le MJ. En cas d’échec au lancer, le grappin ne s’accroche pas. La corde a une longueur de 9 m ; au-delà, la liaison ne tient plus, sauf si le porteur est déjà fixé. Un allié à bord peut aider selon les règles habituelles. Aucun dégât ni attaque automatique ; l’accroche nécessite une structure capable de soutenir le porteur.",
+        "H0D_Objet_Description": "Grappin articulé en plaque de machine, corde tressée renforcée (9 m), poignée avec enrouleur manuel et boucle de libération rapide. Outil de récupération d’urgence typique des Caravanes Libres : un éclaireur tombé du convoi peut accrocher la rambarde et tenter de remonter pendant que le chariot continue sa course. Portée de lancer indicative 6 m. Attention : s’accrocher à un véhicule lancé à pleine vitesse expose à une traction violente ; la réussite du lancer n’annule ni les risques du terrain ni la nécessité de remonter. Il s’agit d’un outil, distinct du crochet de décrochage, du crochet d’escalade ordinaire et des armes harpons.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": ""
+      },
+      "catalogue": {
+        "categorie": "Outil de sauvetage",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Objet, valeur, utilisation et recette approuvés par le MJ le 19 octobre 2026. Description d'origine : Nouvelle demande du MJ : outil grappin pour rejoindre un chariot lancé à pleine vitesse. La portée, les DD et le coût sont des propositions à confirmer.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "caravanes_libres",
+          "objet_caravane_valide",
+          "fabrication_validee"
+        ],
+        "politique_revente": "standard",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "pret_pour_builder": true,
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 12,
+          "duree": "2 heures",
+          "artisan": "Réparation / Artisanat (caravanier)",
+          "rendement": 1,
+          "statut": "validee_mj"
+        },
+        "regles_manuel": true,
+        "restrictions": "Objet approuvé, effet manuel, sans automatisation. Ne pas modifier les 21 offres P-03 de Senn.",
+        "regles_poursuite": {
+          "distance_max_lancer_metres": 6,
+          "longueur_corde_metres": 9,
+          "action_accroche": "standard",
+          "jet_accroche": "Dextérité",
+          "dd_accroche": {
+            "lent": 12,
+            "rapide": 15,
+            "pleine_vitesse": 18
+          },
+          "action_remontee": "mouvement",
+          "jet_remontee": "Athlétisme",
+          "dd_remontee": {
+            "normal": 12,
+            "pleine_vitesse": 15
+          },
+          "regles_non_automatisees": true,
+          "effet_echec_remontee": "Pas de remontée automatique ; risque de suspension / traction, conséquences selon terrain et MJ."
+        }
+      }
+    },
+    {
+      "key": "caisse-leurre",
+      "name": "Caisse-leurre",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Validation MJ du 19 octobre 2026 — objets bricolés des Caravanes Libres, Factions.txt et calibrage Foundry",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Diversion de convoi",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "3",
+        "H0D_Objet_Valeur": "3",
+        "H0D_Objet_Utilisations": "1",
+        "H0D_Objet_Utilisations_Max": "1",
+        "H0D_Objet_Recharge": "Réarmement 30 min avec chargement de ferraille si la caisse est récupérée",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Compatibilite": "Nécessite un espace de chargement de convoi ; peut être préparée pour les attaches de largage rapide.",
+        "H0D_Objet_Effet": "Action de mouvement pour larguer depuis un chariot prêt à cet effet ; sinon action standard pour la déposer ou la jeter à portée immédiate. À l'œil, ressemble à une cargaison précieuse. Une inspection rapide : Perception DD 15 pour découvrir le leurre ; ouverture et fouille attentive : découverte automatique. Attirer un poursuivant dépend de ses objectifs, sans provocation ou contrôle mental garanti. Une charge larguée n'est plus disponible dans l'inventaire.",
+        "H0D_Objet_Description": "Caisse endommagée habillée de faux scellés, doublée de débris bruyants et de petites pièces sans grande valeur. Utilisée pour détourner les pillards pendant une fuite et gagner du temps. Les composants trompeurs sont consommés, mais le contenant peut être récupéré et reconditionné.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": ""
+      },
+      "catalogue": {
+        "categorie": "Diversion de convoi",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Objet, valeur, utilisation et recette approuvés par le MJ le 19 octobre 2026. Description d'origine : La caisse leurre est évoquée dans Factions.txt ; mécanique de perception et coûts proposés.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "caravanes_libres",
+          "objet_caravane_valide",
+          "fabrication_validee"
+        ],
+        "politique_revente": "standard",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "pret_pour_builder": true,
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 10,
+          "duree": "1 heure",
+          "artisan": "Artisanat (caravanier)",
+          "rendement": 1,
+          "statut": "validee_mj"
+        },
+        "regles_manuel": true,
+        "restrictions": "Objet approuvé, effet manuel, sans automatisation. Ne pas modifier les 21 offres P-03 de Senn."
+      }
+    },
+    {
+      "key": "attaches-de-largage-rapide",
+      "name": "Attaches de largage rapide",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Validation MJ du 19 octobre 2026 — objets bricolés des Caravanes Libres, Factions.txt et calibrage Foundry",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Accessoire de chariot",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "1",
+        "H0D_Objet_Valeur": "4",
+        "H0D_Objet_Utilisations": "1",
+        "H0D_Objet_Utilisations_Max": "1",
+        "H0D_Objet_Recharge": "10 minutes de réarmement hors danger (attache intacte)",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Compatibilite": "À installer sur une caisse ou un segment de chargement arrimé ; incompatible avec une charge non préparée.",
+        "H0D_Objet_Effet": "Après installation (10 minutes), action de mouvement pour larguer une charge arrimée SANS test dans une situation normale, y compris en poursuite. Le mécanisme doit ensuite être retendu 10 minutes hors danger. Si la fixation est endommagée ou grippée : Réparation DD 15, action standard, au lieu de la libération normale. Le largage laisse la cargaison derrière le véhicule.",
+        "H0D_Objet_Description": "Paire de boucles à verrouillage mécanique, axe de décharge et câble d'amorce. Permet de désolidariser une cargaison préparée d'un seul geste. Elle agit sur une unité d'arrimage préalablement installée ; elle n'augmente ni les PV du chariot ni sa vitesse.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": ""
+      },
+      "catalogue": {
+        "categorie": "Accessoire de chariot",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Objet, valeur, utilisation et recette approuvés par le MJ le 19 octobre 2026. Description d'origine : Nouvelle extrapolation dans l’esprit de la fuite organisée des Caravanes ; paramètres proposés.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "caravanes_libres",
+          "objet_caravane_valide",
+          "fabrication_validee"
+        ],
+        "politique_revente": "standard",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "pret_pour_builder": true,
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 12,
+          "duree": "2 heures",
+          "artisan": "Réparation (caravanier)",
+          "rendement": 1,
+          "statut": "validee_mj"
+        },
+        "regles_manuel": true,
+        "restrictions": "Objet approuvé, effet manuel, sans automatisation. Ne pas modifier les 21 offres P-03 de Senn."
+      }
+    },
+    {
+      "key": "amortisseur-de-harnais-nomade",
+      "name": "Amortisseur de harnais nomade",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Validation MJ du 19 octobre 2026 — objets bricolés des Caravanes Libres, Factions.txt et calibrage Foundry",
+      "props": {
+        "H0D_Objet_Type": "Outil",
+        "H0D_Objet_Sous_Type": "Amélioration d’attelage",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "2",
+        "H0D_Objet_Valeur": "6",
+        "H0D_Objet_Utilisations": "0",
+        "H0D_Objet_Utilisations_Max": "0",
+        "H0D_Objet_Recharge": "",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Compatibilite": "Attelages, harnais de machines de traction, chariots avec fixation souple ; une seule amélioration appliquée par attelage.",
+        "H0D_Objet_Effet": "Après installation (30 minutes), +2 à UN jet de Conduite ou de Réparation destiné à éviter les dommages d'un chariot ou d'un harnais causés par une secousse, un choc de terrain ou une manœuvre de traction dangereuse. Ne donne ni bonus d'attaque, ni réduction générale de dégâts, ni vitesse supplémentaire ; non cumulable avec un second amortisseur.",
+        "H0D_Objet_Description": "Assemblage de ressorts, fibres tendues et articulations récupérées. Soulage les attaches pendant un passage violent. Protège le véhicule et le harnais, pas les passagers contre toutes les attaques. En cas de dégâts graves du véhicule, peut nécessiter une réparation narrative.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": ""
+      },
+      "catalogue": {
+        "categorie": "Amélioration d’attelage",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 6,
+          "supplements": {},
+          "texte": "6"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Objet, valeur, utilisation et recette approuvés par le MJ le 19 octobre 2026. Description d'origine : Proposition nouvelle. Bonus +2 limité à la préservation de l’attelage, pas au pilotage général.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "caravanes_libres",
+          "objet_caravane_valide",
+          "fabrication_validee"
+        ],
+        "politique_revente": "standard",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "pret_pour_builder": true,
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 3
+          },
+          "dd": 15,
+          "duree": "Une demi-journée",
+          "artisan": "Réparation (caravanier)",
+          "rendement": 1,
+          "statut": "validee_mj"
+        },
+        "regles_manuel": true,
+        "restrictions": "Objet approuvé, effet manuel, sans automatisation. Ne pas modifier les 21 offres P-03 de Senn."
+      }
+    },
+    {
+      "key": "coffret-a-double-fond",
+      "name": "Coffret à double fond",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Validation MJ du 19 octobre 2026 — objets bricolés des Caravanes Libres, Factions.txt et calibrage Foundry",
+      "props": {
+        "H0D_Objet_Type": "Divers",
+        "H0D_Objet_Sous_Type": "Cache de transport",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "1",
+        "H0D_Objet_Valeur": "4",
+        "H0D_Objet_Utilisations": "0",
+        "H0D_Objet_Utilisations_Max": "0",
+        "H0D_Objet_Recharge": "",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Caravanes Libres",
+        "H0D_Objet_Compatibilite": "Petits objets, cartes, composants, éventuellement un Focus non relié au porteur ; la place doit être suffisante.",
+        "H0D_Objet_Effet": "Cache de petite taille. Fouille rapide : Perception DD 15 pour découvrir le faux fond. Inspection approfondie avec ouverture et manipulation du coffret : Perception DD 10. Le coffret n'empêche pas la détection par Focus spécialisé ni une fouille destructrice. Contenu et taille de l'objet dissimulé validés par le MJ.",
+        "H0D_Objet_Description": "Coffret de bois, cuir et métal de récupération avec compartiment dissimulé sous un fond mobile. Utile aux messagers, récupérateurs et voyageurs. Ce n'est pas un dispositif antibrouillage ou anti-Focus.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": ""
+      },
+      "catalogue": {
+        "categorie": "Cache de transport",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Objet, valeur, utilisation et recette approuvés par le MJ le 19 octobre 2026. Description d'origine : Nouvelle extrapolation inspirée de la protection des marchandises caravanes ; pas de technologie anti-scan.",
+        "source_page": null,
+        "alias": [],
+        "etiquettes": [
+          "caravanes_libres",
+          "objet_caravane_valide",
+          "fabrication_validee"
+        ],
+        "politique_revente": "standard",
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "generable_stock_aleatoire": true,
+        "pret_pour_builder": true,
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 1
+          },
+          "dd": 12,
+          "duree": "2 heures",
+          "artisan": "Artisanat (caravanier)",
+          "rendement": 1,
+          "statut": "validee_mj"
+        },
+        "regles_manuel": true,
+        "restrictions": "Objet approuvé, effet manuel, sans automatisation. Ne pas modifier les 21 offres P-03 de Senn."
+      }
+    }
+  ],
+  "a_valider": [
+    "Aucun paramètre bloquant pour ces sept fiches validées.",
+    "En cas de changement futur des règles de poursuite, revoir les DD du crochet de sauvetage.",
+    "Les références ne rejoignent le stock spécifique de Senn que sur une décision séparée."
+  ]
+}

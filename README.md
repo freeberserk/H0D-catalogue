@@ -1,6 +1,6 @@
 # H0D Catalogue — Objets & Artefacts
 
-**Version du module : 0.1.3** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
+**Version du module : 0.1.4** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
 **Cible : Foundry VTT 14 + Custom System Builder 6.0.2+**  
 **Compatible de manière facultative avec H0D Equipment Builder v0.1.0.**
 
@@ -12,8 +12,8 @@ Ce module est **la source centralisée des données H0D**, pas un second génér
 
 Il embarque :
 
-- **124 références** : 53 objets existants + 4 plans de modules, 26 ressources et 41 armures/projets (25 armures de faction + 15 plans ECHO + 1 armure blanche HelioSium) ;
-- **4 fabrications validées** dans ces références ;
+- **131 références** : 53 objets précédents + 7 outils caravaniers + 4 plans de modules, 26 ressources et 41 armures/projets (25 armures de faction + 15 plans ECHO + 1 armure blanche HelioSium) ;
+- **11 fabrications validées** dans ces références ;
 - **21 offres de la Longue-Corde (Senn, Prologue P-03)** ;
 - **41 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
 - les coûts, raretés, descriptions et disponibilités tels que fournis par les sources, **sans inventer les données manquantes**.
@@ -30,13 +30,13 @@ Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copié
 2. Créer le répertoire `FoundryVTT/Data/modules/h0d-catalogue/`.
 3. Décompresser **`h0d-catalogue.zip`** directement dedans : le fichier `module.json` doit être à la racine de ce dossier.
 4. Relancer Foundry, activer **H0D Catalogue — Objets & Artefacts** dans le monde Custom System Builder.
-5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 124`, `stocks: 1`.
+5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 131`, `stocks: 1`.
 
 Aucun Item, aucune macro et aucun dossier ne sont créés automatiquement lors de l'activation.
 
 ### B. Installation depuis GitHub
 
-Depuis la release **v0.1.3**, installer dans Foundry avec ce manifeste :
+Depuis la release **v0.1.4**, installer dans Foundry avec ce manifeste :
 
 `https://github.com/freeberserk/H0D-catalogue/releases/latest/download/module.json`
 
@@ -46,7 +46,7 @@ Les releases sont construites par GitHub Actions, à partir du code validé dans
 
 Le pont d'intégration est **facultatif et conservateur** :
 
-- à l'initialisation, les **83 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
+- à l'initialisation, les **90 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
 - une définition possédant déjà la même clé dans le Builder n'est **jamais remplacée** ;
 - les **41 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
 - aucune synchronisation ne crée ni ne modifie les Items du monde ou des fiches de PJ.
@@ -55,7 +55,7 @@ On peut lancer une synchronisation idempotente :
 
 ```js
 await game.h0dCatalogue.whenReady();
-game.h0dCatalogue.syncToEquipmentBuilder(); // 83 références standards synchronisées
+game.h0dCatalogue.syncToEquipmentBuilder(); // 90 références standards synchronisées
 // Quand le MJ autorise explicitement l'armure de fin de campagne :
 game.h0dCatalogue.syncSelectedToEquipmentBuilder(['armure-blanche-heliosium']);
 // Ne pas appeler includeRestricted:true en partie ordinaire ; cela inclut aussi des objets de scénario.
@@ -112,6 +112,7 @@ h0d-catalogue/
 │   ├── catalogue-armures-factions.json  (18 armures)
 │   ├── catalogue-armures-renouveau.json  (7 protections)
 │   ├── catalogue-forge-echo-heliosium.json (15 plans ECHO, 4 modules, 1 armure HelioSium)
+│   ├── catalogue-objets-caravanes.json (7 objets caravaniers validés)
 │   └── stocks/
 │       └── longue-corde-p03.json       (21 offres)
 ├── scripts/h0d-catalogue.js
@@ -269,9 +270,51 @@ reste une piste narrative extérieure à ce catalogue, non développée ici.
 
 ### Sécurité de publication
 
-- 124 références totales, **41 protégées** par défaut.
-- **83** définitions standards exposées au Builder sans modifier les 97 précédentes.
+- 131 références totales, **41 protégées** par défaut.
+- **90** définitions standards exposées au Builder sans modifier les 97 précédentes.
 - Les 19 plans à finaliser ne peuvent jamais être synchronisés vers Equipment Builder
   tant que `pret_pour_builder:false` reste en vigueur.
-- 21 offres de Senn, 4 fabrications existantes et 1 stock de scénario inchangés.
+- 21 offres de Senn, 4 fabrications existantes + 7 nouvelles et 1 stock de scénario inchangés.
 - Prix et coûts manquants conservés à `null`, jamais à zéro.
+
+
+## Objets bricolés des Caravanes Libres — v0.1.4
+
+Sept objets `item-objet` validés par le MJ sont ajoutés dans
+`data/catalogue-objets-caravanes.json` :
+**bouclier-bâche renforcé**, **crochet de décrochage**,
+**crochet de sauvetage caravanier**, **caisse-leurre**,
+**attaches de largage rapide**, **amortisseur de harnais nomade**
+et **coffret à double fond**.
+
+Chaque définition conserve ses **26 champs Foundry** : charge, valeur de commerce
+générale, quantité, état, origine, utilisations, recharge, compatibilité,
+description et effet. Les caractéristiques ont été proposées puis approuvées
+par le MJ ; elles ne sont pas prétendues issues telles quelles du PDF.
+
+Les **sept recettes** à base de plaques de machine et de faisceaux de fibres
+s'ajoutent aux quatre fabrications précédentes. La méthode `getRecipes()`
+renvoie ainsi **11 fabrications validées**, sans automatiser leur réalisation.
+
+Les effets enregistrés sont : bouclier-bâche (+2 DEF de couvert uniquement contre
+tirs selon orientation, deux mains, demi-vitesse) ; crochet de décrochage
+(Réparation DD 12/15 en urgence) ; caisse-leurre (Perception DD 15 en fouille
+rapide, une utilisation par largage) ; attaches (largage préparé par action de
+mouvement, réarmement 10 min) ; amortisseur (+2 à un jet de Conduite ou
+Réparation pour préserver chariot/attelage d'une secousse) ; coffret
+(Perception DD 15 rapide, DD 10 approfondie).
+
+**Crochet de sauvetage caravanier :** lancer à 6 m maximum, corde de 9 m,
+Dextérité DD 12 (chariot lent) / 15 (rapide) / 18 (pleine vitesse), puis
+Athlétisme DD 12 ou 15 pour se hisser sur une action de mouvement suivante.
+Réussir à s'accrocher n'est pas monter à bord ; traction et obstacles gardent
+leurs conséquences.
+
+Les effets restent **appliqués manuellement** par le MJ dans Foundry ; aucun
+script ne simule automatiquement les DD, le couvert ou les déplacements.
+
+Ces sept définitions sont disponibles dans **Equipment Builder** via la
+synchronisation additive, sans écraser les définitions préexistantes.
+Le stock précis de Senn au Prologue P-03 conserve **ses 21 offres** ;
+aucune nouvelle offre n'a été ajoutée à ce stock.
+Les 19 plans ECHO non chiffrés restent interdits d'import.

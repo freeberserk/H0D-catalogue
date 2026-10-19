@@ -34,15 +34,26 @@ callbacks.ready();
 const api=context.game.h0dCatalogue;
 await api.whenReady();
 const s=api.getStatus();
-assert.equal(s.references,124);
+assert.equal(s.references,131);
 assert.equal(s.stocks,1);
 assert.equal(s.protected,41);
-assert.equal(s.bridge.added,82);
+assert.equal(s.bridge.added,89);
 assert.equal(s.bridge.skipped,1);
 assert.equal(s.bridge.protected,41);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
-assert.equal(api.getRecipes().length,4);
+assert.equal(api.getRecipes().length,11);
+// Objets des Caravanes, validés, présents dans le pont conservateur.
+const caravanes=api.getDefinitions({tag:"objet_caravane_valide"});
+assert.equal(caravanes.length,7);
+assert.equal(api.getRecipes().filter(x=>caravanes.some(c=>c.key===x.key)).length,7);
+for(const d of caravanes){
+ assert.equal(d.originKey,"caravanes-libres");
+ assert.equal(d.props.H0D_Stockage,"PJ");
+ assert.equal(d.catalogue.pret_pour_builder,true);
+ assert.ok(builder.getDefinition(d.key),`Objet non synchronisé : ${d.key}`);
+}
+assert.equal(builder.getDefinition("crochet-de-sauvetage-caravanier").props.H0D_Objet_Charge_Unitaire,"1");
 // Armures validées et résistances spécialisées.
 const armors=api.getDefinitions({kind:"armor"});
 assert.equal(armors.length,41);
@@ -73,7 +84,7 @@ assert.equal(exo.props.H0D_Armure_Malus,"0");
 assert.equal(exo.catalogue.malus_vitesse_metres,0);
 assert.equal(api.getDefinition("robe-armure-initie-renouveau").props.H0D_Armure_Bonus_Defense,1);
 assert.ok(!cult.some(x=>/elu-zalem/i.test(x.key)));
-assert.equal(api.getRecipes().length,4);
+assert.equal(api.getRecipes().length,11);
 
 // Plans ECHO : consultables mais interdits au Builder, y compris en mode includeRestricted.
 const plans=api.getDefinitions({originKey:"forge-echo"});
@@ -97,7 +108,7 @@ assert.ok(denied.errors.length);
 // Restaurer le cas d'usage du bridge pour ses compteurs post-synchronisation.
 const noOp=api.syncToEquipmentBuilder();
 assert.equal(noOp.added,0);
-assert.equal(noOp.skipped,83);
+assert.equal(noOp.skipped,90);
 assert.equal(noOp.protected,41);
 
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
@@ -107,6 +118,6 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 // Synchronisation idempotente.
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
-assert.equal(after.skipped,83);
+assert.equal(after.skipped,90);
 assert.equal(after.protected,41);
-console.log("OK — API Foundry simulée, 124 définitions, 41 armures, 21 offres, 4 fabrications, plans non chiffrés protégés, import ciblé sûr, aucun doublon.");
+console.log("OK — API Foundry simulée, 131 définitions, 41 armures, 21 offres, 11 fabrications, 7 objets caravaniers validés, import non destructif, aucun doublon.");
