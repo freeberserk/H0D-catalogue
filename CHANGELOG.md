@@ -1,5 +1,16 @@
 # Journal des versions — H0D Catalogue
 
+## v0.1.3 — Forge ECHO, modules énergétiques, HelioSium (19 octobre 2026)
+
+- 20 nouvelles références : 15 plans de protections spéciales ECHO (cinq familles × paliers +1/+2/+3), 4 plans de modules énergétiques, 1 armure blanche HelioSium.
+- Deux phases ECHO : armures spéciales sans noyaux ; modules énergétiques accessibles conceptuellement après la Griffe, l'Œil et le Soleil Brisé.
+- Les 19 plans non chiffrés sont protégés et **non importables dans Equipment Builder** ; les bonus DEF totaux et l'encombrement ne sont pas inventés.
+- Armure blanche HelioSium : DEF +2, Enc. 0, malus 0, régénération 1d4 PV / round pendant 3 rounds (1 fois/combat), instabilité cumulative 1/4 PV soignés et confusion de reconnaissance des cibles (Volonté DD 15 / 18).
+- Un import ciblé `syncSelectedToEquipmentBuilder(["armure-blanche-heliosium"])` permet au MJ d'enregistrer la seule armure blanche sans exposer tous les objets réservés.
+- 124 références (57 objets/modules, 26 ressources, 41 armures/plans), 41 références protégées ; 21 offres et 4 fabrications préservées.
+- Aucun déblocage de noyau ni effet de régénération/instabilité automatiquement appliqué par Foundry.
+- La phase 2 du boss HelioSium (fusion avec Machines Blanches) reste à concevoir séparément.
+
 ## v0.1.2 — Armures du Culte du Renouveau (19 octobre 2026)
 
 - 7 protections `item-armure` : 3 références V1 (Initié, Zélote, Oracle), 4 références V2 (Harnais converti, Blindages greffés léger/lourd, Exo-armure de Transfiguration).

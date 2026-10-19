@@ -44,10 +44,40 @@ for (const d of defs) {
   }
 }
 const armures = defs.filter(d=>d.kind === "armor");
-assert.equal(armures.length,25);
+assert.equal(armures.length,41);
+assert.equal(defs.length,124);
+const echo = defs.filter(x=>x.originKey==="forge-echo");
+assert.equal(echo.length,19);
+const plansEcho=echo.filter(x=>x.kind==="armor");
+assert.equal(plansEcho.length,15);
+assert.ok(plansEcho.every(x=>x.catalogue.pret_pour_builder===false && x.catalogue.visible_au_stock_standard===false));
+assert.ok(plansEcho.every(x=>x.props.H0D_Armure_Bonus_Defense===null && x.props.H0D_Armure_Encombrement===null));
+assert.deepEqual([...new Set(plansEcho.map(x=>x.catalogue.palier_amelioration))],[1,2,3]);
+for (const fam of ["traqueur","bastion","isolateur","recuperateur-avance","veilleur"])
+  assert.equal(plansEcho.filter(x=>x.catalogue.etiquettes.includes(fam)).length,3);
+const modulesEcho=echo.filter(x=>x.kind==="object");
+assert.equal(modulesEcho.length,4);
+assert.ok(modulesEcho.every(x=>x.catalogue.deblocage.trois_noyaux_requis===true));
+assert.ok(modulesEcho.every(x=>x.catalogue.deblocage.noyaux.join(",")==="Griffe,Œil,Soleil Brisé"));
+assert.ok(modulesEcho.every(x=>x.catalogue.pret_pour_builder===false));
+const blancs=defs.filter(x=>x.originKey==="heliosium");
+assert.equal(blancs.length,1);
+const blanc=blancs[0];
+assert.equal(blanc.key,"armure-blanche-heliosium");
+assert.equal(blanc.props.H0D_Armure_Bonus_Defense,2);
+assert.equal(blanc.props.H0D_Armure_Encombrement,0);
+assert.equal(blanc.catalogue.regeneration.points_vie_par_round,"1d4");
+assert.equal(blanc.catalogue.regeneration.rounds_par_activation,3);
+assert.equal(blanc.catalogue.regeneration.activations_par_combat,1);
+assert.equal(blanc.catalogue.instabilite.points_par_pv_regeneres,4);
+assert.equal(blanc.catalogue.instabilite.seuils[2].dd,15);
+assert.equal(blanc.catalogue.instabilite.seuils[3].dd,18);
+assert.equal(blanc.catalogue.deblocage.pas_avant_acte_v,true);
+assert.equal(blanc.catalogue.pret_pour_builder,true);
+assert.equal(blanc.catalogue.visible_au_stock_standard,false);
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,104);
+assert.equal(defs.length,124);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -79,8 +109,14 @@ assert.ok(!armures.some(d=>d.key.includes("elu-zalem")));
 for (const a of armures) {
   assert.equal(a.props.H0D_Armure_Type,"armure");
   assert.ok(["corps","tete","torse","bras","jambes","autre"].includes(a.props.H0D_Armure_Zone));
-  assert.ok(Number.isInteger(a.props.H0D_Armure_Bonus_Defense));
-  assert.ok(Number.isInteger(a.props.H0D_Armure_Encombrement));
+  if (a.catalogue?.pret_pour_builder===false) {
+    assert.equal(a.props.H0D_Armure_Bonus_Defense,null,`Plan non chiffré DEF ${a.key}`);
+    assert.equal(a.props.H0D_Armure_Encombrement,null,`Plan non chiffré Enc. ${a.key}`);
+    assert.equal(a.catalogue.visible_au_stock_standard,false);
+  } else {
+    assert.ok(Number.isInteger(a.props.H0D_Armure_Bonus_Defense));
+    assert.ok(Number.isInteger(a.props.H0D_Armure_Encombrement));
+  }
   assert.ok(Object.values(a.props.H0D_Armure_Traits_Table).every(row=>
     typeof row.H0D_Armure_Trait_Type==="string" && Number.isFinite(row.H0D_Armure_Trait_Valeur)));
 }

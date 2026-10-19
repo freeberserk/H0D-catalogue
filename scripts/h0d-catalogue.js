@@ -1,5 +1,5 @@
 /**
- * H0D Catalogue v0.1.2
+ * H0D Catalogue v0.1.3
  * Foundry VTT v14 / Custom System Builder v6.0.2+
  *
  * Principes : module de données, aucune création d'Item au démarrage ;
@@ -7,7 +7,7 @@
  * export additif et non destructif des références non réservées vers Equipment Builder.
  */
 const H0D_CATALOGUE_ID = "h0d-catalogue";
-const H0D_CATALOGUE_VERSION = "0.1.2";
+const H0D_CATALOGUE_VERSION = "0.1.3";
 const H0D_BUILDER_ID = "h0d-equipment-builder";
 
 const h0dState = {
@@ -163,7 +163,10 @@ function h0dSyncToBuilder({includeRestricted=false}={}) {
     return { ...result, status:"builder_absent"};
   }
   for (const def of h0dState.definitions.values()) {
-    if (!includeRestricted && def.catalogue?.visible_au_stock_standard === false) {
+    // Un plan non finalisé ne doit JAMAIS arriver dans le Builder,
+    // même si includeRestricted est demandé : ses valeurs DEF/Enc. sont null.
+    if (def.catalogue?.pret_pour_builder === false ||
+        (!includeRestricted && def.catalogue?.visible_au_stock_standard === false)) {
       result.protected++;
       continue;
     }
@@ -181,6 +184,32 @@ function h0dSyncToBuilder({includeRestricted=false}={}) {
     console.warn(`${H0D_CATALOGUE_ID} | Entrées réservées incluses : le builder v0.1 pourra les tirer dans ses stocks aléatoires. Éviter ce mode pour une partie normale.`);
   }
   return h0dClone(result);
+}
+
+/** Import manuel et ciblé pour le MJ : jamais de déblocage automatique des plans. */
+function h0dSyncSelectedToBuilder(keys=[]) {
+  const result={status:"ok",added:0,skipped:0,protected:0,errors:[]};
+  const builder=globalThis.game?.h0dEquipmentBuilder;
+  if (!h0dState.ready) return {...result,status:"catalogue_non_pret"};
+  if (!builder?.registerDefinition || !builder?.getDefinition) return {...result,status:"builder_absent"};
+  if (!Array.isArray(keys)) return {...result,status:"entree_invalide",errors:["Liste de clés requise."]};
+  for (const key of new Set(keys)) {
+    if (typeof key !== "string") {result.errors.push("Clé non textuelle.");continue;}
+    const def=h0dState.definitions.get(key);
+    if (!def) {result.errors.push(`Référence inconnue : ${key}`);continue;}
+    if (def.catalogue?.pret_pour_builder===false) {
+      result.protected++;
+      result.errors.push(`Plan non finalisé, import refusé : ${key}`);
+      continue;
+    }
+    try {
+      if (builder.getDefinition(key)) {result.skipped++;continue;}
+      builder.registerDefinition(h0dClone(def));
+      result.added++;
+    } catch(err) {result.errors.push(`${key} : ${err.message || err}`);}
+  }
+  if (result.errors.length) result.status="partiel";
+  return result;
 }
 
 function h0dPriceLabel(def) {
@@ -202,7 +231,7 @@ async function h0dOpen() {
     <td>${h0dEscape(def.kind)}</td>
     <td>${h0dEscape(def.catalogue?.rarete || "—")}</td>
     <td>${h0dEscape(h0dPriceLabel(def))}</td>
-    <td>${def.catalogue?.visible_au_stock_standard === false ? "Réservé" : "Général"}</td>
+    <td>${def.catalogue?.pret_pour_builder===false ? "Plan à finaliser" : def.catalogue?.visible_au_stock_standard === false ? "Réservé MJ" : "Général"}</td>
   </tr>`).join("");
   const content = `<div class="h0d-catalogue-dialog">
     <p><strong>${stats.references} références</strong> · ${stats.stocks} stock de scénario ·
@@ -255,6 +284,7 @@ const h0dCatalogueAPI = Object.freeze({
   getRecipes: h0dGetRecipes,
   getWarnings: () => h0dClone(h0dState.warnings),
   syncToEquipmentBuilder: h0dSyncToBuilder,
+  syncSelectedToEquipmentBuilder: h0dSyncSelectedToBuilder,
   open: h0dOpen,
   openStock: h0dOpenStock
 });

@@ -34,18 +34,18 @@ callbacks.ready();
 const api=context.game.h0dCatalogue;
 await api.whenReady();
 const s=api.getStatus();
-assert.equal(s.references,104);
+assert.equal(s.references,124);
 assert.equal(s.stocks,1);
-assert.equal(s.protected,21);
+assert.equal(s.protected,41);
 assert.equal(s.bridge.added,82);
 assert.equal(s.bridge.skipped,1);
-assert.equal(s.bridge.protected,21);
+assert.equal(s.bridge.protected,41);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
 assert.equal(api.getRecipes().length,4);
 // Armures validées et résistances spécialisées.
 const armors=api.getDefinitions({kind:"armor"});
-assert.equal(armors.length,25);
+assert.equal(armors.length,41);
 const tech=api.getDefinition("tenue-technicien-solaire");
 assert.equal(tech.props.H0D_Armure_Bonus_Defense,1);
 assert.equal(tech.props.H0D_Armure_Encombrement,1);
@@ -75,6 +75,31 @@ assert.equal(api.getDefinition("robe-armure-initie-renouveau").props.H0D_Armure_
 assert.ok(!cult.some(x=>/elu-zalem/i.test(x.key)));
 assert.equal(api.getRecipes().length,4);
 
+// Plans ECHO : consultables mais interdits au Builder, y compris en mode includeRestricted.
+const plans=api.getDefinitions({originKey:"forge-echo"});
+assert.equal(plans.length,19);
+assert.equal(plans.filter(x=>x.kind==="armor").length,15);
+assert.equal(plans.filter(x=>x.kind==="object").length,4);
+assert.ok(!builder.getDefinition("echo-armure-traqueur-plus-1"));
+assert.ok(!builder.getDefinition("echo-module-bouclier"));
+const includeReserved=api.syncToEquipmentBuilder({includeRestricted:true});
+assert.equal(includeReserved.protected,19);
+assert.ok(!builder.getDefinition("echo-armure-traqueur-plus-1"));
+assert.ok(!builder.getDefinition("echo-module-bouclier"));
+// Le MJ peut cibler uniquement l'armure blanche de fin de campagne.
+const select=api.syncSelectedToEquipmentBuilder(["armure-blanche-heliosium"]);
+assert.equal(select.added,0); // Déjà ajoutée par includeRestricted dans ce test.
+assert.equal(select.skipped,1);
+const denied=api.syncSelectedToEquipmentBuilder(["echo-armure-traqueur-plus-1"]);
+assert.equal(denied.protected,1);
+assert.equal(denied.added,0);
+assert.ok(denied.errors.length);
+// Restaurer le cas d'usage du bridge pour ses compteurs post-synchronisation.
+const noOp=api.syncToEquipmentBuilder();
+assert.equal(noOp.added,0);
+assert.equal(noOp.skipped,83);
+assert.equal(noOp.protected,41);
+
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
 const original=api.getDefinition("rations-2-jours");
 original.name="MUTÉ";
@@ -83,5 +108,5 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
 assert.equal(after.skipped,83);
-assert.equal(after.protected,21);
-console.log("OK — API Foundry simulée, 104 définitions, 25 armures, 21 offres, 4 fabrications, synchronisation conservative, aucun doublon.");
+assert.equal(after.protected,41);
+console.log("OK — API Foundry simulée, 124 définitions, 41 armures, 21 offres, 4 fabrications, plans non chiffrés protégés, import ciblé sûr, aucun doublon.");

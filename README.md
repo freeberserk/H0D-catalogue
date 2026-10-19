@@ -1,6 +1,6 @@
 # H0D Catalogue — Objets & Artefacts
 
-**Version du module : 0.1.2** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2**  
+**Version du module : 0.1.3** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
 **Cible : Foundry VTT 14 + Custom System Builder 6.0.2+**  
 **Compatible de manière facultative avec H0D Equipment Builder v0.1.0.**
 
@@ -12,13 +12,13 @@ Ce module est **la source centralisée des données H0D**, pas un second génér
 
 Il embarque :
 
-- **104 références** : 53 objets, 26 ressources et 25 armures validées ;
+- **124 références** : 53 objets existants + 4 plans de modules, 26 ressources et 41 armures/projets (25 armures de faction + 15 plans ECHO + 1 armure blanche HelioSium) ;
 - **4 fabrications validées** dans ces références ;
 - **21 offres de la Longue-Corde (Senn, Prologue P-03)** ;
-- **21 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
+- **41 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
 - les coûts, raretés, descriptions et disponibilités tels que fournis par les sources, **sans inventer les données manquantes**.
 
-Les armes et les armures HELIOS / ELYSIUM restent à valider. Les 18 armures précédentes se trouvent dans `data/catalogue-armures-factions.json` ; les 7 armures/protections du Culte sont dans `data/catalogue-armures-renouveau.json`. Les Élus de Zalem ne sont pas des Items d'armure : leurs protections appartiennent aux profils PNJ. Les résistances Feu et Choc des Héritiers utilisent la table de traits du template H0D Armure v2.0.
+Les armes et les protections HELIOS/ELYSIUM indépendantes restent à valider. Les 18 armures des premières factions se trouvent dans `data/catalogue-armures-factions.json` ; les 7 protections du Culte dans `data/catalogue-armures-renouveau.json` ; et les 20 nouvelles références ECHO/HelioSium dans `data/catalogue-forge-echo-heliosium.json`. Les Élus de Zalem relèvent du Bestiaire, pas d'un item-armure. Les résistances Feu et Choc des Héritiers utilisent la table de traits H0D Armure v2.0.
 
 Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copiés** dans ces 79 entrées.
 
@@ -30,13 +30,13 @@ Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copié
 2. Créer le répertoire `FoundryVTT/Data/modules/h0d-catalogue/`.
 3. Décompresser **`h0d-catalogue.zip`** directement dedans : le fichier `module.json` doit être à la racine de ce dossier.
 4. Relancer Foundry, activer **H0D Catalogue — Objets & Artefacts** dans le monde Custom System Builder.
-5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 104`, `stocks: 1`.
+5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 124`, `stocks: 1`.
 
 Aucun Item, aucune macro et aucun dossier ne sont créés automatiquement lors de l'activation.
 
 ### B. Installation depuis GitHub
 
-Depuis la release **v0.1.2**, installer dans Foundry avec ce manifeste :
+Depuis la release **v0.1.3**, installer dans Foundry avec ce manifeste :
 
 `https://github.com/freeberserk/H0D-catalogue/releases/latest/download/module.json`
 
@@ -48,14 +48,17 @@ Le pont d'intégration est **facultatif et conservateur** :
 
 - à l'initialisation, les **83 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
 - une définition possédant déjà la même clé dans le Builder n'est **jamais remplacée** ;
-- les **21 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
+- les **41 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
 - aucune synchronisation ne crée ni ne modifie les Items du monde ou des fiches de PJ.
 
 On peut lancer une synchronisation idempotente :
 
 ```js
 await game.h0dCatalogue.whenReady();
-game.h0dCatalogue.syncToEquipmentBuilder();
+game.h0dCatalogue.syncToEquipmentBuilder(); // 83 références standards synchronisées
+// Quand le MJ autorise explicitement l'armure de fin de campagne :
+game.h0dCatalogue.syncSelectedToEquipmentBuilder(['armure-blanche-heliosium']);
+// Ne pas appeler includeRestricted:true en partie ordinaire ; cela inclut aussi des objets de scénario.
 ```
 
 Le mode `includeRestricted:true` existe pour le développement, mais **ne doit pas être activé dans un monde de partie** tant que le Builder v0.1 n'exclut pas les références réservées de ses stocks aléatoires.
@@ -80,6 +83,10 @@ game.h0dCatalogue.getStocks();
 game.h0dCatalogue.getStock('longue-corde-senn-p03');
 game.h0dCatalogue.getStockResolved('longue-corde-senn-p03');
 game.h0dCatalogue.getRecipes();
+game.h0dCatalogue.getDefinitions({originKey: 'forge-echo'}); // 15 plans d'armures + 4 plans de modules
+game.h0dCatalogue.getDefinition('armure-blanche-heliosium');
+// Import explicite et ciblé dans le Builder (réservé au MJ):
+game.h0dCatalogue.syncSelectedToEquipmentBuilder(['armure-blanche-heliosium']);
 game.h0dCatalogue.getWarnings();
 
 game.h0dCatalogue.open();                // navigateur de référence en lecture seule
@@ -104,6 +111,7 @@ h0d-catalogue/
 │   ├── catalogue-objets-artefacts.json  (79 références)
 │   ├── catalogue-armures-factions.json  (18 armures)
 │   ├── catalogue-armures-renouveau.json  (7 protections)
+│   ├── catalogue-forge-echo-heliosium.json (15 plans ECHO, 4 modules, 1 armure HelioSium)
 │   └── stocks/
 │       └── longue-corde-p03.json       (21 offres)
 ├── scripts/h0d-catalogue.js
@@ -193,3 +201,77 @@ liés aux greffes du porteur. Elle n'octroie **ni bonus de Force ni capacité de
 sans règle validée. Les variantes fusionnées demandent un démontage spécialisé.
 Les **Élus de Zalem** (humains augmentés, cyborgs, corps synthétiques)
 relèvent de fiches PNJ dédiées et sont absents du catalogue d'armures.
+
+
+## Forge ECHO et HelioSium — v0.1.3
+
+**20 nouvelles références** sont intégrées au Catalogue, dans `data/catalogue-forge-echo-heliosium.json`.
+Ce sont **15 plans d'armures spéciales ECHO** (5 familles × 3 paliers), **4 plans de modules énergétiques**
+et **1 véritable armure blanche HelioSium**.
+
+### Forge ECHO, phase 1 : avant les trois noyaux
+
+Cinq familles : Traqueur (furtivité), Bastion (défense lourde), Isolateur (isolation élémentaire passive),
+Récupérateur avancé (maintenance/démontage), Veilleur (observation/Focus).
+Chaque famille dispose des paliers de qualité **+1 / +2 / +3**.
+
+**ATTENTION : plans validés, caractéristiques non finalisées.** Le palier +N est enregistré
+comme `catalogue.palier_amelioration` et **pas comme DEF totale**.
+Leurs `H0D_Armure_Bonus_Defense` et `H0D_Armure_Encombrement` valent `null`,
+car il manque encore la DEF totale, l'encombrement, le malus, les valeurs des aptitudes
+et les recettes/coûts. Pour éviter de créer de fausses armures jouables,
+ces 15 références ont `catalogue.pret_pour_builder:false` :
+elles sont consultables dans le Catalogue, mais **ne sont jamais importées
+dans Equipment Builder**, même en mode `includeRestricted:true`.
+
+### Forge ECHO, phase 2 : après les noyaux
+
+L'ajout des **trois noyaux — Griffe, Œil, Soleil Brisé** ouvre l'accès
+à quatre plans de modules énergétiques : bouclier, résistance élémentaire active,
+plaques mouvantes et assistance IA. Les modules sont compatibles en principe
+avec les armures ECHO appropriées, **mais leurs emplacements, coûts et paramètres
+de jeu restent à déterminer**. Aucun module n'est encore importable dans le Builder,
+et aucune règle ne déverrouille automatiquement la forge dans Foundry.
+
+La réactivation de cette production avancée est liée à l'étape des trois noyaux
+de l'Acte II et aux technologies HELIOS, sans renommer ni fusionner arbitrairement
+la Forge ECHO et le laboratoire HELIOS du scénario.
+
+### Armure blanche HelioSium : Acte V uniquement
+
+Il s'agit bien d'une **armure d'HelioSium**, et **pas** d'une armure d'adepte ELYSIUM avant l'Acte V.
+
+- **DEF +2, Enc. effectif 0, malus 0, ralentissement 0** par assistance IA.
+- **Régénération : 1d4 PV par round, trois rounds, une activation par combat**.
+  Aucun réveil automatique d'un porteur déjà à 0 PV ; ne compter que les PV réellement restaurés.
+- **Instabilité : +1 point par tranche complète de 4 PV effectivement régénérés**, en cumulant
+  entre les activations et les combats ; repos ordinaire insuffisant pour l'effacer.
+- Instabilité 0–1 : rien de visible ; 2–3 : doute ; 4–5 :
+  **Volonté DD 15** sur une attaque de cible jugée hostile ; 6+ :
+  **Volonté DD 18** avec risque de confusion allié/ennemi.
+  Un échec déforme l'identification des cibles, mais ne force **pas**
+  automatiquement une attaque sur un allié.
+
+**Ces effets ne sont pas automatisés par le Builder et nécessitent une gestion manuelle en jeu.**
+L'armure est enregistrée comme fiche `item-armure` complète mais réservée au MJ
+et absente des stocks aléatoires. Pour la rendre disponible au Builder, uniquement
+lorsque le MJ le décide à l'Acte V :
+
+```js
+await game.h0dCatalogue.whenReady();
+game.h0dCatalogue.syncSelectedToEquipmentBuilder(["armure-blanche-heliosium"]);
+```
+
+L'import est additif : une définition de même clé déjà présente n'est pas écrasée.
+Ce nouvel import ciblé permet de garder les autres objets de scénario protégés.
+La proposition de **phase 2 du boss HelioSium par fusion avec des Machines Blanches**
+reste une piste narrative extérieure à ce catalogue, non développée ici.
+
+### Sécurité de publication
+
+- 124 références totales, **41 protégées** par défaut.
+- **83** définitions standards exposées au Builder sans modifier les 97 précédentes.
+- Les 19 plans à finaliser ne peuvent jamais être synchronisés vers Equipment Builder
+  tant que `pret_pour_builder:false` reste en vigueur.
+- 21 offres de Senn, 4 fabrications existantes et 1 stock de scénario inchangés.
+- Prix et coûts manquants conservés à `null`, jamais à zéro.

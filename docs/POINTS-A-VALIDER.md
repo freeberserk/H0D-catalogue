@@ -43,3 +43,14 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
 - Les fiches de blindages greffés sont utilisables comme références dans le Builder mais **ne sont pas des objets portable standard**. `generable_stock_aleatoire` est informatif, sans filtre automatique au sein du Builder v0.1.1.
 - Un ralentissement additionnel pour le Zélote n'est pas automatisé ; l'ancien compendium documente 7,5 m comme vitesse indicative.
 - Recettes, coûts et disponibilité dans le commerce : non définis (jamais gratuits).
+
+
+## Forge ECHO / HelioSium (v0.1.3)
+
+- Pour les quinze plans d'armures ECHO : fixer DEF totale, encombrement, malus, spécialité chiffrée, composants et coût/recette à chaque palier +1/+2/+3.
+- Le sens exact du +1/+2/+3 est un palier de perfectionnement ; pas un bonus total de DEF connu à appliquer dans le template.
+- Pour les quatre plans de modules énergétiques : définir bouclier (capacité, recharge), résistance élémentaire (niveau, élément), plaques mouvantes (interception), assistance IA (bonus, contraintes), ainsi que nombre d'emplacements et cumul.
+- Phase 2 de la Forge ECHO : les trois noyaux Griffe, Œil, Soleil Brisé conditionnent l'accès, mais Foundry ne les suit pas automatiquement ; activation de l'offre par le MJ.
+- L'armure blanche HelioSium relève de l'Acte V ; régénération et confusion sont enregistrées comme règles descriptives, pas des automatismes CSB/Builder.
+- Une procédure future est nécessaire pour rendre les plans ECHO importables lorsque leurs valeurs ont été validées, sans permettre l'apparition de prototypes incomplets dans les stocks.
+- La phase 2 du boss HelioSium par fusion de Machines Blanches est une idée validée comme piste, pas une création d'équipement.

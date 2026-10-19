@@ -1,0 +1,1443 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.3",
+  "source_documents": [
+    "Acte II Trame ELYSIUM.txt — Les Trois Noyaux et Forge/Laboratoire HELIOS",
+    "Acte V le final- HelioSium.txt — Naissance d'HelioSium, Machines Blanches",
+    "Améliorations campagne.txt — propositions sur résistances élémentaires",
+    "Validation MJ — Forge ECHO et armure blanche d'HelioSium, octobre 2026"
+  ],
+  "scope": {
+    "origin": "Forge ECHO, HelioSium",
+    "types": {
+      "armures_speciales_echo": 15,
+      "modules_energetiques": 4,
+      "armure_blanche_heliosium": 1
+    }
+  },
+  "principes": {
+    "phase1": "La Forge ECHO peut produire cinq familles d'armures spécialisées aux paliers +1/+2/+3 sans les trois noyaux. DEF de base, encombrement, malus et effets chiffrés des spécialités restent à valider.",
+    "phase2": "Les noyaux Griffe, Œil et Soleil Brisé déverrouillent les modules énergétiques : bouclier, résistance élémentaire active, plaques mouvantes, assistance IA.",
+    "paliers": "Les +1/+2/+3 sont des grades de perfectionnement validés. Le champ H0D_Armure_Bonus_Defense reste null tant qu'un bonus DEF TOTAL n'est pas fixé : les plans ne sont pas importés dans le Builder.",
+    "modules": "Les modules sont des objets/plans, sans automatisation avant spécification des emplacements, coûts et valeurs.",
+    "exclusivite": "Armure blanche d'HelioSium réservée à l'Acte V. Elle n'est ni une armure d'adepte ELYSIUM, ni disponible via ECHO.",
+    "automatisation": "Le Builder v0.1.1 ne gère pas régénération, instabilité et confusion. L'armure blanche peut être importée manuellement sur demande explicite du MJ, sans importer tout le contenu réservé.",
+    "phase2_boss": "La fusion éventuelle d'HelioSium avec une ou plusieurs Machines Blanches est une piste de boss à traiter dans l'Acte V ultérieurement, pas une fiche d'armure."
+  },
+  "definitions": [
+    {
+      "key": "echo-armure-traqueur-plus-1",
+      "name": "Armure ECHO du Traqueur +1",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure silencieuse dotée de plaques de machines ajustées, de doublures anti-bruit et de fixations discrètes.\n\nSpécialité : Furtivité et approche. Réduction des bruits et des contraintes d'infiltration ; avantage précis à chiffrer.\n\nPalier de perfectionnement +1 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +1 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_1",
+          "traqueur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 1,
+        "bonus_amelioration_indicatif": "+1",
+        "bonus_defense_total_valide": null,
+        "specialite": "Furtivité et approche",
+        "effet_special_descriptif": "Réduction des bruits et des contraintes d'infiltration ; avantage précis à chiffrer.",
+        "description_visuelle": "Armure silencieuse dotée de plaques de machines ajustées, de doublures anti-bruit et de fixations discrètes.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-traqueur-plus-2",
+      "name": "Armure ECHO du Traqueur +2",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 2,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure silencieuse dotée de plaques de machines ajustées, de doublures anti-bruit et de fixations discrètes.\n\nSpécialité : Furtivité et approche. Réduction des bruits et des contraintes d'infiltration ; avantage précis à chiffrer.\n\nPalier de perfectionnement +2 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +2 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_2",
+          "traqueur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 2,
+        "bonus_amelioration_indicatif": "+2",
+        "bonus_defense_total_valide": null,
+        "specialite": "Furtivité et approche",
+        "effet_special_descriptif": "Réduction des bruits et des contraintes d'infiltration ; avantage précis à chiffrer.",
+        "description_visuelle": "Armure silencieuse dotée de plaques de machines ajustées, de doublures anti-bruit et de fixations discrètes.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-traqueur-plus-3",
+      "name": "Armure ECHO du Traqueur +3",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 3,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure silencieuse dotée de plaques de machines ajustées, de doublures anti-bruit et de fixations discrètes.\n\nSpécialité : Furtivité et approche. Réduction des bruits et des contraintes d'infiltration ; avantage précis à chiffrer.\n\nPalier de perfectionnement +3 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +3 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_3",
+          "traqueur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 3,
+        "bonus_amelioration_indicatif": "+3",
+        "bonus_defense_total_valide": null,
+        "specialite": "Furtivité et approche",
+        "effet_special_descriptif": "Réduction des bruits et des contraintes d'infiltration ; avantage précis à chiffrer.",
+        "description_visuelle": "Armure silencieuse dotée de plaques de machines ajustées, de doublures anti-bruit et de fixations discrètes.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-bastion-plus-1",
+      "name": "Armure ECHO du Bastion +1",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nPlastron massif, épaules renforcées et tesselles de blindage issues de machines de grand gabarit.\n\nSpécialité : Défense et tenue de position. Protection renforcée au prix de la mobilité ; ralentissement et charge à chiffrer.\n\nPalier de perfectionnement +1 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +1 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_1",
+          "bastion"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 1,
+        "bonus_amelioration_indicatif": "+1",
+        "bonus_defense_total_valide": null,
+        "specialite": "Défense et tenue de position",
+        "effet_special_descriptif": "Protection renforcée au prix de la mobilité ; ralentissement et charge à chiffrer.",
+        "description_visuelle": "Plastron massif, épaules renforcées et tesselles de blindage issues de machines de grand gabarit.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-bastion-plus-2",
+      "name": "Armure ECHO du Bastion +2",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 2,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nPlastron massif, épaules renforcées et tesselles de blindage issues de machines de grand gabarit.\n\nSpécialité : Défense et tenue de position. Protection renforcée au prix de la mobilité ; ralentissement et charge à chiffrer.\n\nPalier de perfectionnement +2 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +2 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_2",
+          "bastion"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 2,
+        "bonus_amelioration_indicatif": "+2",
+        "bonus_defense_total_valide": null,
+        "specialite": "Défense et tenue de position",
+        "effet_special_descriptif": "Protection renforcée au prix de la mobilité ; ralentissement et charge à chiffrer.",
+        "description_visuelle": "Plastron massif, épaules renforcées et tesselles de blindage issues de machines de grand gabarit.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-bastion-plus-3",
+      "name": "Armure ECHO du Bastion +3",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 3,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nPlastron massif, épaules renforcées et tesselles de blindage issues de machines de grand gabarit.\n\nSpécialité : Défense et tenue de position. Protection renforcée au prix de la mobilité ; ralentissement et charge à chiffrer.\n\nPalier de perfectionnement +3 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +3 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_3",
+          "bastion"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 3,
+        "bonus_amelioration_indicatif": "+3",
+        "bonus_defense_total_valide": null,
+        "specialite": "Défense et tenue de position",
+        "effet_special_descriptif": "Protection renforcée au prix de la mobilité ; ralentissement et charge à chiffrer.",
+        "description_visuelle": "Plastron massif, épaules renforcées et tesselles de blindage issues de machines de grand gabarit.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-isolateur-plus-1",
+      "name": "Armure ECHO du Isolateur +1",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nCouche isolante technique, joints étanches et garnitures de récupération résistant à l'environnement.\n\nSpécialité : Isolation élémentaire passive. Isolation passive contre un élément choisi (Feu, Gel, Choc ou Acide). Pas de commutation énergétique avant les trois noyaux ; montant à chiffrer.\n\nPalier de perfectionnement +1 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +1 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_1",
+          "isolateur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 1,
+        "bonus_amelioration_indicatif": "+1",
+        "bonus_defense_total_valide": null,
+        "specialite": "Isolation élémentaire passive",
+        "effet_special_descriptif": "Isolation passive contre un élément choisi (Feu, Gel, Choc ou Acide). Pas de commutation énergétique avant les trois noyaux ; montant à chiffrer.",
+        "description_visuelle": "Couche isolante technique, joints étanches et garnitures de récupération résistant à l'environnement.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-isolateur-plus-2",
+      "name": "Armure ECHO du Isolateur +2",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 2,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nCouche isolante technique, joints étanches et garnitures de récupération résistant à l'environnement.\n\nSpécialité : Isolation élémentaire passive. Isolation passive contre un élément choisi (Feu, Gel, Choc ou Acide). Pas de commutation énergétique avant les trois noyaux ; montant à chiffrer.\n\nPalier de perfectionnement +2 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +2 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_2",
+          "isolateur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 2,
+        "bonus_amelioration_indicatif": "+2",
+        "bonus_defense_total_valide": null,
+        "specialite": "Isolation élémentaire passive",
+        "effet_special_descriptif": "Isolation passive contre un élément choisi (Feu, Gel, Choc ou Acide). Pas de commutation énergétique avant les trois noyaux ; montant à chiffrer.",
+        "description_visuelle": "Couche isolante technique, joints étanches et garnitures de récupération résistant à l'environnement.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-isolateur-plus-3",
+      "name": "Armure ECHO du Isolateur +3",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 3,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nCouche isolante technique, joints étanches et garnitures de récupération résistant à l'environnement.\n\nSpécialité : Isolation élémentaire passive. Isolation passive contre un élément choisi (Feu, Gel, Choc ou Acide). Pas de commutation énergétique avant les trois noyaux ; montant à chiffrer.\n\nPalier de perfectionnement +3 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +3 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_3",
+          "isolateur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 3,
+        "bonus_amelioration_indicatif": "+3",
+        "bonus_defense_total_valide": null,
+        "specialite": "Isolation élémentaire passive",
+        "effet_special_descriptif": "Isolation passive contre un élément choisi (Feu, Gel, Choc ou Acide). Pas de commutation énergétique avant les trois noyaux ; montant à chiffrer.",
+        "description_visuelle": "Couche isolante technique, joints étanches et garnitures de récupération résistant à l'environnement.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-recuperateur-avance-plus-1",
+      "name": "Armure ECHO du Récupérateur avancé +1",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure fonctionnelle renforcée aux avant-bras, genoux et poitrine, outils accessibles, protection contre projections et pièces instables.\n\nSpécialité : Démontage et maintenance. Sécurité de réparation, extraction et démontage des machines ; bonus précis à chiffrer.\n\nPalier de perfectionnement +1 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +1 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_1",
+          "recuperateur-avance"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 1,
+        "bonus_amelioration_indicatif": "+1",
+        "bonus_defense_total_valide": null,
+        "specialite": "Démontage et maintenance",
+        "effet_special_descriptif": "Sécurité de réparation, extraction et démontage des machines ; bonus précis à chiffrer.",
+        "description_visuelle": "Armure fonctionnelle renforcée aux avant-bras, genoux et poitrine, outils accessibles, protection contre projections et pièces instables.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-recuperateur-avance-plus-2",
+      "name": "Armure ECHO du Récupérateur avancé +2",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 2,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure fonctionnelle renforcée aux avant-bras, genoux et poitrine, outils accessibles, protection contre projections et pièces instables.\n\nSpécialité : Démontage et maintenance. Sécurité de réparation, extraction et démontage des machines ; bonus précis à chiffrer.\n\nPalier de perfectionnement +2 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +2 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_2",
+          "recuperateur-avance"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 2,
+        "bonus_amelioration_indicatif": "+2",
+        "bonus_defense_total_valide": null,
+        "specialite": "Démontage et maintenance",
+        "effet_special_descriptif": "Sécurité de réparation, extraction et démontage des machines ; bonus précis à chiffrer.",
+        "description_visuelle": "Armure fonctionnelle renforcée aux avant-bras, genoux et poitrine, outils accessibles, protection contre projections et pièces instables.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-recuperateur-avance-plus-3",
+      "name": "Armure ECHO du Récupérateur avancé +3",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 3,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure fonctionnelle renforcée aux avant-bras, genoux et poitrine, outils accessibles, protection contre projections et pièces instables.\n\nSpécialité : Démontage et maintenance. Sécurité de réparation, extraction et démontage des machines ; bonus précis à chiffrer.\n\nPalier de perfectionnement +3 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +3 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_3",
+          "recuperateur-avance"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 3,
+        "bonus_amelioration_indicatif": "+3",
+        "bonus_defense_total_valide": null,
+        "specialite": "Démontage et maintenance",
+        "effet_special_descriptif": "Sécurité de réparation, extraction et démontage des machines ; bonus précis à chiffrer.",
+        "description_visuelle": "Armure fonctionnelle renforcée aux avant-bras, genoux et poitrine, outils accessibles, protection contre projections et pièces instables.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-veilleur-plus-1",
+      "name": "Armure ECHO du Veilleur +1",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure d'exploration légère pourvue de montures optiques, logement Focus et capteurs passifs de récupération.\n\nSpécialité : Observation, Focus et capteurs. Amélioration de l'observation et de l'exploitation des informations Focus ; portée et bonus précis à chiffrer.\n\nPalier de perfectionnement +1 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +1 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_1",
+          "veilleur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 1,
+        "bonus_amelioration_indicatif": "+1",
+        "bonus_defense_total_valide": null,
+        "specialite": "Observation, Focus et capteurs",
+        "effet_special_descriptif": "Amélioration de l'observation et de l'exploitation des informations Focus ; portée et bonus précis à chiffrer.",
+        "description_visuelle": "Armure d'exploration légère pourvue de montures optiques, logement Focus et capteurs passifs de récupération.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-veilleur-plus-2",
+      "name": "Armure ECHO du Veilleur +2",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 2,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure d'exploration légère pourvue de montures optiques, logement Focus et capteurs passifs de récupération.\n\nSpécialité : Observation, Focus et capteurs. Amélioration de l'observation et de l'exploitation des informations Focus ; portée et bonus précis à chiffrer.\n\nPalier de perfectionnement +2 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +2 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_2",
+          "veilleur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 2,
+        "bonus_amelioration_indicatif": "+2",
+        "bonus_defense_total_valide": null,
+        "specialite": "Observation, Focus et capteurs",
+        "effet_special_descriptif": "Amélioration de l'observation et de l'exploitation des informations Focus ; portée et bonus précis à chiffrer.",
+        "description_visuelle": "Armure d'exploration légère pourvue de montures optiques, logement Focus et capteurs passifs de récupération.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-armure-veilleur-plus-3",
+      "name": "Armure ECHO du Veilleur +3",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 3,
+      "source": "Validation MJ — Forge ECHO : cinq familles d'armures spéciales, paliers +1/+2/+3 avant activation des trois noyaux (octobre 2026)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": null,
+        "H0D_Armure_Encombrement": null,
+        "H0D_Armure_Malus": "À définir (plan ECHO, valeurs non jouables)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Prototype à finaliser",
+        "H0D_Armure_Origine": "Forge ECHO",
+        "H0D_Armure_Description": "PLAN D'ARMURE — CARACTÉRISTIQUES NON ENCORE FINALISÉES.\n\nArmure d'exploration légère pourvue de montures optiques, logement Focus et capteurs passifs de récupération.\n\nSpécialité : Observation, Focus et capteurs. Amélioration de l'observation et de l'exploitation des informations Focus ; portée et bonus précis à chiffrer.\n\nPalier de perfectionnement +3 validé : il s'agit d'un rang de qualité ECHO. Le bonus de DEF de l'armure finie, son encombrement, son malus et ses coûts de fabrication ne sont pas encore définis. Ce +3 ne doit PAS être ajouté aveuglément à la DEF d'un item par le Builder.\n\nForge ECHO phase 1 : disponible après accès à la forge ; les systèmes énergétiques demeurent verrouillés jusqu'aux trois noyaux. Ce plan n'est PAS un item jouable à générer automatiquement.",
+        "H0D_Armure_Traits_Table": {}
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Gamme et spécialité validées par le MJ ; DEF, encombrement, malus, coûts et valeurs de la spécialité restant à équilibrer.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan d'armure ECHO — phase 1",
+        "etiquettes": [
+          "forge_echo",
+          "armure_speciale_echo",
+          "phase_1",
+          "plan_a_equilibrer",
+          "palier_plus_3",
+          "veilleur"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "utilizable_entree_schema": true,
+        "palier_amelioration": 3,
+        "bonus_amelioration_indicatif": "+3",
+        "bonus_defense_total_valide": null,
+        "specialite": "Observation, Focus et capteurs",
+        "effet_special_descriptif": "Amélioration de l'observation et de l'exploitation des informations Focus ; portée et bonus précis à chiffrer.",
+        "description_visuelle": "Armure d'exploration légère pourvue de montures optiques, logement Focus et capteurs passifs de récupération.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 1,
+          "prerequis": "Forge ECHO accessible ; trois noyaux non requis",
+          "trois_noyaux_requis": false
+        },
+        "emplacements_modules_energie": null,
+        "cout_fabrication_a_valider": true,
+        "limites": "Plan consultable dans le H0D Catalogue ; non importé dans Equipment Builder tant que DEF, Enc., malus et coût ne sont pas finalisés."
+      }
+    },
+    {
+      "key": "echo-module-bouclier",
+      "name": "Module de bouclier énergétique",
+      "kind": "object",
+      "kindLabel": "Objet / module",
+      "templateKey": "item-objet",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : fonctions énergétiques déverrouillées par la Griffe, l'Œil et le Soleil Brisé (octobre 2026)",
+      "props": {
+        "H0D_Objet_Type": "Amélioration",
+        "H0D_Objet_Sous_Type": "Module énergétique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Forge ECHO",
+        "H0D_Objet_Description": "PLAN DE MODULE — NON JOUABLE AVANT VALIDATION DES PARAMÈTRES.\n\nAbsorber une partie des dégâts dans une réserve d'énergie rechargeable.\n\nRéserve de protection, coût de recharge, activation et durée à définir.\n\nCompatibilité prévue avec certaines armures spéciales ECHO ; le nombre d'emplacements et les limitations de cumul restent à définir. Déblocage uniquement après insertion des TROIS noyaux : Griffe, Œil, Soleil Brisé. Pas d'accès normal avant la phase 2.",
+        "H0D_Objet_Effet": "Effet descriptif seulement — valeurs à valider",
+        "H0D_Objet_Identifie": false,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Module énergétique validé en concept ; aucun effet automatique, coût ou valeur numérique ajouté.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan de module énergétique — phase 2",
+        "etiquettes": [
+          "forge_echo",
+          "module_energetique",
+          "phase_2",
+          "plan_a_equilibrer"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "specialite": "Absorber une partie des dégâts dans une réserve d'énergie rechargeable.",
+        "effet_special_descriptif": "Réserve de protection, coût de recharge, activation et durée à définir.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 2,
+          "prerequis": "Récupération et insertion des trois noyaux",
+          "trois_noyaux_requis": true,
+          "noyaux": [
+            "Griffe",
+            "Œil",
+            "Soleil Brisé"
+          ]
+        },
+        "compatibilite": {
+          "armures": "Armures spéciales ECHO compatibles",
+          "emplacements_a_definir": true,
+          "combinations_a_valider": true
+        },
+        "limites": "Plan descriptif uniquement. Ce module n'est pas enregistré dans Equipment Builder jusqu'à validation de son fonctionnement chiffré."
+      }
+    },
+    {
+      "key": "echo-module-resistance",
+      "name": "Module de résistance élémentaire active",
+      "kind": "object",
+      "kindLabel": "Objet / module",
+      "templateKey": "item-objet",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : fonctions énergétiques déverrouillées par la Griffe, l'Œil et le Soleil Brisé (octobre 2026)",
+      "props": {
+        "H0D_Objet_Type": "Amélioration",
+        "H0D_Objet_Sous_Type": "Module énergétique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Forge ECHO",
+        "H0D_Objet_Description": "PLAN DE MODULE — NON JOUABLE AVANT VALIDATION DES PARAMÈTRES.\n\nAdapter la protection à un élément parmi Feu, Gel, Choc et Acide.\n\nValeur des résistances et changement d'élément à définir ; ne pas présumer de protection simultanée.\n\nCompatibilité prévue avec certaines armures spéciales ECHO ; le nombre d'emplacements et les limitations de cumul restent à définir. Déblocage uniquement après insertion des TROIS noyaux : Griffe, Œil, Soleil Brisé. Pas d'accès normal avant la phase 2.",
+        "H0D_Objet_Effet": "Effet descriptif seulement — valeurs à valider",
+        "H0D_Objet_Identifie": false,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Module énergétique validé en concept ; aucun effet automatique, coût ou valeur numérique ajouté.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan de module énergétique — phase 2",
+        "etiquettes": [
+          "forge_echo",
+          "module_energetique",
+          "phase_2",
+          "plan_a_equilibrer"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "specialite": "Adapter la protection à un élément parmi Feu, Gel, Choc et Acide.",
+        "effet_special_descriptif": "Valeur des résistances et changement d'élément à définir ; ne pas présumer de protection simultanée.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 2,
+          "prerequis": "Récupération et insertion des trois noyaux",
+          "trois_noyaux_requis": true,
+          "noyaux": [
+            "Griffe",
+            "Œil",
+            "Soleil Brisé"
+          ]
+        },
+        "compatibilite": {
+          "armures": "Armures spéciales ECHO compatibles",
+          "emplacements_a_definir": true,
+          "combinations_a_valider": true
+        },
+        "limites": "Plan descriptif uniquement. Ce module n'est pas enregistré dans Equipment Builder jusqu'à validation de son fonctionnement chiffré."
+      }
+    },
+    {
+      "key": "echo-module-plaques",
+      "name": "Module de plaques mouvantes",
+      "kind": "object",
+      "kindLabel": "Objet / module",
+      "templateKey": "item-objet",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : fonctions énergétiques déverrouillées par la Griffe, l'Œil et le Soleil Brisé (octobre 2026)",
+      "props": {
+        "H0D_Objet_Type": "Amélioration",
+        "H0D_Objet_Sous_Type": "Module énergétique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Forge ECHO",
+        "H0D_Objet_Description": "PLAN DE MODULE — NON JOUABLE AVANT VALIDATION DES PARAMÈTRES.\n\nRepositionner automatiquement des segments de blindage pour intercepter certaines attaques.\n\nDéclencheurs, valeur DEF/réduction des dégâts et usage à définir.\n\nCompatibilité prévue avec certaines armures spéciales ECHO ; le nombre d'emplacements et les limitations de cumul restent à définir. Déblocage uniquement après insertion des TROIS noyaux : Griffe, Œil, Soleil Brisé. Pas d'accès normal avant la phase 2.",
+        "H0D_Objet_Effet": "Effet descriptif seulement — valeurs à valider",
+        "H0D_Objet_Identifie": false,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Module énergétique validé en concept ; aucun effet automatique, coût ou valeur numérique ajouté.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan de module énergétique — phase 2",
+        "etiquettes": [
+          "forge_echo",
+          "module_energetique",
+          "phase_2",
+          "plan_a_equilibrer"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "specialite": "Repositionner automatiquement des segments de blindage pour intercepter certaines attaques.",
+        "effet_special_descriptif": "Déclencheurs, valeur DEF/réduction des dégâts et usage à définir.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 2,
+          "prerequis": "Récupération et insertion des trois noyaux",
+          "trois_noyaux_requis": true,
+          "noyaux": [
+            "Griffe",
+            "Œil",
+            "Soleil Brisé"
+          ]
+        },
+        "compatibilite": {
+          "armures": "Armures spéciales ECHO compatibles",
+          "emplacements_a_definir": true,
+          "combinations_a_valider": true
+        },
+        "limites": "Plan descriptif uniquement. Ce module n'est pas enregistré dans Equipment Builder jusqu'à validation de son fonctionnement chiffré."
+      }
+    },
+    {
+      "key": "echo-module-assistance-ia",
+      "name": "Module d'assistance IA",
+      "kind": "object",
+      "kindLabel": "Objet / module",
+      "templateKey": "item-objet",
+      "originKey": "forge-echo",
+      "origin": "Forge ECHO",
+      "tier": 1,
+      "source": "Validation MJ — Forge ECHO : fonctions énergétiques déverrouillées par la Griffe, l'Œil et le Soleil Brisé (octobre 2026)",
+      "props": {
+        "H0D_Objet_Type": "Amélioration",
+        "H0D_Objet_Sous_Type": "Module énergétique",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Objet_Origine": "Forge ECHO",
+        "H0D_Objet_Description": "PLAN DE MODULE — NON JOUABLE AVANT VALIDATION DES PARAMÈTRES.\n\nAider le porteur à analyser des menaces et à réagir à des alertes tactiques.\n\nPortée des alertes, bonus, autonomie, risques éventuels à définir ; aucune prise de contrôle implicite.\n\nCompatibilité prévue avec certaines armures spéciales ECHO ; le nombre d'emplacements et les limitations de cumul restent à définir. Déblocage uniquement après insertion des TROIS noyaux : Griffe, Œil, Soleil Brisé. Pas d'accès normal avant la phase 2.",
+        "H0D_Objet_Effet": "Effet descriptif seulement — valeurs à valider",
+        "H0D_Objet_Identifie": false,
+        "H0D_Objet_Actif": false
+      },
+      "catalogue": {
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Module énergétique validé en concept ; aucun effet automatique, coût ou valeur numérique ajouté.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_commercial",
+        "utilisable_comme_item_pj": false,
+        "categorie": "Plan de module énergétique — phase 2",
+        "etiquettes": [
+          "forge_echo",
+          "module_energetique",
+          "phase_2",
+          "plan_a_equilibrer"
+        ],
+        "statut": "plan_valide_caracteristiques_a_definir",
+        "pret_pour_builder": false,
+        "specialite": "Aider le porteur à analyser des menaces et à réagir à des alertes tactiques.",
+        "effet_special_descriptif": "Portée des alertes, bonus, autonomie, risques éventuels à définir ; aucune prise de contrôle implicite.",
+        "deblocage": {
+          "installation": "Forge ECHO",
+          "phase": 2,
+          "prerequis": "Récupération et insertion des trois noyaux",
+          "trois_noyaux_requis": true,
+          "noyaux": [
+            "Griffe",
+            "Œil",
+            "Soleil Brisé"
+          ]
+        },
+        "compatibilite": {
+          "armures": "Armures spéciales ECHO compatibles",
+          "emplacements_a_definir": true,
+          "combinations_a_valider": true
+        },
+        "limites": "Plan descriptif uniquement. Ce module n'est pas enregistré dans Equipment Builder jusqu'à validation de son fonctionnement chiffré."
+      }
+    },
+    {
+      "key": "armure-blanche-heliosium",
+      "name": "Armure blanche d'HelioSium",
+      "kind": "armor",
+      "kindLabel": "Armure / protection",
+      "templateKey": "item-armure",
+      "originKey": "heliosium",
+      "origin": "HelioSium",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (armure anciennement attribuée à ELYSIUM) ; corrections MJ d'octobre 2026 (HelioSium, assistance IA, régénération et confusion)",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": true,
+        "H0D_Armure_Bonus_Defense": 2,
+        "H0D_Armure_Encombrement": 0,
+        "H0D_Armure_Malus": "0 (assistance IA : aucun malus physique ou de vitesse)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Etat": "Intact",
+        "H0D_Armure_Origine": "HelioSium",
+        "H0D_Armure_Description": "ARMURE BLANCHE D'HELIOSIUM — ACTE V. Armure motorisée ivoire à plaques parfaitement jointives, masque sans expression et fins tracés luminescents. Son assistance IA supprime la charge effective, les malus physiques et le ralentissement : DEF +2, Enc. 0, malus 0.\n\nRÉGÉNÉRATION NEURALE : 1d4 PV par round pendant trois rounds après activation, une fois par combat. Ne régénère pas un porteur déjà à 0 PV. On compte uniquement les PV réellement restaurés (pas les soins excédentaires).\n\nINSTABILITÉ COGNITIVE CUMULATIVE : pour chaque tranche complète de 4 PV effectivement régénérés sur l'ensemble des activations, +1 Instabilité. Les points persistent d'un combat à l'autre ; le repos ordinaire ne les efface pas. À 0-1 : aucun symptôme notable ; à 2-3 : hésitation sur les intentions d'autrui ; à 4-5 : jet de Volonté DD 15 lors d'une tentative d'attaque contre une cible jugée hostile ; à 6+ : jet de Volonté DD 18, et en cas d'échec la perception des alliés/ennemis peut être inversée. Un échec impose une perception erronée, PAS une attaque alliée forcée ni la suppression automatique du libre arbitre.\n\nEFFETS NON AUTOMATISÉS : régénération, comptage d'Instabilité et confusion sont à gérer dans le jeu / fiche PNJ, car le Builder ne fournit pas d'automatisation dédiée. Porteurs et obtention exclusifs à l'Acte V, non marchand. Les Machines Blanches restent distinctes de cette armure humanoïde.",
+        "H0D_Armure_Traits_Table": {
+          "0": {
+            "H0D_Armure_Trait_Type": "autre",
+            "H0D_Armure_Trait_Perso": "REGENERATION_INSTABILITE",
+            "H0D_Armure_Trait_Valeur": 0,
+            "H0D_Armure_Trait_Parametre": "",
+            "H0D_Armure_Trait_Note": "Décrit dans la fiche ; nécessite arbitrage MJ, aucun effet automatique"
+          }
+        }
+      },
+      "catalogue": {
+        "rarete": "Exceptionnelle",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "indisponible",
+          "heritiers": "indisponible"
+        },
+        "notes_source": "Armure de faction HelioSium apparue à partir de l'Acte V : corrections de dénomination, assistance IA et régénération avec confusion acceptées par le MJ.",
+        "source_page": null,
+        "alias": [],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "politique_revente": "non_revendable",
+        "utilisable_comme_item_pj": true,
+        "categorie": "Armure spéciale d'HelioSium — Acte V",
+        "etiquettes": [
+          "heliosium",
+          "acte_v",
+          "armure_blanche",
+          "regeneration",
+          "instabilite",
+          "assistance_ia",
+          "exclusif_mj"
+        ],
+        "statut": "validee_mj",
+        "pret_pour_builder": true,
+        "deblocage": {
+          "faction": "HelioSium",
+          "phase": "Acte V",
+          "condition": "Apparition d'HelioSium après fusion ELYSIUM-10 / HELIOS",
+          "pas_avant_acte_v": true
+        },
+        "malus_vitesse_metres": 0,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "encombrement_effectif": 0,
+        "provenance_initiale": "Armure blanche d'adepte ELYSIUM du compendium, réattribuée à HelioSium",
+        "regeneration": {
+          "points_vie_par_round": "1d4",
+          "rounds_par_activation": 3,
+          "activations_par_combat": 1,
+          "active_a_zero_pv": false,
+          "comptabiliser_soins_reels": true,
+          "automatisee": false
+        },
+        "instabilite": {
+          "points_par_pv_regeneres": 4,
+          "mode_calcul": "1 point par tranche cumulée COMPLETE de 4 PV effectivement restaurés",
+          "persistante_entre_combats": true,
+          "repos_normal_ne_supprime_pas": true,
+          "seuils": [
+            {
+              "min": 0,
+              "max": 1,
+              "effet": "Comportement apparent normal"
+            },
+            {
+              "min": 2,
+              "max": 3,
+              "effet": "Doutes et hésitation sur les intentions des personnes"
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "jet": "Volonté",
+              "dd": 15,
+              "declencheur": "Attaque contre une cible jugée hostile",
+              "echec": "Confusion perceptive à interpréter par le MJ"
+            },
+            {
+              "min": 6,
+              "max": null,
+              "jet": "Volonté",
+              "dd": 18,
+              "declencheur": "Identification / attaque d'une cible",
+              "echec": "Erreur d'identification allié/ennemi ou hésitation, sans attaque automatiquement imposée"
+            }
+          ],
+          "automatisee": false
+        },
+        "description_visuelle": "Céramique blanche ivoire, plaques ajustées, casque lisse sans expression, minces lignes luminescentes bleutées et violettes, câbles intégrés.",
+        "limites": "Ne pas confondre avec les Machines Blanches antérieures à la fusion. Aucune récupération commerciale ; équipement de scénario. Phase 2 d'HelioSium (fusion de machines) réservée à une conception future, non représentée par cette armure."
+      }
+    }
+  ],
+  "a_valider": [
+    "Avant import Builder des 15 armures ECHO : bonus DEF TOTAL, encombrement et malus par famille et palier, prix/coûts de fabrication, spécificités chiffrées.",
+    "Les 4 modules énergétiques doivent recevoir valeurs, coûts, emplacements, limites de cumul et prérequis détaillés avant import Builder.",
+    "Aucune bascule automatique de disponibilité lorsque les trois noyaux sont installés : déblocage à appliquer par le MJ.",
+    "Armure blanche HelioSium : régénération et tests Volonté / confusion gérés manuellement ; aucune automatisation dans le Builder.",
+    "L'armure blanche et les plans ECHO sont réservés au MJ : usage explicite uniquement, pas de stock aléatoire.",
+    "La phase 2 du boss HelioSium (fusion avec Machines Blanches) reste à concevoir ailleurs ; non incluse."
+  ]
+}
