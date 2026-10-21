@@ -123,7 +123,7 @@ function h0dGetStockResolved(key) {
   return stock;
 }
 
-function h0dGetRecipes({includeRestricted=false}={}) {
+function h0dGetRecipes({includeRestricted=true}={}) {
   return h0dGetDefinitions({tag:"fabrication_validee",includeRestricted}).map(def => ({
     key: def.key,
     name: def.name,

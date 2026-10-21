@@ -7,7 +7,7 @@
 - Arbalète de poignet 1d4, FOR ×1,5 supprimée, FOR sur javelots/frondes mais pas arcs/arbalètes/lance-câble.
 - Armes hybrides conservent leur mode physique à court d'énergie ; fouet à 6 m ; aucune panne des armes pillardes en usage normal.
 - Effets de contrôle manuels, DD indicatifs ; surcharge volontaire **non chiffrée et non activée**.
-- 159 références dont 28 armes, 39 recettes (24 standards), 56 protégées ; 13 armes standards + 15 armes réservées au MJ.
+- 159 références dont 28 armes, 39 recettes (20 standards), 56 protégées ; 13 armes standards + 15 armes réservées au MJ.
 - Les 21 offres Senn et les 19 plans ECHO sont préservés.
 
 ## v0.1.4 — Sept objets bricolés des Caravanes Libres (19 octobre 2026)

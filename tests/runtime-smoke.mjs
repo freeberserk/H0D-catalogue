@@ -42,7 +42,7 @@ assert.equal(s.bridge.skipped,1);
 assert.equal(s.bridge.protected,56);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
-assert.equal(api.getRecipes().length,24);
+assert.equal(api.getRecipes().length,39);
 // Objets des Caravanes, validés, présents dans le pont conservateur.
 const caravanes=api.getDefinitions({tag:"objet_caravane_valide"});
 assert.equal(caravanes.length,7);
@@ -56,14 +56,15 @@ for(const d of caravanes){
 assert.equal(builder.getDefinition("crochet-de-sauvetage-caravanier").props.H0D_Objet_Charge_Unitaire,"1");
 
 assert.equal(api.getRecipes({includeRestricted:true}).length,39);
-assert.equal(api.getDefinitions({kind:"weapon"}).length,13);
+assert.equal(api.getRecipes({includeRestricted:false}).length,20);
+assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:false}).length,13);
 assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:true}).length,28);
 assert.equal(api.getDefinition("arbalete-de-poignet").props.H0D_Arme_Degats,"1d4");
 assert.equal(api.getDefinition("fouet-electrique-pillards").props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Valeur,3);
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
 assert.ok(!builder.getDefinition("fouet-electrique-pillards"));
 assert.ok(!builder.getDefinition("arc-a-bobine"));
-for(const w of api.getDefinitions({kind:"weapon"})) assert.ok(builder.getDefinition(w.key));
+for(const w of api.getDefinitions({kind:"weapon",includeRestricted:false})) assert.ok(builder.getDefinition(w.key));
 const targetedWeapon=api.syncSelectedToEquipmentBuilder(["fouet-electrique-pillards"]);
 assert.equal(targetedWeapon.added,1);
 assert.ok(builder.getDefinition("fouet-electrique-pillards"));
@@ -97,7 +98,7 @@ assert.equal(exo.props.H0D_Armure_Malus,"0");
 assert.equal(exo.catalogue.malus_vitesse_metres,0);
 assert.equal(api.getDefinition("robe-armure-initie-renouveau").props.H0D_Armure_Bonus_Defense,1);
 assert.ok(!cult.some(x=>/elu-zalem/i.test(x.key)));
-assert.equal(api.getRecipes().length,24);
+assert.equal(api.getRecipes().length,39);
 
 // Plans ECHO : consultables mais interdits au Builder, y compris en mode includeRestricted.
 const plans=api.getDefinitions({originKey:"forge-echo"});
@@ -133,4 +134,4 @@ const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
 assert.equal(after.skipped,103);
 assert.equal(after.protected,56);
-console.log("OK — API Foundry simulée, 159 références, 28 armes, 21 offres, 39 fabrications (24 standards), 56 protégées, import non destructif, aucun doublon.");
+console.log("OK — API Foundry simulée, 159 références, 28 armes, 21 offres, 39 fabrications (20 standards), 56 protégées, import non destructif, aucun doublon.");

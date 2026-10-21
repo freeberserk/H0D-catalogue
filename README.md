@@ -13,7 +13,7 @@ Ce module est **la source centralisée des données H0D**, pas un second génér
 Il embarque :
 
 - **159 références** : 64 objets/plans de modules, 26 ressources, 41 armures/plans et 28 armes des cinq factions ;
-- **39 fabrications enregistrées** (24 standards, 15 réservées) dans ces références ;
+- **39 fabrications enregistrées** (20 standards, 19 réservées) dans ces références ;
 - **21 offres de la Longue-Corde (Senn, Prologue P-03)** ;
 - **56 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
 - les valeurs sources conservées et, pour les armes ajoutées, des prix/recettes calibrés sur Commerce v2 et non présentés comme des chiffres originels du Compendium.
@@ -82,8 +82,8 @@ game.h0dCatalogue.getReferenceCatalog();     // définitions compatibles Equipme
 game.h0dCatalogue.getStocks();
 game.h0dCatalogue.getStock('longue-corde-senn-p03');
 game.h0dCatalogue.getStockResolved('longue-corde-senn-p03');
-game.h0dCatalogue.getRecipes();                      // 24 recettes standards
-game.h0dCatalogue.getRecipes({includeRestricted:true}); // 39 avec les armes de faction réservées
+game.h0dCatalogue.getRecipes();                       // 39 recettes au total, comme en v0.1.4
+game.h0dCatalogue.getRecipes({includeRestricted:false}); // 20 recettes standards uniquement
 game.h0dCatalogue.getDefinitions({originKey: 'forge-echo'}); // 15 plans d'armures + 4 plans de modules
 game.h0dCatalogue.getDefinition('armure-blanche-heliosium');
 // Import explicite et ciblé dans le Builder (réservé au MJ):
@@ -362,9 +362,7 @@ game.h0dCatalogue.syncSelectedToEquipmentBuilder(["fouet-electrique-pillards"]);
   **Attention :** même l'import ciblé rend potentiellement l'arme
   disponible aux tirages aléatoires du Builder v0.1, qui ne filtre pas
   encore ce statut. Ne pas importer tout le matériel réservé d'un coup.
-- 28 nouvelles recettes : **24 recettes standards** renvoyées par
-  `getRecipes()`, **39 au total** avec
-  `getRecipes({includeRestricted:true})`.
+- 28 nouvelles recettes : **39 recettes au total**, y compris celles du matériel réservé, renvoyées par `getRecipes()` ; **20 recettes standards** seulement avec `getRecipes({includeRestricted:false})`.
 - Un seul compteur de munitions natif par arme : les arcs utilisant
   flèche + cellule nécessitent un **deuxième suivi manuel**. Les
   modes physiques/énergétiques ne changent pas automatiquement les
