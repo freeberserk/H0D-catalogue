@@ -1,13 +1,14 @@
 {
   "format": "H0D_CATALOGUE_INDEX",
   "formatVersion": 1,
-  "version": "0.1.4",
+  "version": "0.1.5",
   "catalogues": [
     "data/catalogue-objets-artefacts.json",
     "data/catalogue-armures-factions.json",
     "data/catalogue-armures-renouveau.json",
     "data/catalogue-forge-echo-heliosium.json",
-    "data/catalogue-objets-caravanes.json"
+    "data/catalogue-objets-caravanes.json",
+    "data/catalogue-armes-factions.json"
   ],
   "stocks": [
     "data/stocks/longue-corde-p03.json"

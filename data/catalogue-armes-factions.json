@@ -1,0 +1,3296 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.5",
+  "source_documents": [
+    "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pages 1-2",
+    "Factions.txt, variantes des Caravanes et arsenal des Pillards Rouges",
+    "H0D Equipment Builder v0.1.1, définition item-arme",
+    "H0D Template Manager, H0D_Arme v2.8",
+    "Zero_Dawn_Commerce_v2(1).pdf — coûts généraux et raretés",
+    "Récapitulatif DD.txt — échelle DD 10/12/15/18/20",
+    "H0D Catalogue v0.1.4 — références existantes et ingrédients des recettes"
+  ],
+  "principes": {
+    "statut": "Intégré au Catalogue par demande du MJ le 21 octobre 2026. Données du Compendium et arbitrages MJ ; certains DD techniques restent indicatifs et manuels.",
+    "quantite": "28 armes nouvelles (sur 29 armes initiales du compendium, l'Arc simple est fusionné avec l'Arc tribal déjà dans Equipment Builder).",
+    "equilibre": "FOR normale avec deux mains ; pas de FOR ×1,5. Arbalète de poignet 1d4 ; arcs/arbalètes/lance-câble sans bonus FOR dégâts ; frondes et javelot avec FOR.",
+    "hybride": "Batterie vide : arcs solaire et bobine 1d6 perforant, lance solaire 1d8 perforant, fouet électrique 1d4 contondant, gantelet broyeur 1d6 contondant. Les effets énergétiques s'arrêtent.",
+    "pillards": "Aucun incident lors d'un usage normal. La sursollicitation volontaire n'est PAS activée en tant que règle chiffrée ; le MJ définira son fonctionnement plus tard.",
+    "allonge": "Fouet électrique : base 3 m + Allonge 3 m = 6 m maximum, décision validée. Chaîne-crochet 9 m proposé, encore révisable.",
+    "recettes": "28 recettes de fabrication référencées ; coûts décidés dans le cadre de la demande d'intégration globale du MJ après délégation des prix.",
+    "prix": "Tarifs de commerce général (ressources) établis en se fondant sur Commerce v2, mais pas des montants indiqués dans le Compendium. Aucun prix en jetons n'est inféré.",
+    "acces": "Armes ordinaires Dent d'Ambre/Caravanes importables par défaut. Pillards, Culte, Héritiers et arc à bobine réservés du pont Builder automatique, mais sélection ciblée MJ possible.",
+    "pratique_foundry": "28 champs item-arme complets. Un seul compteur natif de munitions ; les arcs à flèches + énergie demandent deux suivis, dont l'énergie manuellement. Les modes physiques/énergétiques demandent un arbitrage et des changements manuels.",
+    "consequence": "Aucun objet ajouté au stock scénarisé de Senn (21 offres). Les plans Forge ECHO restent non importables.",
+    "reserved": "Les éléments réservés demeurent consultables par getDefinition / getDefinitions({includeRestricted:true}) et sont importables uniquement sur décision MJ."
+  },
+  "reconciliation_builder": {
+    "key": "arc-tribal",
+    "name": "Arc tribal",
+    "statut": "mise_a_jour_manuelle_Builder_non_effectuee",
+    "raison": "Arc simple du Compendium = Arc tribal déjà enregistré dans Equipment Builder. Le Catalogue conserve la clé existante et ne crée pas un nouvel Arc simple.",
+    "champs_conseilles": {
+      "H0D_Arme_Degats": "1d6",
+      "H0D_Arme_Portee": "12",
+      "H0D_Arme_Categorie": "distance",
+      "H0D_Arme_Carac_Attaque": "aucune",
+      "H0D_Arme_Carac_Degats": "aucune",
+      "H0D_Arme_Mains": "2",
+      "H0D_Arme_Encombrement": "1",
+      "H0D_Arme_Mode_Munition": "Direct",
+      "H0D_Arme_Type_Munition": "Fleche",
+      "H0D_Arme_Consommation_Munition": "1",
+      "H0D_Arme_Recharge": "Libre",
+      "H0D_Arme_Critique_Seuil": "20",
+      "H0D_Arme_Critique_Multiplicateur": "2"
+    },
+    "prix_achat_propose": 6,
+    "recette_proposee": {
+      "plaque-de-machine-propre": 2,
+      "faisceau-de-fibres-intactes": 2
+    },
+    "fabrication_dd_propose": 10,
+    "effet_builder": "La v0.1.5 ajoute 28 clés distinctes, sans modifier l'Arc tribal existant dans le Builder. Sa correction (portée 12 m, munitions Direct/Fleche) nécessite une mise à jour séparée du Builder ou de sa fiche."
+  },
+  "politique_prix": {
+    "monnaie": "Valeur commerciale générale du catalogue en unités de ressources, pas en jetons de Senn.",
+    "fourniture": "Le prix inclut les pièces intégrées, y compris la cellule montée quand la recette en exige une. Les munitions et les cellules de rechange sont vendues séparément.",
+    "fabrication": "La recette décrit les composants consommés pour fabriquer une arme. Elle ne garantit pas la disponibilité des pièces ni une vente par la faction.",
+    "seuils": "Armes courantes 2–6 ; artisanales 7–17 ; techniques 17–29 ; énergétiques avancées 29–42 ; harnais spécial 60. Les exceptions tiennent à la quantité ou la rareté des pièces.",
+    "rarity": "Courant (artisanal simple) ; Peu courant (montage qualifié) ; Rare (énergie avancée, pièces rares ou arme de guerre spécialisée).",
+    "factions_non_marchandes": "Pillards et Renouveau : valeur indicative de troc/récupération, jamais une boutique normale.",
+    "senn": "Aucune modification du stock des 21 offres de Senn, P-03."
+  },
+  "munitions": [
+    {
+      "nom": "Flèches de chasse",
+      "conditionnement": 20,
+      "famille_builder": "Fleche",
+      "utilisees_par": [
+        "arc-tribal",
+        "arc-de-chasse-renforce",
+        "arc-a-bobine"
+      ],
+      "prix_lot_propose": 2
+    },
+    {
+      "nom": "Flèches renforcées",
+      "conditionnement": 20,
+      "famille_builder": "Fleche",
+      "utilisees_par": [
+        "arc-de-chasse-renforce",
+        "arc-a-bobine"
+      ],
+      "prix_lot_propose": 4
+    },
+    {
+      "nom": "Flèches solaires",
+      "conditionnement": 12,
+      "famille_builder": "Fleche",
+      "utilisees_par": [
+        "arc-solaire"
+      ],
+      "prix_lot_propose": 8
+    },
+    {
+      "nom": "Billes de fronde",
+      "conditionnement": 20,
+      "famille_builder": "Projectile",
+      "utilisees_par": [
+        "fronde-de-chasse"
+      ],
+      "prix_lot_propose": 1
+    },
+    {
+      "nom": "Billes renforcées",
+      "conditionnement": 20,
+      "famille_builder": "Projectile",
+      "utilisees_par": [
+        "fronde-mecanique"
+      ],
+      "prix_lot_propose": 3
+    },
+    {
+      "nom": "Carreaux courts",
+      "conditionnement": 10,
+      "famille_builder": "Carreau",
+      "utilisees_par": [
+        "arbalete-de-poignet"
+      ],
+      "prix_lot_propose": 2
+    },
+    {
+      "nom": "Javelot",
+      "conditionnement": 1,
+      "famille_builder": "Projectile",
+      "utilisees_par": [
+        "javelot-de-chasse"
+      ],
+      "prix_lot_propose": 3,
+      "recuperable": true
+    },
+    {
+      "nom": "Câble-harpon",
+      "conditionnement": 1,
+      "famille_builder": "Cable",
+      "utilisees_par": [
+        "lance-cable"
+      ],
+      "prix_lot_propose": 3,
+      "recuperable": true
+    },
+    {
+      "nom": "Cellule énergétique faible",
+      "charges": 6,
+      "famille_builder": "Cellule",
+      "prix_unitaire_source": 2,
+      "provenance": "commerce v2"
+    },
+    {
+      "nom": "Cellule stable",
+      "charges": "6 ou 12 suivant installation",
+      "famille_builder": "Cellule",
+      "prix_unitaire_source": 4,
+      "provenance": "commerce v2"
+    },
+    {
+      "nom": "Cellule solaire",
+      "charges": 12,
+      "famille_builder": "Cellule",
+      "prix_unitaire_source": 6,
+      "provenance": "commerce v2"
+    },
+    {
+      "nom": "Batterie lourde",
+      "charges": 4,
+      "famille_builder": "Cellule",
+      "prix_lot_propose": 10,
+      "utilisees_par": [
+        "harnais-canon-pillards"
+      ],
+      "statut": "proposition : pas de référence marchande dédiée dans Catalogue v0.1.4"
+    }
+  ],
+  "regles_partagees_proposees": {
+    "renversement": {
+      "declenchement": "Sur une attaque qui touche ; au plus une fois par round",
+      "sauvegarde": "Vigueur DD 15",
+      "echec": "À terre ; se relever coûte une action de mouvement",
+      "cibles": "Humanoïdes et petites machines/créatures uniquement",
+      "statut": "PROPOSITION"
+    },
+    "traction": {
+      "declenchement": "Après avoir touché, action de mouvement (pas une seconde attaque)",
+      "sauvegarde": "Vigueur DD 15",
+      "echec": "Ramenée de 3 m maximum vers le porteur, dans la limite de la corde/chaîne",
+      "exclusions": "Cible trop lourde, ancrée, obstacles dangereux",
+      "statut": "PROPOSITION"
+    },
+    "entrave_legere": {
+      "declenchement": "Sur touche de lance-câble, si l’effet s’applique",
+      "sauvegarde": "Réflexes DD 14",
+      "echec": "Vitesse -3 m et charge impossible durant 1 round",
+      "statut": "ALIGNÉ SUR VERSION DE FILET LÉGER EXISTANTE, APPLICATION À LA LANCE-CÂBLE À VALIDER"
+    },
+    "allonge": {
+      "principe": "H0D_Arme_Portee + bonus de trait Allonge = portée tactique totale",
+      "fouet_electrique": "3 m de base + 3 m Allonge = 6 m maximum (validé MJ)",
+      "chaine_crochet": "3 m de base + 6 m Allonge = 9 m (proposition conservée)",
+      "statut": "FOUET VALIDÉ MJ ; AUTRES ALLONGES SELON ARME"
+    },
+    "force_deux_mains": {
+      "principe": "Modificateur FOR simple ; 2 mains augmentent les dés, pas de FOR x1,5",
+      "statut": "VALIDÉ MJ : pas de FOR x1,5"
+    },
+    "force_jet": {
+      "principe": "DEX attaque, FOR dégâts pour armes propulsées",
+      "statut": "CANON MJ"
+    },
+    "recharge_cellule": {
+      "principe": "Action standard pour remplacer une cellule déjà chargée ; recharge d’une cellule vide uniquement avec source énergétique",
+      "statut": "PROPOSITION"
+    },
+    "charge_par_tir": {
+      "principe": "1 charge par attaque/activation énergétique",
+      "statut": "PROPOSITION"
+    },
+    "arme_pillarde_normale": {
+      "principe": "En fonctionnement normal, aucune vérification d’instabilité, aucune surchauffe aléatoire, aucune table de panne.",
+      "statut": "VALIDÉ MJ"
+    },
+    "arme_pillarde_surcharge_volontaire": {
+      "principe": "Risque déclenché seulement si le porteur force volontairement une attaque au-delà des limites ordinaires ; distinguer surcharge et dommage direct infligé à une batterie.",
+      "benefice": "Bonus de surcharge encore à chiffrer (pas de chiffre validé).",
+      "cout": "Surconsommation éventuelle et résultat du contrôle à définir avant publication.",
+      "table_d6_source": "La table d6 de Factions.txt reste la référence potentielle pour conséquence de surcharge ; sa condition de déclenchement standard est remplacée par le choix du MJ dans cette version.",
+      "statut": "PRINCIPE VALIDÉ MJ ; EFFETS NUMÉRIQUES À VALIDER"
+    },
+    "modes_hybrides_physiques": {
+      "principe": "Avec batterie vide : mode physique maintenu, aucun effet énergétique.",
+      "degats": {
+        "arc-a-bobine": "1d6 perforant",
+        "arc-solaire": "1d6 perforant",
+        "lance-solaire": "1d8 perforant",
+        "fouet-electrique-pillards": "1d4 contondant",
+        "gantelet-broyeur": "1d6 contondant"
+      },
+      "statut": "VALIDÉ MJ"
+    },
+    "force_distance_exclusions": {
+      "principe": "Aucun bonus FOR dégâts arcs, arbalètes ni lance-câbles ; les frondes, javelots, filets lestés continuent de bénéficier de FOR selon les règles maison.",
+      "statut": "VALIDÉ MJ"
+    },
+    "arbalete_poignet": {
+      "principe": "1d4 perforant, miniature et dissimulée.",
+      "statut": "VALIDÉ MJ"
+    }
+  },
+  "definitions": [
+    {
+      "key": "couteau-de-depecage",
+      "name": "Couteau de dépeçage",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d4",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Tranchant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "19",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "0",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "2",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "leger",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "outil",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [
+          "leger",
+          "outil"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 1
+          },
+          "dd": 10,
+          "duree": "1 h",
+          "artisan": "Artisanat / forge simple",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "lance-de-chasse-courte",
+      "name": "Lance de chasse courte",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "5",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "polyvalent",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Contondant",
+            "H0D_Arme_Trait_Note": "Frapper avec la hampe (proposition)."
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [
+          "polyvalent"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 1
+          },
+          "dd": 10,
+          "duree": "2 h",
+          "artisan": "Artisanat / forge",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "javelot-de-chasse",
+      "name": "Javelot de chasse",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "jet",
+        "H0D_Arme_Carac_Attaque": "DEX",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "9",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Direct",
+        "H0D_Arme_Type_Munition": "Projectile",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Récupérer / reprendre un javelot",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "1",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "3",
+        "H0D_Arme_Traits_Table": {},
+        "H0D_Arme_Effet_Special": "Jet d’attaque DEX + modificateurs ; FOR normale ajoutée aux dégâts en vertu de la règle maison des objets propulsés.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 3,
+          "supplements": {},
+          "texte": "3"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [],
+        "notes_a_arbitrer": "Jet d’attaque DEX + modificateurs ; FOR normale ajoutée aux dégâts en vertu de la règle maison des objets propulsés.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 1
+          },
+          "dd": 10,
+          "duree": "1 h",
+          "artisan": "Artisanat / forge",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "hache-de-chasse",
+      "name": "Hache de chasse",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Tranchant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "5",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "outil",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [
+          "outil"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 1
+          },
+          "dd": 10,
+          "duree": "2 h",
+          "artisan": "Artisanat / forge",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "marteau-leger",
+      "name": "Marteau léger",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "4",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "outil",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [
+          "outil"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 1
+          },
+          "dd": 10,
+          "duree": "2 h",
+          "artisan": "Artisanat / forge",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "baton-cable",
+      "name": "Bâton-câble",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "speciale",
+        "H0D_Arme_Carac_Attaque": "FOR",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "3",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "8",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "traction",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Effet détaillé dans H0D_Arme_Effet_Special. Non automatisé."
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "outil",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "Après une touche, action de mouvement pour tenter Traction. La cible fait Vigueur DD 15 ; sur échec elle est attirée de 3 m maximum (limite du câble), sans franchir obstacle dangereux. Impossible si masse ou ancrage incompatible.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 8,
+          "supplements": {},
+          "texte": "8"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [
+          "traction"
+        ],
+        "notes_a_arbitrer": "Après une touche, action de mouvement pour tenter Traction. La cible fait Vigueur DD 15 ; sur échec elle est attirée de 3 m maximum (limite du câble), sans franchir obstacle dangereux. Impossible si masse ou ancrage incompatible.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 3
+          },
+          "dd": 12,
+          "duree": "3 h",
+          "artisan": "Réparation / artisanat",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": [
+          "DD précis de contrôle (traction, entrave ou renversement) non expressément ratifié ; application MJ."
+        ]
+      }
+    },
+    {
+      "key": "arc-de-chasse-renforce",
+      "name": "Arc de chasse renforcé",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "15",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Direct",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Libre",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "10",
+        "H0D_Arme_Traits_Table": {},
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 10,
+          "supplements": {},
+          "texte": "10"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 3,
+            "lentille-optique-intacte": 1
+          },
+          "dd": 12,
+          "duree": "4 h",
+          "artisan": "Artisanat / montage d’arc",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "fronde-de-chasse",
+      "name": "Fronde de chasse",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d4",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "9",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "0",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Chargeur",
+        "H0D_Arme_Type_Munition": "Projectile",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Mouvement",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "1",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "2",
+        "H0D_Arme_Traits_Table": {},
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Règle maison des objets propulsés : bonus FOR aux dégâts (prioritaire sur le tiret du Compendium)."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "oui",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 10,
+          "duree": "1 h",
+          "artisan": "Artisanat",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "DEX au tir, FOR normale aux dégâts ; adaptation à la règle maison des objets propulsés.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "fronde-mecanique",
+      "name": "Fronde mécanique",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "12",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Chargeur",
+        "H0D_Arme_Type_Munition": "Projectile",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Mouvement",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "1",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "9",
+        "H0D_Arme_Traits_Table": {},
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Règle maison des objets propulsés : bonus FOR aux dégâts (prioritaire sur le tiret du Compendium)."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 9,
+          "supplements": {},
+          "texte": "9"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 2,
+            "circuit-ancien-abime": 1
+          },
+          "dd": 12,
+          "duree": "3 h",
+          "artisan": "Réparation / artisanat",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "DEX au tir, FOR normale aux dégâts ; adaptation à la règle maison des objets propulsés.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "lance-cable",
+      "name": "Lance-câble",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "speciale",
+        "H0D_Arme_Carac_Attaque": "DEX",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d4",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "9",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Chargeur",
+        "H0D_Arme_Type_Munition": "Cable",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Standard",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "1",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "17",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "entrave",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Effet détaillé dans H0D_Arme_Effet_Special. Non automatisé."
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "traction",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Effet détaillé dans H0D_Arme_Effet_Special. Non automatisé."
+          }
+        },
+        "H0D_Arme_Effet_Special": "Sur une touche : Entrave légère, Réflexes DD 14 ; en cas d’échec vitesse –3 m, charge impossible pendant 1 round. Traction supplémentaire par action de mouvement et Vigueur DD 15 ; en cas d’échec tirer de 3 m maximum, sans dépasser la longueur du câble.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 17,
+          "supplements": {},
+          "texte": "17"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 1,
+        "traits_source": [
+          "entrave",
+          "traction"
+        ],
+        "notes_a_arbitrer": "Sur une touche : Entrave légère, Réflexes DD 14 ; en cas d’échec vitesse –3 m, charge impossible pendant 1 round. Traction supplémentaire par action de mouvement et Vigueur DD 15 ; en cas d’échec tirer de 3 m maximum, sans dépasser la longueur du câble.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 3,
+            "faisceau-de-fibres-intactes": 2,
+            "circuit-ancien-intact": 1,
+            "lentille-optique-intacte": 1
+          },
+          "dd": 15,
+          "duree": "½ journée",
+          "artisan": "Réparation / mécanique",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": [
+          "DD précis de contrôle (traction, entrave ou renversement) non expressément ratifié ; application MJ."
+        ]
+      }
+    },
+    {
+      "key": "arc-a-bobine",
+      "name": "Arc à bobine",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d'Ambre",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "15",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Direct",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Libre (flèche) ; action standard (changer cellule)",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
+        "H0D_Arme_Cout": "28",
+        "H0D_Arme_Traits_Table": {},
+        "H0D_Arme_Effet_Special": "Mode alimenté : flèche + 1 charge (réserve 12), 1d8 perforant, éventuel effet élémentaire de la munition. Mode non alimenté : flèches ordinaires ; dégâts physiques proposés à 1d6 perforant (à confirmer, non indiqués par le PDF).",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Alimentée : 12 charges, 1/attaque énergétique ; remplacement de cellule standard. Mode sans batterie : 1d6 Perforant (validé MJ). Cellule montée initialement chargée dans la réserve manuelle ; le compteur du projectile est distinct."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 28,
+          "supplements": {},
+          "texte": "28"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "rare",
+          "caravanes": "occasionnel",
+          "heritiers": "indisponible"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "arme_hybride",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 1,
+        "traits_source": [],
+        "notes_a_arbitrer": "Mode alimenté : flèche + 1 charge (réserve 12), 1d8 perforant, éventuel effet élémentaire de la munition. Mode non alimenté : flèches ordinaires ; dégâts physiques proposés à 1d6 perforant (à confirmer, non indiqués par le PDF).",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 3,
+            "faisceau-de-fibres-intactes": 3,
+            "circuit-ancien-intact": 1,
+            "lentille-optique-intacte": 1,
+            "cellule-stable": 1
+          },
+          "dd": 18,
+          "duree": "1 jour",
+          "artisan": "Forge technique / Réparation",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "alimentation": {
+          "type": "hybride",
+          "capacite_charges": 12,
+          "consommation_charges_par_utilisation_energetique": 1,
+          "reserve": "Cellule d’énergie adaptée",
+          "action_remplacement_cellule": "standard",
+          "recharger_cellule_vide": "Nécessite source énergétique. Pas de recharge gratuite par simple jet de Réparation.",
+          "suivi_foundry": "suivi_manuel_second_compteur",
+          "arme_fonctionne_sans_energie": true,
+          "regle_mj": "Mode physique conservé sans énergie, chiffres physiques validés MJ le 21 octobre 2026. Effets manuels dans CSB.",
+          "charges_initiales_si_neuve_avec_cellule_monteee": 12,
+          "degats_physiques_sans_energie_valides": "1d6",
+          "type_physique_sans_energie_valide": "Perforant"
+        },
+        "parametres_encore_provisoires": [
+          "Un charge par attaque énergétique et remplacement de cellule standard : paramètres de suivi à confirmer, effets manuels."
+        ]
+      }
+    },
+    {
+      "key": "lame-masquee",
+      "name": "Lame masquée",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d4",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Tranchant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "19",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "0",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Caravanes Libres",
+        "H0D_Arme_Cout": "5",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "secret",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "leger",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "leger",
+          "secret"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 12,
+          "duree": "2 h",
+          "artisan": "Artisanat / dissimulation",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "lance-courte-demontable",
+      "name": "Lance courte démontable",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Caravanes Libres",
+        "H0D_Arme_Cout": "8",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "modulaire",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 8,
+          "supplements": {},
+          "texte": "8"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "modulaire"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 12,
+          "duree": "3 h",
+          "artisan": "Artisanat / forge",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "arbalete-de-poignet",
+      "name": "Arbalète de poignet",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d4",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "9",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "19",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Chargeur",
+        "H0D_Arme_Type_Munition": "Carreau",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Mouvement",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "1",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Caravanes Libres",
+        "H0D_Arme_Cout": "12",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "secret",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "leger",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Arbalète miniature : 1d4 confirmé par le MJ, contre le 1d6 du PDF."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 12,
+          "supplements": {},
+          "texte": "12"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "commande",
+          "caravanes": "oui",
+          "heritiers": "occasionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": true,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": true,
+        "etiquettes": [
+          "arme_faction",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "secret"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 2,
+            "circuit-ancien-abime": 1
+          },
+          "dd": 15,
+          "duree": "½ journée",
+          "artisan": "Artisanat / réglage précis",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "marteau-de-guerre-rouge",
+      "name": "Marteau de guerre rouge",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "2d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Pillards Rouges",
+        "H0D_Arme_Cout": "13",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "lourd",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Deux mains et dés élevés. Pas de FOR ×1,5 ni FOR minimale inventée."
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 13,
+          "supplements": {},
+          "texte": "13"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "butin/contre-bande/troc exceptionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "lourd"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 5,
+            "faisceau-de-fibres-intactes": 1
+          },
+          "dd": 12,
+          "duree": "½ journée",
+          "artisan": "Forge / soudure pillarde",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "masse-de-demolition",
+      "name": "Masse de démolition",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "2d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "3",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Pillards Rouges",
+        "H0D_Arme_Cout": "17",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "lourd",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Deux mains et dés élevés. Pas de FOR ×1,5 ni FOR minimale inventée."
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "autre",
+            "H0D_Arme_Trait_Perso": "Renversement",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "Renversement : au plus une fois par round après une touche, Vigueur DD 15 pour éviter d’être mis à terre. Limitée aux humanoïdes et petites machines/créatures ; pas d’effet sur gros gabarits.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 17,
+          "supplements": {},
+          "texte": "17"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "butin/contre-bande/troc exceptionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "lourd",
+          "briseur"
+        ],
+        "notes_a_arbitrer": "Renversement : au plus une fois par round après une touche, Vigueur DD 15 pour éviter d’être mis à terre. Limitée aux humanoïdes et petites machines/créatures ; pas d’effet sur gros gabarits.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 7,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 15,
+          "duree": "½ journée",
+          "artisan": "Forge / soudure pillarde",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": [
+          "DD précis de contrôle (traction, entrave ou renversement) non expressément ratifié ; application MJ."
+        ]
+      }
+    },
+    {
+      "key": "hache-de-carcasse",
+      "name": "Hache de carcasse",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d12",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Tranchant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Pillards Rouges",
+        "H0D_Arme_Cout": "15",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "lourd",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Deux mains et dés élevés. Pas de FOR ×1,5 ni FOR minimale inventée."
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 15,
+          "supplements": {},
+          "texte": "15"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "butin/contre-bande/troc exceptionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "lourd"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 3,
+            "faisceau-de-fibres-intactes": 2,
+            "griffe-de-machine-intacte": 1
+          },
+          "dd": 15,
+          "duree": "½ journée",
+          "artisan": "Forge pillarde",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "pique-harpon",
+      "name": "Pique-harpon",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "speciale",
+        "H0D_Arme_Carac_Attaque": "FOR",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "3",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Pillards Rouges",
+        "H0D_Arme_Cout": "14",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "traction",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Effet détaillé dans H0D_Arme_Effet_Special. Non automatisé."
+          }
+        },
+        "H0D_Arme_Effet_Special": "Après une touche, action de mouvement pour déclencher Traction ; Vigueur DD 15. Échec : ramener la cible de 3 m maximum dans la limite de la portée de 3 m.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 14,
+          "supplements": {},
+          "texte": "14"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "butin/contre-bande/troc exceptionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "traction"
+        ],
+        "notes_a_arbitrer": "Après une touche, action de mouvement pour déclencher Traction ; Vigueur DD 15. Échec : ramener la cible de 3 m maximum dans la limite de la portée de 3 m.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 3,
+            "faisceau-de-fibres-intactes": 3
+          },
+          "dd": 15,
+          "duree": "½ journée",
+          "artisan": "Forge / assemblage",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": [
+          "DD précis de contrôle (traction, entrave ou renversement) non expressément ratifié ; application MJ."
+        ]
+      }
+    },
+    {
+      "key": "chaine-crochet",
+      "name": "Chaîne-crochet",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "speciale",
+        "H0D_Arme_Carac_Attaque": "FOR",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "3",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Pillards Rouges",
+        "H0D_Arme_Cout": "14",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "allonge",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 6,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Portée de base 3 m + allonge 6 m = portée tactique 9 m (proposition)."
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "polyvalent",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Tranchant",
+            "H0D_Arme_Trait_Note": "Tranchant avec le crochet au lieu de contondant."
+          },
+          "2": {
+            "H0D_Arme_Trait_Type": "traction",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Effet détaillé dans H0D_Arme_Effet_Special. Non automatisé."
+          },
+          "3": {
+            "H0D_Arme_Trait_Type": "autre",
+            "H0D_Arme_Trait_Perso": "Désarmement",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "Attaque à distance tactique jusqu’à 9 m grâce à Allonge +6 m sur la portée de base 3 m. Traction sur une touche + action de mouvement : Vigueur DD 15 ou attirée de 3 m. Le désarmement utilise une manœuvre ordinaire sans bonus automatique.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 14,
+          "supplements": {},
+          "texte": "14"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "butin/contre-bande/troc exceptionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "allonge",
+          "polyvalent"
+        ],
+        "notes_a_arbitrer": "Attaque à distance tactique jusqu’à 9 m grâce à Allonge +6 m sur la portée de base 3 m. Traction sur une touche + action de mouvement : Vigueur DD 15 ou attirée de 3 m. Le désarmement utilise une manœuvre ordinaire sans bonus automatique.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 4,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 15,
+          "duree": "½ journée",
+          "artisan": "Forge pillarde",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": [
+          "DD précis de contrôle (traction, entrave ou renversement) non expressément ratifié ; application MJ.",
+          "Allonge totale de 9 m est une proposition, contrairement au fouet électrique dont 6 m est validé."
+        ]
+      }
+    },
+    {
+      "key": "fouet-electrique-pillards",
+      "name": "Fouet électrique",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "speciale",
+        "H0D_Arme_Carac_Attaque": "DEX",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Energie",
+        "H0D_Arme_Portee": "3",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Chargeur",
+        "H0D_Arme_Type_Munition": "Cellule",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Standard : changer cellule",
+        "H0D_Arme_Munitions": "6",
+        "H0D_Arme_Munitions_Max": "6",
+        "H0D_Arme_Element": "Choc",
+        "H0D_Arme_Origine": "Pillards Rouges",
+        "H0D_Arme_Cout": "22",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "allonge",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 3,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Portée 3 m + Allonge 3 m = 6 m au maximum (validé MJ)."
+          }
+        },
+        "H0D_Arme_Effet_Special": "Portée spéciale 3 m + Allonge 3 m = 6 m ; une charge par attaque électrique. Batterie épuisée : fouet physique 1d4 contondant, sans choc. Les états Choc dépendent des règles élémentaires.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Alimentée : 6 charges, 1/attaque énergétique ; remplacement de cellule standard. Mode sans batterie : 1d4 Contondant (validé MJ). Surpuissance volontaire : règles chiffrées non validées, aucun jet d'instabilité en utilisation normale. Cellule montée initialement chargée si achat/fabrication neuf."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 22,
+          "supplements": {},
+          "texte": "22"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "butin/contre-bande/troc exceptionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "arme_hybride",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "allonge (max. 6 m validé MJ)"
+        ],
+        "notes_a_arbitrer": "Portée spéciale 3 m + Allonge 3 m = 6 m ; une charge par attaque électrique. Batterie épuisée : fouet physique 1d4 contondant, sans choc. Les états Choc dépendent des règles élémentaires.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 3,
+            "circuit-ancien-abime": 1,
+            "cellule-faible-chargee": 1
+          },
+          "dd": 18,
+          "duree": "1 jour",
+          "artisan": "Technicien / dompteur pillard",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "alimentation": {
+          "type": "hybride",
+          "capacite_charges": 6,
+          "consommation_charges_par_utilisation_energetique": 1,
+          "reserve": "Cellule d’énergie adaptée",
+          "action_remplacement_cellule": "standard",
+          "recharger_cellule_vide": "Nécessite source énergétique. Pas de recharge gratuite par simple jet de Réparation.",
+          "suivi_foundry": "compteur_unique_arme_mais_mode_physique_manuel",
+          "arme_fonctionne_sans_energie": true,
+          "regle_mj": "Mode physique conservé sans énergie, chiffres physiques validés MJ le 21 octobre 2026. Effets manuels dans CSB.",
+          "charges_initiales_si_neuve_avec_cellule_monteee": 6,
+          "degats_physiques_sans_energie_valides": "1d4",
+          "type_physique_sans_energie_valide": "Contondant"
+        },
+        "risque_batterie_pillarde": {
+          "declenchement": "Uniquement sursollicitation volontaire (pas de mécanisme chiffré activé). Batterie ciblée : dégâts aux composants selon règles machines.",
+          "source": "Factions.txt — règle simple en combat",
+          "statut": "Principe validé : aucune panne en usage normal ; en surcharge volontaire règles chiffrées en attente, ne pas appliquer de table aléatoire.",
+          "note_ciblage": "Une batterie directement attaquée demeure destructible comme composant de machine, indépendamment d’une surcharge volontaire ; appliquer les règles des pièces destructibles et explosions, pas un jet de panne de fonctionnement normal."
+        },
+        "parametres_encore_provisoires": [
+          "Un charge par attaque énergétique et remplacement de cellule standard : paramètres de suivi à confirmer, effets manuels.",
+          "Surcharge volontaire non définie : aucune valeur/jet ni bonus actuellement à appliquer."
+        ]
+      }
+    },
+    {
+      "key": "gantelet-broyeur",
+      "name": "Gantelet broyeur",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d10",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Cellule",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Action standard : changer la cellule (suivi manuel)",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Pillards Rouges",
+        "H0D_Arme_Cout": "27",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "lourd",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Deux mains et dés élevés. Pas de FOR ×1,5 ni FOR minimale inventée."
+          }
+        },
+        "H0D_Arme_Effet_Special": "1d10 contondant en mode motorisé, 1 charge par activation/attaque ; batterie 6 charges suivie manuellement (arme de mêlée). Sans énergie : frappe physique proposée à 1d6 contondant ; pas de mécanisme broyeur.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Alimentée : 6 charges, 1/attaque énergétique ; remplacement de cellule standard. Mode sans batterie : 1d6 Contondant (validé MJ). Surpuissance volontaire : règles chiffrées non validées, aucun jet d'instabilité en utilisation normale. Cellule montée initialement chargée dans la réserve manuelle ; le compteur du projectile est distinct."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 27,
+          "supplements": {},
+          "texte": "27"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "butin/contre-bande/troc exceptionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "arme_hybride",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "lourd"
+        ],
+        "notes_a_arbitrer": "1d10 contondant en mode motorisé, 1 charge par activation/attaque ; batterie 6 charges suivie manuellement (arme de mêlée). Sans énergie : frappe physique proposée à 1d6 contondant ; pas de mécanisme broyeur.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 4,
+            "faisceau-de-fibres-intactes": 2,
+            "circuit-ancien-intact": 1,
+            "cellule-stable": 1
+          },
+          "dd": 18,
+          "duree": "1 jour",
+          "artisan": "Technicien / forgeron pillard",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "alimentation": {
+          "type": "hybride",
+          "capacite_charges": 6,
+          "consommation_charges_par_utilisation_energetique": 1,
+          "reserve": "Cellule d’énergie adaptée",
+          "action_remplacement_cellule": "standard",
+          "recharger_cellule_vide": "Nécessite source énergétique. Pas de recharge gratuite par simple jet de Réparation.",
+          "suivi_foundry": "suivi_manuel_melee",
+          "arme_fonctionne_sans_energie": true,
+          "regle_mj": "Mode physique conservé sans énergie, chiffres physiques validés MJ le 21 octobre 2026. Effets manuels dans CSB.",
+          "charges_initiales_si_neuve_avec_cellule_monteee": 6,
+          "degats_physiques_sans_energie_valides": "1d6",
+          "type_physique_sans_energie_valide": "Contondant"
+        },
+        "risque_batterie_pillarde": {
+          "declenchement": "Uniquement sursollicitation volontaire (pas de mécanisme chiffré activé). Batterie ciblée : dégâts aux composants selon règles machines.",
+          "source": "Factions.txt — règle simple en combat",
+          "statut": "Principe validé : aucune panne en usage normal ; en surcharge volontaire règles chiffrées en attente, ne pas appliquer de table aléatoire.",
+          "note_ciblage": "Une batterie directement attaquée demeure destructible comme composant de machine, indépendamment d’une surcharge volontaire ; appliquer les règles des pièces destructibles et explosions, pas un jet de panne de fonctionnement normal."
+        },
+        "parametres_encore_provisoires": [
+          "Un charge par attaque énergétique et remplacement de cellule standard : paramètres de suivi à confirmer, effets manuels.",
+          "Surcharge volontaire non définie : aucune valeur/jet ni bonus actuellement à appliquer."
+        ]
+      }
+    },
+    {
+      "key": "harnais-canon-pillards",
+      "name": "Harnais-canon",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "2d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Energie",
+        "H0D_Arme_Portee": "18",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "3",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Chargeur",
+        "H0D_Arme_Type_Munition": "Cellule",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Standard : changer cellule",
+        "H0D_Arme_Munitions": "4",
+        "H0D_Arme_Munitions_Max": "4",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Pillards Rouges",
+        "H0D_Arme_Cout": "60",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "lourd",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Deux mains et dés élevés. Pas de FOR ×1,5 ni FOR minimale inventée."
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "autre",
+            "H0D_Arme_Trait_Perso": "Instable",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "Canon issu de machine monté sur harnais ; 1 charge de batterie lourde par tir (4). Batterie vide : aucun tir. Aucun risque en usage normal. Surcharge VOLONTAIRE à chiffrer ; aucune automatisation.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Alimentée : 4 charges, 1/attaque énergétique ; remplacement de cellule standard. Mode sans batterie : aucun tir. Surpuissance volontaire : règles chiffrées non validées, aucun jet d'instabilité en utilisation normale. Cellule montée initialement chargée si achat/fabrication neuf."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 60,
+          "supplements": {},
+          "texte": "60"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "butin/contre-bande/troc exceptionnel"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "energie_seule",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "lourd"
+        ],
+        "notes_a_arbitrer": "Canon issu de machine monté sur harnais ; 1 charge de batterie lourde par tir (4). Batterie vide : aucun tir. Instabilité et surchauffe à arbitrer selon profil ; ne pas les automatiser sans règle validée.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 6,
+            "faisceau-de-fibres-intactes": 4,
+            "circuit-ancien-intact": 1,
+            "cellule-stable": 1,
+            "canon-de-ravager-intact": 1
+          },
+          "dd": 20,
+          "duree": "2 jours",
+          "artisan": "Atelier pillard / artilleur",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "alimentation": {
+          "type": "energie_seule",
+          "capacite_charges": 4,
+          "consommation_charges_par_utilisation_energetique": 1,
+          "reserve": "Batterie lourde",
+          "action_remplacement_cellule": "standard",
+          "recharger_cellule_vide": "Nécessite source énergétique. Pas de recharge gratuite par simple jet de Réparation.",
+          "suivi_foundry": "chargeur_natif",
+          "arme_fonctionne_sans_energie": false,
+          "degats_physiques_sans_energie_proposes": null,
+          "type_physique_sans_energie_propose": null,
+          "regle_mj": "Mode hybride physique conservé, perte des effets énergétiques (validé MJ). Basculement des modes manuel dans CSB.",
+          "charges_initiales_si_neuve_avec_cellule_monteee": 4
+        },
+        "risque_batterie_pillarde": {
+          "declenchement": "Uniquement sursollicitation volontaire (pas de mécanisme chiffré activé). Batterie ciblée : dégâts aux composants selon règles machines.",
+          "source": "Factions.txt — règle simple en combat",
+          "statut": "Principe validé : aucune panne en usage normal ; en surcharge volontaire règles chiffrées en attente, ne pas appliquer de table aléatoire.",
+          "note_ciblage": "Une batterie directement attaquée demeure destructible comme composant de machine, indépendamment d’une surcharge volontaire ; appliquer les règles des pièces destructibles et explosions, pas un jet de panne de fonctionnement normal."
+        },
+        "parametres_encore_provisoires": [
+          "Un charge par attaque énergétique et remplacement de cellule standard : paramètres de suivi à confirmer, effets manuels.",
+          "Surcharge volontaire non définie : aucune valeur/jet ni bonus actuellement à appliquer."
+        ]
+      }
+    },
+    {
+      "key": "baton-rituel-renouveau",
+      "name": "Bâton rituel",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Culte du Renouveau",
+        "H0D_Arme_Cout": "4",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "autre",
+            "H0D_Arme_Trait_Perso": "Rituel",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Courant",
+        "prix_ressources": {
+          "base": 4,
+          "supplements": {},
+          "texte": "4"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "relique/offrande/butin"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "autre"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 1,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 10,
+          "duree": "2 h",
+          "artisan": "Artisanat cultuel",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "lame-rituelle-renouveau",
+      "name": "Lame rituelle",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Tranchant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "19",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "0",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Culte du Renouveau",
+        "H0D_Arme_Cout": "7",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "leger",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          },
+          "1": {
+            "H0D_Arme_Trait_Type": "autre",
+            "H0D_Arme_Trait_Perso": "Rituel",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 7,
+          "supplements": {},
+          "texte": "7"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "hors_commerce",
+          "caravanes": "hors_commerce",
+          "heritiers": "hors_commerce",
+          "source": "relique/offrande/butin"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "hors_commerce_regulier",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "leger",
+          "autre"
+        ],
+        "notes_a_arbitrer": "",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 2,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 12,
+          "duree": "3 h",
+          "artisan": "Forge / artisan cultuel",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "parametres_encore_provisoires": []
+      }
+    },
+    {
+      "key": "arc-solaire",
+      "name": "Arc solaire",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "15",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Direct",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Libre (flèche) ; action standard (changer cellule)",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Héritiers du Soleil",
+        "H0D_Arme_Cout": "30",
+        "H0D_Arme_Traits_Table": {},
+        "H0D_Arme_Effet_Special": "Mode alimenté : une flèche solaire + 1 charge (réserve 12), 1d8 perforant. Mode non alimenté : flèche standard et fonctionnement d’arc normal, dégâts de 1d6 perforant (validé MJ). Pas d’effet de feu automatique sur simple mention « solaire ».",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Alimentée : 12 charges, 1/attaque énergétique ; remplacement de cellule standard. Mode sans batterie : 1d6 Perforant (validé MJ). Cellule montée initialement chargée dans la réserve manuelle ; le compteur du projectile est distinct."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 30,
+          "supplements": {},
+          "texte": "30"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "rare",
+          "heritiers": "oui_sous_conditions_de_reputation",
+          "source": "forge solaire, achats soumis à confiance"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "arme_hybride",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [],
+        "notes_a_arbitrer": "Mode alimenté : une flèche solaire + 1 charge (réserve 12), 1d8 perforant. Mode non alimenté : flèche standard et fonctionnement d’arc normal, dégâts proposés à 1d6 perforant (à confirmer). Pas d’effet de feu automatique sur simple mention « solaire ».",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 3,
+            "faisceau-de-fibres-intactes": 2,
+            "lentille-optique-intacte": 1,
+            "cellule-solaire": 1,
+            "circuit-ancien-intact": 1
+          },
+          "dd": 18,
+          "duree": "1 jour",
+          "artisan": "Forge solaire",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "alimentation": {
+          "type": "hybride",
+          "capacite_charges": 12,
+          "consommation_charges_par_utilisation_energetique": 1,
+          "reserve": "Cellule solaire",
+          "action_remplacement_cellule": "standard",
+          "recharger_cellule_vide": "Nécessite source énergétique. Pas de recharge gratuite par simple jet de Réparation.",
+          "suivi_foundry": "suivi_manuel_second_compteur",
+          "arme_fonctionne_sans_energie": true,
+          "regle_mj": "Mode physique conservé sans énergie, chiffres physiques validés MJ le 21 octobre 2026. Effets manuels dans CSB.",
+          "charges_initiales_si_neuve_avec_cellule_monteee": 12,
+          "degats_physiques_sans_energie_valides": "1d6",
+          "type_physique_sans_energie_valide": "Perforant"
+        },
+        "parametres_encore_provisoires": [
+          "Un charge par attaque énergétique et remplacement de cellule standard : paramètres de suivi à confirmer, effets manuels."
+        ]
+      }
+    },
+    {
+      "key": "lance-solaire",
+      "name": "Lance solaire",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Cellule",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Action standard : changer la cellule (suivi manuel)",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Héritiers du Soleil",
+        "H0D_Arme_Cout": "29",
+        "H0D_Arme_Traits_Table": {},
+        "H0D_Arme_Effet_Special": "Mode physique : 1d8 perforant, sans consommation. Mode alimenté : 1 charge, 1d8 perforant avec effet énergétique solaire descriptif ; aucun bonus de dégâts supplémentaire inventé. Comptage énergie manuel (12 charges).",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Alimentée : 12 charges, 1/attaque énergétique ; remplacement de cellule standard. Mode sans batterie : 1d8 Perforant (validé MJ). Cellule montée initialement chargée dans la réserve manuelle ; le compteur du projectile est distinct."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 29,
+          "supplements": {},
+          "texte": "29"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "rare",
+          "heritiers": "oui_sous_conditions_de_reputation",
+          "source": "forge solaire, achats soumis à confiance"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "arme_hybride",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [],
+        "notes_a_arbitrer": "Mode physique : 1d8 perforant, sans consommation. Mode alimenté : 1 charge, 1d8 perforant avec effet énergétique solaire descriptif ; aucun bonus de dégâts supplémentaire inventé. Comptage énergie manuel (12 charges).",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 3,
+            "faisceau-de-fibres-intactes": 2,
+            "cellule-solaire": 1,
+            "circuit-ancien-intact": 1
+          },
+          "dd": 18,
+          "duree": "1 jour",
+          "artisan": "Forge solaire",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "alimentation": {
+          "type": "hybride",
+          "capacite_charges": 12,
+          "consommation_charges_par_utilisation_energetique": 1,
+          "reserve": "Cellule solaire",
+          "action_remplacement_cellule": "standard",
+          "recharger_cellule_vide": "Nécessite source énergétique. Pas de recharge gratuite par simple jet de Réparation.",
+          "suivi_foundry": "suivi_manuel_melee",
+          "arme_fonctionne_sans_energie": true,
+          "regle_mj": "Mode physique conservé sans énergie, chiffres physiques validés MJ le 21 octobre 2026. Effets manuels dans CSB.",
+          "charges_initiales_si_neuve_avec_cellule_monteee": 12,
+          "degats_physiques_sans_energie_valides": "1d8",
+          "type_physique_sans_energie_valide": "Perforant"
+        },
+        "parametres_encore_provisoires": [
+          "Un charge par attaque énergétique et remplacement de cellule standard : paramètres de suivi à confirmer, effets manuels."
+        ]
+      }
+    },
+    {
+      "key": "projecteur-thermique",
+      "name": "Projecteur thermique",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "2d6",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Energie",
+        "H0D_Arme_Portee": "12",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "3",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Chargeur",
+        "H0D_Arme_Type_Munition": "Cellule",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Standard : changer cellule",
+        "H0D_Arme_Munitions": "6",
+        "H0D_Arme_Munitions_Max": "6",
+        "H0D_Arme_Element": "Feu",
+        "H0D_Arme_Origine": "Héritiers du Soleil",
+        "H0D_Arme_Cout": "42",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "lourd",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": "Deux mains et dés élevés. Pas de FOR ×1,5 ni FOR minimale inventée."
+          }
+        },
+        "H0D_Arme_Effet_Special": "1 charge par tir (6) : 2d6 Feu, état Feu Vigueur DD 15 selon les règles élémentaires de campagne. Batterie vide : impossible de tirer.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Alimentée : 6 charges, 1/attaque énergétique ; remplacement de cellule standard. Mode sans batterie : aucun tir. Cellule montée initialement chargée si achat/fabrication neuf."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 42,
+          "supplements": {},
+          "texte": "42"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "rare",
+          "heritiers": "oui_sous_conditions_de_reputation",
+          "source": "forge solaire, achats soumis à confiance"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "energie_seule",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [
+          "lourd"
+        ],
+        "notes_a_arbitrer": "1 charge par tir (6) : 2d6 Feu, état Feu Vigueur DD 15 selon les règles élémentaires de campagne. Batterie vide : impossible de tirer.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 4,
+            "faisceau-de-fibres-intactes": 2,
+            "module-de-refroidissement": 1,
+            "fluide-elementaire": 1,
+            "cellule-stable": 1
+          },
+          "dd": 20,
+          "duree": "2 jours",
+          "artisan": "Forge solaire / thermique",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "alimentation": {
+          "type": "energie_seule",
+          "capacite_charges": 6,
+          "consommation_charges_par_utilisation_energetique": 1,
+          "reserve": "Cellule solaire",
+          "action_remplacement_cellule": "standard",
+          "recharger_cellule_vide": "Nécessite source énergétique. Pas de recharge gratuite par simple jet de Réparation.",
+          "suivi_foundry": "chargeur_natif",
+          "arme_fonctionne_sans_energie": false,
+          "degats_physiques_sans_energie_proposes": null,
+          "type_physique_sans_energie_propose": null,
+          "regle_mj": "Mode hybride physique conservé, perte des effets énergétiques (validé MJ). Basculement des modes manuel dans CSB.",
+          "charges_initiales_si_neuve_avec_cellule_monteee": 6
+        },
+        "parametres_encore_provisoires": [
+          "Un charge par attaque énergétique et remplacement de cellule standard : paramètres de suivi à confirmer, effets manuels."
+        ]
+      }
+    },
+    {
+      "key": "lance-lumiere",
+      "name": "Lance-lumière",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
+      "props": {
+        "H0D_Arme_Categorie": "distance",
+        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Degats": "aucune",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d10",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Energie",
+        "H0D_Arme_Portee": "18",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "2",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Chargeur",
+        "H0D_Arme_Type_Munition": "Cellule",
+        "H0D_Arme_Consommation_Munition": "1",
+        "H0D_Arme_Recharge": "Standard : changer cellule",
+        "H0D_Arme_Munitions": "6",
+        "H0D_Arme_Munitions_Max": "6",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Héritiers du Soleil",
+        "H0D_Arme_Cout": "40",
+        "H0D_Arme_Traits_Table": {},
+        "H0D_Arme_Effet_Special": "1 charge par tir (6) : 1d10 Énergie. Batterie vide : impossible de tirer.",
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Alimentée : 6 charges, 1/attaque énergétique ; remplacement de cellule standard. Mode sans batterie : aucun tir. Cellule montée initialement chargée si achat/fabrication neuf."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction",
+        "rarete": "Rare",
+        "prix_ressources": {
+          "base": 40,
+          "supplements": {},
+          "texte": "40"
+        },
+        "valeur_troc": null,
+        "disponibilite": {
+          "brok": "indisponible",
+          "caravanes": "rare",
+          "heritiers": "oui_sous_conditions_de_reputation",
+          "source": "forge solaire, achats soumis à confiance"
+        },
+        "statut": "integree_v015",
+        "visible_au_stock_standard": false,
+        "pret_pour_builder": true,
+        "generable_stock_aleatoire": false,
+        "etiquettes": [
+          "arme_faction",
+          "energie_seule",
+          "arme_faction_integree",
+          "fabrication_validee",
+          "effets_speciaux_manuels",
+          "import_cible_mj"
+        ],
+        "source_page": 2,
+        "traits_source": [],
+        "notes_a_arbitrer": "1 charge par tir (6) : 1d10 Énergie. Batterie vide : impossible de tirer.",
+        "note_prix": "Valeur de commerce général déterminée pour la v0.1.5 à partir de l'échelle Commerce v2. Prix non fourni par le Compendium ; pas de jetons Senn.",
+        "effets_automatiques": "Description Foundry/CSB avec gestion MJ pour les DD de contrôle, batteries et bascule des modes énergétique/physique. Aucun automate ajouté.",
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 3,
+            "faisceau-de-fibres-intactes": 2,
+            "condensateur-de-lumiere": 1,
+            "cellule-solaire": 1
+          },
+          "dd": 20,
+          "duree": "2 jours",
+          "artisan": "Forge solaire / optique",
+          "rendement": 1,
+          "statut": "integree_v015"
+        },
+        "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
+        "regle_force": "FOR normale pour les dégâts de mêlée ; pas de ×1,5 sur les armes à deux mains. Arme propulsée (jet) ajoute FOR.",
+        "origine_valeurs": {
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
+          "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
+        },
+        "alimentation": {
+          "type": "energie_seule",
+          "capacite_charges": 6,
+          "consommation_charges_par_utilisation_energetique": 1,
+          "reserve": "Cellule solaire",
+          "action_remplacement_cellule": "standard",
+          "recharger_cellule_vide": "Nécessite source énergétique. Pas de recharge gratuite par simple jet de Réparation.",
+          "suivi_foundry": "chargeur_natif",
+          "arme_fonctionne_sans_energie": false,
+          "degats_physiques_sans_energie_proposes": null,
+          "type_physique_sans_energie_propose": null,
+          "regle_mj": "Mode hybride physique conservé, perte des effets énergétiques (validé MJ). Basculement des modes manuel dans CSB.",
+          "charges_initiales_si_neuve_avec_cellule_monteee": 6
+        },
+        "parametres_encore_provisoires": [
+          "Un charge par attaque énergétique et remplacement de cellule standard : paramètres de suivi à confirmer, effets manuels."
+        ]
+      }
+    }
+  ],
+  "a_valider": [
+    "DD de traction (Vigueur DD 15, mouvement 3 m), de renversement (Vigueur DD 15) et d'entrave légère (Réflexes DD 14) : valeurs indicatives disponibles pour le MJ, encore modifiables.",
+    "Portée de la chaîne-crochet : 9 m proposé, distinct du fouet électrique validé à 6 m.",
+    "Surcharge volontaire des batteries pillardes : principe validé, MAIS bonus de surpuissance, coûts en charges, seuils et conséquences numériques non validés et donc non activés.",
+    "Une charge par attaque énergétique et remplacement de cellule par action standard : paramètres de travail à confirmer si les règles énergétiques évoluent.",
+    "Arcs à bobine/solaire : deuxième compteur d'énergie manuel ; les macros PJ/Créatures actuelles ne changent pas automatiquement les dégâts/type lorsque la cellule est vide.",
+    "Arc tribal déjà dans Equipment Builder : corriger la portée à 12 m et renseigner ses munitions dans le Builder lors d'une intervention ciblée ; le pont Catalogue ne remplace jamais une clé existante.",
+    "Les munitions physiques manquantes (flèches ordinaires, flèches solaires, billes, carreaux, câble-harpon, batterie lourde) sont décrites dans la table de compatibilité du fichier mais ne sont pas encore toutes définies en tant qu'objets autonomes dans le Catalogue.",
+    "Artillerie pillarde à installer sur véhicule/trépied : pas encore de fiches d'armes complètes."
+  ]
+}

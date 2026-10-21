@@ -1,5 +1,15 @@
 # Journal des versions — H0D Catalogue
 
+## v0.1.5 — Armes des cinq factions (21 octobre 2026)
+
+- 28 fiches `item-arme` pour cinq factions ; Arc simple/Arc tribal unifié conceptuellement, sans modifier de force le Builder.
+- 28 champs Foundry, coût, matériaux, DD de fabrication et munitions renseignés ; 28 recettes ajoutées aux 11 précédentes.
+- Arbalète de poignet 1d4, FOR ×1,5 supprimée, FOR sur javelots/frondes mais pas arcs/arbalètes/lance-câble.
+- Armes hybrides conservent leur mode physique à court d'énergie ; fouet à 6 m ; aucune panne des armes pillardes en usage normal.
+- Effets de contrôle manuels, DD indicatifs ; surcharge volontaire **non chiffrée et non activée**.
+- 159 références dont 28 armes, 39 recettes (24 standards), 56 protégées ; 13 armes standards + 15 armes réservées au MJ.
+- Les 21 offres Senn et les 19 plans ECHO sont préservés.
+
 ## v0.1.4 — Sept objets bricolés des Caravanes Libres (19 octobre 2026)
 
 - 7 objets `item-objet` validés : bouclier-bâche, crochet de décrochage, crochet de sauvetage, caisse-leurre, attaches de largage, amortisseur de harnais, coffret à double fond.

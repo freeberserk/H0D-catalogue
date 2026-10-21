@@ -45,7 +45,7 @@ for (const d of defs) {
 }
 const armures = defs.filter(d=>d.kind === "armor");
 assert.equal(armures.length,41);
-assert.equal(defs.length,131);
+assert.equal(defs.length,159);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -110,9 +110,46 @@ assert.ok(hook.props.H0D_Objet_Effet.includes("DD 18"));
 assert.ok(hook.props.H0D_Objet_Effet.includes("Athlétisme DD 12"));
 assert.ok(hook.props.H0D_Objet_Effet.includes("9 m"));
 assert.equal(hook.catalogue.fabrication.dd,12);
+
+const weapons=defs.filter(d=>d.kind==="weapon");
+assert.equal(weapons.length,28);
+const expected={ "dent-ambre":11,"caravanes-libres":3,"pillards-rouges":8,"culte-renouveau":2,"heritiers-soleil":4 };
+for(const [origin,count] of Object.entries(expected)) assert.equal(weapons.filter(w=>w.originKey===origin).length,count);
+assert.ok(!keys.has("arc-simple"),"L'arc simple est l'Arc tribal du Builder.");
+const wByKey=Object.fromEntries(weapons.map(w=>[w.key,w]));
+const wFields=["H0D_Arme_Categorie","H0D_Arme_Carac_Attaque","H0D_Arme_Carac_Degats","H0D_Arme_Bonus_Attaque",
+"H0D_Arme_Degats","H0D_Arme_Bonus_Degats","H0D_Arme_Type_Degats","H0D_Arme_Portee","H0D_Arme_Mains",
+"H0D_Arme_Critique_Seuil","H0D_Arme_Critique_Multiplicateur","H0D_Arme_Equipee","H0D_Stockage","H0D_Arme_Active",
+"H0D_Arme_Encombrement","H0D_Arme_Zone","H0D_Arme_Mode_Munition","H0D_Arme_Type_Munition","H0D_Arme_Consommation_Munition",
+"H0D_Arme_Recharge","H0D_Arme_Munitions","H0D_Arme_Munitions_Max","H0D_Arme_Element","H0D_Arme_Origine",
+"H0D_Arme_Cout","H0D_Arme_Traits_Table","H0D_Arme_Effet_Special","H0D_Arme_Notes"];
+for(const w of weapons){
+ assert.equal(w.templateKey,"item-arme");
+ assert.deepEqual(Object.keys(w.props).sort(),wFields.slice().sort());
+ assert.equal(w.catalogue.statut,"integree_v015");
+ assert.equal(w.catalogue.pret_pour_builder,true);
+ assert.equal(w.catalogue.visible_au_stock_standard,w.catalogue.generable_stock_aleatoire);
+ assert.equal(w.catalogue.fabrication.statut,"integree_v015");
+ assert.ok(w.catalogue.etiquettes.includes("fabrication_validee"));
+ assert.equal(Number(w.props.H0D_Arme_Cout),w.catalogue.prix_ressources.base);
+ assert.ok(Object.values(w.props.H0D_Arme_Traits_Table).every(t=>Number.isFinite(t.H0D_Arme_Trait_Valeur)));
+}
+assert.equal(weapons.filter(w=>w.catalogue.visible_au_stock_standard===false).length,15);
+assert.equal(wByKey["arbalete-de-poignet"].props.H0D_Arme_Degats,"1d4");
+for(const k of ["arc-a-bobine","arc-solaire","arbalete-de-poignet","lance-cable"])
+ assert.equal(wByKey[k].props.H0D_Arme_Carac_Degats,"aucune");
+for(const k of ["fronde-de-chasse","fronde-mecanique","javelot-de-chasse"])
+ assert.equal(wByKey[k].props.H0D_Arme_Carac_Degats,"FOR");
+assert.equal(wByKey["fouet-electrique-pillards"].props.H0D_Arme_Portee,"3");
+assert.equal(Object.values(wByKey["fouet-electrique-pillards"].props.H0D_Arme_Traits_Table)[0].H0D_Arme_Trait_Valeur,3);
+assert.equal(wByKey["fouet-electrique-pillards"].catalogue.alimentation.degats_physiques_sans_energie_valides,"1d4");
+for(const k of ["arc-a-bobine","arc-solaire"])
+ assert.equal(wByKey[k].catalogue.alimentation.degats_physiques_sans_energie_valides,"1d6");
+for(const w of weapons.filter(w=>w.catalogue.risque_batterie_pillarde))
+ assert.ok(!w.catalogue.risque_batterie_pillarde.table_d6,"Une table de surcharge non validée est encore active.");
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,131);
+assert.equal(defs.length,159);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -183,6 +220,6 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
   assert.ok(existsSync(path.join(root,f)),`Fichier manquant : ${f}`);
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
-assert.equal(crafted.length,11);
-assert.equal(privateDefs.length,41);
+assert.equal(crafted.length,39);
+assert.equal(privateDefs.length,56);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);

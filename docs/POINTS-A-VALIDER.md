@@ -10,7 +10,7 @@ Ces décisions ne doivent PAS être tranchées par le module, car les sources ne
 6. Lentille fissurée / lentille rayée : l'équivalence de stock reste à confirmer.
 7. Rations épicées P-03 / rations 2 jours : la durée exacte des rations épicées n'est pas précisée.
 8. Flèches renforcées : leur bonus de combat précis n'est pas défini dans le Compendium PDF fourni.
-9. Prix des armes/armures et divergences PDF ↔ fichiers de référence du Template Manager : rapprochement à faire avant un import.
+9. Prix et recettes des 28 armes de faction intégrés par calibrage Commerce v2 (et non présents dans le Compendium). L'Arc tribal déjà dans le Builder attend sa correction de portée à 12 m ; d'autres équipements restent à rapprocher.
 10. Module de visée commercial / Viseur du Chasseur validé : ne pas fusionner sans décision MJ.
 11. Modification technique des armes CSB et application automatique des quatre fabrications : hors périmètre.
 12. Quantités de Senn non spécifiées : `null` signifie **inconnu**, pas stock illimité.
@@ -65,3 +65,22 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
 - Si les règles de poursuite sont développées, les DD du crochet de sauvetage
   pourront être revus au cas par cas, sans remettre en cause l'approbation de ses valeurs actuelles.
 - Aucun des sept objets n'a été inséré dans les 21 offres du stock fixe Senn P-03.
+
+
+## Armes de faction — v0.1.5
+
+- Les 28 armes et leurs recettes sont intégrées au Catalogue.
+- Traction (Vigueur DD 15, 3 m), renversement (Vigueur DD 15) et
+  entrave légère lance-câble (Réflexes DD 14, -3 m, un round) :
+  valeurs indicatives d'arbitrage, non entièrement ratifiées, non automatisées.
+- Chaîne-crochet jusqu'à 9 m : proposition ; fouet électrique 6 m : validé.
+- Surcharge volontaire des armes pillardes : aucun bonus, coût ou
+  risque chiffré validé ; ne rien déclencher en usage normal.
+- Double réserve flèche + énergie des arcs à suivi manuel et bascule
+  d'effet physique/énergétique manuelle.
+- Arc tribal reste à corriger dans Equipment Builder : portée 12 m.
+  Ce Catalogue ne modifie pas la définition Builder de même clé.
+- 15 armes spéciales protégées contre le pont automatique ; attention
+  aux stocks aléatoires du Builder après leur import ciblé.
+- Les munitions n'ont pas toutes encore de définition Item autonome.
+- Pas de modification des 21 offres Senn ; artillerie pillarde lourde hors lot.

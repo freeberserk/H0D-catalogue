@@ -1,6 +1,6 @@
 # H0D Catalogue — Objets & Artefacts
 
-**Version du module : 0.1.4** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
+**Version du module : 0.1.5** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
 **Cible : Foundry VTT 14 + Custom System Builder 6.0.2+**  
 **Compatible de manière facultative avec H0D Equipment Builder v0.1.0.**
 
@@ -12,13 +12,13 @@ Ce module est **la source centralisée des données H0D**, pas un second génér
 
 Il embarque :
 
-- **131 références** : 53 objets précédents + 7 outils caravaniers + 4 plans de modules, 26 ressources et 41 armures/projets (25 armures de faction + 15 plans ECHO + 1 armure blanche HelioSium) ;
-- **11 fabrications validées** dans ces références ;
+- **159 références** : 64 objets/plans de modules, 26 ressources, 41 armures/plans et 28 armes des cinq factions ;
+- **39 fabrications enregistrées** (24 standards, 15 réservées) dans ces références ;
 - **21 offres de la Longue-Corde (Senn, Prologue P-03)** ;
-- **41 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
-- les coûts, raretés, descriptions et disponibilités tels que fournis par les sources, **sans inventer les données manquantes**.
+- **56 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
+- les valeurs sources conservées et, pour les armes ajoutées, des prix/recettes calibrés sur Commerce v2 et non présentés comme des chiffres originels du Compendium.
 
-Les armes et les protections HELIOS/ELYSIUM indépendantes restent à valider. Les 18 armures des premières factions se trouvent dans `data/catalogue-armures-factions.json` ; les 7 protections du Culte dans `data/catalogue-armures-renouveau.json` ; et les 20 nouvelles références ECHO/HelioSium dans `data/catalogue-forge-echo-heliosium.json`. Les Élus de Zalem relèvent du Bestiaire, pas d'un item-armure. Les résistances Feu et Choc des Héritiers utilisent la table de traits H0D Armure v2.0.
+Les armes de faction sont intégrées en v0.1.5 ; les protections et armes HELIOS/ELYSIUM spécifiques restent à traiter. Les 18 armures des premières factions se trouvent dans `data/catalogue-armures-factions.json` ; les 7 protections du Culte dans `data/catalogue-armures-renouveau.json` ; et les 20 nouvelles références ECHO/HelioSium dans `data/catalogue-forge-echo-heliosium.json`. Les Élus de Zalem relèvent du Bestiaire, pas d'un item-armure. Les résistances Feu et Choc des Héritiers utilisent la table de traits H0D Armure v2.0.
 
 Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copiés** dans ces 79 entrées.
 
@@ -30,13 +30,13 @@ Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copié
 2. Créer le répertoire `FoundryVTT/Data/modules/h0d-catalogue/`.
 3. Décompresser **`h0d-catalogue.zip`** directement dedans : le fichier `module.json` doit être à la racine de ce dossier.
 4. Relancer Foundry, activer **H0D Catalogue — Objets & Artefacts** dans le monde Custom System Builder.
-5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 131`, `stocks: 1`.
+5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 159`, `stocks: 1`.
 
 Aucun Item, aucune macro et aucun dossier ne sont créés automatiquement lors de l'activation.
 
 ### B. Installation depuis GitHub
 
-Depuis la release **v0.1.4**, installer dans Foundry avec ce manifeste :
+Depuis la release **v0.1.5**, installer dans Foundry avec ce manifeste :
 
 `https://github.com/freeberserk/H0D-catalogue/releases/latest/download/module.json`
 
@@ -46,16 +46,16 @@ Les releases sont construites par GitHub Actions, à partir du code validé dans
 
 Le pont d'intégration est **facultatif et conservateur** :
 
-- à l'initialisation, les **90 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
+- à l'initialisation, les **103 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
 - une définition possédant déjà la même clé dans le Builder n'est **jamais remplacée** ;
-- les **41 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
+- les **56 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
 - aucune synchronisation ne crée ni ne modifie les Items du monde ou des fiches de PJ.
 
 On peut lancer une synchronisation idempotente :
 
 ```js
 await game.h0dCatalogue.whenReady();
-game.h0dCatalogue.syncToEquipmentBuilder(); // 90 références standards synchronisées
+game.h0dCatalogue.syncToEquipmentBuilder(); // 103 références standards synchronisées
 // Quand le MJ autorise explicitement l'armure de fin de campagne :
 game.h0dCatalogue.syncSelectedToEquipmentBuilder(['armure-blanche-heliosium']);
 // Ne pas appeler includeRestricted:true en partie ordinaire ; cela inclut aussi des objets de scénario.
@@ -82,7 +82,8 @@ game.h0dCatalogue.getReferenceCatalog();     // définitions compatibles Equipme
 game.h0dCatalogue.getStocks();
 game.h0dCatalogue.getStock('longue-corde-senn-p03');
 game.h0dCatalogue.getStockResolved('longue-corde-senn-p03');
-game.h0dCatalogue.getRecipes();
+game.h0dCatalogue.getRecipes();                      // 24 recettes standards
+game.h0dCatalogue.getRecipes({includeRestricted:true}); // 39 avec les armes de faction réservées
 game.h0dCatalogue.getDefinitions({originKey: 'forge-echo'}); // 15 plans d'armures + 4 plans de modules
 game.h0dCatalogue.getDefinition('armure-blanche-heliosium');
 // Import explicite et ciblé dans le Builder (réservé au MJ):
@@ -113,6 +114,7 @@ h0d-catalogue/
 │   ├── catalogue-armures-renouveau.json  (7 protections)
 │   ├── catalogue-forge-echo-heliosium.json (15 plans ECHO, 4 modules, 1 armure HelioSium)
 │   ├── catalogue-objets-caravanes.json (7 objets caravaniers validés)
+│   ├── catalogue-armes-factions.json (28 armes des 5 factions)
 │   └── stocks/
 │       └── longue-corde-p03.json       (21 offres)
 ├── scripts/h0d-catalogue.js
@@ -270,11 +272,11 @@ reste une piste narrative extérieure à ce catalogue, non développée ici.
 
 ### Sécurité de publication
 
-- 131 références totales, **41 protégées** par défaut.
-- **90** définitions standards exposées au Builder sans modifier les 97 précédentes.
+- 159 références totales, **56 protégées** par défaut.
+- **103** définitions standards exposées au Builder sans modifier les 97 précédentes.
 - Les 19 plans à finaliser ne peuvent jamais être synchronisés vers Equipment Builder
   tant que `pret_pour_builder:false` reste en vigueur.
-- 21 offres de Senn, 4 fabrications existantes + 7 nouvelles et 1 stock de scénario inchangés.
+- 21 offres de Senn, 11 fabrications précédentes + 28 recettes d’armes et 1 stock de scénario inchangés.
 - Prix et coûts manquants conservés à `null`, jamais à zéro.
 
 
@@ -318,3 +320,57 @@ synchronisation additive, sans écraser les définitions préexistantes.
 Le stock précis de Senn au Prologue P-03 conserve **ses 21 offres** ;
 aucune nouvelle offre n'a été ajoutée à ce stock.
 Les 19 plans ECHO non chiffrés restent interdits d'import.
+
+
+## Armes des cinq factions — v0.1.5
+
+**28 armes** dans `data/catalogue-armes-factions.json` (11 Dent d'Ambre,
+3 Caravanes Libres, 8 Pillards Rouges, 2 Renouveau, 4 Héritiers du Soleil),
+avec leurs **28 propriétés item-arme**, coût et recette. L'**Arc simple**
+du Compendium est la même arme que l'**Arc tribal** déjà présent dans
+Equipment Builder : il n'est **pas dupliqué**. La correction effective de
+l'Arc tribal dans Builder (portée 12 m, munition flèche, etc.) n'est pas
+incluse dans cette version, puisque le pont est conservateur.
+
+Arbitrages intégrés : FOR normale (jamais ×1,5 aux armes deux mains),
+arbalète de poignet **1d4**, FOR dégâts sur javelots/frondes mais pas sur
+arcs/arbalètes/lance-câble. Fouet électrique **6 m maximum** (3+3),
+mode électrique **1d6 Choc**, mode physique sans charge **1d4 contondant**.
+Arc à bobine et arc solaire sans énergie **1d6 perforant**, lance solaire
+**1d8 perforant**, gantelet broyeur **1d6 contondant**.
+Les armes entièrement énergétiques ne tirent pas sans énergie.
+
+Les Pillards ne risquent **aucune panne en utilisation normale** ;
+la surpuissance volontaire n'est **pas activée**, faute de règles
+chiffrées approuvées. Traction, entrave légère et renversement utilisent
+des DD indicatifs, révisables, et des effets appliqués **manuellement**.
+Chaîne-crochet 9 m est une proposition distincte du fouet confirmé à 6 m.
+
+### Protection et recettes
+
+- 13 armes standards (Dent d'Ambre et Caravanes, hors Arc à bobine)
+  accessibles à Equipment Builder par défaut.
+- 15 armes réservées : 8 Pillards, 2 Culte, 4 Héritiers et Arc à bobine.
+  Consultables par `getDefinitions({kind:"weapon",includeRestricted:true})`,
+  importables uniquement sur décision du MJ, par exemple :
+
+```js
+await game.h0dCatalogue.whenReady();
+game.h0dCatalogue.syncSelectedToEquipmentBuilder(["fouet-electrique-pillards"]);
+```
+
+  **Attention :** même l'import ciblé rend potentiellement l'arme
+  disponible aux tirages aléatoires du Builder v0.1, qui ne filtre pas
+  encore ce statut. Ne pas importer tout le matériel réservé d'un coup.
+- 28 nouvelles recettes : **24 recettes standards** renvoyées par
+  `getRecipes()`, **39 au total** avec
+  `getRecipes({includeRestricted:true})`.
+- Un seul compteur de munitions natif par arme : les arcs utilisant
+  flèche + cellule nécessitent un **deuxième suivi manuel**. Les
+  modes physiques/énergétiques ne changent pas automatiquement les
+  dégâts du formulaire.
+- Plusieurs conditionnements de munitions du plan (flèches solaires,
+  billes, carreaux courts, câble-harpon, batterie lourde) n'ont pas
+  encore d'Items autonomes ; seuls leurs usages sont documentés.
+- Les 21 offres fixes de Senn sont **inchangées**, comme les 19 plans
+  non chiffrés de la Forge ECHO.
