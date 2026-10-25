@@ -1,8 +1,8 @@
 {
   "id": "h0d-catalogue",
   "title": "H0D Catalogue — Objets & Artefacts",
-  "description": "Référentiel H0D : objets, ressources, 28 armes des cinq factions humaines, armures, fabrications et stocks de scénario. Pont conservateur vers H0D Equipment Builder.",
-  "version": "0.1.5",
+  "description": "Référentiel H0D : objets, ressources, armes et armures, 12 profils de munitions élémentaires déclinés en flèches, carreaux et billes, recettes et stocks.",
+  "version": "0.1.6",
   "authors": [
     {
       "name": "JDR Zero Dawn"

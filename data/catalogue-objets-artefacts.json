@@ -625,45 +625,117 @@
     },
     {
       "key": "fleches-renforcees",
-      "name": "Flèches renforcées",
+      "name": "Flèches renforcées accélérées (×10)",
       "kind": "object",
       "kindLabel": "Objet",
       "templateKey": "item-objet",
       "originKey": "artisanat-commun",
       "origin": "Artisanat commun",
       "tier": 1,
-      "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 3)",
+      "source": "Compendium p.3 ; règle de lot et précision validée ultérieurement par le MJ.",
       "props": {
         "H0D_Objet_Type": "Munition",
-        "H0D_Objet_Sous_Type": "Munition",
-        "H0D_Objet_Quantite": "1",
-        "H0D_Objet_Origine": "Artisanat commun",
-        "H0D_Objet_Description": "Flèches renforcées : Compendium p. 3, conditionnement conseillé x20 ; effet chiffré non documenté",
-        "H0D_Objet_Effet": "",
-        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Sous_Type": "Renforcée",
+        "H0D_Objet_Quantite": "10",
+        "H0D_Stockage": "PJ",
         "H0D_Objet_Actif": false,
-        "H0D_Objet_Munition_Active": true,
-        "H0D_Objet_Munition_Famille": "Fleche"
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "0",
+        "H0D_Objet_Valeur": "0",
+        "H0D_Objet_Utilisations": "0",
+        "H0D_Objet_Utilisations_Max": "0",
+        "H0D_Objet_Recharge": "",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Artisanat de la Dent d’Ambre / Caravanes",
+        "H0D_Objet_Compatibilite": "Arcs utilisant des flèches (arcs hybrides : batterie supplémentaire à gérer manuellement).",
+        "H0D_Objet_Effet": "+1 au jet d'attaque. Pas de dégâts supplémentaires. Indestructible mais perdable : si le projectile est accessible après le tir, on peut le récupérer intact. Aucune récupération automatique. Le champ valeur unitaire Foundry est ENTIER ; 0 = non renseigné (ne signifie pas gratuit) ; seul catalogue.prix_ressources.base représente le prix réel du LOT.",
+        "H0D_Objet_Description": "Pointes profilées en acier, accélération de trajectoire. Lot x10 ; prix 8 ressources par lot (0.8 par munition). +1 au jet d'attaque. Pas de dégâts supplémentaires. Indestructible mais perdable : si le projectile est accessible après le tir, on peut le récupérer intact. Aucune récupération automatique. Le champ valeur unitaire Foundry est ENTIER ; 0 = non renseigné (ne signifie pas gratuit) ; seul catalogue.prix_ressources.base représente le prix réel du LOT. Énergie élémentaire à résoudre manuellement : le champ « bonus dégâts » actuel est numérique et n'accepte pas des dés.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": true,
+        "H0D_Objet_Munition_Bonus_Attaque": "1",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": "+1 au jet d'attaque. Pas de dégâts supplémentaires."
       },
       "catalogue": {
         "categorie": "Munition",
-        "rarete": null,
-        "prix_ressources": null,
+        "rarete": "Peu courant",
+        "prix_ressources": {
+          "base": 8,
+          "supplements": {},
+          "texte": "8"
+        },
         "valeur_troc": null,
         "disponibilite": {
-          "brok": "indisponible",
-          "caravanes": "oui",
-          "heritiers": "indisponible"
+          "brok": "oui",
+          "caravanes": "occasionnel",
+          "heritiers": "oui"
         },
-        "notes_source": "Flèches renforcées : Compendium p. 3, conditionnement conseillé x20 ; effet chiffré non documenté",
+        "notes_source": "Ancien Compendium x20, lots x10 désormais. Senn vend spécifiquement un demi-lot x5 pour 2 jetons sans changement de ses 21 offres.",
         "source_page": 3,
-        "alias": [],
+        "alias": [
+          "Flèches renforcées",
+          "Flèches accélérées en acier"
+        ],
         "etiquettes": [
-          "stats_a_confirmer"
+          "munition_v016",
+          "fabrication_validee",
+          "renforcee",
+          "effets_manuels_foundry"
         ],
         "politique_revente": "standard",
-        "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "statut": "validee_mj",
+        "visible_au_stock_standard": true,
+        "sous_categorie": "renforcee",
+        "generable_stock_aleatoire": true,
+        "pret_pour_builder": true,
+        "fabrication": {
+          "composants": {
+            "plaque-de-machine-propre": 3,
+            "faisceau-de-fibres-intactes": 2
+          },
+          "dd": 15,
+          "duree": "3 heures",
+          "artisan": "Brok / artisan compétent",
+          "rendement": 10,
+          "statut": "validee_mj",
+          "couts_correspondent_au_lot": true
+        },
+        "conditionnement": {
+          "unite_achat": "lot",
+          "quantite_par_lot": 10,
+          "prix_par_lot": 8,
+          "prix_unitaire_theorique": 0.8,
+          "prix_unitaire_non_representable_dans_fiche": true,
+          "exception_senn": {
+            "lot": 5,
+            "prix_jetons": 2,
+            "stock": "longue-corde-senn-p03"
+          }
+        },
+        "munitions": {
+          "famille": "Fleche",
+          "forme_physique": "fleche",
+          "destructible": false,
+          "recuperable": true,
+          "perdable": true,
+          "bonus_attaque": 1,
+          "anti_blindage": 0,
+          "bonus_detachement_piece": 0,
+          "bonus_elementaire_des": null,
+          "element": "Aucun",
+          "rounds_etat": 0,
+          "dd_resistance": null,
+          "sauvegarde": "Vigueur",
+          "effet_etat": null,
+          "note_cumul": "Ne pas cumuler les états d'un même élément ; garder le plus puissant et renouveler la durée seulement si l'état est réappliqué.",
+          "limites": "Bonus élémentaire +Xd6 à lancer manuellement ; anti-blindage sur armure/plaques, pas sur toute la DEF ; la bille n'est pas compatible javelot malgré le code Projectile."
+        },
+        "instructions_mj": "Un projectile par tir, même sur échec. Sauvegarde contre l'état seulement, pas contre les dégâts +Xd6 ; les effets d'états sont gérés par MJ."
       }
     },
     {

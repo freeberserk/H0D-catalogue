@@ -84,3 +84,22 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
   aux stocks aléatoires du Builder après leur import ciblé.
 - Les munitions n'ont pas toutes encore de définition Item autonome.
 - Pas de modification des 21 offres Senn ; artillerie pillarde lourde hors lot.
+
+
+## Munitions — v0.1.6
+
+- +1d6/+2d6/+3d6 élémentaires : **manuels** tant que
+  `H0D_Objet_Munition_Bonus_Degats` n'accepte pas une expression à dés.
+- La valeur unitaire de certains lots est fractionnaire ; le champ
+  Foundry entier a 0 (« non renseigné ») mais le prix légal **par lot**
+  est `catalogue.prix_ressources.base`.
+- `Projectile` regroupe le javelot et les billes de fronde : vérifier
+  la compatibilité physique avant tir.
+- Choc sur machine : uniquement module scanné/exposé/détachable ;
+  pas de décrochage automatique. Application d'état manuelle.
+- Un fluide correct est nécessaire : Blaze référencé pour Feu,
+  fluide-elementaire générique pour les trois autres substances.
+- Paliers II et III protégés du pont standard ; imports ciblés MJ.
+- Stock Senn de 21 offres et demi-lot x5 de flèches renforcées inchangés.
+- Les anciennes capsules incendiaires +1d4 restent une recette distincte.
+- Chargeurs, câbles, filets, cordes-harpons seront traités séparément.

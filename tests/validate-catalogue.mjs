@@ -45,7 +45,7 @@ for (const d of defs) {
 }
 const armures = defs.filter(d=>d.kind === "armor");
 assert.equal(armures.length,41);
-assert.equal(defs.length,159);
+assert.equal(defs.length,199);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -111,6 +111,63 @@ assert.ok(hook.props.H0D_Objet_Effet.includes("Athlétisme DD 12"));
 assert.ok(hook.props.H0D_Objet_Effet.includes("9 m"));
 assert.equal(hook.catalogue.fabrication.dd,12);
 
+
+// Munitions v0.1.6 : 40 nouvelles + 1 fiche historique actualisee, 12 profils x 3 formats.
+const munitions=defs.filter(x=>x.catalogue?.etiquettes?.includes("munition_v016"));
+assert.equal(munitions.length,41);
+assert.equal(load("data/catalogue-munitions.json").definitions.length,40);
+assert.equal(munitions.filter(x=>x.catalogue.elementaire).length,36);
+assert.equal(munitions.filter(x=>x.catalogue.visible_au_stock_standard===false).length,24);
+const profiles=new Map();
+for(const d of munitions){
+ assert.equal(d.kind,"object");assert.equal(d.templateKey,"item-objet");
+ assert.deepEqual(Object.keys(d.props).sort(),objFields.slice().sort());
+ assert.equal(d.props.H0D_Objet_Type,"Munition");
+ assert.equal(d.props.H0D_Objet_Munition_Active,false);
+ assert.equal(d.catalogue.statut,"validee_mj");
+ assert.equal(d.catalogue.pret_pour_builder,true);
+ assert.equal(d.catalogue.fabrication.statut,"validee_mj");
+ assert.ok(d.catalogue.etiquettes.includes("fabrication_validee"));
+ assert.equal(+d.props.H0D_Objet_Quantite,d.catalogue.conditionnement.quantite_par_lot);
+ assert.equal(d.catalogue.fabrication.rendement,d.catalogue.conditionnement.quantite_par_lot);
+ assert.equal(d.catalogue.prix_ressources.base,d.catalogue.conditionnement.prix_par_lot);
+ assert.equal(d.catalogue.visible_au_stock_standard,d.catalogue.generable_stock_aleatoire);
+ assert.equal(d.props.H0D_Objet_Munition_Recuperable,d.catalogue.munitions.recuperable);
+ assert.ok(["Fleche","Carreau","Projectile"].includes(d.props.H0D_Objet_Munition_Famille));
+ if(d.catalogue.elementaire){
+  const p=d.catalogue.elementaire,s=p.palier;
+  assert.ok([1,2,3].includes(s));
+  assert.equal(p.degats_bonus,s+"d6");
+  assert.equal(p.duree_rounds,s===1?0:s);
+  assert.equal(p.dd_etat,s===1?null:s===2?15:18);
+  assert.equal(+d.props.H0D_Objet_Quantite,({1:5,2:3,3:2})[s]);
+  assert.equal(d.catalogue.prix_ressources.base,({1:10,2:18,3:24})[s]);
+  assert.equal(d.catalogue.fabrication.dd,({1:12,2:15,3:18})[s]);
+  assert.equal(d.props.H0D_Objet_Munition_Bonus_Degats,"0");
+  assert.equal(d.props.H0D_Objet_Munition_Recuperable,false);
+  assert.equal(d.catalogue.visible_au_stock_standard,s===1);
+  if(!profiles.has(p.profil))profiles.set(p.profil,new Set());
+  profiles.get(p.profil).add(d.props.H0D_Objet_Munition_Famille);
+ }
+}
+assert.equal(profiles.size,12);
+for(const set of profiles.values())assert.deepEqual([...set].sort(),["Carreau","Fleche","Projectile"].sort());
+const ammoKey=Object.fromEntries(munitions.map(x=>[x.key,x]));
+assert.equal(ammoKey["fleches-renforcees"].props.H0D_Objet_Quantite,"10");
+assert.equal(ammoKey["fleches-renforcees"].props.H0D_Objet_Munition_Bonus_Attaque,"1");
+assert.equal(ammoKey["fleches-renforcees"].props.H0D_Objet_Munition_Recuperable,true);
+assert.equal(ammoKey["fleches-renforcees"].catalogue.prix_ressources.base,8);
+assert.equal(ammoKey["billes-renforcees-anti-blindage"].props.H0D_Objet_Munition_Anti_Blindage,"2");
+assert.equal(ammoKey["billes-renforcees-anti-blindage"].catalogue.munitions.bonus_detachement_piece,1);
+assert.equal(ammoKey["fleches-de-chasse"].props.H0D_Objet_Quantite,"20");
+assert.equal(ammoKey["billes-de-fronde"].props.H0D_Objet_Quantite,"20");
+assert.equal(ammoKey["carreaux-courts"].props.H0D_Objet_Quantite,"10");
+assert.ok(ammoKey["carreaux-elementaires-feu-palier-3"]);
+const sennAmmo=load("data/stocks/longue-corde-p03.json").offres.find(x=>x.reference==="fleches-renforcees");
+assert.equal(sennAmmo.quantite_par_achat,5);
+assert.equal(sennAmmo.prix_jetons,2);
+assert.equal(sennAmmo.nom_pour_la_scene,"Flèches renforcées ×5");
+
 const weapons=defs.filter(d=>d.kind==="weapon");
 assert.equal(weapons.length,28);
 const expected={ "dent-ambre":11,"caravanes-libres":3,"pillards-rouges":8,"culte-renouveau":2,"heritiers-soleil":4 };
@@ -149,7 +206,7 @@ for(const w of weapons.filter(w=>w.catalogue.risque_batterie_pillarde))
  assert.ok(!w.catalogue.risque_batterie_pillarde.table_d6,"Une table de surcharge non validée est encore active.");
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,159);
+assert.equal(defs.length,199);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -220,6 +277,6 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
   assert.ok(existsSync(path.join(root,f)),`Fichier manquant : ${f}`);
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
-assert.equal(crafted.length,39);
-assert.equal(privateDefs.length,56);
+assert.equal(crafted.length,80);
+assert.equal(privateDefs.length,80);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);

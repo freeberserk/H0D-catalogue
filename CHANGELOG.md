@@ -1,5 +1,14 @@
 # Journal des versions — H0D Catalogue
 
+## v0.1.6 — Munitions (25 octobre 2026)
+
+- 40 nouvelles fiches objet (3 munitions classiques, 1 bille renforcée anti-blindage, 36 élémentaires) et correction de `fleches-renforcees` historique.
+- 12 profils (Feu, Gel, Choc, Acide × 3 paliers), déclinés en flèches/car­reaux/billes pour leurs familles Foundry ; destruction systématique des élémentaires.
+- Renforcées réutilisables si retrouvées : flèche accélérée +1 attaque, bille anti-blindage 2 DEF d’armure/plaques et +1 détachement de pièce.
+- Lots classiques 20 (carreaux 10) ; renforcées 10 ; élémentaires 5/3/2, +1d6/+2d6/+3d6, état 0/2/3 rounds, DD 15/18 ; artisanat DD 12/15/18.
+- 199 références, 80 recettes (37 standards), 80 protégées, 21 offres Senn inchangées dont demi-lot historique x5.
+- Calcul des +Xd6 élémentaires, prix unitaires fractionnaires, effets d’états et compatibilité bille/javelot restent des limites manuelles Foundry.
+
 ## v0.1.5 — Armes des cinq factions (21 octobre 2026)
 
 - 28 fiches `item-arme` pour cinq factions ; Arc simple/Arc tribal unifié conceptuellement, sans modifier de force le Builder.

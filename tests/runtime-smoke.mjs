@@ -34,15 +34,15 @@ callbacks.ready();
 const api=context.game.h0dCatalogue;
 await api.whenReady();
 const s=api.getStatus();
-assert.equal(s.references,159);
+assert.equal(s.references,199);
 assert.equal(s.stocks,1);
-assert.equal(s.protected,56);
-assert.equal(s.bridge.added,102);
+assert.equal(s.protected,80);
+assert.equal(s.bridge.added,118);
 assert.equal(s.bridge.skipped,1);
-assert.equal(s.bridge.protected,56);
+assert.equal(s.bridge.protected,80);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
-assert.equal(api.getRecipes().length,39);
+assert.equal(api.getRecipes().length,80);
 // Objets des Caravanes, validés, présents dans le pont conservateur.
 const caravanes=api.getDefinitions({tag:"objet_caravane_valide"});
 assert.equal(caravanes.length,7);
@@ -55,8 +55,8 @@ for(const d of caravanes){
 }
 assert.equal(builder.getDefinition("crochet-de-sauvetage-caravanier").props.H0D_Objet_Charge_Unitaire,"1");
 
-assert.equal(api.getRecipes({includeRestricted:true}).length,39);
-assert.equal(api.getRecipes({includeRestricted:false}).length,20);
+assert.equal(api.getRecipes({includeRestricted:true}).length,80);
+assert.equal(api.getRecipes({includeRestricted:false}).length,37);
 assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:false}).length,13);
 assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:true}).length,28);
 assert.equal(api.getDefinition("arbalete-de-poignet").props.H0D_Arme_Degats,"1d4");
@@ -68,6 +68,20 @@ for(const w of api.getDefinitions({kind:"weapon",includeRestricted:false})) asse
 const targetedWeapon=api.syncSelectedToEquipmentBuilder(["fouet-electrique-pillards"]);
 assert.equal(targetedWeapon.added,1);
 assert.ok(builder.getDefinition("fouet-electrique-pillards"));
+
+const allAmmo=api.getDefinitions({tag:"munition_v016",includeRestricted:true});
+assert.equal(allAmmo.length,41);
+assert.equal(api.getDefinitions({tag:"munition_elementaire",includeRestricted:true}).length,36);
+assert.equal(api.getDefinitions({tag:"munition_elementaire",includeRestricted:false}).length,12);
+assert.equal(api.getDefinition("fleches-renforcees").props.H0D_Objet_Munition_Bonus_Attaque,"1");
+assert.equal(api.getDefinition("billes-renforcees-anti-blindage").props.H0D_Objet_Munition_Anti_Blindage,"2");
+assert.equal(api.getDefinition("billes-renforcees-anti-blindage").catalogue.munitions.bonus_detachement_piece,1);
+assert.equal(api.getDefinition("fleches-elementaires-feu-palier-2").catalogue.elementaire.dd_etat,15);
+assert.equal(api.getDefinition("carreaux-elementaires-gel-palier-3").catalogue.elementaire.duree_rounds,3);
+assert.ok(!builder.getDefinition("fleches-elementaires-feu-palier-2"));
+assert.ok(builder.getDefinition("fleches-elementaires-feu-palier-1"));
+assert.ok(builder.getDefinition("billes-de-fronde"));
+assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.find(x=>x.reference==="fleches-renforcees").quantite_par_achat,5);
 // Armures validées et résistances spécialisées.
 const armors=api.getDefinitions({kind:"armor"});
 assert.equal(armors.length,41);
@@ -98,7 +112,7 @@ assert.equal(exo.props.H0D_Armure_Malus,"0");
 assert.equal(exo.catalogue.malus_vitesse_metres,0);
 assert.equal(api.getDefinition("robe-armure-initie-renouveau").props.H0D_Armure_Bonus_Defense,1);
 assert.ok(!cult.some(x=>/elu-zalem/i.test(x.key)));
-assert.equal(api.getRecipes().length,39);
+assert.equal(api.getRecipes().length,80);
 
 // Plans ECHO : consultables mais interdits au Builder, y compris en mode includeRestricted.
 const plans=api.getDefinitions({originKey:"forge-echo"});
@@ -122,8 +136,8 @@ assert.ok(denied.errors.length);
 // Restaurer le cas d'usage du bridge pour ses compteurs post-synchronisation.
 const noOp=api.syncToEquipmentBuilder();
 assert.equal(noOp.added,0);
-assert.equal(noOp.skipped,103);
-assert.equal(noOp.protected,56);
+assert.equal(noOp.skipped,119);
+assert.equal(noOp.protected,80);
 
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
 const original=api.getDefinition("rations-2-jours");
@@ -132,6 +146,6 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 // Synchronisation idempotente.
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
-assert.equal(after.skipped,103);
-assert.equal(after.protected,56);
-console.log("OK — API Foundry simulée, 159 références, 28 armes, 21 offres, 39 fabrications (20 standards), 56 protégées, import non destructif, aucun doublon.");
+assert.equal(after.skipped,119);
+assert.equal(after.protected,80);
+console.log("OK — API Foundry simulée, 199 références, 28 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");

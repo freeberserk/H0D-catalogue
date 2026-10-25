@@ -1,6 +1,6 @@
 # H0D Catalogue — Objets & Artefacts
 
-**Version du module : 0.1.5** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
+**Version du module : 0.1.6** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
 **Cible : Foundry VTT 14 + Custom System Builder 6.0.2+**  
 **Compatible de manière facultative avec H0D Equipment Builder v0.1.0.**
 
@@ -12,15 +12,15 @@ Ce module est **la source centralisée des données H0D**, pas un second génér
 
 Il embarque :
 
-- **159 références** : 64 objets/plans de modules, 26 ressources, 41 armures/plans et 28 armes des cinq factions ;
-- **39 fabrications enregistrées** (20 standards, 19 réservées) dans ces références ;
+- **199 références** : 104 objets/plans de modules (dont 40 nouvelles munitions), 26 ressources, 41 armures/plans et 28 armes de faction ;
+- **80 fabrications enregistrées** (37 standards, 43 réservées) dans ces références ;
 - **21 offres de la Longue-Corde (Senn, Prologue P-03)** ;
-- **56 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
+- **80 références protégées** des stocks aléatoires standards (objets spéciaux de scénario, fabrication, ou réservés MJ) ;
 - les valeurs sources conservées et, pour les armes ajoutées, des prix/recettes calibrés sur Commerce v2 et non présentés comme des chiffres originels du Compendium.
 
 Les armes de faction sont intégrées en v0.1.5 ; les protections et armes HELIOS/ELYSIUM spécifiques restent à traiter. Les 18 armures des premières factions se trouvent dans `data/catalogue-armures-factions.json` ; les 7 protections du Culte dans `data/catalogue-armures-renouveau.json` ; et les 20 nouvelles références ECHO/HelioSium dans `data/catalogue-forge-echo-heliosium.json`. Les Élus de Zalem relèvent du Bestiaire, pas d'un item-armure. Les résistances Feu et Choc des Héritiers utilisent la table de traits H0D Armure v2.0.
 
-Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copiés** dans ces 79 entrées.
+Les clés des définitions déjà présentes dans Equipment Builder sont préservées. La mise à jour de `fleches-renforcees` ne remplace pas automatiquement une même clé déjà importée dans Builder.
 
 ## Installation
 
@@ -30,13 +30,13 @@ Les 33 objets déjà contenus dans Equipment Builder v0.1.0 **ne sont pas copié
 2. Créer le répertoire `FoundryVTT/Data/modules/h0d-catalogue/`.
 3. Décompresser **`h0d-catalogue.zip`** directement dedans : le fichier `module.json` doit être à la racine de ce dossier.
 4. Relancer Foundry, activer **H0D Catalogue — Objets & Artefacts** dans le monde Custom System Builder.
-5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 159`, `stocks: 1`.
+5. Ouvrir la console (F12), saisir `game.h0dCatalogue.getStatus()` : le résultat doit indiquer `ready: true`, `references: 199`, `stocks: 1`.
 
 Aucun Item, aucune macro et aucun dossier ne sont créés automatiquement lors de l'activation.
 
 ### B. Installation depuis GitHub
 
-Depuis la release **v0.1.5**, installer dans Foundry avec ce manifeste :
+Depuis la release **v0.1.6**, installer dans Foundry avec ce manifeste :
 
 `https://github.com/freeberserk/H0D-catalogue/releases/latest/download/module.json`
 
@@ -46,16 +46,16 @@ Les releases sont construites par GitHub Actions, à partir du code validé dans
 
 Le pont d'intégration est **facultatif et conservateur** :
 
-- à l'initialisation, les **103 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
+- à l'initialisation, les **119 références non protégées** sont transmises à `game.h0dEquipmentBuilder` si le Builder est actif ;
 - une définition possédant déjà la même clé dans le Builder n'est **jamais remplacée** ;
-- les **56 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
+- les **80 références protégées** ne sont **pas** transmises par défaut, car le Builder v0.1 ne peut pas encore les exclure de ses tirages aléatoires ;
 - aucune synchronisation ne crée ni ne modifie les Items du monde ou des fiches de PJ.
 
 On peut lancer une synchronisation idempotente :
 
 ```js
 await game.h0dCatalogue.whenReady();
-game.h0dCatalogue.syncToEquipmentBuilder(); // 103 références standards synchronisées
+game.h0dCatalogue.syncToEquipmentBuilder(); // 119 références standards synchronisées
 // Quand le MJ autorise explicitement l'armure de fin de campagne :
 game.h0dCatalogue.syncSelectedToEquipmentBuilder(['armure-blanche-heliosium']);
 // Ne pas appeler includeRestricted:true en partie ordinaire ; cela inclut aussi des objets de scénario.
@@ -82,8 +82,8 @@ game.h0dCatalogue.getReferenceCatalog();     // définitions compatibles Equipme
 game.h0dCatalogue.getStocks();
 game.h0dCatalogue.getStock('longue-corde-senn-p03');
 game.h0dCatalogue.getStockResolved('longue-corde-senn-p03');
-game.h0dCatalogue.getRecipes();                       // 39 recettes au total, comme en v0.1.4
-game.h0dCatalogue.getRecipes({includeRestricted:false}); // 20 recettes standards uniquement
+game.h0dCatalogue.getRecipes();                       // 80 recettes (avec réservées)
+game.h0dCatalogue.getRecipes({includeRestricted:false}); // 37 recettes standards
 game.h0dCatalogue.getDefinitions({originKey: 'forge-echo'}); // 15 plans d'armures + 4 plans de modules
 game.h0dCatalogue.getDefinition('armure-blanche-heliosium');
 // Import explicite et ciblé dans le Builder (réservé au MJ):
@@ -115,6 +115,7 @@ h0d-catalogue/
 │   ├── catalogue-forge-echo-heliosium.json (15 plans ECHO, 4 modules, 1 armure HelioSium)
 │   ├── catalogue-objets-caravanes.json (7 objets caravaniers validés)
 │   ├── catalogue-armes-factions.json (28 armes des 5 factions)
+│   ├── catalogue-munitions.json (40 nouvelles munitions)
 │   └── stocks/
 │       └── longue-corde-p03.json       (21 offres)
 ├── scripts/h0d-catalogue.js
@@ -272,8 +273,8 @@ reste une piste narrative extérieure à ce catalogue, non développée ici.
 
 ### Sécurité de publication
 
-- 159 références totales, **56 protégées** par défaut.
-- **103** définitions standards exposées au Builder sans modifier les 97 précédentes.
+- 199 références totales, **80 protégées** par défaut.
+- **119** définitions standards exposées au Builder sans modifier les 97 précédentes.
 - Les 19 plans à finaliser ne peuvent jamais être synchronisés vers Equipment Builder
   tant que `pret_pour_builder:false` reste en vigueur.
 - 21 offres de Senn, 11 fabrications précédentes + 28 recettes d’armes et 1 stock de scénario inchangés.
@@ -372,3 +373,51 @@ game.h0dCatalogue.syncSelectedToEquipmentBuilder(["fouet-electrique-pillards"]);
   encore d'Items autonomes ; seuls leurs usages sont documentés.
 - Les 21 offres fixes de Senn sont **inchangées**, comme les 19 plans
   non chiffrés de la Forge ECHO.
+
+
+## Munitions — v0.1.6
+
+**40 nouvelles fiches item-objet** (26 champs par fiche) + amélioration
+de la définition historique **`fleches-renforcees`**.
+**12 profils élémentaires × 3 supports physiques** (flèche,
+carreau court, bille de fronde) = **36 Items**, chacun compatible avec
+sa propre famille `Fleche`, `Carreau` ou `Projectile`.
+
+| Famille | Lot | Prix du lot (ressources) | Propriété |
+|---|---:|---:|---|
+| Flèches de chasse classiques | 20 | 2 | Destruction à l'usage |
+| Billes classiques | 20 | 1 | Destruction à l'usage |
+| Carreaux courts classiques | 10 | 2 | Destruction à l'usage, conditionnement historique spécifique |
+| Flèches renforcées accélérées | 10 | 8 | +1 attaque ; indestructibles mais perdables |
+| Billes renforcées anti-blindage | 10 | 7 | Ignore 2 DEF de blindage et +1 détachement de pièce ; indestructibles mais perdables |
+
+| Palier élémentaire | Dégâts au toucher | État secondaire | DD état | Lot | Prix du lot | DD fabrication |
+|---|---|---|---:|---:|---:|---:|
+| I | +1d6 | Aucun état | — | 5 | 10 | 12 |
+| II | +2d6 | 2 rounds | 15 | 3 | 18 | 15 |
+| III | +3d6 | 3 rounds | 18 | 2 | 24 | 18 |
+
+Les **munitions élémentaires sont détruites après usage**. La
+sauvegarde ne protège que contre l'état secondaire, **jamais contre
+les dégâts élémentaires de la touche**. Feu : brûlure ; Gel :
+ralentissement ; Choc : perturbation / module scanné ; Acide :
+diminution de Défense et de blindage. Les mêmes états ne se cumulent pas.
+
+**Points techniques** : les +Xd6 élémentaires, DD et états doivent
+être appliqués manuellement, car le champ bonus dégâts munition est
+numérique. Certaines valeurs unitaires fractionnaires ne peuvent pas
+tenir dans `H0D_Objet_Valeur` entier : **0 signifie prix unitaire non
+renseigné, pas gratuit** ; le prix exact du lot est
+`catalogue.prix_ressources.base`. Le code natif `Projectile` est
+commun aux billes et javelots : **ne pas tirer une bille avec le javelot**.
+
+**Protection** : paliers II et III (24 Items) hors stock aléatoire
+du Builder, imports ciblés MJ uniquement. Paliers I/classiques/renforcées
+accessibles normalement. Le pont n'écrase pas les définitions déjà
+présentes dans Builder.
+
+**Senn** : 21 offres inchangées ; son offre `fleches-renforcees`
+est **5 unités pour 2 jetons** (demi-lot de scénario) même si le
+lot standard est passé à 10. Les capsules incendiaires historiques
++1d4 Feu restent distinctes des nouveaux +1d6 Feu du palier I.
+Les chargeurs, cellules, filets, cordes et harpons sont hors périmètre.
