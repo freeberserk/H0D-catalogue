@@ -35,6 +35,15 @@ const api=context.game.h0dCatalogue;
 await api.whenReady();
 const s=api.getStatus();
 assert.equal(s.references,199);
+assert.equal(api.resolveDefinition({key:"couteau-de-depecage",kind:"weapon"}).status,"key");
+assert.equal(api.resolveDefinition({name:"Couteau de dépeçage",kind:"weapon"}).key,"couteau-de-depecage");
+assert.equal(api.resolveDefinition({name:"COUTEAU DE DEPECAGE",kind:"weapon"}).status,"name");
+assert.equal(api.resolveDefinition({key:"couteau-de-depecage",kind:"armor"}).status,"kind-mismatch");
+assert.equal(api.resolveDefinition({name:"Inconnu sans correspondance",kind:"weapon"}).status,"missing");
+assert.ok(api.getStockEligibleDefinitions().every(x=>x.catalogue.visible_au_stock_standard===true));
+assert.ok(api.getStockEligibleDefinitions().every(x=>x.catalogue.generable_stock_aleatoire!==false));
+assert.ok(!api.getStockEligibleDefinitions().some(x=>x.catalogue.pret_pour_builder===false));
+
 assert.equal(s.stocks,1);
 assert.equal(s.protected,80);
 assert.equal(s.bridge.added,118);

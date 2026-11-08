@@ -1,3 +1,8 @@
+## v0.1.7 — Identité canonique et sélection de stock
+- Résolution stricte par identifiant, nom exact ou alias documenté, avec contrôle du type et signalement des ambiguïtés.
+- API de liste des marchandises autorisées en stock standard.
+- Source de référence commune aux Builders, sans modifier automatiquement les 199 définitions existantes ni les fiches Foundry.
+
 # Journal des versions — H0D Catalogue
 
 ## v0.1.6 — Munitions (25 octobre 2026)

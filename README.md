@@ -1,3 +1,13 @@
+## v0.1.7 — H0D Catalogue autorité commune des Builders
+
+Le référentiel reste la source canonique **unique** : identifiants stables, noms, propriétés CSB, prix, recettes, raretés, disponibilités, restrictions de scénario et de stock.
+
+- `resolveDefinition({key,name,kind})` : résout d'abord la **clé exacte**, sinon un **nom ou alias explicitement documenté**, avec normalisation d'accents. Une ambiguïté reste signalée, sans rapprochement automatique.
+- `getStockEligibleDefinitions({kind,originKey})` : ne retourne que les articles explicitement autorisés aux stocks ordinaires, jamais les plans ECHO incomplets ni les objets réservés.
+- Aucune création, mise à jour ou migration d'Item ni de fiche au démarrage.
+- Les définitions des autres modules non présentes sous la même clé restent **historiques/non rapprochées**. Les rapprocher requiert une comparaison et une validation MJ, sans confondre des objets similaires.
+- **Le pont Catalogue → Equipment Builder demeure additif** pour respecter les anciennes versions. Le Builder 0.2.0 donne la priorité aux définitions canoniques lors de la lecture, sans que le Catalogue réécrive des Items.
+
 # H0D Catalogue — Objets & Artefacts
 
 **Version du module : 0.1.6** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  

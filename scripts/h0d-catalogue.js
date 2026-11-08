@@ -1,5 +1,5 @@
 /**
- * H0D Catalogue v0.1.6
+ * H0D Catalogue v0.1.7
  * Foundry VTT v14 / Custom System Builder v6.0.2+
  *
  * Principes : module de données, aucune création d'Item au démarrage ;
@@ -7,7 +7,7 @@
  * export additif et non destructif des références non réservées vers Equipment Builder.
  */
 const H0D_CATALOGUE_ID = "h0d-catalogue";
-const H0D_CATALOGUE_VERSION = "0.1.6";
+const H0D_CATALOGUE_VERSION = "0.1.7";
 const H0D_BUILDER_ID = "h0d-equipment-builder";
 
 const h0dState = {
@@ -109,6 +109,42 @@ function h0dGetDefinitions({kind=null, originKey=null, tag=null, query=null, inc
     (includeRestricted || d.catalogue?.visible_au_stock_standard !== false) &&
     (!q || `${d.name} ${d.key} ${d.catalogue?.categorie ?? ""}`.toLocaleLowerCase("fr").includes(q))
   ).map(h0dClone);
+}
+
+/**
+ * Référence exacte du Catalogue, sans approximation sémantique.
+ * Une clé gagne sur le nom ; un nom (ou alias explicitement documenté)
+ * n'est utilisable que s'il identifie exactement une définition du même type.
+ */
+function h0dCanonicalName(value){
+  return String(value??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[’']/g," ").replace(/[^a-zA-Z0-9]+/g," ").trim().toLowerCase();
+}
+function h0dResolveDefinition({key=null,name=null,kind=null}={}){
+  if(!h0dState.ready)return {status:"not-ready",key:null,definition:null,candidates:[]};
+  const byKey=key?h0dState.definitions.get(key):null;
+  if(byKey){
+    if(kind&&byKey.kind!==kind)return {status:"kind-mismatch",key:null,definition:null,candidates:[byKey.key]};
+    return {status:"key",key:byKey.key,definition:h0dClone(byKey),candidates:[byKey.key]};
+  }
+  const normalized=h0dCanonicalName(name);
+  if(!normalized)return {status:"missing",key:null,definition:null,candidates:[]};
+  const matches=[...h0dState.definitions.values()].filter(d=>
+    (!kind||d.kind===kind)&&(
+      h0dCanonicalName(d.name)===normalized ||
+      (Array.isArray(d.catalogue?.alias)&&d.catalogue.alias.some(a=>h0dCanonicalName(a)===normalized))
+    ));
+  if(matches.length===1)return {status:"name",key:matches[0].key,definition:h0dClone(matches[0]),candidates:[matches[0].key]};
+  return {status:matches.length?"ambiguous":"missing",key:null,definition:null,candidates:matches.map(d=>d.key)};
+}
+function h0dGetStockEligibleDefinitions({kind=null,originKey=null}={}){
+  return h0dGetDefinitions({kind,originKey,includeRestricted:false}).filter(d=>
+    d.catalogue?.visible_au_stock_standard===true &&
+    d.catalogue?.generable_stock_aleatoire!==false &&
+    d.catalogue?.pret_pour_builder!==false &&
+    d.catalogue?.non_marchand!==true &&
+    d.catalogue?.mj_seul!==true
+  );
 }
 
 function h0dGetStock(key) { return h0dClone(h0dState.stocks.get(key) || null); }
@@ -276,6 +312,8 @@ const h0dCatalogueAPI = Object.freeze({
   whenReady: () => h0dState.readyPromise,
   getStatus: h0dStats,
   getDefinition: key => h0dClone(h0dState.definitions.get(key) || null),
+  resolveDefinition:h0dResolveDefinition,
+  getStockEligibleDefinitions:h0dGetStockEligibleDefinitions,
   getDefinitions: h0dGetDefinitions,
   getReferenceCatalog: () => h0dGetDefinitions(),
   getStock: h0dGetStock,
