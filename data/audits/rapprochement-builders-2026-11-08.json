@@ -1,0 +1,1022 @@
+{
+  "auditVersion": "1.0",
+  "date": "2026-11-08",
+  "sourceOfTruth": "freeberserk/H0D-catalogue",
+  "importPolicy": "NO_IMPORT_UNTIL_VALIDATED",
+  "provenance": [
+    {
+      "repo": "freeberserk/H0D-catalogue",
+      "version": "0.1.7",
+      "files": [
+        "data/catalogue-objets-artefacts.json",
+        "data/catalogue-armures-factions.json",
+        "data/catalogue-armures-renouveau.json",
+        "data/catalogue-forge-echo-heliosium.json",
+        "data/catalogue-objets-caravanes.json",
+        "data/catalogue-armes-factions.json",
+        "data/catalogue-munitions.json"
+      ],
+      "sourceCommit": "ada923f2a2bd72fa13d2fb69cd68240d94ff8bd5"
+    },
+    {
+      "repo": "freeberserk/h0d-equipment-builder",
+      "version": "0.2.0",
+      "file": "scripts/h0d-equipment-builder.js",
+      "array": "STARTER_CATALOG",
+      "sourceCommit": "30da4b0fee57e85837ae76fa36b8b6a18c4483e3"
+    },
+    {
+      "repo": "freeberserk/h0d-faction-builder",
+      "version": "0.6.5",
+      "files": [
+        "data/dent-ambre-pnj.json",
+        "data/caravanes-libres.json",
+        "data/pillards-rouges.json",
+        "data/culte-renouveau.json",
+        "data/heritiers-soleil.json",
+        "data/heliosium-endgame.json"
+      ],
+      "sourceCommit": "fd18d5285173476d3adfd41cb573b9e3e95ad1fd"
+    }
+  ],
+  "catalogue": {
+    "definitions": 199,
+    "byKind": {
+      "weapon": 28,
+      "armor": 41,
+      "object": 104,
+      "resource": 26
+    },
+    "schemaRequiredPresent": 199,
+    "missingResourcePrice": 81,
+    "missingRarity": 63,
+    "unfinished": 19,
+    "protectedFromStandardStock": 80,
+    "standardStockUnknownPrice": [
+      {
+        "id": "batterie-vide",
+        "kind": "resource"
+      },
+      {
+        "id": "canon-de-ravager-intact",
+        "kind": "resource"
+      },
+      {
+        "id": "circuit-brule",
+        "kind": "resource"
+      },
+      {
+        "id": "faisceau-de-fibres-intactes",
+        "kind": "resource"
+      },
+      {
+        "id": "generateur-de-bouclier",
+        "kind": "resource"
+      },
+      {
+        "id": "generateur-furtif-de-stalker",
+        "kind": "resource"
+      },
+      {
+        "id": "lentille-rayee",
+        "kind": "resource"
+      },
+      {
+        "id": "noyau-lourd",
+        "kind": "resource"
+      },
+      {
+        "id": "noyau-moyen",
+        "kind": "resource"
+      },
+      {
+        "id": "petit-noyau-de-machine",
+        "kind": "resource"
+      },
+      {
+        "id": "plaque-de-machine-propre",
+        "kind": "resource"
+      },
+      {
+        "id": "radar-de-scrapper-intact",
+        "kind": "resource"
+      },
+      {
+        "id": "reservoir-blaze-intact",
+        "kind": "resource"
+      },
+      {
+        "id": "reservoir-de-fluide-intact",
+        "kind": "resource"
+      },
+      {
+        "id": "il-de-watcher-intact",
+        "kind": "resource"
+      },
+      {
+        "id": "tenue-chasseur-dent",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-recuperateur-dent",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-gardien-dent",
+        "kind": "armor"
+      },
+      {
+        "id": "tenue-maitre-cercle",
+        "kind": "armor"
+      },
+      {
+        "id": "cuir-renforce-machine",
+        "kind": "armor"
+      },
+      {
+        "id": "tenue-soigneur-dent",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-rapide-dent",
+        "kind": "armor"
+      },
+      {
+        "id": "tenue-caravanier",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-garde-caravane",
+        "kind": "armor"
+      },
+      {
+        "id": "veste-recuperateur-itinerant",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-maraudeur-rouge",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-briseur-rouge",
+        "kind": "armor"
+      },
+      {
+        "id": "harnais-dompteur-rouge",
+        "kind": "armor"
+      },
+      {
+        "id": "protection-eclaireur-rouge",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-soldat-solaire",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-artilleur-solaire",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-capitaine-solaire",
+        "kind": "armor"
+      },
+      {
+        "id": "tenue-technicien-solaire",
+        "kind": "armor"
+      },
+      {
+        "id": "robe-armure-initie-renouveau",
+        "kind": "armor"
+      },
+      {
+        "id": "armure-zelote-renouveau",
+        "kind": "armor"
+      },
+      {
+        "id": "tenue-oracle-renouveau",
+        "kind": "armor"
+      },
+      {
+        "id": "harnais-converti-renouveau",
+        "kind": "armor"
+      },
+      {
+        "id": "blindage-greffe-leger-renouveau",
+        "kind": "armor"
+      },
+      {
+        "id": "blindage-greffe-lourd-renouveau",
+        "kind": "armor"
+      },
+      {
+        "id": "exo-armure-transfiguration-renouveau",
+        "kind": "armor"
+      }
+    ],
+    "unknownPriceByKind": {
+      "weapon": 0,
+      "armor": 41,
+      "object": 21,
+      "resource": 19
+    },
+    "csbFields": {
+      "weapons": {
+        "total": 28,
+        "invalidDamageNotation": [],
+        "rangedWithZeroRange": []
+      },
+      "armors": {
+        "total": 41,
+        "unknownDefense": [
+          "echo-armure-traqueur-plus-1",
+          "echo-armure-traqueur-plus-2",
+          "echo-armure-traqueur-plus-3",
+          "echo-armure-bastion-plus-1",
+          "echo-armure-bastion-plus-2",
+          "echo-armure-bastion-plus-3",
+          "echo-armure-isolateur-plus-1",
+          "echo-armure-isolateur-plus-2",
+          "echo-armure-isolateur-plus-3",
+          "echo-armure-recuperateur-avance-plus-1",
+          "echo-armure-recuperateur-avance-plus-2",
+          "echo-armure-recuperateur-avance-plus-3",
+          "echo-armure-veilleur-plus-1",
+          "echo-armure-veilleur-plus-2",
+          "echo-armure-veilleur-plus-3"
+        ],
+        "unknownEncumbrance": [
+          "echo-armure-traqueur-plus-1",
+          "echo-armure-traqueur-plus-2",
+          "echo-armure-traqueur-plus-3",
+          "echo-armure-bastion-plus-1",
+          "echo-armure-bastion-plus-2",
+          "echo-armure-bastion-plus-3",
+          "echo-armure-isolateur-plus-1",
+          "echo-armure-isolateur-plus-2",
+          "echo-armure-isolateur-plus-3",
+          "echo-armure-recuperateur-avance-plus-1",
+          "echo-armure-recuperateur-avance-plus-2",
+          "echo-armure-recuperateur-avance-plus-3",
+          "echo-armure-veilleur-plus-1",
+          "echo-armure-veilleur-plus-2",
+          "echo-armure-veilleur-plus-3"
+        ]
+      },
+      "objects": {
+        "total": 104,
+        "missingType": [],
+        "missingEffectAndDescription": []
+      },
+      "resources": {
+        "total": 26,
+        "unknownQuality": [
+          "cellule-solaire",
+          "fluide-elementaire"
+        ]
+      }
+    }
+  },
+  "equipmentBuilder": {
+    "total": 33,
+    "ready": 0,
+    "records": [
+      {
+        "id": "arbalete-legere",
+        "name": "Arbalète légère",
+        "kind": "weapon",
+        "origin": "Caravanes Libres",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown",
+          "distance-range-zero-unverified"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "cape-voyage",
+        "name": "Cape de voyage",
+        "kind": "object",
+        "origin": "Caravanes Libres",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free",
+          "explicit-similar-item-unconfirmed-in-catalogue-validation-doc"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "couteau-utilitaire",
+        "name": "Couteau utilitaire",
+        "kind": "object",
+        "origin": "Caravanes Libres",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "sacoche-pieces",
+        "name": "Sacoche de pièces",
+        "kind": "object",
+        "origin": "Caravanes Libres",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "arc-tribal",
+        "name": "Arc tribal",
+        "kind": "weapon",
+        "origin": "Clan de la Dent d'Ambre",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown",
+          "distance-range-zero-unverified",
+          "range-12m-mentioned-in-catalogue-validation-doc-not-synced"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "lance-courte",
+        "name": "Lance courte",
+        "kind": "weapon",
+        "origin": "Clan de la Dent d'Ambre",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "armure-legere-cuir-machine",
+        "name": "Armure légère de cuir/machine",
+        "kind": "armor",
+        "origin": "Clan de la Dent d'Ambre",
+        "templateKey": "item-armure",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 16,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-defense-needs-interpretation"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "couteau-chasse",
+        "name": "Couteau de chasse",
+        "kind": "object",
+        "origin": "Clan de la Dent d'Ambre",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "dague-rituelle",
+        "name": "Dague rituelle",
+        "kind": "weapon",
+        "origin": "Culte du Renouveau",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "fronde",
+        "name": "Fronde",
+        "kind": "weapon",
+        "origin": "Culte du Renouveau",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown",
+          "distance-range-zero-unverified"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "robe-usee",
+        "name": "Robe usée",
+        "kind": "armor",
+        "origin": "Culte du Renouveau",
+        "templateKey": "item-armure",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 16,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-defense-needs-interpretation"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "pendentif-ruine",
+        "name": "Pendentif de ruine",
+        "kind": "object",
+        "origin": "Culte du Renouveau",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "lame-blanche",
+        "name": "Lame blanche",
+        "kind": "weapon",
+        "origin": "ELYSIUM-10",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "pistolet-ancien-faible",
+        "name": "Pistolet ancien faible",
+        "kind": "weapon",
+        "origin": "ELYSIUM-10",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown",
+          "distance-range-zero-unverified"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "manteau-clair",
+        "name": "Manteau clair",
+        "kind": "armor",
+        "origin": "ELYSIUM-10",
+        "templateKey": "item-armure",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 16,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-defense-needs-interpretation"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "relais-courte-portee",
+        "name": "Relais court-portée",
+        "kind": "object",
+        "origin": "ELYSIUM-10",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "lame-blanche-legere",
+        "name": "Lame blanche légère",
+        "kind": "weapon",
+        "origin": "ELYSIUM-9",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "masque-incomplet",
+        "name": "Masque incomplet",
+        "kind": "armor",
+        "origin": "ELYSIUM-9",
+        "templateKey": "item-armure",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 16,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-defense-needs-interpretation"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "focus-brouille",
+        "name": "Fragment de Focus brouillé",
+        "kind": "object",
+        "origin": "ELYSIUM-9",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "bras-outil-integre",
+        "name": "Bras-outil intégré",
+        "kind": "weapon",
+        "origin": "HELIOS",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "lampe",
+        "name": "Lampe",
+        "kind": "object",
+        "origin": "HELIOS",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "module-diagnostic",
+        "name": "Module de diagnostic",
+        "kind": "object",
+        "origin": "HELIOS",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "gantelet-entrave",
+        "name": "Gantelet d'entrave",
+        "kind": "weapon",
+        "origin": "HelioSium",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "armure-organique-legere",
+        "name": "Armure organique légère",
+        "kind": "armor",
+        "origin": "HelioSium",
+        "templateKey": "item-armure",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 16,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-defense-needs-interpretation"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "relais-vert-blanc",
+        "name": "Relais vert-blanc",
+        "kind": "object",
+        "origin": "HelioSium",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "lame-courte-solaire",
+        "name": "Lame courte solaire",
+        "kind": "weapon",
+        "origin": "Héritiers du Soleil",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "bouclier-leger",
+        "name": "Bouclier léger",
+        "kind": "armor",
+        "origin": "Héritiers du Soleil",
+        "templateKey": "item-armure",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 16,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-defense-needs-interpretation",
+          "compare-with-validated-plus-one-shield-rule"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "amulette-solaire",
+        "name": "Amulette solaire",
+        "kind": "object",
+        "origin": "Héritiers du Soleil",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "torche-ou-huile",
+        "name": "Torche / huile",
+        "kind": "object",
+        "origin": "Héritiers du Soleil",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free",
+          "either-or-not-a-single-defined-item"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "arc-court",
+        "name": "Arc court",
+        "kind": "weapon",
+        "origin": "Pillards Rouges",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown",
+          "distance-range-zero-unverified"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "hache-ferraille",
+        "name": "Hache de ferraille",
+        "kind": "weapon",
+        "origin": "Pillards Rouges",
+        "templateKey": "item-arme",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 28,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "commercial-value-unknown"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "armure-bricolee",
+        "name": "Armure bricolée",
+        "kind": "armor",
+        "origin": "Pillards Rouges",
+        "templateKey": "item-armure",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 16,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-defense-needs-interpretation"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      },
+      {
+        "id": "trophee-machine",
+        "name": "Trophée machine",
+        "kind": "object",
+        "origin": "Pillards Rouges",
+        "templateKey": "item-objet",
+        "source": "PNJ_Factions_Menace_1_Foundry",
+        "csbPropsCount": 26,
+        "fieldReview": [
+          "catalogue-metadata-missing",
+          "primary-source-page-unverified",
+          "zero-value-not-proof-free"
+        ],
+        "exactCatalogueKey": null,
+        "exactNameCatalogueKeys": [],
+        "decision": "audit_en_attente",
+        "importReady": false
+      }
+    ]
+  },
+  "factions": [
+    {
+      "source": "data/dent-ambre-pnj.json",
+      "faction": "dent-ambre-pnj",
+      "profiles": 10,
+      "mentions": 62,
+      "uniqueNames": 53,
+      "exactNameMatches": 6,
+      "matchDetails": [
+        {
+          "item": "Manteau de pisteur",
+          "profile": "CHASSEUR DE LA DENT",
+          "match": [
+            "manteau-de-pisteur"
+          ]
+        },
+        {
+          "item": "Cuir renforcé de machine",
+          "profile": "GARDIEN DE LA DENT",
+          "match": [
+            "cuir-renforce-machine"
+          ]
+        },
+        {
+          "item": "Bâton-câble",
+          "profile": "SOIGNEUR DU CLAN",
+          "match": [
+            "baton-cable"
+          ]
+        },
+        {
+          "item": "Kit de réparation",
+          "profile": "ARTISAN DE LA FORGE",
+          "match": [
+            "kit-de-reparation"
+          ]
+        },
+        {
+          "item": "Fronde mécanique",
+          "profile": "GARDIEN DES FOCUS",
+          "match": [
+            "fronde-mecanique"
+          ]
+        },
+        {
+          "item": "Couteau de dépeçage",
+          "profile": "DRESSEUR DE MACHINES",
+          "match": [
+            "couteau-de-depecage"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "data/caravanes-libres.json",
+      "faction": "caravanes-libres",
+      "profiles": 14,
+      "mentions": 89,
+      "uniqueNames": 89,
+      "exactNameMatches": 0,
+      "matchDetails": []
+    },
+    {
+      "source": "data/pillards-rouges.json",
+      "faction": "pillards-rouges",
+      "profiles": 10,
+      "mentions": 55,
+      "uniqueNames": 55,
+      "exactNameMatches": 1,
+      "matchDetails": [
+        {
+          "item": "Masse de demolition",
+          "profile": "Briseur Rouge",
+          "match": [
+            "masse-de-demolition"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "data/culte-renouveau.json",
+      "faction": "culte-renouveau",
+      "profiles": 15,
+      "mentions": 84,
+      "uniqueNames": 81,
+      "exactNameMatches": 0,
+      "matchDetails": []
+    },
+    {
+      "source": "data/heritiers-soleil.json",
+      "faction": "heritiers-soleil",
+      "profiles": 9,
+      "mentions": 54,
+      "uniqueNames": 54,
+      "exactNameMatches": 2,
+      "matchDetails": [
+        {
+          "item": "Arc solaire",
+          "profile": "ÉCLAIREUR SOLAIRE",
+          "match": [
+            "arc-solaire"
+          ]
+        },
+        {
+          "item": "Projecteur thermique",
+          "profile": "ARTILLEUR SOLAIRE",
+          "match": [
+            "projecteur-thermique"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "data/heliosium-endgame.json",
+      "faction": "heliosium-endgame",
+      "profiles": 11,
+      "mentions": 48,
+      "uniqueNames": 47,
+      "exactNameMatches": 0,
+      "matchDetails": []
+    }
+  ],
+  "glossary": {
+    "schemaRequiredPresent": "Uniquement champs requis par le schéma JSON actuel ; ne prouve pas l'exactitude ni la complétude métier",
+    "fieldReview": "Signalement pour vérification MJ, pas un diagnostic automatique de valeur fausse",
+    "standardStockUnknownPrice": "Prix ressources null dans une entrée visible en stock ; peut être intentionnel (troc, butin, prix non fixé)"
+  },
+  "importedCount": 0,
+  "notes": [
+    "Audit de contenu, non import : aucune nouvelle définition ajoutée au runtime.",
+    "Les constats sur les sources externes sont des instantanés au commit indiqué et doivent être rafraîchis si les repos changent.",
+    "Un champ numérique 0 ou une valeur null n'est pas systématiquement une erreur : signalement pour validation."
+  ]
+}

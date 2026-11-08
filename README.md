@@ -1,3 +1,15 @@
+# H0D Catalogue — audit des importations
+
+## v0.1.8 — Audit des champs avant tout rapprochement
+
+Les vérifications des sources GitHub sont consignées dans [l'audit du 8 novembre 2026](docs/AUDIT-HARMONISATION-2026-11-08.md), avec le [registre des candidats](data/audits/rapprochement-builders-2026-11-08.json).
+
+**199 références publiées restent inchangées.** Les 33 anciennes entrées de l'Equipment Builder ont été vérifiées et restent **en attente** ; aucune création d'équivalence ni estimation de prix/portée/dégâts. Les 392 mentions d'équipement des six fichiers PDF du Faction Builder sont inventoriées par groupe. Les rapports d'audit sont hors `data/index.json` et ne peuvent donc pas être tirés comme des équipements.
+
+Le test `node tests/audit-harmonisation.mjs` contrôle les comptes, les champs de validation, les décisions non approuvées et l'absence d'import implicite.
+
+---
+
 ## v0.1.7 — H0D Catalogue autorité commune des Builders
 
 Le référentiel reste la source canonique **unique** : identifiants stables, noms, propriétés CSB, prix, recettes, raretés, disponibilités, restrictions de scénario et de stock.

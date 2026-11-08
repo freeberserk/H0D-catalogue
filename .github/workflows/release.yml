@@ -19,6 +19,7 @@ jobs:
         run: |
           node tests/validate-catalogue.mjs
           node tests/runtime-smoke.mjs
+          node tests/audit-harmonisation.mjs
           node --check scripts/h0d-catalogue.js
       - name: Extract and validate version
         id: meta

@@ -1,3 +1,10 @@
+## v0.1.8 — Audit de complétude avant rapprochement
+- Audit détaillé des 199 définitions canoniques, des 33 références historiques et des 392 mentions d'équipement de factions.
+- Vérification distincte des champs CSB, de l'identité, de la source documentaire, des prix, de la rareté et des disponibilités.
+- 33 candidats conservés en attente, **0 import nouveau** et **0 chiffre inventé**.
+- Dossiers JSON horodatés et rapport de décisions, exclus du registre runtime.
+- Test CI de non-promotion des données incomplètes.
+
 ## v0.1.7 — Identité canonique et sélection de stock
 - Résolution stricte par identifiant, nom exact ou alias documenté, avec contrôle du type et signalement des ambiguïtés.
 - API de liste des marchandises autorisées en stock standard.
