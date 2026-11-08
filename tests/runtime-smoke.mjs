@@ -94,6 +94,10 @@ assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.find(x=>x.refe
 // Armures validées et résistances spécialisées.
 const armors=api.getDefinitions({kind:"armor"});
 assert.equal(armors.length,41);
+assert.equal(armors.filter(a=>["dent-ambre","caravanes-libres","pillards-rouges","heritiers-soleil"].includes(a.originKey)&&a.catalogue.prix_ressources?.base!=null).length,18);
+assert.equal(api.getDefinition("armure-gardien-dent").catalogue.prix_ressources.base,18);
+assert.equal(api.getDefinition("tenue-technicien-solaire").catalogue.prix_ressources.base,22);
+assert.equal(api.getDefinition("echo-armure-traqueur-plus-1").catalogue.prix_ressources,null);
 const tech=api.getDefinition("tenue-technicien-solaire");
 assert.equal(tech.props.H0D_Armure_Bonus_Defense,1);
 assert.equal(tech.props.H0D_Armure_Encombrement,1);

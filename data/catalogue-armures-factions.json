@@ -1,11 +1,12 @@
 {
   "format": "H0D_EQUIPMENT_CATALOG",
   "formatVersion": 1,
-  "version": "0.1.2",
+  "version": "0.1.9",
   "source_documents": [
     "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf (p. 4)",
     "H0D-template-manager/reference/equipment-reference.json (2026-10)",
-    "Validation MJ — catalogue des armures (2026-10-18)"
+    "Validation MJ — catalogue des armures (2026-10-18)",
+    "Validation MJ — économie des équipements (2026-11-08)"
   ],
   "scope": {
     "factions_validees": [
@@ -19,7 +20,7 @@
       "ELYSIUM"
     ]
   },
-  "notes": "18 armures consolidées. Résistances définies via la table de traits CSB. Protections fragmentaires des Pillards sans bonus cumulés ; pièces indépendantes à effets spéciaux reportées.",
+  "notes": "18 armures consolidées. Résistances définies via la table de traits CSB. Protections fragmentaires des Pillards sans bonus cumulés ; pièces indépendantes à effets spéciaux reportées. Prix validés en v0.1.9 ; recettes exactes non définies, composants inclus dans le coût.",
   "definitions": [
     {
       "key": "tenue-chasseur-dent",
@@ -47,14 +48,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 6,
+          "supplements": {},
+          "texte": "6"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "commande",
           "caravanes": "indisponible",
           "heritiers": "indisponible"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -73,7 +78,8 @@
         "description_visuelle": "Tenue mobile de chasse, cuirs et plaques de machines modestes, adaptée à la forêt et aux sorties du village.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -102,7 +108,11 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 13,
+          "supplements": {},
+          "texte": "13"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "commande",
@@ -128,7 +138,8 @@
         "description_visuelle": "Tenue en cuir tressé avec nombreuses poches, outils et protections légères en pièces de machines. DEF +2 / Enc. 1 retenus depuis le Template Manager.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -157,14 +168,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 18,
+          "supplements": {},
+          "texte": "18"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "commande",
           "caravanes": "indisponible",
           "heritiers": "indisponible"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -183,7 +198,8 @@
         "description_visuelle": "Blindage lourd de récupération et plaques de machines, conçu pour protéger la Dent et tenir une position.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -212,14 +228,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 8,
+          "supplements": {},
+          "texte": "8"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "commande",
           "caravanes": "indisponible",
           "heritiers": "indisponible"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -238,7 +258,8 @@
         "description_visuelle": "Tenue rituelle des maîtres, tissages renforcés et pièces anciennes portant les marques d'occupation.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -267,7 +288,11 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 12,
+          "supplements": {},
+          "texte": "12"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "commande",
@@ -293,7 +318,8 @@
         "description_visuelle": "Cuir épais renforcé par un plastron en pièces de machines. Alternative polyvalente, distincte de l'armure de récupérateur.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -322,7 +348,11 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 8,
+          "supplements": {},
+          "texte": "8"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "commande",
@@ -348,7 +378,8 @@
         "description_visuelle": "Tenue légère en tissus, avec renforts ponctuels et poches de soin. Mobilité recherchée.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -377,7 +408,11 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 7,
+          "supplements": {},
+          "texte": "7"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "commande",
@@ -403,7 +438,8 @@
         "description_visuelle": "Harnais court et épaulières de cuir avec petites pièces de machines. Protection du torse, discrétion et déplacement rapide.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -432,14 +468,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 6,
+          "supplements": {},
+          "texte": "6"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "variable",
           "heritiers": "indisponible"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -458,7 +498,8 @@
         "description_visuelle": "Manteau de voyage, couches de tissu anti-poussière, plaques souples, lunettes et foulard. Adapté au biome de la caravane sans créer de nouveau modèle.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -487,14 +528,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 14,
+          "supplements": {},
+          "texte": "14"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "variable",
           "heritiers": "indisponible"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -513,7 +558,8 @@
         "description_visuelle": "Cuir renforcé de plaques réparées, éléments de protection assortis à la route, casque léger et sangles utilitaires.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -542,7 +588,11 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 8,
+          "supplements": {},
+          "texte": "8"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
@@ -568,7 +618,8 @@
         "description_visuelle": "Veste de travail renforcée au torse et aux bras contre les frottements, avec poches, attaches et harnais de démontage.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -597,14 +648,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 13,
+          "supplements": {},
+          "texte": "13"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
           "heritiers": "indisponible"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -623,7 +678,8 @@
         "description_visuelle": "Assemblage asymétrique : plastron de machine incomplet, épaulière hirsute massive d'un côté, cuir épais, genouillère ou tassette isolée selon le pillard.",
         "protection_fractionnee": true,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -652,14 +708,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 19,
+          "supplements": {},
+          "texte": "19"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
           "heritiers": "indisponible"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -678,7 +738,8 @@
         "description_visuelle": "Blindages lourds bruts fixés au torse et aux épaules, casque épais, genouillères et tassettes massives dépareillées ; protection des jambes incomplète.",
         "protection_fractionnee": true,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -707,7 +768,11 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 16,
+          "supplements": {},
+          "texte": "16"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
@@ -733,7 +798,8 @@
         "description_visuelle": "Harnais technique de capture et de manipulation de machines, câbles, accumulateurs et genouillères isolantes. Une tassette légère facultative.",
         "protection_fractionnee": true,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -762,14 +828,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 8,
+          "supplements": {},
+          "texte": "8"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
           "heritiers": "indisponible"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": null,
         "alias": [],
         "etiquettes": [
@@ -788,7 +858,8 @@
         "description_visuelle": "Protection légère morcelée : demi-masque, épaulière unique, protège-bras et genouillère souple éventuelle ; pas de tassette rigide.",
         "protection_fractionnee": true,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -825,14 +896,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 18,
+          "supplements": {},
+          "texte": "18"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
           "heritiers": "selon_reputation"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -851,7 +926,8 @@
         "description_visuelle": "Armure militaire complète et symétrique : plastron, protections de bras et de jambes, casque à visière et finitions solaires disciplinées.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -888,14 +964,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 28,
+          "supplements": {},
+          "texte": "28"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
           "heritiers": "selon_reputation"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -914,7 +994,8 @@
         "description_visuelle": "Armure lourde complète d'artilleur : plaques articulées, protections thermiques, refroidissement dorsal et casque fermé filtrant.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -951,14 +1032,18 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 30,
+          "supplements": {},
+          "texte": "30"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
           "heritiers": "selon_reputation"
         },
-        "notes_source": "Identité et caractéristiques validées en conversation ; prix et fabrication non définis.",
+        "notes_source": "Identité et caractéristiques validées en conversation ; fabrication détaillée non définie.",
         "source_page": 4,
         "alias": [],
         "etiquettes": [
@@ -977,7 +1062,8 @@
         "description_visuelle": "Armure complète de commandement, plaques raffinées articulées, emblèmes solaires et casque statutaire de capitaine.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     },
     {
@@ -1021,7 +1107,11 @@
       "catalogue": {
         "categorie": "Armure",
         "rarete": null,
-        "prix_ressources": null,
+        "prix_ressources": {
+          "base": 22,
+          "supplements": {},
+          "texte": "22"
+        },
         "valeur_troc": null,
         "disponibilite": {
           "brok": "indisponible",
@@ -1047,7 +1137,8 @@
         "description_visuelle": "Combinaison technique intégrale légère, gants et bottes isolants, fibres résistantes à la chaleur, céramique protectrice et visière thermique. Protection élevée contre incendie et courant électrique sans blindage lourd.",
         "protection_fractionnee": false,
         "emplacements_amelioration_max": 3,
-        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées."
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "tarification_source": "Validation économique MJ — 8 novembre 2026"
       }
     }
   ],

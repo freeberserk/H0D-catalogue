@@ -1,5 +1,5 @@
 /**
- * H0D Catalogue v0.1.8
+ * H0D Catalogue v0.1.9
  * Foundry VTT v14 / Custom System Builder v6.0.2+
  *
  * Principes : module de données, aucune création d'Item au démarrage ;
@@ -7,7 +7,7 @@
  * export additif et non destructif des références non réservées vers Equipment Builder.
  */
 const H0D_CATALOGUE_ID = "h0d-catalogue";
-const H0D_CATALOGUE_VERSION = "0.1.8";
+const H0D_CATALOGUE_VERSION = "0.1.9";
 const H0D_BUILDER_ID = "h0d-equipment-builder";
 
 const h0dState = {
@@ -256,6 +256,23 @@ function h0dPriceLabel(def) {
   return "Non défini";
 }
 
+function h0dJetonsPriceLabel(def) {
+  const labels = [];
+  for (const stock of h0dState.stocks.values()) {
+    for (const offer of stock.offres) {
+      if (offer.reference !== def.key || offer.prix_jetons == null) continue;
+      const prix = offer.prix_jetons;
+      const montant = typeof prix === "number" ? String(prix) :
+        (prix?.min !== undefined && prix?.max !== undefined ? `${prix.min}–${prix.max}` : null);
+      if (!montant) continue;
+      const q = Number(offer.quantite_par_achat ?? 1);
+      const lot = Number.isFinite(q) && q > 1 ? ` (lot de ${q})` : "";
+      labels.push(`${stock.merchant || stock.name} : ${montant} jeton${typeof prix === "number" && prix === 1 ? "" : "s"}${lot}`);
+    }
+  }
+  return labels.join(" ; ") || "—";
+}
+
 async function h0dOpen() {
   if (!h0dState.ready) throw new Error("Catalogue non initialisé.");
   const DialogV2 = globalThis.foundry?.applications?.api?.DialogV2;
@@ -267,14 +284,15 @@ async function h0dOpen() {
     <td>${h0dEscape(def.kind)}</td>
     <td>${h0dEscape(def.catalogue?.rarete || "—")}</td>
     <td>${h0dEscape(h0dPriceLabel(def))}</td>
+    <td>${h0dEscape(h0dJetonsPriceLabel(def))}</td>
     <td>${def.catalogue?.pret_pour_builder===false ? "Plan à finaliser" : def.catalogue?.visible_au_stock_standard === false ? "Réservé MJ" : "Général"}</td>
   </tr>`).join("");
   const content = `<div class="h0d-catalogue-dialog">
     <p><strong>${stats.references} références</strong> · ${stats.stocks} stock de scénario ·
     ${stats.protected} références protégées. La consultation ne crée aucun Item.</p>
-    <p class="h0d-catalogue-muted">Rechercher dans cette fenêtre : Ctrl+F, ou utiliser l'API <code>getDefinitions({query:"..."})</code>.</p>
+    <p class="h0d-catalogue-muted">Jetons : prix propres à chaque marchand, non convertibles depuis les ressources ; récompenses possibles pour l'aide aux Caravanes Libres (MJ). Rechercher : <code>getDefinitions({query:"..."})</code>.</p>
     <div class="h0d-catalogue-scroll"><table class="h0d-catalogue-table"><thead><tr>
-    <th>Nom</th><th>Type</th><th>Rareté</th><th>Valeur indicative</th><th>Stock</th>
+    <th>Nom</th><th>Type</th><th>Rareté</th><th>Ressources / troc</th><th>Offres en jetons</th><th>Stock</th>
     </tr></thead><tbody>${rows}</tbody></table></div>
   </div>`;
   return DialogV2.wait({window:{title:"H0D — Catalogue d'objets et artefacts", resizable:true},
@@ -297,7 +315,7 @@ async function h0dOpenStock(key="longue-corde-senn-p03") {
     <td>${h0dEscape(o.quantite_par_achat ?? 1)}</td></tr>`).join("");
   const content = `<div class="h0d-catalogue-dialog">
     <p>${h0dEscape(stock.name)} — ${stock.offres.length} offres.<br>
-    <strong>Jetons de Reconnaissance :</strong> aucun taux de conversion automatique en ressources.</p>
+    <strong>Jetons de Reconnaissance :</strong> aucune conversion automatique depuis les ressources ; les Caravanes Libres peuvent en attribuer pour des services rendus. Prix spécifiques à ce stock.</p>
     <div class="h0d-catalogue-scroll"><table class="h0d-catalogue-table"><thead><tr>
     <th>Objet</th><th>Jetons</th><th>Stock</th><th>Qté / achat</th>
     </tr></thead><tbody>${rows}</tbody></table></div>

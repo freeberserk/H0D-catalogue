@@ -1,3 +1,10 @@
+## v0.1.9 — Tarifs et jetons des Caravanes Libres (8 novembre 2026)
+- 18 prix d'armures fixés en ressources, coût total incluant les matériaux ; aucune recette non validée ajoutée.
+- Offres en jetons de Senn visibles dans la fenêtre générale du Catalogue ; 21 tarifs et quantités préservés.
+- Ressources non convertibles automatiquement en jetons ; des Caravanes Libres peuvent les offrir en récompense de services rendus.
+- 1 jeton ≈ 2 ressources est un repère de prix, pas un change. 63 prix en ressources demeurent non définis.
+- Audit v0.1.8 conservé comme instantané, tests adaptés aux 18 nouveaux tarifs.
+
 ## v0.1.8 — Audit de complétude avant rapprochement
 - Audit détaillé des 199 définitions canoniques, des 33 références historiques et des 392 mentions d'équipement de factions.
 - Vérification distincte des champs CSB, de l'identité, de la source documentaire, des prix, de la rareté et des disponibilités.

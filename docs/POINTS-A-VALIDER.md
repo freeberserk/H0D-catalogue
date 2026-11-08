@@ -32,7 +32,7 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
 - Vitesse, DEX maximum et prérequis de Force des tableaux historiques sont uniquement mentionnés dans les descriptions.
 - Pillards Rouges : casques, tassettes et genouillères dans les assemblages de base, sans cumul défensif. Pièces exceptionnelles à effets particuliers reportées.
 - HELIOS, ELYSIUM et Culte du Renouveau V1/V2 réservés à une validation ultérieure.
-- Les 18 prix restent inconnus, pas gratuits.
+- Les 18 prix d'armures de factions principales sont validés en v0.1.9 ; les recettes détaillées de fabrication restent inconnues.
 
 
 ## Culte du Renouveau V1/V2 (v0.1.2)
@@ -103,3 +103,9 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
 - Stock Senn de 21 offres et demi-lot x5 de flèches renforcées inchangés.
 - Les anciennes capsules incendiaires +1d4 restent une recette distincte.
 - Chargeurs, câbles, filets, cordes-harpons seront traités séparément.
+
+## Économie — v0.1.9
+- Tarifs des 18 armures des factions principales : validés ; matériaux requis inclus dans les coûts.
+- Même principe de pondération matérielle pour armes et pièges, sans changer leurs prix validés.
+- Jetons non convertibles depuis les ressources ; les Caravanes Libres peuvent les accorder en récompense d'aide apportée. Le repère 1 jeton ≈ 2 ressources est indicatif.
+- À préciser : compositions exactes des recettes, prix des objets artisanaux, protections du Renouveau et plans ECHO.

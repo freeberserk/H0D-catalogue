@@ -1,5 +1,16 @@
 # H0D Catalogue — audit des importations
 
+## v0.1.9 — Économie et jetons (8 novembre 2026)
+- Tarifs de **18 armures principales** fixés en ressources sans modifier leur mécanique ni inventer de recettes non validées.
+- Les **21 offres en jetons de Senn** sont visibles dans le Catalogue à côté des prix en ressources ; leurs prix et lots restent inchangés.
+- Les Caravanes Libres peuvent remettre des jetons aux PJ pour aide apportée ; ressources non convertibles automatiquement en jetons.
+- **1 jeton ≈ 2 ressources** : repère pour de futurs tarifs, jamais taux de change.
+- 63 références demeurent sans prix marchand en ressources, certaines volontairement ; audit v0.1.8 conservé tel quel.
+
+Voir [les règles et 18 tarifs retenus](docs/ECONOMIE-CATALOGUE-2026-11-08.md).
+
+---
+
 ## v0.1.8 — Audit des champs avant tout rapprochement
 
 Les vérifications des sources GitHub sont consignées dans [l'audit du 8 novembre 2026](docs/AUDIT-HARMONISATION-2026-11-08.md), avec le [registre des candidats](data/audits/rapprochement-builders-2026-11-08.json).
@@ -22,7 +33,7 @@ Le référentiel reste la source canonique **unique** : identifiants stables, no
 
 # H0D Catalogue — Objets & Artefacts
 
-**Version du module : 0.1.6** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
+**Version du module : 0.1.9** · **Objets et ressources : v0.1.0-draft ; armures des factions : v0.1.2 ; Forge ECHO / HelioSium : v0.1.3**  
 **Cible : Foundry VTT 14 + Custom System Builder 6.0.2+**  
 **Compatible de manière facultative avec H0D Equipment Builder v0.1.0.**
 

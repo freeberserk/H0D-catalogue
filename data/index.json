@@ -1,7 +1,7 @@
 {
   "format": "H0D_CATALOGUE_INDEX",
   "formatVersion": 1,
-  "version": "0.1.8",
+  "version": "0.1.9",
   "catalogues": [
     "data/catalogue-objets-artefacts.json",
     "data/catalogue-armures-factions.json",
@@ -14,5 +14,5 @@
   "stocks": [
     "data/stocks/longue-corde-p03.json"
   ],
-  "notes": "Fichiers locaux versionnés ; aucune récupération distante depuis GitHub en cours de partie. Prix inconnus laissés null."
+  "notes": "Données locales ; 18 prix d'armures validés ; autres prix inconnus non gratuits ; jetons des Caravanes Libres sans conversion automatique."
 }

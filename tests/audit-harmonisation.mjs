@@ -16,12 +16,14 @@ assert.equal(definitions.length,audit.catalogue.definitions);
 assert.equal(definitions.length,199,"Aucun import effectué avant l'arbitrage.");
 assert.equal(definitions.filter(x=>x.catalogue?.pret_pour_builder===false).length,audit.catalogue.unfinished);
 assert.equal(definitions.filter(x=>x.catalogue?.visible_au_stock_standard===false).length,audit.catalogue.protectedFromStandardStock);
-assert.equal(definitions.filter(x=>x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.missingResourcePrice);
+// Audit v0.1.8 conservé comme état historique ; 18 prix ajoutés en v0.1.9.
+assert.equal(definitions.filter(x=>["dent-ambre","caravanes-libres","pillards-rouges","heritiers-soleil"].includes(x.originKey)&&x.kind==="armor"&&x.catalogue?.prix_ressources?.base!=null).length,18);
+assert.equal(definitions.filter(x=>x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.missingResourcePrice-18);
 assert.equal(definitions.filter(x=>x.catalogue?.rarete==null||x.catalogue?.rarete==="").length,audit.catalogue.missingRarity);
-assert.equal(definitions.filter(x=>x.catalogue?.visible_au_stock_standard===true&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.standardStockUnknownPrice.length);
+assert.equal(definitions.filter(x=>x.catalogue?.visible_au_stock_standard===true&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.standardStockUnknownPrice.length-18);
 for(const kind of ["weapon","armor","object","resource"]){
  assert.equal(definitions.filter(x=>x.kind===kind).length,audit.catalogue.byKind[kind]);
- assert.equal(definitions.filter(x=>x.kind===kind&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.unknownPriceByKind[kind]);
+ assert.equal(definitions.filter(x=>x.kind===kind&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.unknownPriceByKind[kind]-(kind==="armor"?18:0));
 }
 assert.equal(audit.equipmentBuilder.total,33);
 assert.equal(audit.equipmentBuilder.records.length,33);
@@ -45,4 +47,4 @@ assert.equal(audit.factions.reduce((n,f)=>n+f.profiles,0),69);
 assert.equal(audit.factions.reduce((n,f)=>n+f.mentions,0),392);
 assert.equal(audit.factions.reduce((n,f)=>n+f.exactNameMatches,0),9);
 assert.ok(audit.provenance.every(s=>/^[a-f0-9]{40}$/.test(s.sourceCommit)),"Sources liées à des commits immuables.");
-console.log("OK — Audit 199/33/392, données partielles conservées, zéro import nouveau et provenance verrouillée.");
+console.log("OK — Audit historique 199/33/392 conservé ; 18 prix armures v0.1.9, zéro import nouveau.");

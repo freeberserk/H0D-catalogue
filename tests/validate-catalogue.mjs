@@ -45,6 +45,34 @@ for (const d of defs) {
 }
 const armures = defs.filter(d=>d.kind === "armor");
 assert.equal(armures.length,41);
+const prixValidesV019 = {
+  "tenue-chasseur-dent": 6,
+  "armure-recuperateur-dent": 13,
+  "armure-gardien-dent": 18,
+  "tenue-maitre-cercle": 8,
+  "cuir-renforce-machine": 12,
+  "tenue-soigneur-dent": 8,
+  "armure-rapide-dent": 7,
+  "tenue-caravanier": 6,
+  "armure-garde-caravane": 14,
+  "veste-recuperateur-itinerant": 8,
+  "armure-maraudeur-rouge": 13,
+  "armure-briseur-rouge": 19,
+  "harnais-dompteur-rouge": 16,
+  "protection-eclaireur-rouge": 8,
+  "armure-soldat-solaire": 18,
+  "armure-artilleur-solaire": 28,
+  "armure-capitaine-solaire": 30,
+  "tenue-technicien-solaire": 22
+};
+for (const a of armures) {
+  if (Object.hasOwn(prixValidesV019,a.key)) {
+    assert.equal(a.catalogue.prix_ressources?.base,prixValidesV019[a.key],a.key);
+    assert.deepEqual(a.catalogue.prix_ressources?.supplements,{});
+    assert.equal(a.catalogue.fabrication,undefined,"Recette inventée : "+a.key);
+  }
+}
+assert.equal(defs.filter(d=>d.catalogue?.prix_ressources?.base==null).length,63);
 assert.equal(defs.length,199);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
