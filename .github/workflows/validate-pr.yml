@@ -1,0 +1,20 @@
+name: Validate H0D Catalogue pull requests
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate index, catalogue, historical audit and bridge
+        run: |
+          node tests/validate-catalogue.mjs
+          node tests/runtime-smoke.mjs
+          node tests/audit-harmonisation.mjs
+          node tests/release-policy.mjs
+          node --check scripts/h0d-catalogue.js
+          python3 -m json.tool module.json > /dev/null
+          python3 -m json.tool data/catalogue-jetons.json > /dev/null

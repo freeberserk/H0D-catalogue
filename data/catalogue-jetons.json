@@ -1,0 +1,60 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.11",
+  "source_documents": [
+    "docs/ECONOMIE-CATALOGUE-2026-11-08.md"
+  ],
+  "principes": {
+    "statut": "Jetons de Reconnaissance distincts des ressources récupérées. Aucun taux de conversion universel, aucune génération aléatoire."
+  },
+  "definitions": [
+    {
+      "key": "jeton-reconnaissance",
+      "name": "Jeton de Reconnaissance",
+      "kind": "resource",
+      "kindLabel": "Ressource",
+      "templateKey": "item-ressource",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "docs/ECONOMIE-CATALOGUE-2026-11-08.md — règles Jetons de Reconnaissance",
+      "props": {
+        "H0D_Ressource_Type": "Jeton",
+        "H0D_Ressource_Qualite": "Commune",
+        "H0D_Ressource_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Ressource_Valeur_Unitaire": "0",
+        "H0D_Ressource_Charge_Unitaire": "0",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Origine": "Caravanes Libres",
+        "H0D_Ressource_Composant": "",
+        "H0D_Ressource_Usage": "Jeton de Reconnaissance accordé par les Caravanes Libres ; paiement prioritaire chez les marchands qui l'acceptent.",
+        "H0D_Ressource_Notes": "Distinct des matériaux de récupération ; aucune conversion automatique."
+      },
+      "catalogue": {
+        "categorie": "Jeton",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {
+          "caravanes": "récompense de service, selon le MJ"
+        },
+        "alias": [],
+        "etiquettes": [
+          "jeton_reconnaissance",
+          "recompense_caravanes"
+        ],
+        "politique_revente": "non_marchand",
+        "statut": "canon_economie_2026_11_08",
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": true,
+        "non_marchand": true,
+        "mj_seul": true,
+        "restrictions": "Récompense attribuée par le MJ. Ne pas vendre, fabriquer, générer aléatoirement ni convertir en ressources."
+      }
+    }
+  ],
+  "a_valider": []
+}

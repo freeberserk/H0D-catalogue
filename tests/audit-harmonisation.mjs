@@ -8,22 +8,26 @@ const read=path=>JSON.parse(readFileSync(new URL("../"+path,import.meta.url),"ut
 const index=read("data/index.json");
 const audit=read("data/audits/rapprochement-builders-2026-11-08.json");
 const definitions=index.catalogues.flatMap(path=>read(path).definitions);
+// Le rapport figé du 8 novembre porte sur les 199 équipements d\'origine, pas sur les nouveaux jetons.
+const equipmentDefinitions=definitions.filter(x=>x.key!=="jeton-reconnaissance");
+assert.equal(definitions.length,200);
+
 assert.ok(!index.catalogues.some(path=>path.startsWith("data/audits/")),
  "Le rapport d'audit ne doit jamais devenir une table de génération.");
 assert.equal(audit.importPolicy,"NO_IMPORT_UNTIL_VALIDATED");
 assert.equal(audit.importedCount,0);
-assert.equal(definitions.length,audit.catalogue.definitions);
-assert.equal(definitions.length,199,"Aucun import effectué avant l'arbitrage.");
-assert.equal(definitions.filter(x=>x.catalogue?.pret_pour_builder===false).length,audit.catalogue.unfinished);
-assert.equal(definitions.filter(x=>x.catalogue?.visible_au_stock_standard===false).length,audit.catalogue.protectedFromStandardStock);
+assert.equal(equipmentDefinitions.length,audit.catalogue.definitions);
+assert.equal(equipmentDefinitions.length,199,"Aucun import effectué avant l'arbitrage.");
+assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.pret_pour_builder===false).length,audit.catalogue.unfinished);
+assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.visible_au_stock_standard===false).length,audit.catalogue.protectedFromStandardStock);
 // Audit v0.1.8 conservé comme état historique ; 18 prix ajoutés en v0.1.9.
-assert.equal(definitions.filter(x=>["dent-ambre","caravanes-libres","pillards-rouges","heritiers-soleil"].includes(x.originKey)&&x.kind==="armor"&&x.catalogue?.prix_ressources?.base!=null).length,18);
-assert.equal(definitions.filter(x=>x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.missingResourcePrice-18);
-assert.equal(definitions.filter(x=>x.catalogue?.rarete==null||x.catalogue?.rarete==="").length,audit.catalogue.missingRarity);
-assert.equal(definitions.filter(x=>x.catalogue?.visible_au_stock_standard===true&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.standardStockUnknownPrice.length-18);
+assert.equal(equipmentDefinitions.filter(x=>["dent-ambre","caravanes-libres","pillards-rouges","heritiers-soleil"].includes(x.originKey)&&x.kind==="armor"&&x.catalogue?.prix_ressources?.base!=null).length,18);
+assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.missingResourcePrice-18);
+assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.rarete==null||x.catalogue?.rarete==="").length,audit.catalogue.missingRarity);
+assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.visible_au_stock_standard===true&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.standardStockUnknownPrice.length-18);
 for(const kind of ["weapon","armor","object","resource"]){
- assert.equal(definitions.filter(x=>x.kind===kind).length,audit.catalogue.byKind[kind]);
- assert.equal(definitions.filter(x=>x.kind===kind&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.unknownPriceByKind[kind]-(kind==="armor"?18:0));
+ assert.equal(equipmentDefinitions.filter(x=>x.kind===kind).length,audit.catalogue.byKind[kind]);
+ assert.equal(equipmentDefinitions.filter(x=>x.kind===kind&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.unknownPriceByKind[kind]-(kind==="armor"?18:0));
 }
 assert.equal(audit.equipmentBuilder.total,33);
 assert.equal(audit.equipmentBuilder.records.length,33);

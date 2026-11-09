@@ -1,3 +1,11 @@
+## v0.1.11 — Jeton de Reconnaissance (Caravanes Libres)
+
+- Nouvelle référence `jeton-reconnaissance` (`kind: resource`, template `item-ressource`) pour l'inventaire H0D.
+- Type `Jeton`, quantité empilable, charge unitaire et valeur de troc de ressources à zéro.
+- Exclu des stocks standards, du butin aléatoire et de la revente : récompense attribuée uniquement selon le MJ.
+- Aucun changement des 21 offres de Senn ni de leurs prix en jetons ; aucun taux de change universel avec les ressources.
+- Requiert la catégorie `Jeton` du template Ressource v2.6 pour afficher correctement le type.
+
 ## Publication automatique — fichiers distribués et version unique
 
 Le workflow de publication écoute tout changement dans le paquet Foundry : `module.json`, `scripts/**`, `styles/**`, `data/**`, `macros/**`, `schemas/**`, `docs/**`, `README.md` et `CHANGELOG.md`. Une modification de la politique de publication déclenche également son contrôle.
