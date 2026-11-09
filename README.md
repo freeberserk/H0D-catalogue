@@ -1,3 +1,9 @@
+## Version de référence et protection du cache
+
+H0D Catalogue est la **source unique** des définitions d'équipement. Les ressources JSON sont chargées depuis l'archive **installée localement** dans Foundry ; leur URL utilise la version réelle de `module.json` et non un numéro codé en dur. Le chargement est **refusé** si `data/index.json` annonce une autre version. Cette vérification évite de présenter un mélange de données de versions différentes ; elle ne télécharge pas automatiquement le dépôt GitHub pendant une partie.
+
+Les modules consommateurs doivent utiliser `game.h0dCatalogue.getDefinition(key)` et `getStockResolved(key)` et bloquer la création si le Catalogue n'est pas prêt. Les Items déjà dans les inventaires ne sont pas modifiés silencieusement.
+
 ## Classement des protections corporelles dans Armures
 
 - Convention MJ : genouillères, coudières, épaulières, spalières, plastrons, harnais **protecteurs**, tassettes et casques portés relèvent de **Armures & protections** même avec 0 DEF.
