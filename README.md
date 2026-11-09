@@ -1,3 +1,16 @@
+## Ressources — charges et récupération (9 novembre 2026)
+
+Le Catalogue distingue désormais la **charge d'inventaire** de la **valeur de troc**. Le champ `H0D_Ressource_Charge_Unitaire` est renseigné pour 17 références communes, selon la règle validée :
+- fibres, circuits et lentilles : **0,25** par unité ;
+- fluides et cellules faibles : **0,5** ;
+- cellules stables et solaires : **1** ;
+- plaques métalliques : **1** ;
+- noyaux petit / moyen / lourd : **2 / 4 / 8**.
+
+Les **munitions restent sans charge**. Les pièces uniques (canon intact, générateur, réservoir complet, griffe rare, composant ELYSIUM, etc.) sont marquées `charge_statut:"a-valider-piece-speciale"` et n'ont pas reçu de valeur chiffrée inventée.
+
+Les prix de troc, quantités et propriétés de combat sont inchangés. Le H0D Loot utilise les valeurs du Catalogue pour les nouveaux transferts et conserve les defaults du template pour éviter les erreurs de formule. Aucune migration d'inventaire n'est lancée automatiquement.
+
 ## v0.1.11 — Jeton de Reconnaissance (Caravanes Libres)
 
 - Nouvelle référence `jeton-reconnaissance` (`kind: resource`, template `item-ressource`) pour l'inventaire H0D.

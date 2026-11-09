@@ -323,3 +323,25 @@ assert.equal(jeton.catalogue.generable_stock_aleatoire,false);
 assert.equal(jeton.catalogue.pret_pour_builder,true);
 assert.equal(jeton.catalogue.prix_ressources,null);
 assert.equal(load("data/stocks/longue-corde-p03.json").offres.length,21);
+
+
+// Récupération validée 2026-11-09 : charge unitaire indépendante du prix de troc.
+const chargesRessources={
+  "batterie-vide":0.5,"cellule-faible-chargee":0.5,"cellule-solaire":1,"cellule-stable":1,
+  "circuit-ancien-abime":0.25,"circuit-ancien-intact":0.25,"circuit-brule":0.25,
+  "faisceau-de-fibres-intactes":0.25,"fluide-elementaire":0.5,
+  "fluide-elementaire-blaze":0.5,"lentille-optique-intacte":0.25,
+  "lentille-rayee":0.25,"noyau-lourd":8,"noyau-moyen":4,
+  "petit-noyau-de-machine":2,"plaque-de-machine-propre":1,"oeil-optique-intact":0.25
+};
+for(const [key,charge] of Object.entries(chargesRessources)){
+  const resource=defs.find(d=>d.key===key);
+  assert.ok(resource && resource.kind==="resource",key);
+  assert.equal(Number(resource.props.H0D_Ressource_Charge_Unitaire),charge,key+" : charge");
+  assert.equal(resource.catalogue.charge_statut,"bareme-valide-2026-11-09");
+}
+for(const d of defs.filter(d=>d.kind==="resource"&&d.catalogue?.charge_statut==="a-valider-piece-speciale")){
+  assert.equal(d.props.H0D_Ressource_Charge_Unitaire,undefined,d.key+": charge exceptionnelle non inventée");
+}
+for(const munition of defs.filter(d=>d.kind==="object"&&d.props?.H0D_Objet_Type==="Munition"&&"H0D_Objet_Charge_Unitaire" in d.props))
+  assert.equal(Number(munition.props.H0D_Objet_Charge_Unitaire),0,munition.key+": munitions sans charge");

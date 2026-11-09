@@ -2519,7 +2519,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "Recyclage",
         "H0D_Ressource_Qualite": "Abimee",
-        "H0D_Ressource_Valeur_Unitaire": "1"
+        "H0D_Ressource_Valeur_Unitaire": "1",
+        "H0D_Ressource_Charge_Unitaire": "0.5"
       },
       "catalogue": {
         "categorie": "Cellule",
@@ -2541,7 +2542,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -2587,7 +2589,8 @@
         "etiquettes": [],
         "politique_revente": "estimation_MJ",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -2606,7 +2609,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "CE",
         "H0D_Ressource_Qualite": "Commune",
-        "H0D_Ressource_Valeur_Unitaire": "2"
+        "H0D_Ressource_Valeur_Unitaire": "2",
+        "H0D_Ressource_Charge_Unitaire": "0.5"
       },
       "catalogue": {
         "categorie": "Cellule",
@@ -2637,7 +2641,8 @@
         "politique_revente": "standard",
         "source_commerce_page": 2,
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -2655,7 +2660,8 @@
         "H0D_Ressource_Quantite": "1",
         "H0D_Ressource_Origine": "Héritiers du Soleil",
         "H0D_Ressource_Usage": "Armes et modules solaires",
-        "H0D_Ressource_Valeur_Unitaire": "6"
+        "H0D_Ressource_Valeur_Unitaire": "6",
+        "H0D_Ressource_Charge_Unitaire": "1"
       },
       "catalogue": {
         "categorie": "Énergie",
@@ -2677,7 +2683,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -2696,7 +2703,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "CE avancée",
         "H0D_Ressource_Qualite": "Stable",
-        "H0D_Ressource_Valeur_Unitaire": "4"
+        "H0D_Ressource_Valeur_Unitaire": "4",
+        "H0D_Ressource_Charge_Unitaire": "1"
       },
       "catalogue": {
         "categorie": "Cellule",
@@ -2728,7 +2736,8 @@
         "politique_revente": "standard",
         "source_commerce_page": 2,
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -2747,7 +2756,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "CA",
         "H0D_Ressource_Qualite": "Abimee",
-        "H0D_Ressource_Valeur_Unitaire": "2"
+        "H0D_Ressource_Valeur_Unitaire": "2",
+        "H0D_Ressource_Charge_Unitaire": "0.25"
       },
       "catalogue": {
         "categorie": "Circuit",
@@ -2779,7 +2789,8 @@
         "politique_revente": "standard",
         "source_commerce_page": 2,
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -2798,7 +2809,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "CA avancé",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "4"
+        "H0D_Ressource_Valeur_Unitaire": "4",
+        "H0D_Ressource_Charge_Unitaire": "0.25"
       },
       "catalogue": {
         "categorie": "Circuit",
@@ -2830,7 +2842,8 @@
         "politique_revente": "standard",
         "source_commerce_page": 2,
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -2849,7 +2862,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "Ferraille technique",
         "H0D_Ressource_Qualite": "Abimee",
-        "H0D_Ressource_Valeur_Unitaire": "1"
+        "H0D_Ressource_Valeur_Unitaire": "1",
+        "H0D_Ressource_Charge_Unitaire": "0.25"
       },
       "catalogue": {
         "categorie": "Circuit",
@@ -2871,7 +2885,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -2912,7 +2927,8 @@
         ],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": false
+        "visible_au_stock_standard": false,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -2931,7 +2947,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "FS",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "1"
+        "H0D_Ressource_Valeur_Unitaire": "1",
+        "H0D_Ressource_Charge_Unitaire": "0.25"
       },
       "catalogue": {
         "categorie": "Fibre",
@@ -2953,7 +2970,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -2971,7 +2989,8 @@
         "H0D_Ressource_Quantite": "1",
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "Feu / Gel / Acide / Choc",
-        "H0D_Ressource_Valeur_Unitaire": "2"
+        "H0D_Ressource_Valeur_Unitaire": "2",
+        "H0D_Ressource_Charge_Unitaire": "0.5"
       },
       "catalogue": {
         "categorie": "Technique",
@@ -2993,7 +3012,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -3014,7 +3034,8 @@
         "H0D_Ressource_Element": "Feu",
         "H0D_Ressource_Qualite": "Commune",
         "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire."
+        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire.",
+        "H0D_Ressource_Charge_Unitaire": "0.5"
       },
       "catalogue": {
         "categorie": "Fluide",
@@ -3035,7 +3056,8 @@
         ],
         "politique_revente": "standard",
         "statut": "a_revoir",
-        "visible_au_stock_standard": false
+        "visible_au_stock_standard": false,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -3076,7 +3098,8 @@
         ],
         "politique_revente": "standard",
         "statut": "a_revoir",
-        "visible_au_stock_standard": false
+        "visible_au_stock_standard": false,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -3122,7 +3145,8 @@
         "etiquettes": [],
         "politique_revente": "estimation_MJ",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -3168,7 +3192,8 @@
         "etiquettes": [],
         "politique_revente": "estimation_MJ",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -3187,7 +3212,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "LO",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "2"
+        "H0D_Ressource_Valeur_Unitaire": "2",
+        "H0D_Ressource_Charge_Unitaire": "0.25"
       },
       "catalogue": {
         "categorie": "Lentille",
@@ -3218,7 +3244,8 @@
         "politique_revente": "standard",
         "source_commerce_page": 2,
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -3237,7 +3264,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "Restauration",
         "H0D_Ressource_Qualite": "Abimee",
-        "H0D_Ressource_Valeur_Unitaire": "1"
+        "H0D_Ressource_Valeur_Unitaire": "1",
+        "H0D_Ressource_Charge_Unitaire": "0.25"
       },
       "catalogue": {
         "categorie": "Lentille",
@@ -3261,7 +3289,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -3280,7 +3309,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "NM",
         "H0D_Ressource_Qualite": "Rare",
-        "H0D_Ressource_Valeur_Unitaire": "20"
+        "H0D_Ressource_Valeur_Unitaire": "20",
+        "H0D_Ressource_Charge_Unitaire": "8"
       },
       "catalogue": {
         "categorie": "Noyau",
@@ -3302,7 +3332,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -3321,7 +3352,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "NM",
         "H0D_Ressource_Qualite": "Stable",
-        "H0D_Ressource_Valeur_Unitaire": "10"
+        "H0D_Ressource_Valeur_Unitaire": "10",
+        "H0D_Ressource_Charge_Unitaire": "4"
       },
       "catalogue": {
         "categorie": "Noyau",
@@ -3343,7 +3375,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -3362,7 +3395,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "NM",
         "H0D_Ressource_Qualite": "Commune",
-        "H0D_Ressource_Valeur_Unitaire": "5"
+        "H0D_Ressource_Valeur_Unitaire": "5",
+        "H0D_Ressource_Charge_Unitaire": "2"
       },
       "catalogue": {
         "categorie": "Noyau",
@@ -3384,7 +3418,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -3403,7 +3438,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "PM",
         "H0D_Ressource_Qualite": "Commune",
-        "H0D_Ressource_Valeur_Unitaire": "1"
+        "H0D_Ressource_Valeur_Unitaire": "1",
+        "H0D_Ressource_Charge_Unitaire": "1"
       },
       "catalogue": {
         "categorie": "Plaque",
@@ -3427,7 +3463,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     },
     {
@@ -3475,7 +3512,8 @@
         "etiquettes": [],
         "politique_revente": "estimation_MJ",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -3521,7 +3559,8 @@
         "etiquettes": [],
         "politique_revente": "estimation_MJ",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -3564,7 +3603,8 @@
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -3610,7 +3650,8 @@
         "etiquettes": [],
         "politique_revente": "estimation_MJ",
         "statut": "source_pdf",
-        "visible_au_stock_standard": true
+        "visible_au_stock_standard": true,
+        "charge_statut": "a-valider-piece-speciale"
       }
     },
     {
@@ -3630,7 +3671,8 @@
         "H0D_Ressource_Usage": "Pièce intacte des PJ ; origine machine non précisée",
         "H0D_Ressource_Qualite": "Intacte",
         "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire."
+        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire.",
+        "H0D_Ressource_Charge_Unitaire": "0.25"
       },
       "catalogue": {
         "categorie": "Lentille",
@@ -3651,7 +3693,8 @@
         ],
         "politique_revente": "standard",
         "statut": "a_revoir",
-        "visible_au_stock_standard": false
+        "visible_au_stock_standard": false,
+        "charge_statut": "bareme-valide-2026-11-09"
       }
     }
   ],

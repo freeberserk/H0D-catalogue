@@ -1,3 +1,9 @@
+## Charges des matériaux — 9 novembre 2026
+- 17 ressources communes dotées de la charge unitaire validée, sans modification de leurs prix.
+- 9 pièces spéciales signalées comme nécessitant une charge dédiée à valider.
+- Aucune charge pour les munitions ; pas de modification des inventaires existants.
+- Tests de non-régression sur les charges et les munitions.
+
 ## v0.1.11 — Jetons de Reconnaissance
 - Définition canonique `jeton-reconnaissance` ajoutée, hors stocks marchands et génération aléatoire.
 - Catalogue 200 définitions, avec 63 références d'équipement toujours sans prix (jeton exclu de ce décompte).
