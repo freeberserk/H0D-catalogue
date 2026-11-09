@@ -1,3 +1,8 @@
+## v0.1.11 — Jetons de Reconnaissance
+- Définition canonique `jeton-reconnaissance` ajoutée, hors stocks marchands et génération aléatoire.
+- Catalogue 200 définitions, avec 63 références d'équipement toujours sans prix (jeton exclu de ce décompte).
+- Stock exact de Senn inchangé. Aucun paiement ni transfert de jetons automatisé par ce module seul.
+
 ## Publication automatique — correction du déclencheur et des versions
 
 - Le workflow de release couvre désormais tous les dossiers et fichiers effectivement distribués, et plus seulement `module.json`.
