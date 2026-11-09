@@ -1,3 +1,8 @@
+## v0.1.12 — Charges des ressources
+- 17 ressources communes dotées des charges unitaires validées (munitions inchangées).
+- Pièces rares uniques : charges spécifiques non chiffrées, statut explicite de validation en attente.
+- La publication synchronise maintenant les versions du manifeste et de l'index Catalogue.
+
 ## Charges des matériaux — 9 novembre 2026
 - 17 ressources communes dotées de la charge unitaire validée, sans modification de leurs prix.
 - 9 pièces spéciales signalées comme nécessitant une charge dédiée à valider.

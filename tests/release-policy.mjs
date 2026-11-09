@@ -15,3 +15,6 @@ assert.match(wf,/gh release create "\$TAG"/,"Créer une nouvelle release");
 assert.doesNotMatch(wf,/gh release upload.*--clobber/,"Ne pas écraser une release de même numéro");
 assert.match(wf,/cancel-in-progress: false/,"Ne pas abandonner une publication");
 console.log("Catalogue : tous les fichiers distribués déclenchent une release versionnée et non écrasée.");
+
+assert.match(wf,/i\.version=process\.argv\[1\]/,"La version de l'index doit suivre celle du module");
+assert.match(wf,/git add module\.json data\/index\.json/,"Versionner les deux fichiers");

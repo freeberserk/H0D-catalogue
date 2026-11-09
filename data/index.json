@@ -1,7 +1,7 @@
 {
   "format": "H0D_CATALOGUE_INDEX",
   "formatVersion": 1,
-  "version": "0.1.11",
+  "version": "0.1.12",
   "catalogues": [
     "data/catalogue-objets-artefacts.json",
     "data/catalogue-armures-factions.json",
