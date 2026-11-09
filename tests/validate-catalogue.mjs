@@ -72,8 +72,8 @@ for (const a of armures) {
     assert.equal(a.catalogue.fabrication,undefined,"Recette inventée : "+a.key);
   }
 }
-assert.equal(defs.filter(d=>d.catalogue?.prix_ressources?.base==null).length,63);
-assert.equal(defs.length,199);
+assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63);
+assert.equal(defs.length,200);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -308,3 +308,18 @@ const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===fals
 assert.equal(crafted.length,80);
 assert.equal(privateDefs.length,80);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);
+
+// La monnaie de scène n'est pas une ressource de récupération ni un stock marchand.
+const jeton=defs.find(d=>d.key==="jeton-reconnaissance");
+assert.equal(jeton.kind,"resource");
+assert.equal(jeton.templateKey,"item-ressource");
+assert.equal(jeton.props.H0D_Ressource_Type,"Jeton");
+assert.equal(jeton.props.H0D_Ressource_Quantite,"1");
+assert.equal(jeton.props.H0D_Ressource_Valeur_Unitaire,"0");
+assert.equal(jeton.props.H0D_Ressource_Charge_Unitaire,"0");
+assert.equal(jeton.catalogue.non_marchand,true);
+assert.equal(jeton.catalogue.visible_au_stock_standard,false);
+assert.equal(jeton.catalogue.generable_stock_aleatoire,false);
+assert.equal(jeton.catalogue.pret_pour_builder,true);
+assert.equal(jeton.catalogue.prix_ressources,null);
+assert.equal(load("data/stocks/longue-corde-p03.json").offres.length,21);
