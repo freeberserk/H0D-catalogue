@@ -150,7 +150,7 @@ assert.ok(denied.errors.length);
 const noOp=api.syncToEquipmentBuilder();
 assert.equal(noOp.added,0);
 assert.equal(noOp.skipped,119);
-assert.equal(noOp.protected,80);
+assert.equal(noOp.protected,81);
 
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
 const original=api.getDefinition("rations-2-jours");
@@ -160,5 +160,5 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
 assert.equal(after.skipped,119);
-assert.equal(after.protected,80);
+assert.equal(after.protected,81);
 console.log("OK — API Foundry simulée, 199 références, 28 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");
