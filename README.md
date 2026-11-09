@@ -1,3 +1,10 @@
+## Classement des protections corporelles dans Armures
+
+- Convention MJ : genouillères, coudières, épaulières, spalières, plastrons, harnais **protecteurs**, tassettes et casques portés relèvent de **Armures & protections** même avec 0 DEF.
+- Références corrigées : `epaulieres-de-route` (zone `bras`) et `genouilleres-de-caravane-depareillees` (zone `jambes`). Leurs effets provisoires du Prologue et leurs alternatives de récupération restent textuellement identiques, sans bonus automatique ni résistance inventée.
+- Le changement du Catalogue affecte les **nouvelles générations d'Items**. Les Items déjà embarqués dans les inventaires Foundry ne sont **pas migrés automatiquement** : contrôler les quantités (par exemple une pile de deux épaulières) avant toute conversion.
+- Les autres objets ayant une fonction protectrice mais une mécanique ou une valeur de troc spécifiques (boucliers tactiques, lunettes) nécessitent un examen dédié avant de changer leur template, pour ne pas perdre leurs usages, charges ou valeurs.
+
 ## Ressources — charges et récupération (9 novembre 2026)
 
 Le Catalogue distingue désormais la **charge d'inventaire** de la **valeur de troc**. Le champ `H0D_Ressource_Charge_Unitaire` est renseigné pour 17 références communes, selon la règle validée :

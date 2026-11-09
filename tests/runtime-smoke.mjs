@@ -93,7 +93,7 @@ assert.ok(builder.getDefinition("billes-de-fronde"));
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.find(x=>x.reference==="fleches-renforcees").quantite_par_achat,5);
 // Armures validées et résistances spécialisées.
 const armors=api.getDefinitions({kind:"armor"});
-assert.equal(armors.length,41);
+assert.equal(armors.length,43);
 assert.equal(armors.filter(a=>["dent-ambre","caravanes-libres","pillards-rouges","heritiers-soleil"].includes(a.originKey)&&a.catalogue.prix_ressources?.base!=null).length,18);
 assert.equal(api.getDefinition("armure-gardien-dent").catalogue.prix_ressources.base,18);
 assert.equal(api.getDefinition("tenue-technicien-solaire").catalogue.prix_ressources.base,22);

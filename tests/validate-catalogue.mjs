@@ -44,7 +44,25 @@ for (const d of defs) {
   }
 }
 const armures = defs.filter(d=>d.kind === "armor");
-assert.equal(armures.length,41);
+assert.equal(armures.length,43);
+// Les protections corporelles portées relèvent du template Armure, même sans DEF.
+// Les effets provisoires du Prologue restent manuels ; ne jamais inventer une résistance permanente.
+for (const [key,zone,effect] of [
+  ["epaulieres-de-route","bras","Réduit 1 dégât physique ou de chute une fois avant la fin du Prologue ; ou vaut 2 PM"],
+  ["genouilleres-de-caravane-depareillees","jambes","+1 narratif sur un test de déplacement difficile ; ou vaut 1 PM + 1 FS"]
+]) {
+  const protection=armures.find(d=>d.key===key);
+  assert.ok(protection, "Protection absente des armures : "+key);
+  assert.equal(protection.templateKey,"item-armure");
+  assert.equal(protection.kindLabel,"Armure");
+  assert.equal(protection.catalogue.categorie,"Armure");
+  assert.equal(protection.props.H0D_Armure_Type,"armure");
+  assert.equal(protection.props.H0D_Armure_Zone,zone);
+  assert.equal(protection.props.H0D_Armure_Bonus_Defense,0);
+  assert.equal(protection.props.H0D_Armure_Active,false);
+  assert.equal(protection.props.H0D_Armure_Description,effect);
+  assert.deepEqual(protection.props.H0D_Armure_Traits_Table,{});
+}
 const prixValidesV019 = {
   "tenue-chasseur-dent": 6,
   "armure-recuperateur-dent": 13,

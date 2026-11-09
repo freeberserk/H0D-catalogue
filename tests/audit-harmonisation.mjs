@@ -25,9 +25,14 @@ assert.equal(equipmentDefinitions.filter(x=>["dent-ambre","caravanes-libres","pi
 assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.missingResourcePrice-18);
 assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.rarete==null||x.catalogue?.rarete==="").length,audit.catalogue.missingRarity);
 assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.visible_au_stock_standard===true&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.standardStockUnknownPrice.length-18);
+// L'audit du 8 novembre demeure immuable : deux protections de la séance P-03
+// ont été reclassées d'Objet vers Armure, sans créer/supprimer de référence ni de prix.
+const protectionReclassification={armor:2,object:-2};
 for(const kind of ["weapon","armor","object","resource"]){
- assert.equal(equipmentDefinitions.filter(x=>x.kind===kind).length,audit.catalogue.byKind[kind]);
- assert.equal(equipmentDefinitions.filter(x=>x.kind===kind&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.unknownPriceByKind[kind]-(kind==="armor"?18:0));
+ const shifted=protectionReclassification[kind]||0;
+ assert.equal(equipmentDefinitions.filter(x=>x.kind===kind).length,audit.catalogue.byKind[kind]+shifted);
+ assert.equal(equipmentDefinitions.filter(x=>x.kind===kind&&x.catalogue?.prix_ressources?.base==null).length,
+   audit.catalogue.unknownPriceByKind[kind]-(kind==="armor"?18:0)+shifted);
 }
 assert.equal(audit.equipmentBuilder.total,33);
 assert.equal(audit.equipmentBuilder.records.length,33);
