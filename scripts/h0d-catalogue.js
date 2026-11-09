@@ -180,9 +180,7 @@ function h0dStats() {
   return {
     ready:h0dState.ready,
     error:h0dState.error,
-    // L'API est créée avant le hook ready : game.modules peut être absent à cet instant.
-  // La version ne doit être lue que lorsqu'un consommateur accède à l'API.
-  get version(){return h0dCatalogueVersion();},
+    version:h0dCatalogueVersion(),
     references:all.length,
     types:kinds,
     stocks:h0dState.stocks.size,
@@ -333,7 +331,9 @@ async function h0dOpenStock(key="longue-corde-senn-p03") {
 }
 
 const h0dCatalogueAPI = Object.freeze({
-  version:h0dCatalogueVersion(),
+  // Ne jamais lire game.modules avant que Foundry ait initialisé les modules.
+  // Le getter conserve une version canonique sans casser l'enregistrement du hook ready.
+  get version(){return h0dCatalogueVersion();},
   whenReady: () => h0dState.readyPromise,
   getStatus: h0dStats,
   getDefinition: key => h0dClone(h0dState.definitions.get(key) || null),
