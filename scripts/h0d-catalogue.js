@@ -180,7 +180,9 @@ function h0dStats() {
   return {
     ready:h0dState.ready,
     error:h0dState.error,
-    version:h0dCatalogueVersion(),
+    // L'API est créée avant le hook ready : game.modules peut être absent à cet instant.
+  // La version ne doit être lue que lorsqu'un consommateur accède à l'API.
+  get version(){return h0dCatalogueVersion();},
     references:all.length,
     types:kinds,
     stocks:h0dState.stocks.size,
