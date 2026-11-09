@@ -3,40 +3,86 @@ name: Publish H0D Catalogue
 on:
   push:
     branches: [main]
+    # Toute modification d'un fichier embarqué déclenche une publication,
+    # et pas seulement les changements manuels de module.json.
     paths:
-      - module.json
+      - 'module.json'
+      - 'scripts/**'
+      - 'styles/**'
+      - 'data/**'
+      - 'macros/**'
+      - 'schemas/**'
+      - 'docs/**'
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - '.github/workflows/release.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# Deux push rapprochés ne doivent pas attribuer le même numéro de version.
+concurrency:
+  group: h0d-catalogue-release-main
+  cancel-in-progress: false
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Validate catalogue and bridge
         run: |
           node tests/validate-catalogue.mjs
           node tests/runtime-smoke.mjs
           node tests/audit-harmonisation.mjs
+          node tests/release-policy.mjs
           node --check scripts/h0d-catalogue.js
-      - name: Extract and validate version
+
+      - name: Determine unique release version
         id: meta
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          set -euo pipefail
           VERSION=$(node -p "require('./module.json').version")
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Version de module.json invalide : $VERSION"; exit 1
+          fi
+
+          # Une version déjà publiée ne peut pas signaler un nouveau contenu à Foundry.
+          # Incrémenter automatiquement le patch, mettre à jour main et empaqueter
+          # ce nouveau commit. Les push GITHUB_TOKEN ne relancent pas le workflow.
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            IFS=. read -r MAJOR MINOR PATCH <<< "$VERSION"
+            while gh release view "v$MAJOR.$MINOR.$PATCH" >/dev/null 2>&1; do
+              PATCH=$((PATCH+1))
+            done
+            VERSION="$MAJOR.$MINOR.$PATCH"
+            node -e 'const fs=require("node:fs");const path="module.json";const m=JSON.parse(fs.readFileSync(path,"utf8"));m.version=process.argv[1];fs.writeFileSync(path,JSON.stringify(m,null,2)+"\n");' "$VERSION"
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add module.json
+            git commit -m "chore(catalogue): release v$VERSION"
+            git push origin HEAD:main
+          fi
           echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+          echo "target=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Build Foundry package
         run: |
           zip -r h0d-catalogue.zip module.json scripts styles data macros schemas README.md CHANGELOG.md docs
           unzip -t h0d-catalogue.zip
-      - name: Create or update release
+
+      - name: Publish NEW release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.meta.outputs.tag }}
+          TARGET: ${{ steps.meta.outputs.target }}
         run: |
+          set -euo pipefail
           if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release upload "$TAG" module.json h0d-catalogue.zip --clobber
-          else
-            gh release create "$TAG" module.json h0d-catalogue.zip --target "$GITHUB_SHA" --title "H0D Catalogue $TAG" --notes-file CHANGELOG.md
+            echo "ERREUR : la release $TAG existe déjà. Pas de remplacement silencieux."; exit 1
           fi
+          gh release create "$TAG" module.json h0d-catalogue.zip --target "$TARGET" --title "H0D Catalogue $TAG" --notes-file CHANGELOG.md

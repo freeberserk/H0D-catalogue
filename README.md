@@ -1,3 +1,14 @@
+## Publication automatique — fichiers distribués et version unique
+
+Le workflow de publication écoute tout changement dans le paquet Foundry : `module.json`, `scripts/**`, `styles/**`, `data/**`, `macros/**`, `schemas/**`, `docs/**`, `README.md` et `CHANGELOG.md`. Une modification de la politique de publication déclenche également son contrôle.
+
+- Les trois tests de Catalogue existants et le test dédié de publication doivent réussir avant le packaging.
+- Si la version de `module.json` possède déjà une release, le workflow incrémente automatiquement le **patch** (`0.1.9` → `0.1.10`), commite cette modification sur `main` et produit une **nouvelle release** avec un manifeste et une archive cohérents.
+- Une version déclarée manuellement qui n'est pas encore publiée est conservée.
+- La publication ne remplace plus silencieusement une archive sous une version inchangée. Ainsi, Foundry peut détecter la nouvelle version du module.
+- Les push automatiques avec le jeton GitHub Actions ne déclenchent pas une boucle de publication. En cas d'échec de la mise à jour de `main`, aucune release erronée n'est annoncée.
+- Les fichiers d'audit restent **hors index des articles** : être distribué dans un module ne signifie pas devenir un équipement générable.
+
 # H0D Catalogue — audit des importations
 
 ## v0.1.9 — Économie et jetons (8 novembre 2026)

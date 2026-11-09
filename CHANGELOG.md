@@ -1,3 +1,10 @@
+## Publication automatique — correction du déclencheur et des versions
+
+- Le workflow de release couvre désormais tous les dossiers et fichiers effectivement distribués, et plus seulement `module.json`.
+- Chaque changement distribué crée une nouvelle release versionnée ; un patch est automatiquement incrémenté lorsque le numéro précédent est déjà publié.
+- Le manifeste est commité avec le numéro de version final avant empaquetage ; aucune release existante n'est écrasée.
+- Ajoute un test de régression sur la couverture des chemins et les protections de version.
+
 ## v0.1.9 — Tarifs et jetons des Caravanes Libres (8 novembre 2026)
 - 18 prix d'armures fixés en ressources, coût total incluant les matériaux ; aucune recette non validée ajoutée.
 - Offres en jetons de Senn visibles dans la fenêtre générale du Catalogue ; 21 tarifs et quantités préservés.
