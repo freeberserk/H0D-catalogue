@@ -7,7 +7,12 @@
  * export additif et non destructif des références non réservées vers Equipment Builder.
  */
 const H0D_CATALOGUE_ID = "h0d-catalogue";
-const H0D_CATALOGUE_VERSION = "0.1.9";
+// La version vient du manifeste du module installé, jamais d'une constante datée.
+function h0dCatalogueVersion() {
+  const version=String(globalThis.game?.modules?.get(H0D_CATALOGUE_ID)?.version??"").trim();
+  if (!version) throw new Error("Version du module H0D Catalogue introuvable.");
+  return version;
+}
 const H0D_BUILDER_ID = "h0d-equipment-builder";
 
 const h0dState = {
@@ -39,7 +44,7 @@ async function h0dFetchJSON(path) {
   if (typeof path !== "string" || !/^data\/[a-z0-9/_.-]+\.json$/i.test(path) || path.includes("..")) {
     throw new Error(`Chemin de données non autorisé : ${path}`);
   }
-  const response = await fetch(`modules/${H0D_CATALOGUE_ID}/${path}?v=${H0D_CATALOGUE_VERSION}`);
+  const response = await fetch(`modules/${H0D_CATALOGUE_ID}/${path}?v=${encodeURIComponent(h0dCatalogueVersion())}`);
   if (!response.ok) throw new Error(`Impossible de charger ${path} (HTTP ${response.status}).`);
   return response.json();
 }
@@ -175,7 +180,7 @@ function h0dStats() {
   return {
     ready:h0dState.ready,
     error:h0dState.error,
-    version:H0D_CATALOGUE_VERSION,
+    version:h0dCatalogueVersion(),
     references:all.length,
     types:kinds,
     stocks:h0dState.stocks.size,
@@ -326,7 +331,7 @@ async function h0dOpenStock(key="longue-corde-senn-p03") {
 }
 
 const h0dCatalogueAPI = Object.freeze({
-  version:H0D_CATALOGUE_VERSION,
+  version:h0dCatalogueVersion(),
   whenReady: () => h0dState.readyPromise,
   getStatus: h0dStats,
   getDefinition: key => h0dClone(h0dState.definitions.get(key) || null),
@@ -353,6 +358,10 @@ async function h0dInitialize() {
         !Array.isArray(index.catalogues) || !Array.isArray(index.stocks)) {
       throw new Error("Format de data/index.json incompatible (index v1 attendu).");
     }
+    if (String(index.version??"") !== h0dCatalogueVersion()) {
+      throw new Error("Versions H0D Catalogue incohérentes : index "+String(index.version??"absente")+
+        ", module "+h0dCatalogueVersion()+". Recharger le module et son cache.");
+    }
     h0dState.index = h0dClone(index);
     for (const path of index.catalogues) h0dLoadCatalogue(await h0dFetchJSON(path),path);
     for (const path of index.stocks) h0dLoadStock(await h0dFetchJSON(path),path);
@@ -360,7 +369,7 @@ async function h0dInitialize() {
     // Await pendant ready garantit que les hooks ready synchrones du builder se sont exécutés.
     const sync = h0dSyncToBuilder();
     if (globalThis.Hooks?.callAll) Hooks.callAll("h0dCatalogueReady",h0dCatalogueAPI);
-    console.info(`${H0D_CATALOGUE_ID} | v${H0D_CATALOGUE_VERSION} prêt : `+
+    console.info(`${H0D_CATALOGUE_ID} | v${h0dCatalogueVersion()} prêt : `+
       `${h0dState.definitions.size} références, ${h0dState.stocks.size} stocks ; `+
       `builder : ${sync.status} (${sync.added} ajoutées, ${sync.protected} protégées).`);
     return h0dStats();
