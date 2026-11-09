@@ -14,7 +14,8 @@ const builder = {
 };
 // 33 références existantes, dont une clé conflictuelle hypothétique : ne pas l'écraser.
 accepted.set("billes-de-fuite",{key:"billes-de-fuite",name:"DÉFINITION EXISTANTE À PRÉSERVER"});
-const mod={};
+const manifest=JSON.parse(readFileSync(path.join(root,"module.json"),"utf8"));
+const mod={version:manifest.version};
 const context={
   console:{log(){},info(){},warn(){},error:console.error},
   Hooks:{once:(event,fn)=>{callbacks[event]=fn;},callAll:()=>{}},
@@ -34,6 +35,8 @@ callbacks.ready();
 const api=context.game.h0dCatalogue;
 await api.whenReady();
 const s=api.getStatus();
+assert.equal(s.version,manifest.version);
+assert.equal(api.version,manifest.version);
 assert.equal(s.references,200);
 assert.equal(api.resolveDefinition({key:"couteau-de-depecage",kind:"weapon"}).status,"key");
 assert.equal(api.resolveDefinition({name:"Couteau de dépeçage",kind:"weapon"}).key,"couteau-de-depecage");
