@@ -19,7 +19,9 @@ const mod={version:manifest.version};
 const context={
   console:{log(){},info(){},warn(){},error:console.error},
   Hooks:{once:(event,fn)=>{callbacks[event]=fn;},callAll:()=>{}},
-  game:{modules:new Map([["h0d-catalogue",mod]]),h0dEquipmentBuilder:builder},
+  // Pendant le chargement du script, la collection game.modules n'est pas encore garantie.
+  // Cette simulation reproduit la panne de v0.1.14 (API jamais publiée).
+  game:{h0dEquipmentBuilder:builder},
   fetch:async url=>{
     const rel=url.replace(/^modules\/h0d-catalogue\//,"").split("?")[0];
     return {ok:true,json:async()=>JSON.parse(readFileSync(path.join(root,rel),"utf8"))};
@@ -30,8 +32,11 @@ const context={
 context.globalThis=context;
 vm.createContext(context);
 vm.runInContext(readFileSync(path.join(root,"scripts/h0d-catalogue.js"),"utf8"),context);
-assert.ok(callbacks.ready,"Hook ready manquant");
+assert.ok(callbacks.ready,"Le chargement précoce doit enregistrer le hook ready même sans game.modules.");
+assert.equal(context.game.h0dCatalogue,undefined,"API publiée seulement lors du ready.");
+context.game.modules=new Map([["h0d-catalogue",mod]]);
 callbacks.ready();
+assert.equal(mod.api,context.game.h0dCatalogue,"Les deux points d'accès doivent référencer la même API.");
 const api=context.game.h0dCatalogue;
 await api.whenReady();
 const s=api.getStatus();

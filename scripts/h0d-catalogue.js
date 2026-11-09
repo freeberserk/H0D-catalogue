@@ -331,7 +331,9 @@ async function h0dOpenStock(key="longue-corde-senn-p03") {
 }
 
 const h0dCatalogueAPI = Object.freeze({
-  version:h0dCatalogueVersion(),
+  // Ne jamais lire game.modules avant que Foundry ait initialisé les modules.
+  // Le getter conserve une version canonique sans casser l'enregistrement du hook ready.
+  get version(){return h0dCatalogueVersion();},
   whenReady: () => h0dState.readyPromise,
   getStatus: h0dStats,
   getDefinition: key => h0dClone(h0dState.definitions.get(key) || null),

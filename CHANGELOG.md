@@ -1,3 +1,9 @@
+## v0.1.15 — Correction du démarrage et de l'API publique
+- Régression v0.1.14 : la version du module était demandée dès l'évaluation du script, avant le hook `ready`. Sur Foundry VTT 14, `game.modules` peut ne pas être encore disponible : exception avant l'enregistrement du hook et API `game.h0dCatalogue` jamais créée, même si le module est affiché comme actif.
+- Le champ `api.version` est maintenant calculé **à la lecture**, après l'initialisation de Foundry, sans perdre le contrôle strict de cohérence entre `module.json` et `data/index.json`.
+- Le test de démarrage simule explicitement `game.modules` absent lors du chargement initial puis disponible au hook `ready`, et vérifie que `game.h0dCatalogue` et `game.modules.get("h0d-catalogue").api` sont bien publiés et que le stock de Senn reste chargé.
+- Aucune modification des équipements, définitions, prix, conditionnements, stocks existants ou règles de commerce.
+
 ## v0.1.12 — Charges des ressources
 - 17 ressources communes dotées des charges unitaires validées (munitions inchangées).
 - Pièces rares uniques : charges spécifiques non chiffrées, statut explicite de validation en attente.
