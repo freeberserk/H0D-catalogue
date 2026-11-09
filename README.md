@@ -1,3 +1,18 @@
+## Correction de l'API au démarrage (v0.1.15)
+
+Si H0D Catalogue est installé et activé mais que `game.h0dCatalogue` est `undefined`, une régression du chargement v0.1.14 peut être en cause : le script demandait la version du module avant que `game.modules` soit prêt. La lecture de la version est maintenant différée jusqu'à son utilisation. Le stock canonique de Senn, les prix et les références ne changent pas.
+
+Après installation, **quitter puis relancer le monde**, puis vérifier dans la console MJ :
+```js
+const m=game.modules.get("h0d-catalogue");
+console.log({active:m?.active,version:m?.version,
+api:!!game.h0dCatalogue?.getStockResolved,
+stock:game.h0dCatalogue?.getStockResolved?.("longue-corde-senn-p03")?.offres?.length});
+```
+Le résultat attendu pour le stock est **21 offres**. En cas d'échec, relever la première erreur rouge de console au chargement.
+
+---
+
 ## Version de référence et protection du cache
 
 H0D Catalogue est la **source unique** des définitions d'équipement. Les ressources JSON sont chargées depuis l'archive **installée localement** dans Foundry ; leur URL utilise la version réelle de `module.json` et non un numéro codé en dur. Le chargement est **refusé** si `data/index.json` annonce une autre version. Cette vérification évite de présenter un mélange de données de versions différentes ; elle ne télécharge pas automatiquement le dépôt GitHub pendant une partie.
