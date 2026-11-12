@@ -90,8 +90,8 @@ for (const a of armures) {
     assert.equal(a.catalogue.fabrication,undefined,"Recette inventée : "+a.key);
   }
 }
-assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63);
-assert.equal(defs.length,200);
+assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31);
+assert.equal(defs.length,200 + 31);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -252,7 +252,7 @@ for(const w of weapons.filter(w=>w.catalogue.risque_batterie_pillarde))
  assert.ok(!w.catalogue.risque_batterie_pillarde.table_d6,"Une table de surcharge non validée est encore active.");
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,200);
+assert.equal(defs.length,200 + 31);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -324,7 +324,7 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
 assert.equal(crafted.length,80);
-assert.equal(privateDefs.length,81);
+assert.equal(privateDefs.length,81 + 15);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);
 
 // La monnaie de scène n'est pas une ressource de récupération ni un stock marchand.
@@ -363,3 +363,30 @@ for(const d of defs.filter(d=>d.kind==="resource"&&d.catalogue?.charge_statut===
 }
 for(const munition of defs.filter(d=>d.kind==="object"&&d.props?.H0D_Objet_Type==="Munition"&&"H0D_Objet_Charge_Unitaire" in d.props))
   assert.equal(Number(munition.props.H0D_Objet_Charge_Unitaire),0,munition.key+": munitions sans charge");
+
+// Vérification du référentiel historique H0D Loot v0.6.28 (45 ressources).
+const legacyLoot=load("data/legacy-h0d-loot-resources.json");
+assert.equal(legacyLoot.count,45);
+assert.equal(legacyLoot.resources.length,45);
+const ressourcesByKey=new Map(defs.filter(d=>d.kind==="resource").map(d=>[d.key,d]));
+const normaliserLoot=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[’']/g," ").replace(/[^a-zA-Z0-9]+/g," ").trim().toLowerCase();
+for(const r of legacyLoot.resources){
+ const d=ressourcesByKey.get(r.catalogueKey);
+ assert.ok(d,"Ressource historique introuvable : "+r.name);
+ assert.ok([d.name,...(d.catalogue.alias||[])].some(x=>normaliserLoot(x)===normaliserLoot(r.name)),r.name+": nom manquant");
+ assert.equal(Number(d.props.H0D_Ressource_Charge_Unitaire),r.charge,r.name+": charge");
+ assert.equal(Number(d.props.H0D_Ressource_Valeur_Unitaire),r.barterValue,r.name+": troc");
+}
+for(const d of ressourcesByKey.values()){
+ const jeton=d.key==="jeton-reconnaissance";
+ const c=Number(d.props.H0D_Ressource_Charge_Unitaire),v=Number(d.props.H0D_Ressource_Valeur_Unitaire);
+ assert.ok(Number.isFinite(c)&&(jeton?c===0:c>0),d.key+": charge manquante");
+ assert.ok(Number.isFinite(v)&&(jeton?v===0:v>0),d.key+": valeur manquante");
+ assert.notEqual(d.catalogue.charge_statut,"a-valider-piece-speciale",d.key+": statut de charge");
+}
+for(const k of ["noyau-lourd","noyau-moyen","petit-noyau-de-machine"])
+ assert.equal(ressourcesByKey.get(k).props.H0D_Ressource_Qualite,"Rare",k+": qualité noyau");
+for(const element of ["Blaze","Chillwater","Metalburn","Sparker"])
+ assert.equal(legacyLoot.resources.find(r=>r.name==="Fluide élémentaire — "+element)?.barterValue,2,element+": troc");
+assert.equal(load("data/stocks/longue-corde-p03.json").offres.length,21);
+console.log("OK — 45/45 ressources Loot couvertes, 58 ressources catalogue avec charges et troc fixés.");
