@@ -2568,21 +2568,18 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "PR / projet spécial",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Valeur de troc variable : 20–25 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+        "H0D_Ressource_Valeur_Unitaire": "20",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 20 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Charge_Unitaire": "4"
       },
       "catalogue": {
         "categorie": "Pièce rare",
         "rarete": "Rare",
         "prix_ressources": null,
         "valeur_troc": {
-          "fourchette": [
-            20,
-            25
-          ],
-          "base": null,
+          "base": 20,
           "supplements": {},
-          "texte": "20–25"
+          "texte": "20"
         },
         "disponibilite": {
           "brok": "oui",
@@ -2593,15 +2590,15 @@
         "source_page": 3,
         "alias": [],
         "etiquettes": [],
-        "politique_revente": "estimation_MJ",
+        "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12"
       }
     },
     {
       "key": "cellule-faible-chargee",
-      "name": "Cellule faible chargée",
+      "name": "Cellule d’énergie faible",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -2616,7 +2613,19 @@
         "H0D_Ressource_Usage": "CE",
         "H0D_Ressource_Qualite": "Commune",
         "H0D_Ressource_Valeur_Unitaire": "2",
-        "H0D_Ressource_Charge_Unitaire": "0.5"
+        "H0D_Ressource_Charge_Unitaire": "0.5",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Cellule d’énergie de faible capacité",
+        "H0D_Ressource_Notes": "Version courante d’une cellule énergétique.",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "energetique",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Source d’énergie exploitable."
       },
       "catalogue": {
         "categorie": "Cellule",
@@ -2639,7 +2648,8 @@
         "notes_source": "CE",
         "source_page": 2,
         "alias": [
-          "Cellule d’énergie faible"
+          "Cellule d’énergie faible",
+          "Cellule faible chargée"
         ],
         "etiquettes": [
           "disponible_commerce_v2"
@@ -2648,7 +2658,9 @@
         "source_commerce_page": 2,
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0D7ec3fba7beb68",
+        "h0d_loot_name": "Cellule d’énergie faible"
       }
     },
     {
@@ -2695,7 +2707,7 @@
     },
     {
       "key": "cellule-stable",
-      "name": "Cellule stable",
+      "name": "Cellule d’énergie stable",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -2710,7 +2722,19 @@
         "H0D_Ressource_Usage": "CE avancée",
         "H0D_Ressource_Qualite": "Stable",
         "H0D_Ressource_Valeur_Unitaire": "4",
-        "H0D_Ressource_Charge_Unitaire": "1"
+        "H0D_Ressource_Charge_Unitaire": "1",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Cellule d’énergie stable",
+        "H0D_Ressource_Notes": "Plus précieuse et fiable qu’une cellule faible.",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "energetique",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Source d’énergie stable."
       },
       "catalogue": {
         "categorie": "Cellule",
@@ -2743,7 +2767,9 @@
         "source_commerce_page": 2,
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0D522ddda27504c",
+        "h0d_loot_name": "Cellule d’énergie stable"
       }
     },
     {
@@ -2763,7 +2789,19 @@
         "H0D_Ressource_Usage": "CA",
         "H0D_Ressource_Qualite": "Abimee",
         "H0D_Ressource_Valeur_Unitaire": "2",
-        "H0D_Ressource_Charge_Unitaire": "0.25"
+        "H0D_Ressource_Charge_Unitaire": "0.25",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Circuit ancien partiellement fonctionnel",
+        "H0D_Ressource_Notes": "Fonctionnel seulement après réparation ou démontage.",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "ancien",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Technologie des Anciens, endommagée."
       },
       "catalogue": {
         "categorie": "Circuit",
@@ -2796,7 +2834,9 @@
         "source_commerce_page": 2,
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0Ded93f9bf328aa",
+        "h0d_loot_name": "Circuit ancien abîmé"
       }
     },
     {
@@ -2816,7 +2856,19 @@
         "H0D_Ressource_Usage": "CA avancé",
         "H0D_Ressource_Qualite": "Intacte",
         "H0D_Ressource_Valeur_Unitaire": "4",
-        "H0D_Ressource_Charge_Unitaire": "0.25"
+        "H0D_Ressource_Charge_Unitaire": "0.25",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Circuit ancien intact",
+        "H0D_Ressource_Notes": "Composant ancien complet et particulièrement recherché.",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "ancien",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Technologie ancienne intacte."
       },
       "catalogue": {
         "categorie": "Circuit",
@@ -2849,7 +2901,9 @@
         "source_commerce_page": 2,
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0Ddbe158f668faa",
+        "h0d_loot_name": "Circuit ancien intact"
       }
     },
     {
@@ -2911,14 +2965,19 @@
         "H0D_Ressource_Origine": "Anciens / ELYSIUM",
         "H0D_Ressource_Usage": "Pas de prix standard",
         "H0D_Ressource_Qualite": "Rare",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire."
+        "H0D_Ressource_Valeur_Unitaire": "10",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 10 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Charge_Unitaire": "0.5"
       },
       "catalogue": {
         "categorie": "Matériau antique",
         "rarete": "Ancien",
         "prix_ressources": null,
-        "valeur_troc": null,
+        "valeur_troc": {
+          "base": 10,
+          "supplements": {},
+          "texte": "10"
+        },
         "disponibilite": {
           "brok": "analyse",
           "caravanes": "indisponible",
@@ -2934,7 +2993,7 @@
         "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": false,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12"
       }
     },
     {
@@ -3039,15 +3098,29 @@
         "H0D_Ressource_Usage": "1 unité récupérée par les PJ ; élément feu",
         "H0D_Ressource_Element": "Feu",
         "H0D_Ressource_Qualite": "Commune",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire.",
-        "H0D_Ressource_Charge_Unitaire": "0.5"
+        "H0D_Ressource_Valeur_Unitaire": "2",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 2 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Charge_Unitaire": "0.5",
+        "H0D_Ressource_Composant": "Blaze",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "combustible",
+        "H0D_Ressource_Trait_Effet": "TypeDegatsSecondaire",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "feu",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Composant incendiaire."
       },
       "catalogue": {
         "categorie": "Fluide",
         "rarete": null,
         "prix_ressources": null,
-        "valeur_troc": null,
+        "valeur_troc": {
+          "base": 2,
+          "supplements": {},
+          "texte": "2"
+        },
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
@@ -3061,9 +3134,11 @@
           "variante_elementaire"
         ],
         "politique_revente": "standard",
-        "statut": "a_revoir",
+        "statut": "harmonise-h0d-loot-2026-11-12",
         "visible_au_stock_standard": false,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0D56ae65fe6c58d",
+        "h0d_loot_name": "Fluide élémentaire — Blaze"
       }
     },
     {
@@ -3082,14 +3157,30 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "Pièce intacte des PJ ; machine non précisée",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire."
+        "H0D_Ressource_Valeur_Unitaire": "5",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 5 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Griffe mécanique intacte",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "briseur",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Catégorie : Pièce rare mineure.",
+        "H0D_Ressource_Charge_Unitaire": "1"
       },
       "catalogue": {
         "categorie": "Pièce rare",
         "rarete": null,
         "prix_ressources": null,
-        "valeur_troc": null,
+        "valeur_troc": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
@@ -3103,14 +3194,16 @@
           "prix_a_definir"
         ],
         "politique_revente": "standard",
-        "statut": "a_revoir",
+        "statut": "harmonise-h0d-loot-2026-11-12",
         "visible_au_stock_standard": false,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12",
+        "h0d_loot_id": "H0Df34a517b00974",
+        "h0d_loot_name": "Griffe de machine intacte"
       }
     },
     {
       "key": "generateur-de-bouclier",
-      "name": "Générateur de bouclier",
+      "name": "Générateur de bouclier de Shell-Walker",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -3121,24 +3214,32 @@
       "props": {
         "H0D_Ressource_Type": "PieceRare",
         "H0D_Ressource_Quantite": "1",
-        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Origine": "Shell-Walker",
         "H0D_Ressource_Usage": "CE + CA + PR",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Valeur de troc variable : 15–25 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+        "H0D_Ressource_Valeur_Unitaire": "10",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 10 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Générateur de bouclier intact",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "energetique",
+        "H0D_Ressource_Trait_Effet": "DEF",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Catégorie : Pièce rare majeure.",
+        "H0D_Ressource_Charge_Unitaire": "2"
       },
       "catalogue": {
         "categorie": "Pièce rare",
         "rarete": "Rare",
         "prix_ressources": null,
         "valeur_troc": {
-          "fourchette": [
-            15,
-            25
-          ],
-          "base": null,
+          "base": 10,
           "supplements": {},
-          "texte": "15–25"
+          "texte": "10"
         },
         "disponibilite": {
           "brok": "oui",
@@ -3147,17 +3248,21 @@
         },
         "notes_source": "CE + CA + PR",
         "source_page": 2,
-        "alias": [],
+        "alias": [
+          "Générateur de bouclier"
+        ],
         "etiquettes": [],
-        "politique_revente": "estimation_MJ",
+        "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12",
+        "h0d_loot_id": "H0Db14b617f7bfb1",
+        "h0d_loot_name": "Générateur de bouclier de Shell-Walker"
       }
     },
     {
       "key": "generateur-furtif-de-stalker",
-      "name": "Générateur furtif de Stalker",
+      "name": "Générateur de camouflage de Stalker",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -3168,24 +3273,32 @@
       "props": {
         "H0D_Ressource_Type": "PieceRare",
         "H0D_Ressource_Quantite": "1",
-        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Origine": "Stalker",
         "H0D_Ressource_Usage": "PR",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Valeur de troc variable : 20–25 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+        "H0D_Ressource_Valeur_Unitaire": "10",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 10 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Générateur furtif intact",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "technique",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Catégorie : Pièce rare majeure.",
+        "H0D_Ressource_Charge_Unitaire": "1"
       },
       "catalogue": {
         "categorie": "Pièce rare",
         "rarete": "Rare",
         "prix_ressources": null,
         "valeur_troc": {
-          "fourchette": [
-            20,
-            25
-          ],
-          "base": null,
+          "base": 10,
           "supplements": {},
-          "texte": "20–25"
+          "texte": "10"
         },
         "disponibilite": {
           "brok": "oui",
@@ -3194,12 +3307,16 @@
         },
         "notes_source": "PR",
         "source_page": 3,
-        "alias": [],
+        "alias": [
+          "Générateur furtif de Stalker"
+        ],
         "etiquettes": [],
-        "politique_revente": "estimation_MJ",
+        "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12",
+        "h0d_loot_id": "H0D652f8e1f9e31c",
+        "h0d_loot_name": "Générateur de camouflage de Stalker"
       }
     },
     {
@@ -3301,7 +3418,7 @@
     },
     {
       "key": "noyau-lourd",
-      "name": "Noyau lourd",
+      "name": "Noyau de machine lourde",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -3316,7 +3433,19 @@
         "H0D_Ressource_Usage": "NM",
         "H0D_Ressource_Qualite": "Rare",
         "H0D_Ressource_Valeur_Unitaire": "20",
-        "H0D_Ressource_Charge_Unitaire": "8"
+        "H0D_Ressource_Charge_Unitaire": "8",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Grand noyau de machine",
+        "H0D_Ressource_Notes": "Composant très rare provenant d’une machine lourde.",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "energetique",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Grand noyau de machine."
       },
       "catalogue": {
         "categorie": "Noyau",
@@ -3334,17 +3463,21 @@
         },
         "notes_source": "NM",
         "source_page": 2,
-        "alias": [],
+        "alias": [
+          "Noyau lourd"
+        ],
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0D3af7bd3bc121f",
+        "h0d_loot_name": "Noyau de machine lourde"
       }
     },
     {
       "key": "noyau-moyen",
-      "name": "Noyau moyen",
+      "name": "Noyau de machine moyenne",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -3357,9 +3490,21 @@
         "H0D_Ressource_Quantite": "1",
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "NM",
-        "H0D_Ressource_Qualite": "Stable",
+        "H0D_Ressource_Qualite": "Rare",
         "H0D_Ressource_Valeur_Unitaire": "10",
-        "H0D_Ressource_Charge_Unitaire": "4"
+        "H0D_Ressource_Charge_Unitaire": "4",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Noyau de machine moyen",
+        "H0D_Ressource_Notes": "Composant rare provenant d’une machine de taille moyenne.",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "energetique",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Noyau de machine avancé."
       },
       "catalogue": {
         "categorie": "Noyau",
@@ -3377,17 +3522,21 @@
         },
         "notes_source": "NM",
         "source_page": 2,
-        "alias": [],
+        "alias": [
+          "Noyau moyen"
+        ],
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0D8f622cf994013",
+        "h0d_loot_name": "Noyau de machine moyenne"
       }
     },
     {
       "key": "petit-noyau-de-machine",
-      "name": "Petit noyau de machine",
+      "name": "Noyau de petite machine",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -3400,9 +3549,21 @@
         "H0D_Ressource_Quantite": "1",
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "NM",
-        "H0D_Ressource_Qualite": "Commune",
+        "H0D_Ressource_Qualite": "Rare",
         "H0D_Ressource_Valeur_Unitaire": "5",
-        "H0D_Ressource_Charge_Unitaire": "2"
+        "H0D_Ressource_Charge_Unitaire": "2",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Petit noyau de machine",
+        "H0D_Ressource_Notes": "Noyau récupéré proprement sur une petite machine.",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "energetique",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Noyau de machine exploitable."
       },
       "catalogue": {
         "categorie": "Noyau",
@@ -3420,17 +3581,21 @@
         },
         "notes_source": "NM",
         "source_page": 2,
-        "alias": [],
+        "alias": [
+          "Petit noyau de machine"
+        ],
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0Dea86910d73587",
+        "h0d_loot_name": "Noyau de petite machine"
       }
     },
     {
       "key": "plaque-de-machine-propre",
-      "name": "Plaque de machine propre",
+      "name": "Plaques métalliques",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -3445,7 +3610,19 @@
         "H0D_Ressource_Usage": "PM",
         "H0D_Ressource_Qualite": "Commune",
         "H0D_Ressource_Valeur_Unitaire": "1",
-        "H0D_Ressource_Charge_Unitaire": "1"
+        "H0D_Ressource_Charge_Unitaire": "1",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Plaques et fragments métalliques utilisables",
+        "H0D_Ressource_Notes": "Ressource commune de base.",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "conducteur",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": ""
       },
       "catalogue": {
         "categorie": "Plaque",
@@ -3464,18 +3641,21 @@
         "notes_source": "PM",
         "source_page": 2,
         "alias": [
-          "Plaque métallique"
+          "Plaque métallique",
+          "Plaque de machine propre"
         ],
         "etiquettes": [],
         "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0D5cfe3cc08ea3d",
+        "h0d_loot_name": "Plaques métalliques"
       }
     },
     {
       "key": "radar-de-scrapper-intact",
-      "name": "Radar de Scrapper intact",
+      "name": "Radar dorsal de Scrapper",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -3486,24 +3666,32 @@
       "props": {
         "H0D_Ressource_Type": "PieceRare",
         "H0D_Ressource_Quantite": "1",
-        "H0D_Ressource_Origine": "Machines / récupération",
+        "H0D_Ressource_Origine": "Scrapper",
         "H0D_Ressource_Usage": "CA / LO",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Valeur de troc variable : 8–12 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+        "H0D_Ressource_Valeur_Unitaire": "5",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 5 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Radar dorsal intact",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "technique",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Catégorie : Pièce rare mineure.",
+        "H0D_Ressource_Charge_Unitaire": "1"
       },
       "catalogue": {
         "categorie": "Pièce rare",
         "rarete": "Rare",
         "prix_ressources": null,
         "valeur_troc": {
-          "fourchette": [
-            8,
-            12
-          ],
-          "base": null,
+          "base": 5,
           "supplements": {},
-          "texte": "8–12"
+          "texte": "5"
         },
         "disponibilite": {
           "brok": "oui",
@@ -3513,13 +3701,16 @@
         "notes_source": "CA / LO",
         "source_page": 2,
         "alias": [
-          "Radar dorsal de Scrapper intact"
+          "Radar dorsal de Scrapper intact",
+          "Radar de Scrapper intact"
         ],
         "etiquettes": [],
-        "politique_revente": "estimation_MJ",
+        "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12",
+        "h0d_loot_id": "H0D11a979835d911",
+        "h0d_loot_name": "Radar dorsal de Scrapper"
       }
     },
     {
@@ -3538,21 +3729,18 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "FE / PR",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Valeur de troc variable : 6–10 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+        "H0D_Ressource_Valeur_Unitaire": "10",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 10 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Charge_Unitaire": "2"
       },
       "catalogue": {
         "categorie": "Pièce rare",
         "rarete": "Rare",
         "prix_ressources": null,
         "valeur_troc": {
-          "fourchette": [
-            6,
-            10
-          ],
-          "base": null,
+          "base": 10,
           "supplements": {},
-          "texte": "6–10"
+          "texte": "10"
         },
         "disponibilite": {
           "brok": "oui",
@@ -3563,10 +3751,10 @@
         "source_page": 2,
         "alias": [],
         "etiquettes": [],
-        "politique_revente": "estimation_MJ",
+        "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12"
       }
     },
     {
@@ -3585,7 +3773,8 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "FE",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "2"
+        "H0D_Ressource_Valeur_Unitaire": "2",
+        "H0D_Ressource_Charge_Unitaire": "2"
       },
       "catalogue": {
         "categorie": "Fluide",
@@ -3610,7 +3799,7 @@
         "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12"
       }
     },
     {
@@ -3629,21 +3818,18 @@
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "LO / PR",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Valeur de troc variable : 5–8 ressources. Choix manuel par le MJ, ne pas vendre à 0."
+        "H0D_Ressource_Valeur_Unitaire": "5",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 5 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Charge_Unitaire": "0.25"
       },
       "catalogue": {
         "categorie": "Pièce rare",
         "rarete": "Rare",
         "prix_ressources": null,
         "valeur_troc": {
-          "fourchette": [
-            5,
-            8
-          ],
-          "base": null,
+          "base": 5,
           "supplements": {},
-          "texte": "5–8"
+          "texte": "5"
         },
         "disponibilite": {
           "brok": "oui",
@@ -3654,15 +3840,15 @@
         "source_page": 2,
         "alias": [],
         "etiquettes": [],
-        "politique_revente": "estimation_MJ",
+        "politique_revente": "standard",
         "statut": "source_pdf",
         "visible_au_stock_standard": true,
-        "charge_statut": "a-valider-piece-speciale"
+        "charge_statut": "fixe-2026-11-12"
       }
     },
     {
       "key": "oeil-optique-intact",
-      "name": "Œil optique intact (générique)",
+      "name": "Œil optique intact",
       "kind": "resource",
       "kindLabel": "Ressource",
       "templateKey": "item-ressource",
@@ -3671,20 +3857,35 @@
       "tier": 1,
       "source": "Butin confirmé en conversation — machine non spécifiée",
       "props": {
-        "H0D_Ressource_Type": "Lentille",
+        "H0D_Ressource_Type": "PieceRare",
         "H0D_Ressource_Quantite": "1",
         "H0D_Ressource_Origine": "Machines / récupération",
         "H0D_Ressource_Usage": "Pièce intacte des PJ ; origine machine non précisée",
         "H0D_Ressource_Qualite": "Intacte",
-        "H0D_Ressource_Valeur_Unitaire": "0",
-        "H0D_Ressource_Notes": "Prix/valeur de troc non défini(e) dans les sources ; détermination MJ nécessaire.",
-        "H0D_Ressource_Charge_Unitaire": "0.25"
+        "H0D_Ressource_Valeur_Unitaire": "5",
+        "H0D_Ressource_Notes": "Valeur de troc fixe : 5 (harmonisation H0D du 12 novembre 2026).",
+        "H0D_Ressource_Charge_Unitaire": "0.25",
+        "H0D_Ressource_Element": "Aucun",
+        "H0D_Ressource_Composant": "Œil / capteur optique intact",
+        "H0D_Ressource_Traits_Table": {},
+        "H0D_Ressource_Trait_Type": "technique",
+        "H0D_Ressource_Trait_Effet": "Aucun",
+        "H0D_Ressource_Trait_Perso": "",
+        "H0D_Ressource_Trait_Valeur": "0",
+        "H0D_Ressource_Trait_Parametre": "aucun",
+        "H0D_Ressource_Trait_Unite": "aucune",
+        "H0D_Ressource_Trait_Actif": true,
+        "H0D_Ressource_Trait_Note": "Catégorie : Pièce rare mineure."
       },
       "catalogue": {
-        "categorie": "Lentille",
-        "rarete": null,
+        "categorie": "Pièce rare",
+        "rarete": "Rare",
         "prix_ressources": null,
-        "valeur_troc": null,
+        "valeur_troc": {
+          "base": 5,
+          "supplements": {},
+          "texte": "5"
+        },
         "disponibilite": {
           "brok": "indisponible",
           "caravanes": "indisponible",
@@ -3692,15 +3893,19 @@
         },
         "notes_source": "Pièce intacte des PJ ; origine machine non précisée",
         "source_page": null,
-        "alias": [],
+        "alias": [
+          "Œil optique intact (générique)"
+        ],
         "etiquettes": [
           "butin_pj_confirme",
           "prix_a_definir"
         ],
         "politique_revente": "standard",
-        "statut": "a_revoir",
+        "statut": "harmonise-h0d-loot-2026-11-12",
         "visible_au_stock_standard": false,
-        "charge_statut": "bareme-valide-2026-11-09"
+        "charge_statut": "bareme-valide-2026-11-09",
+        "h0d_loot_id": "H0Dc73fd3e78521f",
+        "h0d_loot_name": "Œil optique intact"
       }
     }
   ],
