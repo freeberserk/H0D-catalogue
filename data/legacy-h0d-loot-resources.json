@@ -1,0 +1,414 @@
+{
+  "format": "H0D_LOOT_RESOURCE_COVERAGE",
+  "schema": 1,
+  "source": "freeberserk/h0d-loot",
+  "sourceVersion": "0.6.28",
+  "count": 45,
+  "resources": [
+    {
+      "id": "H0D7ec3fba7beb68",
+      "name": "Cellule d’énergie faible",
+      "category": "machine",
+      "catalogueKey": "cellule-faible-chargee",
+      "barterValue": 2,
+      "charge": 0.5,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D522ddda27504c",
+      "name": "Cellule d’énergie stable",
+      "category": "machine",
+      "catalogueKey": "cellule-stable",
+      "barterValue": 4,
+      "charge": 1,
+      "quality": "Stable"
+    },
+    {
+      "id": "H0Ded93f9bf328aa",
+      "name": "Circuit ancien abîmé",
+      "category": "machine",
+      "catalogueKey": "circuit-ancien-abime",
+      "barterValue": 2,
+      "charge": 0.25,
+      "quality": "Abimee"
+    },
+    {
+      "id": "H0Ddbe158f668faa",
+      "name": "Circuit ancien intact",
+      "category": "machine",
+      "catalogueKey": "circuit-ancien-intact",
+      "barterValue": 4,
+      "charge": 0.25,
+      "quality": "Intacte"
+    },
+    {
+      "id": "H0Db86f1831bcb18",
+      "name": "Fibres synthétiques",
+      "category": "machine",
+      "catalogueKey": "fibres-synthetiques",
+      "barterValue": 1,
+      "charge": 0.25,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D56ae65fe6c58d",
+      "name": "Fluide élémentaire — Blaze",
+      "category": "machine",
+      "catalogueKey": "fluide-elementaire-blaze",
+      "barterValue": 2,
+      "charge": 0.5,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D7ba6aeddf7fe9",
+      "name": "Fluide élémentaire — Chillwater",
+      "category": "machine",
+      "catalogueKey": "fluide-elementaire-chillwater",
+      "barterValue": 2,
+      "charge": 0.5,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0De8811bfabfd89",
+      "name": "Fluide élémentaire — Metalburn",
+      "category": "machine",
+      "catalogueKey": "fluide-elementaire-metalburn",
+      "barterValue": 2,
+      "charge": 0.5,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D51b786338ce5c",
+      "name": "Fluide élémentaire — Sparker",
+      "category": "machine",
+      "catalogueKey": "fluide-elementaire-sparker",
+      "barterValue": 2,
+      "charge": 0.5,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0Daed48acc66514",
+      "name": "Lentilles optiques",
+      "category": "machine",
+      "catalogueKey": "lentilles-optiques",
+      "barterValue": 2,
+      "charge": 0.25,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D3af7bd3bc121f",
+      "name": "Noyau de machine lourde",
+      "category": "machine",
+      "catalogueKey": "noyau-lourd",
+      "barterValue": 20,
+      "charge": 8,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D8f622cf994013",
+      "name": "Noyau de machine moyenne",
+      "category": "machine",
+      "catalogueKey": "noyau-moyen",
+      "barterValue": 10,
+      "charge": 4,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Dea86910d73587",
+      "name": "Noyau de petite machine",
+      "category": "machine",
+      "catalogueKey": "petit-noyau-de-machine",
+      "barterValue": 5,
+      "charge": 2,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D5cfe3cc08ea3d",
+      "name": "Plaques métalliques",
+      "category": "machine",
+      "catalogueKey": "plaque-de-machine-propre",
+      "barterValue": 1,
+      "charge": 1,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D2c9cace34345b",
+      "name": "Bois de crête — Ridge-Wood",
+      "category": "nature",
+      "catalogueKey": "bois-de-crete-ridge-wood",
+      "barterValue": 1,
+      "charge": 0.5,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0Dcaa63978d3472",
+      "name": "Os animal",
+      "category": "nature",
+      "catalogueKey": "os-animal",
+      "barterValue": 2,
+      "charge": 0.5,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D3a82f9999928e",
+      "name": "Peau animale",
+      "category": "nature",
+      "catalogueKey": "peau-animale",
+      "barterValue": 4,
+      "charge": 1,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Df50b990d6f182",
+      "name": "Racine de résistance au choc",
+      "category": "nature",
+      "catalogueKey": "racine-de-resistance-au-choc",
+      "barterValue": 2,
+      "charge": 0.25,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D74e50836cd6af",
+      "name": "Racine de résistance au feu",
+      "category": "nature",
+      "catalogueKey": "racine-de-resistance-au-feu",
+      "barterValue": 2,
+      "charge": 0.25,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D83501b1c1961b",
+      "name": "Racine de résistance au gel",
+      "category": "nature",
+      "catalogueKey": "racine-de-resistance-au-gel",
+      "barterValue": 2,
+      "charge": 0.25,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0Df1f2d08480ef7",
+      "name": "Racine de résistance à la corruption",
+      "category": "nature",
+      "catalogueKey": "racine-de-resistance-a-la-corruption",
+      "barterValue": 4,
+      "charge": 0.25,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D54f849528fd48",
+      "name": "Trophée animal rare",
+      "category": "nature",
+      "catalogueKey": "trophee-animal-rare",
+      "barterValue": 4,
+      "charge": 1,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0De33cce51dc164",
+      "name": "Verre de scorie — Slagshine Glass",
+      "category": "nature",
+      "catalogueKey": "verre-de-scorie-slagshine-glass",
+      "barterValue": 4,
+      "charge": 0.5,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D23d91a179adf2",
+      "name": "Verre du désert",
+      "category": "nature",
+      "catalogueKey": "verre-du-desert",
+      "barterValue": 2,
+      "charge": 0.5,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D9bb8867919ef9",
+      "name": "Viande animale",
+      "category": "nature",
+      "catalogueKey": "viande-animale",
+      "barterValue": 1,
+      "charge": 1,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0Db7844b35c87ac",
+      "name": "Batterie-tempête",
+      "category": "rare",
+      "catalogueKey": "batterie-tempete",
+      "barterValue": 20,
+      "charge": 2,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D15bf0156ef8f8",
+      "name": "Canon cryo de Snapmaw",
+      "category": "rare",
+      "catalogueKey": "canon-cryo-de-snapmaw",
+      "barterValue": 10,
+      "charge": 3,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Dec4327f76c6b8",
+      "name": "Canon de Ravager",
+      "category": "rare",
+      "catalogueKey": "canon-de-ravager",
+      "barterValue": 20,
+      "charge": 4,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D2ecf6f456b94b",
+      "name": "Crocs de Sawtooth",
+      "category": "rare",
+      "catalogueKey": "crocs-de-sawtooth",
+      "barterValue": 5,
+      "charge": 0.5,
+      "quality": "Intacte"
+    },
+    {
+      "id": "H0D0d1e124f6e121",
+      "name": "Foreuse de Rockbreaker",
+      "category": "rare",
+      "catalogueKey": "foreuse-de-rockbreaker",
+      "barterValue": 20,
+      "charge": 6,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D7d8ba3cbf7366",
+      "name": "Grand réservoir Blaze",
+      "category": "rare",
+      "catalogueKey": "grand-reservoir-blaze",
+      "barterValue": 10,
+      "charge": 3,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D7a3a0f2776fc3",
+      "name": "Grand réservoir cryogénique",
+      "category": "rare",
+      "catalogueKey": "grand-reservoir-cryogenique",
+      "barterValue": 10,
+      "charge": 3,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Df34a517b00974",
+      "name": "Griffe de machine intacte",
+      "category": "rare",
+      "catalogueKey": "griffe-de-machine-intacte",
+      "barterValue": 5,
+      "charge": 1,
+      "quality": "Intacte"
+    },
+    {
+      "id": "H0Db14b617f7bfb1",
+      "name": "Générateur de bouclier de Shell-Walker",
+      "category": "rare",
+      "catalogueKey": "generateur-de-bouclier",
+      "barterValue": 10,
+      "charge": 2,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D652f8e1f9e31c",
+      "name": "Générateur de camouflage de Stalker",
+      "category": "rare",
+      "catalogueKey": "generateur-furtif-de-stalker",
+      "barterValue": 10,
+      "charge": 1,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Deb30807426ef8",
+      "name": "Générateur gravitationnel de Behemoth",
+      "category": "rare",
+      "catalogueKey": "generateur-gravitationnel-de-behemoth",
+      "barterValue": 20,
+      "charge": 3,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Dc900088be22c1",
+      "name": "Lance-disques de Thunderjaw",
+      "category": "rare",
+      "catalogueKey": "lance-disques-de-thunderjaw",
+      "barterValue": 20,
+      "charge": 4,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D5e768fcaff56f",
+      "name": "Moteur dorsal ELYSIUM",
+      "category": "rare",
+      "catalogueKey": "moteur-dorsal-elysium",
+      "barterValue": 10,
+      "charge": 2,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Dc403eb24b5abf",
+      "name": "Petite relique antique",
+      "category": "rare",
+      "catalogueKey": "petite-relique-antique",
+      "barterValue": 1,
+      "charge": 0.25,
+      "quality": "Commune"
+    },
+    {
+      "id": "H0D11a979835d911",
+      "name": "Radar dorsal de Scrapper",
+      "category": "rare",
+      "catalogueKey": "radar-de-scrapper-intact",
+      "barterValue": 5,
+      "charge": 1,
+      "quality": "Intacte"
+    },
+    {
+      "id": "H0Da561a71f3fa4d",
+      "name": "Relais de brouillage ELYSIUM",
+      "category": "rare",
+      "catalogueKey": "relais-de-brouillage-elysium",
+      "barterValue": 20,
+      "charge": 0.25,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Ddc4339fe1d39e",
+      "name": "Relique antique inhabituelle",
+      "category": "rare",
+      "catalogueKey": "relique-antique-inhabituelle",
+      "barterValue": 2,
+      "charge": 0.5,
+      "quality": "Intacte"
+    },
+    {
+      "id": "H0Ddf607a22b7462",
+      "name": "Relique antique rare",
+      "category": "rare",
+      "catalogueKey": "relique-antique-rare",
+      "barterValue": 4,
+      "charge": 0.5,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0D270c085ae8175",
+      "name": "Réacteur de vol de Stormbird",
+      "category": "rare",
+      "catalogueKey": "reacteur-de-vol-de-stormbird",
+      "barterValue": 20,
+      "charge": 4,
+      "quality": "Rare"
+    },
+    {
+      "id": "H0Dc73fd3e78521f",
+      "name": "Œil optique intact",
+      "category": "rare",
+      "catalogueKey": "oeil-optique-intact",
+      "barterValue": 5,
+      "charge": 0.25,
+      "quality": "Intacte"
+    }
+  ]
+}
