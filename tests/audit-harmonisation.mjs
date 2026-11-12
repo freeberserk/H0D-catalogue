@@ -7,10 +7,14 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const read=path=>JSON.parse(readFileSync(new URL("../"+path,import.meta.url),"utf8"));
 const index=read("data/index.json");
 const audit=read("data/audits/rapprochement-builders-2026-11-08.json");
-const definitions=index.catalogues.flatMap(path=>read(path).definitions);
+const allDefinitions=index.catalogues.flatMap(path=>read(path).definitions);
+const newLootResources=allDefinitions.filter(x=>x.catalogue?.statut==="integre-h0d-loot-2026-11-12");
+assert.equal(newLootResources.length,31);
+const definitions=allDefinitions.filter(x=>x.catalogue?.statut!=="integre-h0d-loot-2026-11-12");
 // Le rapport figé du 8 novembre porte sur les 199 équipements d\'origine, pas sur les nouveaux jetons.
 const equipmentDefinitions=definitions.filter(x=>x.key!=="jeton-reconnaissance");
 assert.equal(definitions.length,200);
+assert.equal(allDefinitions.length,231);
 
 assert.ok(!index.catalogues.some(path=>path.startsWith("data/audits/")),
  "Le rapport d'audit ne doit jamais devenir une table de génération.");
@@ -23,7 +27,7 @@ assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.visible_au_stock_standa
 // Audit v0.1.8 conservé comme état historique ; 18 prix ajoutés en v0.1.9.
 assert.equal(equipmentDefinitions.filter(x=>["dent-ambre","caravanes-libres","pillards-rouges","heritiers-soleil"].includes(x.originKey)&&x.kind==="armor"&&x.catalogue?.prix_ressources?.base!=null).length,18);
 assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.missingResourcePrice-18);
-assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.rarete==null||x.catalogue?.rarete==="").length,audit.catalogue.missingRarity);
+assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.rarete==null||x.catalogue?.rarete==="").length,audit.catalogue.missingRarity-1); // Œil optique intact fixé Rare en v0.1.16.
 assert.equal(equipmentDefinitions.filter(x=>x.catalogue?.visible_au_stock_standard===true&&x.catalogue?.prix_ressources?.base==null).length,audit.catalogue.standardStockUnknownPrice.length-18);
 // L'audit du 8 novembre demeure immuable : deux protections de la séance P-03
 // ont été reclassées d'Objet vers Armure, sans créer/supprimer de référence ni de prix.
