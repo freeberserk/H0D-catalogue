@@ -42,7 +42,7 @@ await api.whenReady();
 const s=api.getStatus();
 assert.equal(s.version,manifest.version);
 assert.equal(api.version,manifest.version);
-assert.equal(s.references,232);
+assert.equal(s.references,233);
 assert.equal(api.resolveDefinition({key:"couteau-de-depecage",kind:"weapon"}).status,"key");
 assert.equal(api.resolveDefinition({name:"Couteau de dépeçage",kind:"weapon"}).key,"couteau-de-depecage");
 assert.equal(api.resolveDefinition({name:"COUTEAU DE DEPECAGE",kind:"weapon"}).status,"name");
@@ -53,10 +53,10 @@ assert.ok(api.getStockEligibleDefinitions().every(x=>x.catalogue.generable_stock
 assert.ok(!api.getStockEligibleDefinitions().some(x=>x.catalogue.pret_pour_builder===false));
 
 assert.equal(s.stocks,1);
-assert.equal(s.protected,97);
+assert.equal(s.protected,98);
 assert.equal(s.bridge.added,134); // 16 nouvelles ressources standard.
 assert.equal(s.bridge.skipped,1);
-assert.equal(s.bridge.protected,97);
+assert.equal(s.bridge.protected,98);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
 assert.equal(api.getRecipes().length,80);
@@ -75,10 +75,14 @@ assert.equal(builder.getDefinition("crochet-de-sauvetage-caravanier").props.H0D_
 assert.equal(api.getRecipes({includeRestricted:true}).length,80);
 assert.equal(api.getRecipes({includeRestricted:false}).length,37);
 assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:false}).length,13);
-assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:true}).length,29);
+assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:true}).length,30);
 assert.equal(api.getDefinition("marteau-de-brok").props.H0D_Arme_Degats,"1d8");
 assert.equal(api.getDefinition("marteau-de-brok").props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Type,"outil");
 assert.ok(!api.getStockEligibleDefinitions().some(d=>d.key==="marteau-de-brok"));
+assert.equal(api.getDefinition("hache-de-recuperation-brok").props.H0D_Arme_Degats,"1d8");
+assert.equal(api.getDefinition("hache-de-recuperation-brok").props.H0D_Arme_Type_Degats,"Tranchant");
+assert.equal(api.getDefinition("hache-de-recuperation-brok").props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Type,"outil");
+assert.ok(!api.getStockEligibleDefinitions().some(d=>d.key==="hache-de-recuperation-brok"));
 assert.equal(api.getDefinition("arbalete-de-poignet").props.H0D_Arme_Degats,"1d4");
 assert.equal(api.getDefinition("fouet-electrique-pillards").props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Valeur,3);
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
@@ -161,7 +165,7 @@ assert.ok(denied.errors.length);
 const noOp=api.syncToEquipmentBuilder();
 assert.equal(noOp.added,0);
 assert.equal(noOp.skipped,135);
-assert.equal(noOp.protected,97);
+assert.equal(noOp.protected,98);
 
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
 const original=api.getDefinition("rations-2-jours");
@@ -171,5 +175,5 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
 assert.equal(after.skipped,135);
-assert.equal(after.protected,97);
-console.log("OK — API Foundry simulée, 232 références, 29 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");
+assert.equal(after.protected,98);
+console.log("OK — API Foundry simulée, 233 références, 30 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");
