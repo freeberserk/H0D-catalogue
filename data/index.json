@@ -11,7 +11,8 @@
     "data/catalogue-armes-factions.json",
     "data/catalogue-munitions.json",
     "data/catalogue-jetons.json",
-    "data/catalogue-ressources-loot.json"
+    "data/catalogue-ressources-loot.json",
+    "data/catalogue-equipements-conseil.json"
   ],
   "stocks": [
     "data/stocks/longue-corde-p03.json"
