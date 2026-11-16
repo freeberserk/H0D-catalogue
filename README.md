@@ -1,3 +1,11 @@
+## Inventaire des six autres factions — 392 mentions (16 novembre 2026)
+
+L'audit [392 mentions sourcées](data/audits/mentions-equipement-factions-2026-11-16.json) recense exactement **69 profils**, **392 occurrences d'équipement** et **369 intitulés distincts après normalisation**. Le rapprochement strict donne **10 occurrences de nom commun ou d'alias documenté** (contre 9 dans l'audit historique du 8 novembre, après intégration des nouvelles ressources Loot). Ce sont des **candidats de rapprochement**, jamais des équivalences validées.
+
+Chaque occurrence conserve sa faction, son profil, son libellé et sa position dans la liste du profil. Les fichiers source des factions fournissent principalement des **noms**, pas les `props` complètes de l'Item : ce second audit n'invente donc ni type CSB ni propriétés mécaniques.
+
+L'étape suivante sera de confronter ces 392 mentions aux éventuels objets générés par Faction Builder et aux références canoniques, puis de promouvoir uniquement les définitions effectivement validées. Les 49 Items directement structurés des neuf membres du Conseil restent inventoriés [dans le dossier de 82 références](data/audits/candidats-equipement-externes-2026-11-16.json).
+
 ## Chantier prioritaire — intégrer les équipements externes (16 novembre 2026)
 
 **Décision MJ : H0D Catalogue est l'unique source de vérité pour les équipements.** Aucun équipement ne doit rester défini indépendamment dans les modules consommateurs une fois sa référence canonique validée.
