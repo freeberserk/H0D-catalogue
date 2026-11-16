@@ -1,0 +1,81 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.18",
+  "principes": {
+    "sourceUnique": "H0D Catalogue",
+    "provenance": "Arme du Conseil validée, sans prix ni recette inventés."
+  },
+  "definitions": [
+    {
+      "key": "marteau-de-brok",
+      "name": "Marteau de Brok",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d’Ambre",
+      "tier": 1,
+      "source": "H0D Faction Builder v0.6.10, data/conseil-dent-ambre.json, Brok (décisions MJ du 16 novembre 2026)",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "FOR",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "0",
+        "H0D_Arme_Type_Degats": "Contondant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Dent d’Ambre",
+        "H0D_Arme_Cout": "",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "outil",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Outil de travail assez solide pour servir d’arme."
+      },
+      "catalogue": {
+        "categorie": "Arme du Conseil",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {},
+        "notes_source": "Marteau de forge de Brok (fiche historique), renommé Marteau de Brok ; trait outil demandé par le MJ, 1d8 contondant à une main inchangé.",
+        "alias": [
+          "Marteau de forge de Brok"
+        ],
+        "etiquettes": [
+          "conseil_dent_ambre",
+          "equipement_personnel",
+          "trait_outil"
+        ],
+        "statut": "validee_mj",
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": true,
+        "restriction": "Arme attribuée à Brok lors de la création du Conseil ; aucune vente ou fabrication définie."
+      }
+    }
+  ]
+}
