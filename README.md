@@ -1,3 +1,18 @@
+## Chantier prioritaire — intégrer les équipements externes (16 novembre 2026)
+
+**Décision MJ : H0D Catalogue est l'unique source de vérité pour les équipements.** Aucun équipement ne doit rester défini indépendamment dans les modules consommateurs une fois sa référence canonique validée.
+
+Premier inventaire conservateur, sans toucher aux objets du monde : [82 candidats externes](data/audits/candidats-equipement-externes-2026-11-16.json), provenant des **33 références** de H0D Equipment Builder v0.2.6 et des **49 Items embarqués** sur les neuf membres du Conseil dans H0D Faction Builder v0.6.10.
+
+- **0 clé exacte** déjà présente au Catalogue ; **3 occurrences de nom potentiellement commun** (Fronde mécanique de Nerys, Lance de chasse courte d'Odran, Fronde mécanique de Sava) ne prouvent aucune équivalence.
+- Les autres profils de six factions totalisent **392 mentions historiques** réparties sur 69 profils ; ces mentions font l'objet du dossier [audit initial](data/audits/rapprochement-builders-2026-11-08.json) et doivent être rapprochées avec les `props` des Items générés.
+- Les **45 ressources H0D Loot** sont déjà couvertes par le Catalogue (31 nouvelles références, 14 rattachements) ; c'est le modèle technique à reprendre.
+- **Chaque candidat** conserve le nom, le type, la provenance et les propriétés source. Son statut reste `a-arbitrer` et `importReady:false`. Aucun des 82 n'est intégré à `data/index.json` tant que son identité, les champs CSB, ses restrictions d'accès et ses éventuels écarts ne sont pas contrôlés.
+- Lors de l'intégration, conserver les clés canoniques stables, marquer explicitement les prix inconnus `null`, interdire les stocks aléatoires et ne jamais fusionner sur une ressemblance de nom.
+- **Migrer les modules consommateurs après validation** : lecture des propriétés via `getDefinition(key)` plutôt que copies, tout en préservant les paramètres propres aux Actors et les Items déjà possédés.
+
+Ce dossier est **un inventaire auditable, pas 82 nouveaux équipements vendables**. La partie non vérifiable depuis GitHub (Items créés manuellement dans le monde ou compendiums privés) devra être obtenue par export d'audit Foundry plutôt que devinée.
+
 ## Correction de l'API au démarrage (v0.1.15)
 
 Si H0D Catalogue est installé et activé mais que `game.h0dCatalogue` est `undefined`, une régression du chargement v0.1.14 peut être en cause : le script demandait la version du module avant que `game.modules` soit prêt. La lecture de la version est maintenant différée jusqu'à son utilisation. Le stock canonique de Senn, les prix et les références ne changent pas.

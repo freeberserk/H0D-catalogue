@@ -390,3 +390,35 @@ for(const element of ["Blaze","Chillwater","Metalburn","Sparker"])
  assert.equal(legacyLoot.resources.find(r=>r.name==="Fluide élémentaire — "+element)?.barterValue,2,element+": troc");
 assert.equal(load("data/stocks/longue-corde-p03.json").offres.length,21);
 console.log("OK — 45/45 ressources Loot couvertes, 58 ressources catalogue avec charges et troc fixés.");
+
+// Inventaire des équipements externes : donnée d'audit non importée automatiquement.
+const externalAuditPath="data/audits/candidats-equipement-externes-2026-11-16.json";
+const external=load(externalAuditPath);
+assert.equal(external.format,"H0D_EXTERNAL_EQUIPMENT_AUDIT");
+assert.equal(external.formatVersion,1);
+assert.equal(external.summary.entries,82);
+assert.equal(external.summary.sourceBuilder,33);
+assert.equal(external.summary.sourceCouncil,49);
+assert.equal(external.summary.sourceFactionMentionsPreviouslyAudited,392);
+assert.equal(external.summary.nameCandidateOccurrences,3);
+assert.equal(external.summary.exactCatalogueKeys,0);
+assert.equal(external.candidates.length,82);
+const byRepo=external.candidates.reduce((groups,d)=>(groups[d.originRepo]=(groups[d.originRepo]??0)+1,groups),{});
+assert.equal(byRepo["freeberserk/h0d-equipment-builder"],33);
+assert.equal(byRepo["freeberserk/h0d-faction-builder"],49);
+const knownKeys=new Set(defs.map(d=>d.key));
+const externalKeys=new Set();
+for(const d of external.candidates){
+ assert.equal(d.decision,"a-arbitrer",d.key);
+ assert.equal(d.importReady,false,d.key+" ne doit pas devenir générable sans validation.");
+ assert.equal(d.exactCatalogueKey,null,d.key);
+ assert.ok(["weapon","armor","object","resource"].includes(d.kind),d.key);
+ assert.ok(d.sourceProps&&typeof d.sourceProps==="object"&&!Array.isArray(d.sourceProps),d.key);
+ assert.ok(d.sourceFile&&d.sourceRef&&d.originRepo,d.key+": provenance requise");
+ assert.ok(!knownKeys.has(d.key),d.key+": ne doit pas être déjà dans le runtime Catalogue");
+ assert.ok(!externalKeys.has(d.key),d.key+": doublon dans l'audit");
+ externalKeys.add(d.key);
+}
+assert.ok(!index.catalogues.includes(externalAuditPath),"Les candidats non arbitrés ne doivent pas être des articles.");
+assert.equal(external.candidates.filter(x=>x.nameCandidatesOnly.length).length,3);
+console.log("OK — 82 candidats externes enregistrés hors runtime : 33 historiques, 49 Conseil ; 392 mentions de factions suivies séparément.");
