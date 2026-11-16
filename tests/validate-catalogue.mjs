@@ -43,6 +43,30 @@ for (const d of defs) {
     }
   }
 }
+
+// Le premier équipement du Conseil est canonique et réservé à Brok.
+const councilHammer=load("data/catalogue-equipements-conseil.json").definitions;
+assert.equal(councilHammer.length,1);
+const hammer=councilHammer[0];
+assert.equal(hammer.key,"marteau-de-brok");
+assert.equal(hammer.name,"Marteau de Brok");
+assert.equal(hammer.kind,"weapon");
+assert.equal(hammer.templateKey,"item-arme");
+assert.equal(hammer.props.H0D_Arme_Degats,"1d8");
+assert.equal(hammer.props.H0D_Arme_Type_Degats,"Contondant");
+assert.equal(hammer.props.H0D_Arme_Mains,"1");
+assert.equal(hammer.props.H0D_Arme_Encombrement,"1");
+assert.equal(hammer.props.H0D_Arme_Carac_Attaque,"FOR");
+assert.equal(hammer.props.H0D_Arme_Carac_Degats,"FOR");
+assert.equal(hammer.props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Type,"outil");
+assert.equal(hammer.props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Valeur,0);
+assert.equal(hammer.catalogue.prix_ressources,null);
+assert.equal(hammer.catalogue.fabrication,undefined);
+assert.equal(hammer.catalogue.visible_au_stock_standard,false);
+assert.equal(hammer.catalogue.generable_stock_aleatoire,false);
+assert.equal(hammer.catalogue.pret_pour_builder,true);
+assert.ok(!index.stocks.includes("data/catalogue-equipements-conseil.json"));
+
 const armures = defs.filter(d=>d.kind === "armor");
 assert.equal(armures.length,43);
 // Les protections corporelles portées relèvent du template Armure, même sans DEF.
@@ -90,8 +114,8 @@ for (const a of armures) {
     assert.equal(a.catalogue.fabrication,undefined,"Recette inventée : "+a.key);
   }
 }
-assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31);
-assert.equal(defs.length,200 + 31);
+assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 1);
+assert.equal(defs.length,200 + 31 + 1);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -214,7 +238,8 @@ assert.equal(sennAmmo.quantite_par_achat,5);
 assert.equal(sennAmmo.prix_jetons,2);
 assert.equal(sennAmmo.nom_pour_la_scene,"Flèches renforcées ×5");
 
-const weapons=defs.filter(d=>d.kind==="weapon");
+const weapons=defs.filter(d=>d.kind==="weapon" && d.key!=="marteau-de-brok");
+assert.equal(defs.filter(d=>d.kind==="weapon").length,29);
 assert.equal(weapons.length,28);
 const expected={ "dent-ambre":11,"caravanes-libres":3,"pillards-rouges":8,"culte-renouveau":2,"heritiers-soleil":4 };
 for(const [origin,count] of Object.entries(expected)) assert.equal(weapons.filter(w=>w.originKey===origin).length,count);
@@ -252,7 +277,7 @@ for(const w of weapons.filter(w=>w.catalogue.risque_batterie_pillarde))
  assert.ok(!w.catalogue.risque_batterie_pillarde.table_d6,"Une table de surcharge non validée est encore active.");
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,200 + 31);
+assert.equal(defs.length,200 + 31 + 1);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -324,7 +349,7 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
 assert.equal(crafted.length,80);
-assert.equal(privateDefs.length,81 + 15);
+assert.equal(privateDefs.length,81 + 15 + 1);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);
 
 // La monnaie de scène n'est pas une ressource de récupération ni un stock marchand.
