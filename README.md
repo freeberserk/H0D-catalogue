@@ -1,3 +1,7 @@
+## Conseil — Hache de récupération de Brok (deuxième référence validée)
+
+`hache-de-recuperation-brok` est une arme distincte de la Hache de chasse : **1d8 Tranchant, une main, FOR à l'attaque et aux dégâts, encombrement 1, critique 20/×2**, avec le trait **outil** à valeur **0**. Elle sert aussi au démontage et à la destruction de matériaux, sans bonus automatique créé. Cette arme de Brok est générable via Faction Builder mais **non marchande**, hors stock aléatoire, sans prix ni fabrication inventés. Le Catalogue possède ainsi deux équipements du Conseil validés (Marteau de Brok et Hache de récupération).
+
 ## Première incorporation validée du Conseil — Marteau de Brok
 
 Référence `marteau-de-brok` dans `data/catalogue-equipements-conseil.json`. Le marteau de Brok reprend ses caractéristiques d'origine **1d8 Contondant, mêlée, une main, FOR aux attaques et dégâts, encombrement 1, critique 20/×2** avec le trait **outil** (aucun bonus de trait inventé). Nom validé par le MJ : **Marteau de Brok** ; l'ancien nom « Marteau de forge de Brok » reste un alias documentaire.
