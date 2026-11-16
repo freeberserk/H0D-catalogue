@@ -13,11 +13,14 @@ assert.equal(newLootResources.length,31);
 const councilHammer=allDefinitions.find(x=>x.key==="marteau-de-brok");
 assert.ok(councilHammer && councilHammer.catalogue.statut==="validee_mj");
 assert.equal(councilHammer.catalogue.prix_ressources,null);
-const definitions=allDefinitions.filter(x=>x.catalogue?.statut!=="integre-h0d-loot-2026-11-12"&&x.key!=="marteau-de-brok");
+const councilAxe=allDefinitions.find(x=>x.key==="hache-de-recuperation-brok");
+assert.ok(councilAxe&&councilAxe.catalogue.statut==="validee_mj");
+assert.equal(councilAxe.catalogue.prix_ressources,null);
+const definitions=allDefinitions.filter(x=>x.catalogue?.statut!=="integre-h0d-loot-2026-11-12"&&!["marteau-de-brok","hache-de-recuperation-brok"].includes(x.key));
 // Le rapport figé du 8 novembre porte sur les 199 équipements d\'origine, pas sur les nouveaux jetons.
 const equipmentDefinitions=definitions.filter(x=>x.key!=="jeton-reconnaissance");
 assert.equal(definitions.length,200);
-assert.equal(allDefinitions.length,232);
+assert.equal(allDefinitions.length,233);
 
 assert.ok(!index.catalogues.some(path=>path.startsWith("data/audits/")),
  "Le rapport d'audit ne doit jamais devenir une table de génération.");
