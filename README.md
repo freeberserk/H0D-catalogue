@@ -1,3 +1,9 @@
+## Première incorporation validée du Conseil — Marteau de Brok
+
+Référence `marteau-de-brok` dans `data/catalogue-equipements-conseil.json`. Le marteau de Brok reprend ses caractéristiques d'origine **1d8 Contondant, mêlée, une main, FOR aux attaques et dégâts, encombrement 1, critique 20/×2** avec le trait **outil** (aucun bonus de trait inventé). Nom validé par le MJ : **Marteau de Brok** ; l'ancien nom « Marteau de forge de Brok » reste un alias documentaire.
+
+Cet Item est **générable pour Brok** mais exclu des stocks marchands et aléatoires. Prix, rareté et recette : inconnus ou non définis, jamais `0` ou gratuits. Aucun Item de PJ n'est migré, aucun stock Senn modifié. Les audits historiques demeurent figés pour les candidatures non validées.
+
 ## Inventaire des six autres factions — 392 mentions (16 novembre 2026)
 
 L'audit [392 mentions sourcées](data/audits/mentions-equipement-factions-2026-11-16.json) recense exactement **69 profils**, **392 occurrences d'équipement** et **369 intitulés distincts après normalisation**. Le rapprochement strict donne **10 occurrences de nom commun ou d'alias documenté** (contre 9 dans l'audit historique du 8 novembre, après intégration des nouvelles ressources Loot). Ce sont des **candidats de rapprochement**, jamais des équivalences validées.
