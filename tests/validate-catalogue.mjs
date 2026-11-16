@@ -422,3 +422,24 @@ for(const d of external.candidates){
 assert.ok(!index.catalogues.includes(externalAuditPath),"Les candidats non arbitrés ne doivent pas être des articles.");
 assert.equal(external.candidates.filter(x=>x.nameCandidatesOnly.length).length,3);
 console.log("OK — 82 candidats externes enregistrés hors runtime : 33 historiques, 49 Conseil ; 392 mentions de factions suivies séparément.");
+
+// Complément à l'audit : 392 mentions de six factions, sans props techniques.
+const factionMentionPath="data/audits/mentions-equipement-factions-2026-11-16.json";
+const factionMentions=load(factionMentionPath);
+assert.equal(factionMentions.format,"H0D_FACTION_EQUIPMENT_MENTIONS_AUDIT");
+assert.equal(factionMentions.formatVersion,1);
+assert.equal(factionMentions.summary.profiles,69);
+assert.equal(factionMentions.summary.mentions,392);
+assert.equal(factionMentions.summary.imported,0);
+assert.equal(factionMentions.summary.nameCandidateOccurrences,10);
+assert.equal(factionMentions.mentions.length,392);
+assert.equal(factionMentions.summary.byFaction.reduce((n,f)=>n+f.mentions,0),392);
+assert.ok(!index.catalogues.includes(factionMentionPath),"Mentions de factions hors index exécutable.");
+for(const m of factionMentions.mentions){
+ assert.equal(m.decision,"a-arbitrer");
+ assert.equal(m.importReady,false);
+ assert.equal(m.itemKind,"non-specifie-dans-cette-liste");
+ assert.equal(m.itemProps,null);
+ assert.ok(m.sourceFile&&m.profileId&&m.sourceName);
+}
+console.log("OK — 392 mentions des six factions conservées comme audit, jamais comme fiches Item implicites.");
