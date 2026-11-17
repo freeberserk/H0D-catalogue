@@ -1,7 +1,7 @@
 {
   "format": "H0D_EQUIPMENT_CATALOG",
   "formatVersion": 1,
-  "version": "0.1.5",
+  "version": "0.1.24",
   "source_documents": [
     "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pages 1-2",
     "Factions.txt, variantes des Caravanes et arsenal des Pillards Rouges",
@@ -367,7 +367,7 @@
       "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
       "props": {
         "H0D_Arme_Categorie": "melee",
-        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Attaque": "FOR",
         "H0D_Arme_Carac_Degats": "FOR",
         "H0D_Arme_Bonus_Attaque": "0",
         "H0D_Arme_Degats": "1d8",
@@ -452,7 +452,8 @@
           "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
           "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
         },
-        "parametres_encore_provisoires": []
+        "parametres_encore_provisoires": [],
+        "notes_source": " Correction de cohérence 2026-11-17 : FOR à l'attaque, conforme aux lances du Conseil."
       }
     },
     {
@@ -1046,7 +1047,7 @@
       "source": "Compendium_Foundry_Armes_Armures_Zero_Dawn-1.pdf, pp. 1-2",
       "props": {
         "H0D_Arme_Categorie": "distance",
-        "H0D_Arme_Carac_Attaque": "aucune",
+        "H0D_Arme_Carac_Attaque": "DEX",
         "H0D_Arme_Carac_Degats": "FOR",
         "H0D_Arme_Bonus_Attaque": "0",
         "H0D_Arme_Degats": "1d6",
@@ -1122,7 +1123,8 @@
           "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
           "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
         },
-        "parametres_encore_provisoires": []
+        "parametres_encore_provisoires": [],
+        "notes_source": " Correction de cohérence 2026-11-17 : DEX à l'attaque explicitement prévu par la règle_force du Catalogue."
       }
     },
     {
