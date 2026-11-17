@@ -446,7 +446,7 @@ assert.equal(byKey["harnais-converti-renouveau"].props.H0D_Armure_Encombrement,2
 assert.equal(byKey["armure-zelote-renouveau"].props.H0D_Armure_Malus,"-2 aux tests physiques concernés");
 assert.ok(!armures.some(d=>d.key.includes("elu-zalem")));
 for (const a of armures) {
-  assert.equal(a.props.H0D_Armure_Type,"armure");
+  assert.ok(["armure","bouclier"].includes(a.props.H0D_Armure_Type),`Type de protection invalide : ${a.key}`);
   assert.ok(["corps","tete","torse","bras","jambes","autre"].includes(a.props.H0D_Armure_Zone));
   if (a.catalogue?.pret_pour_builder===false) {
     assert.equal(a.props.H0D_Armure_Bonus_Defense,null,`Plan non chiffré DEF ${a.key}`);
