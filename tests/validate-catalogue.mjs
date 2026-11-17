@@ -214,7 +214,7 @@ for(const d of defs.filter(x=>x.key.startsWith("billes-")&&x.props.H0D_Objet_Com
 
 // Conseil : 26 armes/protections personnelles, plus 7 kits ; deux armes standards.
 const byCouncil = Object.fromEntries(councilHammer.map(d=>[d.key,d]));
-assert.equal(new Set(councilHammer.map(d=>d.key)).size,26);
+assert.equal(new Set(councilHammer.map(d=>d.key)).size,33);
 assert.ok(councilHammer.every(d=>d.catalogue.pret_pour_builder===true));
 assert.ok(councilHammer.every(d=>d.catalogue.visible_au_stock_standard===false&&d.catalogue.generable_stock_aleatoire===false));
 assert.ok(councilHammer.every(d=>d.catalogue.prix_ressources===null&&!d.catalogue.fabrication));
