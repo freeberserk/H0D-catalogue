@@ -1,7 +1,7 @@
 {
   "format": "H0D_EQUIPMENT_CATALOG",
   "formatVersion": 1,
-  "version": "0.1.22",
+  "version": "0.1.23",
   "principes": {
     "sourceUnique": "H0D Catalogue",
     "provenance": "Arme du Conseil validée, sans prix ni recette inventés."
@@ -274,6 +274,74 @@
         "generable_stock_aleatoire": false,
         "pret_pour_builder": true,
         "restriction": "Équipement réservé à Eron, sans prix ni recette définis."
+      }
+    },
+    {
+      "key": "lance-courte-secours-eron",
+      "name": "Lance courte de secours",
+      "kind": "weapon",
+      "kindLabel": "Arme",
+      "templateKey": "item-arme",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d’Ambre",
+      "tier": 1,
+      "source": "H0D Faction Builder v0.6.14, data/conseil-dent-ambre.json, Eron des Racines ; validation MJ 17 novembre 2026",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Carac_Attaque": "FOR",
+        "H0D_Arme_Carac_Degats": "FOR",
+        "H0D_Arme_Bonus_Attaque": "0",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "1",
+        "H0D_Arme_Type_Degats": "Perforant",
+        "H0D_Arme_Portee": "0",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Equipee": false,
+        "H0D_Stockage": "PJ",
+        "H0D_Arme_Active": false,
+        "H0D_Arme_Encombrement": "1",
+        "H0D_Arme_Zone": "",
+        "H0D_Arme_Mode_Munition": "Aucune",
+        "H0D_Arme_Type_Munition": "Fleche",
+        "H0D_Arme_Consommation_Munition": "0",
+        "H0D_Arme_Recharge": "",
+        "H0D_Arme_Munitions": "0",
+        "H0D_Arme_Munitions_Max": "0",
+        "H0D_Arme_Element": "Aucun",
+        "H0D_Arme_Origine": "Dent d’Ambre",
+        "H0D_Arme_Cout": "",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "polyvalent",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Tranchant",
+            "H0D_Arme_Trait_Note": "Type secondaire Tranchant : correction validée par le MJ le 17 novembre 2026."
+          }
+        },
+        "H0D_Arme_Effet_Special": "",
+        "H0D_Arme_Notes": "Gardée pour défendre les blessés."
+      },
+      "catalogue": {
+        "categorie": "Arme du Conseil",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {},
+        "notes_source": "Arme de secours d'Eron pour défendre les blessés, validée 1d8+1 perforant avec polyvalent (Tranchant), une main, encombrement 1. Type secondaire Tranchant corrigé par le MJ ; aucune capacité supplémentaire.",
+        "alias": [],
+        "etiquettes": [
+          "conseil_dent_ambre",
+          "equipement_personnel",
+          "autodefense"
+        ],
+        "statut": "validee_mj",
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": true,
+        "restriction": "Arme personnelle d'Eron, sans vente ni fabrication définie."
       }
     }
   ]
