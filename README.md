@@ -1,3 +1,11 @@
+## Conseil — Lance courte de secours d'Eron (cinquième référence validée)
+
+`lance-courte-secours-eron` est une arme distincte, **1d8+1 Perforant**, une main, encombrement 1, critique 20/×2, FOR attaque et dégâts. Trait **Polyvalent (Tranchant)** à valeur 0, sans effet supplémentaire. Eron la garde pour défendre les blessés ; ce n'est pas une amélioration de son rôle de combattant.
+
+Correction parallèle demandée par le MJ : la **Lance de chasse courte** standard conserve 1d8 perforant et son prix/fabrication, mais son type secondaire `polyvalent` est désormais **Tranchant** plutôt que Contondant (ancienne proposition de frapper avec la hampe abandonnée). Les armes déjà présentes dans Foundry ne sont pas migrées automatiquement.
+
+L'arme personnelle d'Eron reste exclue du commerce, hors stock aléatoire et sans prix ni recette inventés.
+
 ## Conseil — Bâton de marche d'Eron des Racines (quatrième référence validée)
 
 `baton-de-marche-eron` reprend **strictement** la fiche du Maître des Remèdes, **1d6+1 Contondant**, deux mains, encombrement 1, attaque/dégâts FOR, critique 20/×2, sans nouveau trait ni effet. C'est une arme de marche utilisée uniquement en autodéfense ; Eron n'est pas un combattant, et son avantage modeste est validé par le MJ. Prix, rareté et recette non définis, hors stock standard. État du PNJ (équipé et actif) conservé exclusivement dans Faction Builder.
