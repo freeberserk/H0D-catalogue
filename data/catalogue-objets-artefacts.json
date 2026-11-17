@@ -3907,6 +3907,63 @@
         "h0d_loot_id": "H0Dc73fd3e78521f",
         "h0d_loot_name": "Œil optique intact"
       }
+    },
+    {
+      "key": "focus-personnel",
+      "name": "Focus personnel",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d’Ambre",
+      "tier": 1,
+      "source": "Conseil + sauvegardes des trois PJ Foundry",
+      "props": {
+        "H0D_Objet_Type": "Focus",
+        "H0D_Objet_Sous_Type": "Focus du clan",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "0",
+        "H0D_Objet_Valeur": "0",
+        "H0D_Objet_Utilisations": "0",
+        "H0D_Objet_Utilisations_Max": "0",
+        "H0D_Objet_Recharge": "",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Clan de la Dent d’Ambre",
+        "H0D_Objet_Compatibilite": "",
+        "H0D_Objet_Effet": "",
+        "H0D_Objet_Description": "Composition : Focus du personnage.\nFourni comme équipement personnel. Les fonctions accessibles dépendent des règles de la campagne.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Fleche",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": ""
+      },
+      "catalogue": {
+        "categorie": "Focus",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {},
+        "notes_source": "Fiche Focus du clan identique pour les neuf Maîtres et les exports Foundry des trois PJ Héllix Paré, Fer-Hom et Kaboum. Aucun bonus chiffré ajouté.",
+        "alias": [],
+        "etiquettes": [
+          "conseil_dent_ambre",
+          "objets_2026_11_17"
+        ],
+        "statut": "validee_mj",
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": true,
+        "restriction": "Focus personnel du clan, prix et fabrication non renseignés."
+      }
     }
   ],
   "a_valider": [

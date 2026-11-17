@@ -1063,7 +1063,7 @@
         "H0D_Arme_Encombrement": "1",
         "H0D_Arme_Zone": "",
         "H0D_Arme_Mode_Munition": "Chargeur",
-        "H0D_Arme_Type_Munition": "Projectile",
+        "H0D_Arme_Type_Munition": "Bombe",
         "H0D_Arme_Consommation_Munition": "1",
         "H0D_Arme_Recharge": "Mouvement",
         "H0D_Arme_Munitions": "0",
@@ -1072,8 +1072,8 @@
         "H0D_Arme_Origine": "Clan de la Dent d'Ambre",
         "H0D_Arme_Cout": "9",
         "H0D_Arme_Traits_Table": {},
-        "H0D_Arme_Effet_Special": "",
-        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Règle maison des objets propulsés : bonus FOR aux dégâts (prioritaire sur le tiret du Compendium)."
+        "H0D_Arme_Effet_Special": "Fronde mécanique lance-grenades : 1d6 + FOR contondants sur cible directement touchée, puis effet de la grenade ; les autres cibles dans le splash ne subissent que l'effet de zone. Grenades simples rayon 1,5 m, améliorées rayon 3 m ; gestion manuelle.",
+        "H0D_Arme_Notes": "DEX au tir, FOR aux dégâts d'impact ; une grenade Bombe par tir, recharge mouvement. Fonde explosive du jeu, ne tire pas de billes Projectile."
       },
       "catalogue": {
         "categorie": "Arme de faction",
@@ -1124,7 +1124,7 @@
           "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
         },
         "parametres_encore_provisoires": [],
-        "notes_source": " Correction de cohérence 2026-11-17 : DEX à l'attaque explicitement prévu par la règle_force du Catalogue."
+        "notes_source": " Correction de cohérence 2026-11-17 : DEX à l'attaque explicitement prévu par la règle_force du Catalogue. Décision MJ 2026-11-17 : fronde mécanique lance-grenades, famille Bombe."
       }
     },
     {
