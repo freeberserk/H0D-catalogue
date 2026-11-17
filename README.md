@@ -1,3 +1,9 @@
+## Conseil — Tablier de plaques du forgeron de Brok (troisième référence validée)
+
+`tablier-plaques-forgeron-brok` est une **armure distincte** de `cuir-renforce-machine`. Elle conserve la Défense **+3** de la fiche Brok (vs +2 pour le cuir), **encombrement 2**, type armure, zone corps et résistances élémentaires nulles. Elle reprend du Cuir renforcé : malus **−1,5 m de déplacement**, **FOR minimale 14** (règle documentée dans la source et **à contrôler manuellement**, non automatisée en CSB), **3 emplacements d'amélioration**, aucun trait chiffré. La source cuir n'a pas de trait dans `H0D_Armure_Traits_Table` ; aucun bonus ou effet feu n'a été inventé.
+
+L'Item reste réservé au Conseil, exclu des stocks marchands/aléatoires et sans prix ni recette non documentés. Les Items Foundry déjà créés ne sont jamais modifiés automatiquement.
+
 ## Conseil — Hache de récupération de Brok (deuxième référence validée)
 
 `hache-de-recuperation-brok` est une arme distincte de la Hache de chasse : **1d8 Tranchant, une main, FOR à l'attaque et aux dégâts, encombrement 1, critique 20/×2**, avec le trait **outil** à valeur **0**. Elle sert aussi au démontage et à la destruction de matériaux, sans bonus automatique créé. Cette arme de Brok est générable via Faction Builder mais **non marchande**, hors stock aléatoire, sans prix ni fabrication inventés. Le Catalogue possède ainsi deux équipements du Conseil validés (Marteau de Brok et Hache de récupération).
