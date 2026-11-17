@@ -1,3 +1,13 @@
+## v0.1.25 — Conseil : Focus, kits et grenades (17 novembre 2026)
+
+- Un seul **Focus personnel** canonique partagé par les neuf Maîtres et les Focus vérifiés des trois PJ, sans effet inventé.
+- Sept références de kits pour huit dotations ; kit de garde commun à Kael et Tarek, trousse d'Eron 3 usages, restrictions des autres kits conservées.
+- Fronde mécanique = **lance-grenades** (famille CSB `Bombe`, non `Projectile`). DEX au tir ; impact direct **1d6 + FOR contondants** ; grenade simple splash 1,5 m et améliorée 3 m. Les cibles secondaires ne prennent pas les dégâts d'impact.
+- Nerys : grenades IEM simples, **1d4 dégâts IEM dans le splash**, **DD12 contre Brouillée 1 round uniquement** ; jet de sauvegarde sans réduction des dégâts. Type exact de jet de sauvegarde non défini.
+- Sava : grenades simples Feu, Gel, Choc, Acide ; **+1d6 élémentaire dans le splash**, aucun état persistant. Les dotations détaillées sont dans Faction Builder.
+- 14 variantes de billes exclues des lance-grenades ; aucun changement de dégâts aux billes ni aux flèches.
+- Aucun prix, nouvelle recette, type de sauvegarde ou automatisme inventés ; aucun objet existant des mondes Foundry réécrit automatiquement.
+
 ## v0.1.24 — Conseil de la Dent d'Ambre : 28 équipements audités
 
 Harmonisation de **28 armes et protections** des neuf Maîtres : 26 définitions individuelles référencées dans `data/catalogue-equipements-conseil.json` (dont cinq préexistantes), deux équipements standards partagés (Fronde mécanique de Nerys ; Lance de chasse courte d'Odran), et nouvelle **Lance de chasse longue** générique (1d10, 2 mains, encombrement 2, trait Lourd) sans prix ni recette inventés.

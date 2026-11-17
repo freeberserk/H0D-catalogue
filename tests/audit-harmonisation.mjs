@@ -26,11 +26,11 @@ const eronSpear=allDefinitions.find(x=>x.key==="lance-courte-secours-eron");
 assert.ok(eronSpear&&eronSpear.catalogue.statut==="validee_mj");
 assert.equal(eronSpear.catalogue.prix_ressources,null);
 const nouvellesReferences=new Set([...read("data/catalogue-equipements-conseil.json").definitions.map(x=>x.key),"lance-de-chasse-longue"]);
-const definitions=allDefinitions.filter(x=>x.catalogue?.statut!=="integre-h0d-loot-2026-11-12"&&!nouvellesReferences.has(x.key));
+const definitions=allDefinitions.filter(x=>x.catalogue?.statut!=="integre-h0d-loot-2026-11-12"&&!nouvellesReferences.has(x.key)&&!x.catalogue?.etiquettes?.includes("objets_2026_11_17"));
 // Le rapport figé du 8 novembre porte sur les 199 équipements d\'origine, pas sur les nouveaux jetons.
 const equipmentDefinitions=definitions.filter(x=>x.key!=="jeton-reconnaissance");
 assert.equal(definitions.length,200);
-assert.equal(allDefinitions.length,258);
+assert.equal(allDefinitions.length,271);
 
 assert.ok(!index.catalogues.some(path=>path.startsWith("data/audits/")),
  "Le rapport d'audit ne doit jamais devenir une table de génération.");

@@ -46,7 +46,7 @@ for (const d of defs) {
 
 // Le premier équipement du Conseil est canonique et réservé à Brok.
 const councilHammer=load("data/catalogue-equipements-conseil.json").definitions;
-assert.equal(councilHammer.length,26);
+assert.equal(councilHammer.length,33);
 const hammer=councilHammer[0];
 assert.equal(hammer.key,"marteau-de-brok");
 assert.equal(hammer.name,"Marteau de Brok");
@@ -167,9 +167,54 @@ assert.equal(eronSpear.catalogue.visible_au_stock_standard,false);
 assert.equal(eronSpear.catalogue.generable_stock_aleatoire,false);
 assert.equal(eronSpear.catalogue.pret_pour_builder,true);
 
-// Conseil harmonisé : 26 références personnelles (28 Items dont deux standards).
+
+ // Lot des objets du Conseil : 9 Focus, 8 kits / 7 références, 4 dotations de munitions.
+const focusCanon=defs.find(d=>d.key==="focus-personnel");
+assert.ok(focusCanon&&focusCanon.kind==="object");
+assert.equal(focusCanon.props.H0D_Objet_Type,"Focus");
+assert.equal(focusCanon.props.H0D_Objet_Sous_Type,"Focus du clan");
+assert.equal(focusCanon.props.H0D_Objet_Effet,"");
+assert.equal(focusCanon.catalogue.pret_pour_builder,true);
+const kitRefs=["kit-de-forge-itinerant","trousse-de-soins-tribale","kit-de-garde-conseil","kit-de-pisteur-maela",
+ "necessaire-des-yeux-bleus","kit-des-enclos","kit-de-recuperation-sava"];
+for(const key of kitRefs){
+ const d=defs.find(x=>x.key===key);
+ assert.ok(d&&d.kind==="object","Kit absent : "+key);
+ assert.equal(d.props.H0D_Objet_Type,"Kit");
+ assert.equal(d.props.H0D_Objet_Charge_Unitaire,"1");
+ assert.equal(d.catalogue.prix_ressources,null);
+ assert.equal(d.catalogue.visible_au_stock_standard,false);
+ assert.equal(d.catalogue.pret_pour_builder,true);
+}
+assert.equal(defs.find(x=>x.key==="trousse-de-soins-tribale").props.H0D_Objet_Utilisations_Max,"3");
+assert.equal(defs.find(x=>x.key==="fronde-mecanique").props.H0D_Arme_Type_Munition,"Bombe");
+assert.equal(defs.find(x=>x.key==="fronde-mecanique").props.H0D_Arme_Degats,"1d6");
+assert.equal(defs.find(x=>x.key==="fronde-mecanique").props.H0D_Arme_Carac_Degats,"FOR");
+assert.equal(defs.find(x=>x.key==="fronde-simple-isha").props.H0D_Arme_Type_Munition,"Projectile");
+const iemCanon=defs.find(x=>x.key==="grenade-iem-simple");
+assert.ok(iemCanon&&iemCanon.props.H0D_Objet_Munition_Famille==="Bombe");
+assert.equal(iemCanon.catalogue.grenade.rayon_splash_metres,1.5);
+assert.equal(iemCanon.catalogue.grenade.zone.degats,"1d4");
+assert.equal(iemCanon.catalogue.grenade.zone.dd_etat,12);
+assert.equal(iemCanon.catalogue.grenade.zone.duree_etat_rounds,1);
+assert.equal(iemCanon.catalogue.grenade.zone.sauvegarde_reduit_degats,false);
+assert.equal(iemCanon.catalogue.grenade.zone.type_jet_sauvegarde,null);
+for(const el of ["Feu","Gel","Choc","Acide"]){
+ const g=defs.find(x=>x.key==="grenade-elementaire-"+el.toLowerCase()+"-simple");
+ assert.ok(g,"Grenade manquante "+el);
+ assert.equal(g.props.H0D_Objet_Munition_Famille,"Bombe");
+ assert.equal(g.props.H0D_Objet_Munition_Element,el);
+ assert.equal(g.catalogue.grenade.rayon_splash_metres,1.5);
+ assert.equal(g.catalogue.grenade.zone.degats,"1d6");
+ assert.equal(g.catalogue.grenade.zone.etat_persistant,false);
+}
+for(const d of defs.filter(x=>x.key.startsWith("billes-")&&x.props.H0D_Objet_Compatibilite)){
+ assert.ok(!/^Frondes de chasse et frondes mécaniques/.test(d.props.H0D_Objet_Compatibilite),"Bille compatible lance-grenades : "+d.key);
+}
+
+// Conseil : 26 armes/protections personnelles, plus 7 kits ; deux armes standards.
 const byCouncil = Object.fromEntries(councilHammer.map(d=>[d.key,d]));
-assert.equal(new Set(councilHammer.map(d=>d.key)).size,26);
+assert.equal(new Set(councilHammer.map(d=>d.key)).size,33);
 assert.ok(councilHammer.every(d=>d.catalogue.pret_pour_builder===true));
 assert.ok(councilHammer.every(d=>d.catalogue.visible_au_stock_standard===false&&d.catalogue.generable_stock_aleatoire===false));
 assert.ok(councilHammer.every(d=>d.catalogue.prix_ressources===null&&!d.catalogue.fabrication));
@@ -184,8 +229,9 @@ assert.equal(byCouncil["tenue-yeux-bleus-nerys"].props.H0D_Armure_Bonus_Defense,
 assert.equal(byCouncil["tenue-yeux-bleus-nerys"].catalogue.protection_reactive.defense_conditionnelle,1);
 assert.equal(byCouncil["baton-cable-odran"].catalogue.fonction_choc.bonus_degats_choc,0);
 assert.equal(byCouncil["baton-cable-odran"].catalogue.fonction_choc.dd,null);
-assert.equal(byCouncil["fronde-recuperation-sava"].catalogue.specialite_projectiles.bonus_elementaire,"1d6");
-assert.equal(byCouncil["fronde-recuperation-sava"].catalogue.specialite_projectiles.effet_persistant,false);
+assert.equal(byCouncil["fronde-recuperation-sava"].catalogue.specialite_grenades.elementaire,"1d6");
+assert.equal(byCouncil["fronde-recuperation-sava"].catalogue.specialite_grenades.effet_persistant,false);
+assert.equal(byCouncil["fronde-recuperation-sava"].props.H0D_Arme_Type_Munition,"Bombe");
 assert.ok(byCouncil["armure-recuperatrice-sava"].props.H0D_Armure_Description.includes("crochets"));
 const pavois=byCouncil["bouclier-lourd-mur-de-fer-tarek"];
 assert.equal(pavois.props.H0D_Armure_Bonus_Defense,2);
@@ -247,8 +293,8 @@ for (const a of armures) {
     assert.equal(a.catalogue.fabrication,undefined,"Recette inventée : "+a.key);
   }
 }
-assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 26 + 1);
-assert.equal(defs.length,200 + 31 + 26 + 1);
+assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 26 + 1 + 13);
+assert.equal(defs.length,200 + 31 + 26 + 1 + 13);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -318,7 +364,7 @@ assert.equal(hook.catalogue.fabrication.dd,12);
 // Munitions v0.1.6 : 40 nouvelles + 1 fiche historique actualisee, 12 profils x 3 formats.
 const munitions=defs.filter(x=>x.catalogue?.etiquettes?.includes("munition_v016"));
 assert.equal(munitions.length,41);
-assert.equal(load("data/catalogue-munitions.json").definitions.length,40);
+assert.equal(load("data/catalogue-munitions.json").definitions.length,45);
 assert.equal(munitions.filter(x=>x.catalogue.elementaire).length,36);
 assert.equal(munitions.filter(x=>x.catalogue.visible_au_stock_standard===false).length,24);
 const profiles=new Map();
@@ -416,7 +462,7 @@ for(const w of weapons.filter(w=>w.catalogue.risque_batterie_pillarde))
  assert.ok(!w.catalogue.risque_batterie_pillarde.table_d6,"Une table de surcharge non validée est encore active.");
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,200 + 31 + 26 + 1);
+assert.equal(defs.length,200 + 31 + 26 + 1 + 13);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -488,7 +534,7 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
 assert.equal(crafted.length,80);
-assert.equal(privateDefs.length,81 + 15 + 26 + 1);
+assert.equal(privateDefs.length,81 + 15 + 26 + 1 + 13);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);
 
 // La monnaie de scène n'est pas une ressource de récupération ni un stock marchand.
