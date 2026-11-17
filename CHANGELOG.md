@@ -1,3 +1,17 @@
+## v0.1.24 — Conseil de la Dent d'Ambre : 28 équipements audités
+
+Harmonisation de **28 armes et protections** des neuf Maîtres : 26 définitions individuelles référencées dans `data/catalogue-equipements-conseil.json` (dont cinq préexistantes), deux équipements standards partagés (Fronde mécanique de Nerys ; Lance de chasse courte d'Odran), et nouvelle **Lance de chasse longue** générique (1d10, 2 mains, encombrement 2, trait Lourd) sans prix ni recette inventés.
+
+- Armes de mêlée : aucune consommation fictive ; bonus de FOR normal ; Fronde mécanique : DEX à l'attaque et FOR aux dégâts ; Lance de chasse courte : FOR à l'attaque.
+- Nerys : protection physique +1 DEF et bouclier énergétique réactif +1 DEF, uniquement si agression détectée. Effet conditionnel MJ, surprise non définie.
+- Odran : Choc non létal sur Bâton-câble, sans dégâts électriques additionnels. Jet de résistance, durée et alimentation non définis.
+- Sava : composants de machines exploités dans la Fronde mécanique (une pièce par tir, +1d6 Feu/Gel/Choc/Acide si charge adaptée ; pas d'effet persistant).
+- Tarek : bouclier lourd selon Template Manager, résistances +1, FOR minimale 14 et pavois déployé au sol donnant −2 au toucher aux adversaires visant les cibles protégées derrière ; temps de déploiement et cumul des protections non définis.
+- Déplacements validés : Brok et Kael −1,5 m ; Eron +3 m ; Tarek −1,5 m avec pavois. La fiche Actor suit ces corrections dans Faction Builder.
+- Les références personnelles sont hors marché, hors stock aléatoire, sans prix ni recette de fabrication présumés ; pas de changement des objets déjà présents dans les mondes Foundry.
+
+**Limites :** Les effets conditionnels, variations d'énergie et manœuvres restent à appliquer manuellement par le MJ. Aucun automate ni changement de Template Manager requis. Les snapshots des anciens audits restent des documents historiques et ne sont pas réinterprétés comme des imports.
+
 ## v0.1.15 — Correction du démarrage et de l'API publique
 - Régression v0.1.14 : la version du module était demandée dès l'évaluation du script, avant le hook `ready`. Sur Foundry VTT 14, `game.modules` peut ne pas être encore disponible : exception avant l'enregistrement du hook et API `game.h0dCatalogue` jamais créée, même si le module est affiché comme actif.
 - Le champ `api.version` est maintenant calculé **à la lecture**, après l'initialisation de Foundry, sans perdre le contrôle strict de cohérence entre `module.json` et `data/index.json`.
