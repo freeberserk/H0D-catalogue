@@ -396,8 +396,8 @@
             "H0D_Arme_Trait_Type": "polyvalent",
             "H0D_Arme_Trait_Perso": "",
             "H0D_Arme_Trait_Valeur": 0,
-            "H0D_Arme_Trait_Parametre": "Contondant",
-            "H0D_Arme_Trait_Note": "Frapper avec la hampe (proposition)."
+            "H0D_Arme_Trait_Parametre": "Tranchant",
+            "H0D_Arme_Trait_Note": "Type secondaire Tranchant : correction validée par le MJ le 17 novembre 2026."
           }
         },
         "H0D_Arme_Effet_Special": "",
