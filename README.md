@@ -1,3 +1,7 @@
+## Conseil — Bâton de marche d'Eron des Racines (quatrième référence validée)
+
+`baton-de-marche-eron` reprend **strictement** la fiche du Maître des Remèdes, **1d6+1 Contondant**, deux mains, encombrement 1, attaque/dégâts FOR, critique 20/×2, sans nouveau trait ni effet. C'est une arme de marche utilisée uniquement en autodéfense ; Eron n'est pas un combattant, et son avantage modeste est validé par le MJ. Prix, rareté et recette non définis, hors stock standard. État du PNJ (équipé et actif) conservé exclusivement dans Faction Builder.
+
 ## Conseil — Tablier de plaques du forgeron de Brok (troisième référence validée)
 
 `tablier-plaques-forgeron-brok` est une **armure distincte** de `cuir-renforce-machine`. Elle conserve la Défense **+3** de la fiche Brok (vs +2 pour le cuir), **encombrement 2**, type armure, zone corps et résistances élémentaires nulles. Elle reprend du Cuir renforcé : malus **−1,5 m de déplacement**, **FOR minimale 14** (règle documentée dans la source et **à contrôler manuellement**, non automatisée en CSB), **3 emplacements d'amélioration**, aucun trait chiffré. La source cuir n'a pas de trait dans `H0D_Armure_Traits_Table` ; aucun bonus ou effet feu n'a été inventé.
