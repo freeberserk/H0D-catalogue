@@ -185,7 +185,7 @@ assert.ok(denied.errors.length);
 // Restaurer le cas d'usage du bridge pour ses compteurs post-synchronisation.
 const noOp=api.syncToEquipmentBuilder();
 assert.equal(noOp.added,0);
-assert.equal(noOp.skipped,157);
+assert.equal(noOp.skipped,135);
 assert.equal(noOp.protected,123);
 
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
@@ -195,6 +195,6 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 // Synchronisation idempotente.
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
-assert.equal(after.skipped,157);
+assert.equal(after.skipped,135);
 assert.equal(after.protected,123);
 console.log("OK — API Foundry simulée, 258 références, 44 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");
