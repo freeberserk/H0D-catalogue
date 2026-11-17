@@ -1,7 +1,7 @@
 {
   "format": "H0D_EQUIPMENT_CATALOG",
   "formatVersion": 1,
-  "version": "0.1.23",
+  "version": "0.1.24",
   "principes": {
     "sourceUnique": "H0D Catalogue",
     "provenance": "Arme du Conseil validée, sans prix ni recette inventés."
