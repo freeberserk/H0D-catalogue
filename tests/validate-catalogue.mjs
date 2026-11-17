@@ -46,7 +46,7 @@ for (const d of defs) {
 
 // Le premier équipement du Conseil est canonique et réservé à Brok.
 const councilHammer=load("data/catalogue-equipements-conseil.json").definitions;
-assert.equal(councilHammer.length,5);
+assert.equal(councilHammer.length,26);
 const hammer=councilHammer[0];
 assert.equal(hammer.key,"marteau-de-brok");
 assert.equal(hammer.name,"Marteau de Brok");
@@ -166,8 +166,42 @@ assert.equal(eronSpear.catalogue.fabrication,undefined);
 assert.equal(eronSpear.catalogue.visible_au_stock_standard,false);
 assert.equal(eronSpear.catalogue.generable_stock_aleatoire,false);
 assert.equal(eronSpear.catalogue.pret_pour_builder,true);
+
+// Conseil harmonisé : 26 références personnelles (28 Items dont deux standards).
+const byCouncil = Object.fromEntries(councilHammer.map(d=>[d.key,d]));
+assert.equal(new Set(councilHammer.map(d=>d.key)).size,26);
+assert.ok(councilHammer.every(d=>d.catalogue.pret_pour_builder===true));
+assert.ok(councilHammer.every(d=>d.catalogue.visible_au_stock_standard===false&&d.catalogue.generable_stock_aleatoire===false));
+assert.ok(councilHammer.every(d=>d.catalogue.prix_ressources===null&&!d.catalogue.fabrication));
+const eronHealing=byCouncil["tenue-renforcee-soigneur-eron"];
+assert.equal(eronHealing.props.H0D_Armure_Bonus_Defense,2);
+assert.equal(eronHealing.catalogue.bonus_vitesse_metres,3);
+assert.equal(byCouncil["fronde-simple-isha"].props.H0D_Arme_Mains,"1");
+assert.equal(byCouncil["lance-chasse-longue-maela"].props.H0D_Arme_Degats,"1d10");
+assert.equal(byCouncil["lance-chasse-longue-maela"].props.H0D_Arme_Bonus_Degats,"1");
+assert.equal(byCouncil["arc-bobine-maela"].props.H0D_Arme_Portee,"18");
+assert.equal(byCouncil["tenue-yeux-bleus-nerys"].props.H0D_Armure_Bonus_Defense,1);
+assert.equal(byCouncil["tenue-yeux-bleus-nerys"].catalogue.protection_reactive.defense_conditionnelle,1);
+assert.equal(byCouncil["baton-cable-odran"].catalogue.fonction_choc.bonus_degats_choc,0);
+assert.equal(byCouncil["baton-cable-odran"].catalogue.fonction_choc.dd,null);
+assert.equal(byCouncil["fronde-recuperation-sava"].catalogue.specialite_projectiles.bonus_elementaire,"1d6");
+assert.equal(byCouncil["fronde-recuperation-sava"].catalogue.specialite_projectiles.effet_persistant,false);
+assert.ok(byCouncil["armure-recuperatrice-sava"].props.H0D_Armure_Description.includes("crochets"));
+const pavois=byCouncil["bouclier-lourd-mur-de-fer-tarek"];
+assert.equal(pavois.props.H0D_Armure_Bonus_Defense,2);
+assert.equal(pavois.catalogue.couverture.malus_toucher_ennemis,-2);
+assert.equal(pavois.catalogue.couverture.action_deploiement,null);
+for(const element of ["Feu","Gel","Choc","Acide"])assert.equal(pavois.props["H0D_Armure_Resistance_"+element],1);
+const lanceLongue=defs.find(d=>d.key==="lance-de-chasse-longue");
+assert.ok(lanceLongue);
+assert.equal(lanceLongue.props.H0D_Arme_Degats,"1d10");
+assert.equal(lanceLongue.props.H0D_Arme_Mains,"2");
+assert.equal(lanceLongue.props.H0D_Arme_Encombrement,"2");
+assert.equal(lanceLongue.catalogue.prix_ressources,null);
+assert.equal(lanceLongue.catalogue.visible_au_stock_standard,false);
+
 const armures = defs.filter(d=>d.kind === "armor");
-assert.equal(armures.length,44);
+assert.equal(armures.length,54);
 // Les protections corporelles portées relèvent du template Armure, même sans DEF.
 // Les effets provisoires du Prologue restent manuels ; ne jamais inventer une résistance permanente.
 for (const [key,zone,effect] of [
@@ -213,8 +247,8 @@ for (const a of armures) {
     assert.equal(a.catalogue.fabrication,undefined,"Recette inventée : "+a.key);
   }
 }
-assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 5);
-assert.equal(defs.length,200 + 31 + 5);
+assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 26 + 1);
+assert.equal(defs.length,200 + 31 + 26 + 1);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -337,8 +371,9 @@ assert.equal(sennAmmo.quantite_par_achat,5);
 assert.equal(sennAmmo.prix_jetons,2);
 assert.equal(sennAmmo.nom_pour_la_scene,"Flèches renforcées ×5");
 
-const weapons=defs.filter(d=>d.kind==="weapon" && !["marteau-de-brok","hache-de-recuperation-brok","baton-de-marche-eron","lance-courte-secours-eron"].includes(d.key));
-assert.equal(defs.filter(d=>d.kind==="weapon").length,32);
+const personalKeys = new Set(councilHammer.map(d=>d.key));
+const weapons=defs.filter(d=>d.kind==="weapon" && !personalKeys.has(d.key) && d.key!=="lance-de-chasse-longue");
+assert.equal(defs.filter(d=>d.kind==="weapon").length,44);
 assert.equal(weapons.length,28);
 const expected={ "dent-ambre":11,"caravanes-libres":3,"pillards-rouges":8,"culte-renouveau":2,"heritiers-soleil":4 };
 for(const [origin,count] of Object.entries(expected)) assert.equal(weapons.filter(w=>w.originKey===origin).length,count);
@@ -381,7 +416,7 @@ for(const w of weapons.filter(w=>w.catalogue.risque_batterie_pillarde))
  assert.ok(!w.catalogue.risque_batterie_pillarde.table_d6,"Une table de surcharge non validée est encore active.");
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,200 + 31 + 5);
+assert.equal(defs.length,200 + 31 + 26 + 1);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -453,7 +488,7 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
 assert.equal(crafted.length,80);
-assert.equal(privateDefs.length,81 + 15 + 5);
+assert.equal(privateDefs.length,81 + 15 + 26 + 1);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);
 
 // La monnaie de scène n'est pas une ressource de récupération ni un stock marchand.
