@@ -1,7 +1,7 @@
 {
   "format": "H0D_EQUIPMENT_CATALOG",
   "formatVersion": 1,
-  "version": "0.1.20",
+  "version": "0.1.21",
   "principes": {
     "sourceUnique": "H0D Catalogue",
     "provenance": "Arme du Conseil validée, sans prix ni recette inventés."
@@ -143,6 +143,77 @@
         "generable_stock_aleatoire": false,
         "pret_pour_builder": true,
         "restriction": "Attribuée à Brok lors de la création du Conseil ; aucune vente ni recette définie."
+      }
+    },
+    {
+      "key": "tablier-plaques-forgeron-brok",
+      "name": "Tablier de plaques du forgeron",
+      "kind": "armor",
+      "kindLabel": "Armure",
+      "templateKey": "item-armure",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d’Ambre",
+      "tier": 1,
+      "source": "H0D Faction Builder v0.6.12, data/conseil-dent-ambre.json (Brok) ; cuir-renforce-machine (Template Manager 2026-10) ; arbitrage MJ 17 novembre 2026",
+      "props": {
+        "H0D_Armure_Type": "armure",
+        "H0D_Armure_Zone": "corps",
+        "H0D_Armure_Active": false,
+        "H0D_Armure_Bonus_Defense": 3,
+        "H0D_Armure_Encombrement": 2,
+        "H0D_Armure_Malus": "-1,5 m déplacement (réf. Template Manager)",
+        "H0D_Stockage": "PJ",
+        "H0D_Armure_Resistances": "Aucune",
+        "H0D_Armure_Resistance_Feu": 0,
+        "H0D_Armure_Resistance_Gel": 0,
+        "H0D_Armure_Resistance_Choc": 0,
+        "H0D_Armure_Resistance_Acide": 0,
+        "H0D_Armure_Etat": "Intacte",
+        "H0D_Armure_Origine": "Dent d’Ambre",
+        "H0D_Armure_Description": "Cuir épais et plaques de récupération adaptées au travail de forge.",
+        "H0D_Armure_Traits_Table": {},
+        "H0D_Armure_Trait_Attaque_Total": 0,
+        "H0D_Armure_Trait_Degats_Total": 0,
+        "H0D_Armure_Trait_DEF_Total": 0,
+        "H0D_Armure_Trait_Portee_Total": 0,
+        "H0D_Armure_Trait_Resistance_Feu_Total": 0,
+        "H0D_Armure_Trait_Resistance_Gel_Total": 0,
+        "H0D_Armure_Trait_Resistance_Choc_Total": 0,
+        "H0D_Armure_Trait_Resistance_Acide_Total": 0,
+        "H0D_Armure_Trait_Cooldown_Total": 0
+      },
+      "catalogue": {
+        "categorie": "Armure du Conseil",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {},
+        "statut": "validee_mj",
+        "notes_source": "Armure distincte conservant DEF +3 et encombrement 2. Calquée sur Cuir renforcé de machine pour les contraintes documentées : FOR min 14 (règle manuelle, pas de champ CSB spécifique), malus de déplacement -1,5 m, 3 emplacements d'amélioration, aucun trait supplémentaire. Les notes du Cuir renforcé indiquent que ses propriétés mécaniques fines restent à vérifier ; aucune mécanique supplémentaire inférée.",
+        "alias": [],
+        "etiquettes": [
+          "conseil_dent_ambre",
+          "equipement_personnel",
+          "base_cuir_renforce_machine"
+        ],
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": true,
+        "resistances_validees": {
+          "feu": 0,
+          "gel": 0,
+          "choc": 0,
+          "acide": 0
+        },
+        "emplacements_amelioration_max": 3,
+        "protection_fractionnee": false,
+        "limites": "Traits descriptifs sans bonus mécanique additionnel ; aucun cumul automatique des pièces intégrées.",
+        "prerequis_port": {
+          "force_minimale": 14,
+          "validation": "mention de référence Template Manager ; application MJ, non automatisée"
+        },
+        "malus_vitesse_metres": -1.5,
+        "restriction": "Équipement de Brok ; ni prix ni recette définis."
       }
     }
   ]
