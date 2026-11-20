@@ -484,7 +484,7 @@
         "H0D_Arme_Encombrement": "1",
         "H0D_Arme_Zone": "",
         "H0D_Arme_Mode_Munition": "Direct",
-        "H0D_Arme_Type_Munition": "Projectile",
+        "H0D_Arme_Type_Munition": "Javelot",
         "H0D_Arme_Consommation_Munition": "1",
         "H0D_Arme_Recharge": "Récupérer / reprendre un javelot",
         "H0D_Arme_Munitions": "0",
@@ -494,7 +494,7 @@
         "H0D_Arme_Cout": "3",
         "H0D_Arme_Traits_Table": {},
         "H0D_Arme_Effet_Special": "Jet d’attaque DEX + modificateurs ; FOR normale ajoutée aux dégâts en vertu de la règle maison des objets propulsés.",
-        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas."
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Famille de munitions dédiée Javelot (depuis v0.1.26) : aucune bille de fronde compatible ; ne pas modifier les dégâts ni la portée."
       },
       "catalogue": {
         "categorie": "Arme de faction",

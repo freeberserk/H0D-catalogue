@@ -1,3 +1,11 @@
+## v0.1.26 — Une famille de munition propre aux javelots
+
+- `javelot-de-chasse` : famille `Javelot` au lieu de `Projectile`, sans changement de dégâts, portée ou consommation.
+- `javelot-de-rechange` : référence unitaire pour les réserves, compatible uniquement avec le javelot ; tarif et fabrication inconnus (`null`), donc aucune génération en stock standard.
+- Les anciennes fiches ne sont pas migrées automatiquement ; le Template Manager ajoute `Javelot` aux options d'Arme v2.9 et Objet v3.0.
+- Aucune modification de la Fronde de chasse, de ses statistiques ou des munitions de fronde.
+- Tests de non-régression de compatibilité et de préservation des stocks.
+
 ## v0.1.25 — Conseil : Focus, kits et grenades (17 novembre 2026)
 
 - Un seul **Focus personnel** canonique partagé par les neuf Maîtres et les Focus vérifiés des trois PJ, sans effet inventé.

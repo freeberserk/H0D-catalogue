@@ -42,7 +42,7 @@ await api.whenReady();
 const s=api.getStatus();
 assert.equal(s.version,manifest.version);
 assert.equal(api.version,manifest.version);
-assert.equal(s.references,271);
+assert.equal(s.references,272);
 assert.equal(api.resolveDefinition({key:"couteau-de-depecage",kind:"weapon"}).status,"key");
 assert.equal(api.resolveDefinition({name:"Couteau de dépeçage",kind:"weapon"}).key,"couteau-de-depecage");
 assert.equal(api.resolveDefinition({name:"COUTEAU DE DEPECAGE",kind:"weapon"}).status,"name");
@@ -53,10 +53,10 @@ assert.ok(api.getStockEligibleDefinitions().every(x=>x.catalogue.generable_stock
 assert.ok(!api.getStockEligibleDefinitions().some(x=>x.catalogue.pret_pour_builder===false));
 
 assert.equal(s.stocks,1);
-assert.equal(s.protected,136);
+assert.equal(s.protected,137);
 assert.equal(s.bridge.added,134); // 16 nouvelles ressources standard.
 assert.equal(s.bridge.skipped,1);
-assert.equal(s.bridge.protected,136);
+assert.equal(s.bridge.protected,137);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
 assert.equal(api.getRecipes().length,80);
@@ -186,7 +186,7 @@ assert.ok(denied.errors.length);
 const noOp=api.syncToEquipmentBuilder();
 assert.equal(noOp.added,0);
 assert.equal(noOp.skipped,135);
-assert.equal(noOp.protected,136);
+assert.equal(noOp.protected,137);
 
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
 const original=api.getDefinition("rations-2-jours");
@@ -196,5 +196,5 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
 assert.equal(after.skipped,135);
-assert.equal(after.protected,136);
-console.log("OK — API Foundry simulée, 271 références, 44 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");
+assert.equal(after.protected,137);
+console.log("OK — API Foundry simulée, 272 références, 44 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");

@@ -293,8 +293,8 @@ for (const a of armures) {
     assert.equal(a.catalogue.fabrication,undefined,"Recette inventée : "+a.key);
   }
 }
-assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 26 + 1 + 13);
-assert.equal(defs.length,200 + 31 + 26 + 1 + 13);
+assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 26 + 1 + 13 + 1);
+assert.equal(defs.length,200 + 31 + 26 + 1 + 13 + 1);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -364,7 +364,7 @@ assert.equal(hook.catalogue.fabrication.dd,12);
 // Munitions v0.1.6 : 40 nouvelles + 1 fiche historique actualisee, 12 profils x 3 formats.
 const munitions=defs.filter(x=>x.catalogue?.etiquettes?.includes("munition_v016"));
 assert.equal(munitions.length,41);
-assert.equal(load("data/catalogue-munitions.json").definitions.length,45);
+assert.equal(load("data/catalogue-munitions.json").definitions.length,46);
 assert.equal(munitions.filter(x=>x.catalogue.elementaire).length,36);
 assert.equal(munitions.filter(x=>x.catalogue.visible_au_stock_standard===false).length,24);
 const profiles=new Map();
@@ -462,7 +462,7 @@ for(const w of weapons.filter(w=>w.catalogue.risque_batterie_pillarde))
  assert.ok(!w.catalogue.risque_batterie_pillarde.table_d6,"Une table de surcharge non validée est encore active.");
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,200 + 31 + 26 + 1 + 13);
+assert.equal(defs.length,200 + 31 + 26 + 1 + 13 + 1);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -534,7 +534,7 @@ for (const f of ["scripts/h0d-catalogue.js","styles/h0d-catalogue.css","README.m
 const crafted = defs.filter(d=>d.catalogue?.etiquettes?.includes("fabrication_validee"));
 const privateDefs = defs.filter(d=>d.catalogue?.visible_au_stock_standard===false);
 assert.equal(crafted.length,80);
-assert.equal(privateDefs.length,81 + 15 + 26 + 1 + 13);
+assert.equal(privateDefs.length,81 + 15 + 26 + 1 + 13 + 1);
 console.log(`OK — ${defs.length} références (${defs.filter(x=>x.kind==="object").length} objets ; ${defs.filter(x=>x.kind==="resource").length} ressources ; ${armures.length} armures), ${crafted.length} fabrications, ${offers} offres, ${privateDefs.length} références protégées, ${armures.length} armures.`);
 
 // La monnaie de scène n'est pas une ressource de récupération ni un stock marchand.
@@ -653,3 +653,24 @@ for(const m of factionMentions.mentions){
  assert.ok(m.sourceFile&&m.profileId&&m.sourceName);
 }
 console.log("OK — 392 mentions des six factions conservées comme audit, jamais comme fiches Item implicites.");
+
+// v0.1.26 — Une famille de javelots autonome, sans prix inventé ni stock générable.
+const spearWeapon=defs.find(x=>x.key==="javelot-de-chasse");
+const spearAmmo=defs.find(x=>x.key==="javelot-de-rechange");
+const slingWeapon=defs.find(x=>x.key==="fronde-de-chasse");
+const slingAmmo=defs.find(x=>x.key==="billes-de-fronde");
+assert.ok(spearWeapon&&spearAmmo&&slingWeapon&&slingAmmo);
+assert.equal(spearWeapon.props.H0D_Arme_Type_Munition,"Javelot");
+assert.equal(spearWeapon.props.H0D_Arme_Categorie,"jet");
+assert.equal(spearWeapon.props.H0D_Arme_Degats,"1d6");
+assert.equal(spearAmmo.props.H0D_Objet_Type,"Munition");
+assert.equal(spearAmmo.props.H0D_Objet_Munition_Famille,"Javelot");
+assert.equal(spearAmmo.props.H0D_Objet_Quantite,"1");
+assert.equal(spearAmmo.catalogue.prix_ressources,null);
+assert.equal(spearAmmo.catalogue.visible_au_stock_standard,false);
+assert.equal(spearAmmo.catalogue.generable_stock_aleatoire,false);
+assert.equal(spearAmmo.catalogue.pret_pour_builder,true);
+assert.equal(slingWeapon.props.H0D_Arme_Type_Munition,"Projectile");
+assert.equal(slingAmmo.props.H0D_Objet_Munition_Famille,"Projectile");
+assert.equal(slingWeapon.props.H0D_Arme_Degats,"1d4");
+assert.equal(slingWeapon.props.H0D_Arme_Mode_Munition,"Chargeur");
