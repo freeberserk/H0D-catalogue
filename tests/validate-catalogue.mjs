@@ -672,5 +672,6 @@ assert.equal(spearAmmo.catalogue.generable_stock_aleatoire,false);
 assert.equal(spearAmmo.catalogue.pret_pour_builder,true);
 assert.equal(slingWeapon.props.H0D_Arme_Type_Munition,"Projectile");
 assert.equal(slingAmmo.props.H0D_Objet_Munition_Famille,"Projectile");
-assert.equal(slingWeapon.props.H0D_Arme_Degats,"1d4");
+assert.equal(slingWeapon.props.H0D_Arme_Degats,"1d6");
+assert.equal(slingWeapon.props.H0D_Arme_Carac_Degats,"FOR");
 assert.equal(slingWeapon.props.H0D_Arme_Mode_Munition,"Chargeur");

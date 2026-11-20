@@ -961,7 +961,7 @@
         "H0D_Arme_Carac_Attaque": "aucune",
         "H0D_Arme_Carac_Degats": "FOR",
         "H0D_Arme_Bonus_Attaque": "0",
-        "H0D_Arme_Degats": "1d4",
+        "H0D_Arme_Degats": "1d6",
         "H0D_Arme_Bonus_Degats": "0",
         "H0D_Arme_Type_Degats": "Contondant",
         "H0D_Arme_Portee": "9",
@@ -984,7 +984,7 @@
         "H0D_Arme_Cout": "2",
         "H0D_Arme_Traits_Table": {},
         "H0D_Arme_Effet_Special": "",
-        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Règle maison des objets propulsés : bonus FOR aux dégâts (prioritaire sur le tiret du Compendium)."
+        "H0D_Arme_Notes": "Données de base : Compendium Foundry Armes & Armures, pp.1-2. Valeurs et recettes de la v0.1.5 calibrées sur Commerce v2. Effets conditionnels manuels tant que le système ne les automatise pas. Règle maison des objets propulsés : bonus FOR aux dégâts (prioritaire sur le tiret du Compendium). Décision MJ du 20 novembre 2026 : dégâts de base 1d6 + FOR ; famille Projectile et mode Chargeur conservés, sans migration automatique des fiches existantes."
       },
       "catalogue": {
         "categorie": "Arme de faction",
@@ -1028,7 +1028,7 @@
         "prix_concerne": "prix de commerce général, sans jetons Senn, cellule montée incluse lorsque prévue par la recette, munitions externes non incluses",
         "regle_force": "DEX au tir, FOR normale aux dégâts ; adaptation à la règle maison des objets propulsés.",
         "origine_valeurs": {
-          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 validée par le MJ",
+          "degats_et_equipement": "Compendium, sauf arbalète de poignet 1d4 et révision MJ du 20 novembre 2026 de la Fronde de chasse à 1d6 + FOR.",
           "prix_et_recette": "Calibrage proposé par l'assistant, retenu pour intégration en v0.1.5 selon la demande du MJ. Révisable sans changer les caractéristiques de combat.",
           "effets_speciaux": "Effets validés explicitement MJ lorsqu'indiqué ; les DD de contrôle restent indicatifs/non automatisés ; surcharge volontaire sans paramètres chiffrés."
         },
