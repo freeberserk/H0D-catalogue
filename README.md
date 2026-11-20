@@ -1,3 +1,10 @@
+## v0.1.26 — Javelots et billes de fronde séparés (20 novembre 2026)
+
+- Le Javelot de chasse utilise désormais une famille de munition distincte `Javelot` (non compatible avec les billes `Projectile`).
+- Nouvelle référence technique `javelot-de-rechange` dans les munitions, avec quantité par défaut d'une unité, **sans prix ni recette inventés**. Référence utilisable à la demande du MJ, absente des stocks marchands et des tirages aléatoires.
+- Les fiches Foundry existantes ne sont **pas** corrigées automatiquement : mise à jour explicite des champs `H0D_Arme_Type_Munition` et `H0D_Objet_Munition_Famille` après installation des modèles Arme v2.9 et Objet v3.0.
+- Les dégâts et le mode de chargement de la **Fronde de chasse** restent inchangés dans le Catalogue. Les valeurs de Fer-Hom divergent et seront arbitrées séparément.
+
 ## v0.1.24 — Conseil de la Dent d'Ambre : 28 équipements audités
 
 Harmonisation de **28 armes et protections** des neuf Maîtres : 26 définitions individuelles référencées dans `data/catalogue-equipements-conseil.json` (dont cinq préexistantes), deux équipements standards partagés (Fronde mécanique de Nerys ; Lance de chasse courte d'Odran), et nouvelle **Lance de chasse longue** générique (1d10, 2 mains, encombrement 2, trait Lourd) sans prix ni recette inventés.
