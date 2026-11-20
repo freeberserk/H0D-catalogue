@@ -93,8 +93,7 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
 - La valeur unitaire de certains lots est fractionnaire ; le champ
   Foundry entier a 0 (« non renseigné ») mais le prix légal **par lot**
   est `catalogue.prix_ressources.base`.
-- `Projectile` regroupe le javelot et les billes de fronde : vérifier
-  la compatibilité physique avant tir.
+- Historiquement, `Projectile` regroupait le javelot et les billes de fronde. Depuis le lot **v0.1.26**, les **nouvelles définitions** utilisent une famille dédiée `Javelot`. Les anciennes fiches Foundry doivent être migrées **explicitement** : l'installation ne remplace pas les valeurs déjà enregistrées. Les billes demeurent `Projectile`.
 - Choc sur machine : uniquement module scanné/exposé/détachable ;
   pas de décrochage automatique. Application d'état manuelle.
 - Un fluide correct est nécessaire : Blaze référencé pour Feu,
