@@ -364,7 +364,7 @@ assert.equal(hook.catalogue.fabrication.dd,12);
 // Munitions v0.1.6 : 40 nouvelles + 1 fiche historique actualisee, 12 profils x 3 formats.
 const munitions=defs.filter(x=>x.catalogue?.etiquettes?.includes("munition_v016"));
 assert.equal(munitions.length,41);
-assert.equal(load("data/catalogue-munitions.json").definitions.length,45);
+assert.equal(load("data/catalogue-munitions.json").definitions.length,46);
 assert.equal(munitions.filter(x=>x.catalogue.elementaire).length,36);
 assert.equal(munitions.filter(x=>x.catalogue.visible_au_stock_standard===false).length,24);
 const profiles=new Map();
