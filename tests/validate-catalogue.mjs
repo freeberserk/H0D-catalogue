@@ -653,3 +653,24 @@ for(const m of factionMentions.mentions){
  assert.ok(m.sourceFile&&m.profileId&&m.sourceName);
 }
 console.log("OK — 392 mentions des six factions conservées comme audit, jamais comme fiches Item implicites.");
+
+// v0.1.26 — Une famille de javelots autonome, sans prix inventé ni stock générable.
+const spearWeapon=defs.find(x=>x.key==="javelot-de-chasse");
+const spearAmmo=defs.find(x=>x.key==="javelot-de-rechange");
+const slingWeapon=defs.find(x=>x.key==="fronde-de-chasse");
+const slingAmmo=defs.find(x=>x.key==="billes-de-fronde");
+assert.ok(spearWeapon&&spearAmmo&&slingWeapon&&slingAmmo);
+assert.equal(spearWeapon.props.H0D_Arme_Type_Munition,"Javelot");
+assert.equal(spearWeapon.props.H0D_Arme_Categorie,"jet");
+assert.equal(spearWeapon.props.H0D_Arme_Degats,"1d6");
+assert.equal(spearAmmo.props.H0D_Objet_Type,"Munition");
+assert.equal(spearAmmo.props.H0D_Objet_Munition_Famille,"Javelot");
+assert.equal(spearAmmo.props.H0D_Objet_Quantite,"1");
+assert.equal(spearAmmo.catalogue.prix_ressources,null);
+assert.equal(spearAmmo.catalogue.visible_au_stock_standard,false);
+assert.equal(spearAmmo.catalogue.generable_stock_aleatoire,false);
+assert.equal(spearAmmo.catalogue.pret_pour_builder,true);
+assert.equal(slingWeapon.props.H0D_Arme_Type_Munition,"Projectile");
+assert.equal(slingAmmo.props.H0D_Objet_Munition_Famille,"Projectile");
+assert.equal(slingWeapon.props.H0D_Arme_Degats,"1d4");
+assert.equal(slingWeapon.props.H0D_Arme_Mode_Munition,"Chargeur");
