@@ -1,3 +1,10 @@
+## v0.1.27 — Fronde de chasse : retour à 1d6 (décision MJ)
+
+- Fronde de chasse (`fronde-de-chasse`) : dégâts de base **1d6 + FOR** au lieu de **1d4 + FOR**, pour mieux tenir compte des PV des machines.
+- Aucune modification de la portée, des autres armes, des billes, du type de munition `Projectile` ou du mode de munition `Chargeur` ; le passage éventuel à `Direct` reste à arbitrer séparément.
+- Les objets déjà présents dans les mondes Foundry ne sont **pas** modifiés automatiquement : mise à jour ciblée et sauvegarde préalable recommandées.
+- Test ajouté pour maintenir les dégâts à 1d6 et le bonus de FOR sans régression des compatibilités.
+
 ## v0.1.26 — Une famille de munition propre aux javelots
 
 - `javelot-de-chasse` : famille `Javelot` au lieu de `Projectile`, sans changement de dégâts, portée ou consommation.
