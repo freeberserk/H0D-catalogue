@@ -1,3 +1,7 @@
+## v0.1.27 — Décision MJ : Fronde de chasse à 1d6 + FOR (20 novembre 2026)
+
+La référence Catalogue `fronde-de-chasse` inflige désormais **1d6 + FOR contondants** (anciennement 1d4 + FOR). Sa portée de 9 m, ses billes de famille `Projectile`, son mode `Chargeur` et ses paramètres de recharge restent inchangés. Le choix entre `Chargeur` et `Direct` est une question distincte, non tranchée ici. Les fiches d'acteur déjà importées dans Foundry ne sont pas migrées automatiquement : corriger l'arme concernée après sauvegarde. Cette décision ne modifie pas les autres armes utilisant 1d4.
+
 ## v0.1.26 — Javelots et billes de fronde séparés (20 novembre 2026)
 
 - Le Javelot de chasse utilise désormais une famille de munition distincte `Javelot` (non compatible avec les billes `Projectile`).
