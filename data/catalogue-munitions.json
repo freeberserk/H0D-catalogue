@@ -1,7 +1,7 @@
 {
   "format": "H0D_EQUIPMENT_CATALOG",
   "formatVersion": 1,
-  "version": "0.1.6",
+  "version": "0.1.26",
   "principes": {
     "description": "40 nouvelles fiches de munitions et correction d'une référence ancienne sans doublon.",
     "profiles": "12 profils élémentaires = quatre éléments × trois paliers. Pour la compatibilité native, chacun possède trois formes : flèches / carreaux courts / billes, soit 36 fiches.",
@@ -13,7 +13,8 @@
     "limites_foundry": "Le champ bonus dégâts munition n'est pas une formule de dés ; +Xd6 et statuts sont manuels. Pour lot à prix unitaire fractionnaire, H0D_Objet_Valeur=0 signifie non renseigné, pas gratuit : le prix légal est catalogue.prix_ressources.base.",
     "stocks": "Les 21 offres P-03 de Senn restent inchangées ; offre de demi-lot x5 de flèches renforcées spécifique. Capsules incendiaires x2 anciennes à +1d4 conservées à part.",
     "exclusions": "Câbles/filets/cordes harpons/chargeurs énergétiques ne sont pas de nouveaux Items de ce lot.",
-    "acces": "Paliers II et III protégés des tirages Builder par défaut, import ciblé MJ possible."
+    "acces": "Paliers II et III protégés des tirages Builder par défaut, import ciblé MJ possible.",
+    "complement_v0126": "Référence unitaire Javelot (famille distincte) ajoutée sans prix, nouvelle recette ni stock marchand ; le lot x2 de Fer-Hom reste une donnée propre à son inventaire."
   },
   "definitions": [
     {
@@ -5043,6 +5044,69 @@
             "type_jet_sauvegarde": null
           },
           "instructions_mj": "1 grenade consommée par tir ; impact physique cible directe uniquement ; dégâts de splash/états manuels."
+        }
+      }
+    },
+    {
+      "key": "javelot-de-rechange",
+      "name": "Javelot de réserve (unité)",
+      "kind": "object",
+      "kindLabel": "Objet",
+      "templateKey": "item-objet",
+      "originKey": "dent-ambre",
+      "origin": "Clan de la Dent d’Ambre",
+      "tier": 1,
+      "source": "Rapprochement technique du 20 novembre 2026 : javelots x2 dans l'export du PJ Fer-Hom et dans le kit de garde ; arme canonique javelot-de-chasse. Aucun nouveau prix, dégât ni taux de récupération.",
+      "props": {
+        "H0D_Objet_Type": "Munition",
+        "H0D_Objet_Sous_Type": "Javelot",
+        "H0D_Objet_Quantite": "1",
+        "H0D_Stockage": "PJ",
+        "H0D_Objet_Actif": false,
+        "H0D_Objet_Identifie": true,
+        "H0D_Objet_Charge_Unitaire": "0",
+        "H0D_Objet_Valeur": "0",
+        "H0D_Objet_Utilisations": "0",
+        "H0D_Objet_Utilisations_Max": "0",
+        "H0D_Objet_Recharge": "Récupérer / reprendre un javelot",
+        "H0D_Objet_Etat": "Intact",
+        "H0D_Objet_Origine": "Clan de la Dent d’Ambre",
+        "H0D_Objet_Compatibilite": "Javelot de chasse (famille Javelot exclusivement) ; ne peut pas servir de bille de fronde ni de flèche.",
+        "H0D_Objet_Effet": "Munition physique pour le javelot de chasse : l'arme détermine les dégâts 1d6 + FOR ; un exemplaire consommé par lancer ; récupération régie par le moteur existant de fin de combat.",
+        "H0D_Objet_Description": "Référence technique d'une unité de javelot pour la gestion des réserves. Quantité à fixer sur le PJ (Fer-Hom possède deux javelots de réserve). Prix et fabrication non définis, aucun stock marchand généré automatiquement.",
+        "H0D_Objet_Traits_Table": {},
+        "H0D_Objet_Munition_Active": false,
+        "H0D_Objet_Munition_Famille": "Javelot",
+        "H0D_Objet_Munition_Element": "Aucun",
+        "H0D_Objet_Munition_Recuperable": false,
+        "H0D_Objet_Munition_Bonus_Attaque": "0",
+        "H0D_Objet_Munition_Bonus_Degats": "0",
+        "H0D_Objet_Munition_Type_Degats": "Perforant",
+        "H0D_Objet_Munition_Anti_Blindage": "0",
+        "H0D_Objet_Munition_Effet_Court": "Un javelot par jet ; récupération manuelle ou suivi existant après combat."
+      },
+      "catalogue": {
+        "categorie": "Munition",
+        "sous_categorie": "javelot",
+        "rarete": null,
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "disponibilite": {},
+        "statut": "reference_technique",
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": true,
+        "etiquettes": [
+          "munition_javelot_v026",
+          "gestion_stock_javelot",
+          "hors_stock_marchand"
+        ],
+        "notes_source": "Famille distincte approuvée par le MJ ; référence destinée aux exemplaires portés. Aucun prix, fabrication, taux de récupération ou disponibilité commerciale validés.",
+        "munitions": {
+          "famille": "Javelot",
+          "forme_physique": "javelot",
+          "recuperable": "selon_procedure_existante",
+          "perdable": true
         }
       }
     }
