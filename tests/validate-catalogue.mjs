@@ -294,7 +294,7 @@ for (const a of armures) {
   }
 }
 assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 26 + 1 + 13 + 1);
-assert.equal(defs.length,200 + 31 + 26 + 1 + 13);
+assert.equal(defs.length,200 + 31 + 26 + 1 + 13 + 1);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
