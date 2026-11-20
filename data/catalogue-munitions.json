@@ -5105,8 +5105,9 @@
         "munitions": {
           "famille": "Javelot",
           "forme_physique": "javelot",
-          "recuperable": "selon_procedure_existante",
-          "perdable": true
+          "recuperable": false,
+          "perdable": true,
+          "note_recuperation": "Le moteur de suivi de fin de combat suit les consommations par famille, comme pour Projectile ; l'indicateur Recuperable du formulaire n'est actuellement pas un filtre de ce moteur. Aucun taux spécial n'est défini."
         }
       }
     }
