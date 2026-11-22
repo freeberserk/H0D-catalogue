@@ -1,0 +1,305 @@
+{
+  "format": "H0D_EQUIPMENT_CATALOG",
+  "formatVersion": 1,
+  "version": "0.1.29",
+  "source_documents": [
+    "Validations MJ de « Loot & améliorations » (novembre 2026)",
+    "freeberserk/h0d-faction-builder/data/caravanes-libres.json",
+    "freeberserk/h0d-faction-builder/data/pillards-rouges.json",
+    "freeberserk/h0d-faction-builder/data/culte-renouveau.json",
+    "freeberserk/h0d-faction-builder/data/heritiers-soleil.json"
+  ],
+  "principes": {
+    "objectif": "Consolider les données validées des Builders dans Catalogue sans redemander les mêmes arbitrages.",
+    "consultation": "Les définitions partiellement renseignées sont interrogeables par getDefinition mais non importables dans Equipment Builder, même sur sélection ciblée.",
+    "pas_de_supposition": "Seuls les champs déjà validés sont portés dans props ; aucune valeur de commerce, recette, portée, encombrement ou effet non sourcé n'est inventée.",
+    "portee": "Ni mise à jour des actions PNJ ni migration d'Items existants Foundry.",
+    "regle_armes_elysium": {
+      "validee_mj": "Une arme standard ELYSIUM gagne +1d6 dégâts électriques ; même règle pour Elys-9 et Elys-10.",
+      "limite": "Principe de modification, pas de nouvel Item d'arme inventé. Les anciennes fiches lame-blanche et lame-blanche-legere du Builder ne sont pas modifiées ni assimilées automatiquement.",
+      "statut": "Conservé comme contrainte de consolidation, pas encore automatisé."
+    }
+  },
+  "definitions": [
+    {
+      "key": "lame-courte",
+      "name": "Lame courte",
+      "kind": "weapon",
+      "templateKey": "item-arme",
+      "originKey": "caravanes-libres",
+      "origin": "Caravanes Libres",
+      "tier": 1,
+      "source": "Décisions MJ antérieures (« Loot & améliorations », novembre 2026) ; recoupement avec H0D Faction Builder v0.6.10",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Type_Degats": "Tranchant"
+      },
+      "catalogue": {
+        "categorie": "Arme de faction — définition partiellement consolidée",
+        "statut": "donnees_mj_consolidees_import_bloque",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": false,
+        "tier_statut": "minimum technique du format, palier de jeu non déterminé",
+        "etiquettes": [
+          "arme",
+          "donnees_validees_partielles",
+          "hors_stock",
+          "a_completer_sans_invention"
+        ],
+        "champs_non_definis": "Les champs CSB absents de props n'ont pas été validés : ne pas substituer les valeurs par défaut du Builder.",
+        "references_source": [
+          "h0d-faction-builder:data/caravanes-libres.json — Capitaine de caravane : Sabre court de capitaine ; Vétéran des routes : Lame de route usée",
+          "h0d-faction-builder:data/heritiers-soleil.json — Artilleur solaire : Lame courte"
+        ],
+        "alias": [
+          "Sabre court de capitaine",
+          "Lame de route usée"
+        ],
+        "portee_validation": "Fusion de noms validée précédemment ; la provenance de chaque alias reste renseignée. Les autres champs d'arme restent inconnus."
+      }
+    },
+    {
+      "key": "lame-courte-de-fosse",
+      "name": "Lame courte de fosse",
+      "kind": "weapon",
+      "templateKey": "item-arme",
+      "originKey": "pillards-rouges",
+      "origin": "Pillards Rouges",
+      "tier": 1,
+      "source": "Décisions MJ antérieures (« Loot & améliorations », novembre 2026) ; recoupement avec H0D Faction Builder v0.6.10",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Bonus_Degats": "1",
+        "H0D_Arme_Type_Degats": "Tranchant"
+      },
+      "catalogue": {
+        "categorie": "Arme de faction — définition partiellement consolidée",
+        "statut": "donnees_mj_consolidees_import_bloque",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": false,
+        "tier_statut": "minimum technique du format, palier de jeu non déterminé",
+        "etiquettes": [
+          "arme",
+          "donnees_validees_partielles",
+          "hors_stock",
+          "a_completer_sans_invention"
+        ],
+        "champs_non_definis": "Les champs CSB absents de props n'ont pas été validés : ne pas substituer les valeurs par défaut du Builder.",
+        "references_source": [
+          "h0d-faction-builder:data/pillards-rouges.json — Sang-neuf Rouge : Lame courte de fosse ; Conducteur de ferraille : Machette courte"
+        ],
+        "alias": [
+          "Machette courte"
+        ],
+        "divergence_source": {
+          "source": "Faction Builder v0.6.10, Sang-neuf Rouge / Conducteur de ferraille",
+          "actions_npc": "1d6+1 tranchant",
+          "definition_mj_consolidee": "1d8+1 tranchant",
+          "regle": "Ne pas modifier les actions PNJ ni remplacer le jet d'attaque par une propriété d'arme sans rapprochement distinct."
+        }
+      }
+    },
+    {
+      "key": "lame-silencieuse",
+      "name": "Lame silencieuse",
+      "kind": "weapon",
+      "templateKey": "item-arme",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Décisions MJ antérieures (« Loot & améliorations », novembre 2026) ; recoupement avec H0D Faction Builder v0.6.10",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Type_Degats": "Tranchant",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "secret",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Arme de faction — définition partiellement consolidée",
+        "statut": "donnees_mj_consolidees_import_bloque",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": false,
+        "tier_statut": "minimum technique du format, palier de jeu non déterminé",
+        "etiquettes": [
+          "arme",
+          "donnees_validees_partielles",
+          "hors_stock",
+          "a_completer_sans_invention"
+        ],
+        "champs_non_definis": "Les champs CSB absents de props n'ont pas été validés : ne pas substituer les valeurs par défaut du Builder.",
+        "references_source": [
+          "h0d-faction-builder:data/culte-renouveau.json — Traqueur-Assassin : Lame silencieuse"
+        ],
+        "variante_de": "lame-courte",
+        "heritage_valeurs": "Même base de Lame courte (1d8 Tranchant) selon arbitrage MJ ; trait supplémentaire Secret."
+      }
+    },
+    {
+      "key": "lame-inquisition",
+      "name": "Lame d’Inquisition",
+      "kind": "weapon",
+      "templateKey": "item-arme",
+      "originKey": "culte-renouveau",
+      "origin": "Culte du Renouveau",
+      "tier": 1,
+      "source": "Décisions MJ antérieures (« Loot & améliorations », novembre 2026) ; recoupement avec H0D Faction Builder v0.6.10",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Degats": "1d10",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Critique_Seuil": "20",
+        "H0D_Arme_Critique_Multiplicateur": "2",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "lourd",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Arme de faction — définition partiellement consolidée",
+        "statut": "donnees_mj_consolidees_import_bloque",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": false,
+        "tier_statut": "minimum technique du format, palier de jeu non déterminé",
+        "etiquettes": [
+          "arme",
+          "donnees_validees_partielles",
+          "hors_stock",
+          "a_completer_sans_invention"
+        ],
+        "champs_non_definis": "Les champs CSB absents de props n'ont pas été validés : ne pas substituer les valeurs par défaut du Builder.",
+        "references_source": [
+          "h0d-faction-builder:data/culte-renouveau.json — Inquisiteur : « Lame ou hallebarde d Inquisition » (alternative à clarifier, pas un synonyme automatique)"
+        ],
+        "type_degats_statut": "NON CONFIRMÉ — volontairement absent de props",
+        "alternative_halebarde": "Le Builder dit « lame ou hallebarde » : ne pas fusionner les deux versions sans décision explicite."
+      }
+    },
+    {
+      "key": "lame-solaire",
+      "name": "Lame solaire",
+      "kind": "weapon",
+      "templateKey": "item-arme",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Décisions MJ antérieures (« Loot & améliorations », novembre 2026) ; recoupement avec H0D Faction Builder v0.6.10",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Degats": "1d8",
+        "H0D_Arme_Mains": "1",
+        "H0D_Arme_Element": "Feu",
+        "H0D_Arme_Effet_Special": "+1d6 Feu (validation MJ ; application manuelle)."
+      },
+      "catalogue": {
+        "categorie": "Arme de faction — définition partiellement consolidée",
+        "statut": "donnees_mj_consolidees_import_bloque",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": false,
+        "tier_statut": "minimum technique du format, palier de jeu non déterminé",
+        "etiquettes": [
+          "arme",
+          "donnees_validees_partielles",
+          "hors_stock",
+          "a_completer_sans_invention"
+        ],
+        "champs_non_definis": "Les champs CSB absents de props n'ont pas été validés : ne pas substituer les valeurs par défaut du Builder.",
+        "references_source": [
+          "h0d-faction-builder:data/heritiers-soleil.json — Capitaine solaire : Lame solaire"
+        ],
+        "degats_elementaires_valides": "1d6 Feu",
+        "traits_valides": [
+          "Énergétique"
+        ],
+        "type_degats_physiques_statut": "Non précisé : ne pas supposer Tranchant ni un autre type."
+      }
+    },
+    {
+      "key": "lame-solaire-lourde",
+      "name": "Lame solaire lourde",
+      "kind": "weapon",
+      "templateKey": "item-arme",
+      "originKey": "heritiers-soleil",
+      "origin": "Héritiers du Soleil",
+      "tier": 1,
+      "source": "Décisions MJ antérieures (« Loot & améliorations », novembre 2026) ; recoupement avec H0D Faction Builder v0.6.10",
+      "props": {
+        "H0D_Arme_Categorie": "melee",
+        "H0D_Arme_Degats": "1d10",
+        "H0D_Arme_Mains": "2",
+        "H0D_Arme_Element": "Feu",
+        "H0D_Arme_Effet_Special": "+1d8 Feu (validation MJ ; application manuelle).",
+        "H0D_Arme_Traits_Table": {
+          "0": {
+            "H0D_Arme_Trait_Type": "lourd",
+            "H0D_Arme_Trait_Perso": "",
+            "H0D_Arme_Trait_Valeur": 0,
+            "H0D_Arme_Trait_Parametre": "Aucun",
+            "H0D_Arme_Trait_Note": ""
+          }
+        }
+      },
+      "catalogue": {
+        "categorie": "Arme de faction — définition partiellement consolidée",
+        "statut": "donnees_mj_consolidees_import_bloque",
+        "prix_ressources": null,
+        "valeur_troc": null,
+        "visible_au_stock_standard": false,
+        "generable_stock_aleatoire": false,
+        "pret_pour_builder": false,
+        "tier_statut": "minimum technique du format, palier de jeu non déterminé",
+        "etiquettes": [
+          "arme",
+          "donnees_validees_partielles",
+          "hors_stock",
+          "a_completer_sans_invention"
+        ],
+        "champs_non_definis": "Les champs CSB absents de props n'ont pas été validés : ne pas substituer les valeurs par défaut du Builder.",
+        "references_source": [
+          "h0d-faction-builder:data/heritiers-soleil.json — Champion solaire / Archange : Lame solaire lourde"
+        ],
+        "degats_elementaires_valides": "1d8 Feu",
+        "traits_valides": [
+          "Énergétique",
+          "Lourd"
+        ],
+        "type_degats_physiques_statut": "Non précisé : ne pas supposer Tranchant ni un autre type."
+      }
+    }
+  ],
+  "a_valider": [
+    "Distinguer les bonus personnels des PNJ des propriétés générales des armes ; l'action de Lame courte de fosse du Faction Builder (1d6+1) diffère de la valeur MJ consolidée (1d8+1).",
+    "Compléter uniquement à partir de sources vérifiées les champs CSB manquants ; toutes ces définitions restent non importables en attendant.",
+    "Lame d’Inquisition : type de dégâts physiques non fixé ; « lame ou hallebarde » dans la source ne suffit pas à confirmer une équivalence.",
+    "Lames solaires : type physique non fixé ; bonus Feu connu mais intégration technique et éventuelles cellules non définies."
+  ]
+}

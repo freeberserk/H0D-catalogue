@@ -1,7 +1,7 @@
 {
   "format": "H0D_CATALOGUE_INDEX",
   "formatVersion": 1,
-  "version": "0.1.28",
+  "version": "0.1.29",
   "catalogues": [
     "data/catalogue-objets-artefacts.json",
     "data/catalogue-armures-factions.json",
@@ -9,6 +9,7 @@
     "data/catalogue-forge-echo-heliosium.json",
     "data/catalogue-objets-caravanes.json",
     "data/catalogue-armes-factions.json",
+    "data/catalogue-armes-consolidees.json",
     "data/catalogue-munitions.json",
     "data/catalogue-jetons.json",
     "data/catalogue-ressources-loot.json",

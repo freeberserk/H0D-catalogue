@@ -108,3 +108,12 @@ Voir aussi la liste `a_valider` conservée dans `data/catalogue-objets-artefacts
 - Même principe de pondération matérielle pour armes et pièges, sans changer leurs prix validés.
 - Jetons non convertibles depuis les ressources ; les Caravanes Libres peuvent les accorder en récompense d'aide apportée. Le repère 1 jeton ≈ 2 ressources est indicatif.
 - À préciser : compositions exactes des recettes, prix des objets artisanaux, protections du Renouveau et plans ECHO.
+
+## Rapprochement des lames — v0.1.29
+
+- Six fiches partiellement consolidées et indexées dans `data/catalogue-armes-consolidees.json`, toutes `pret_pour_builder:false` (aucune génération d'Item à partir de champs incomplets).
+- Alias de `lame-masquee` : `Couteau de contrat dissimulé` (une seule référence canonique).
+- `Lame courte de fosse` : validation MJ 1d8+1 tranchant ; anciennes actions de PNJ 1d6+1 dans le Faction Builder, écart explicitement suivi, sans migration.
+- `Lame d’Inquisition` : type de dégâts physiques non fixé ; source « Lame ou hallebarde d'Inquisition » ne prouve pas une équivalence.
+- `Lame solaire` / `Lame solaire lourde` : dés physiques et dés Feu retenus ; nature physique, gestion d'énergie et autres champs CSB non finalisés.
+- Principe ELYSIUM : +1d6 électrique sur arme standard, identique pour protocoles 9 et 10, non automatisé.

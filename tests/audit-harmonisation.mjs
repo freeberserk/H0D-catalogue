@@ -26,11 +26,11 @@ const eronSpear=allDefinitions.find(x=>x.key==="lance-courte-secours-eron");
 assert.ok(eronSpear&&eronSpear.catalogue.statut==="validee_mj");
 assert.equal(eronSpear.catalogue.prix_ressources,null);
 const nouvellesReferences=new Set([...read("data/catalogue-equipements-conseil.json").definitions.map(x=>x.key),"lance-de-chasse-longue"]);
-const definitions=allDefinitions.filter(x=>x.catalogue?.statut!=="integre-h0d-loot-2026-11-12"&&!nouvellesReferences.has(x.key)&&!x.catalogue?.etiquettes?.includes("objets_2026_11_17")&&x.key!=="javelot-de-rechange");
+const definitions=allDefinitions.filter(x=>x.catalogue?.statut!=="integre-h0d-loot-2026-11-12"&&!nouvellesReferences.has(x.key)&&!x.catalogue?.etiquettes?.includes("objets_2026_11_17")&&x.key!=="javelot-de-rechange"&&x.catalogue?.statut!=="donnees_mj_consolidees_import_bloque");
 // Le rapport figé du 8 novembre porte sur les 199 équipements d\'origine : exclure aussi le nouveau javelot et les jetons.
 const equipmentDefinitions=definitions.filter(x=>x.key!=="jeton-reconnaissance");
 assert.equal(definitions.length,200);
-assert.equal(allDefinitions.length,272);
+assert.equal(allDefinitions.length,278);
 
 assert.ok(!index.catalogues.some(path=>path.startsWith("data/audits/")),
  "Le rapport d'audit ne doit jamais devenir une table de génération.");
@@ -76,4 +76,4 @@ assert.equal(audit.factions.reduce((n,f)=>n+f.profiles,0),69);
 assert.equal(audit.factions.reduce((n,f)=>n+f.mentions,0),392);
 assert.equal(audit.factions.reduce((n,f)=>n+f.exactNameMatches,0),9);
 assert.ok(audit.provenance.every(s=>/^[a-f0-9]{40}$/.test(s.sourceCommit)),"Sources liées à des commits immuables.");
-console.log("OK — Audit historique 199/33/392 conservé ; 18 prix armures v0.1.9, zéro import nouveau.");
+console.log("OK — Audit historique 199/33/392 conservé ; 18 prix armures v0.1.9, six lames consolidées en supplément, hors audit de 2026-11-08.");
