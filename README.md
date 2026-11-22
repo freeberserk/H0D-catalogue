@@ -1,3 +1,11 @@
+## v0.1.29 — Consolidation des armes déjà arbitrées (22 novembre 2026)
+
+Six définitions de lames sont désormais **consultables dans le Catalogue** : `lame-courte` (avec alias « Sabre court de capitaine » / « Lame de route usée »), `lame-courte-de-fosse` (alias « Machette courte »), `lame-silencieuse`, `lame-inquisition`, `lame-solaire` et `lame-solaire-lourde`. La référence existante `lame-masquee` reconnaît désormais l'alias « Couteau de contrat dissimulé », sans créer de doublon.
+
+Ces six fiches sont **partielles** : seules les valeurs déjà arbitrées et les sources des Builders sont conservées ; aucun prix, portée, encombrement ni type de dégâts inconnu n'a été déduit. Elles restent **non importables dans Equipment Builder**, même par import ciblé, jusqu'à complétion de leurs champs CSB. La divergence entre l'ancienne action du Sang-neuf Rouge (1d6+1) et la Lame courte de fosse consolidée (1d8+1) est signalée, sans écraser l'action PNJ.
+
+La règle générale des armes ELYSIUM (+1d6 électrique sur une arme standard, commune aux protocoles 9 et 10) est conservée **comme donnée de rapprochement**, sans créer d'arme fictive ni activer de dégâts automatiques. Aucun inventaire Foundry, stock Senn, recette ou acteur n'est modifié. Détails : [armes consolidées](data/catalogue-armes-consolidees.json).
+
 ## v0.1.27 — Décision MJ : Fronde de chasse à 1d6 + FOR (20 novembre 2026)
 
 La référence Catalogue `fronde-de-chasse` inflige désormais **1d6 + FOR contondants** (anciennement 1d4 + FOR). Sa portée de 9 m, ses billes de famille `Projectile`, son mode `Chargeur` et ses paramètres de recharge restent inchangés. Le choix entre `Chargeur` et `Direct` est une question distincte, non tranchée ici. Les fiches d'acteur déjà importées dans Foundry ne sont pas migrées automatiquement : corriger l'arme concernée après sauvegarde. Cette décision ne modifie pas les autres armes utilisant 1d4.
