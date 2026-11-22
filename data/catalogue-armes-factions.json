@@ -1420,6 +1420,10 @@
           "heritiers": "occasionnel"
         },
         "statut": "integree_v015",
+        "alias": [
+          "Couteau de contrat dissimulé"
+        ],
+        "validation_alias_mj": "Fusion avec la Lame masquée validée antérieurement ; mention dans H0D Faction Builder v0.6.10.",
         "visible_au_stock_standard": true,
         "pret_pour_builder": true,
         "generable_stock_aleatoire": true,
