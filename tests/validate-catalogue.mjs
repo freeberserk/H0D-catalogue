@@ -293,8 +293,8 @@ for (const a of armures) {
     assert.equal(a.catalogue.fabrication,undefined,"Recette inventée : "+a.key);
   }
 }
-assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 26 + 1 + 13 + 1);
-assert.equal(defs.length,200 + 31 + 26 + 1 + 13 + 1);
+assert.equal(defs.filter(d=>d.key!=="jeton-reconnaissance"&&d.catalogue?.prix_ressources?.base==null).length,63 + 31 + 26 + 1 + 13 + 1 + 6);
+assert.equal(defs.length,200 + 31 + 26 + 1 + 13 + 1 + 6);
 const echo = defs.filter(x=>x.originKey==="forge-echo");
 assert.equal(echo.length,19);
 const plansEcho=echo.filter(x=>x.kind==="armor");
@@ -418,8 +418,8 @@ assert.equal(sennAmmo.prix_jetons,2);
 assert.equal(sennAmmo.nom_pour_la_scene,"Flèches renforcées ×5");
 
 const personalKeys = new Set(councilHammer.map(d=>d.key));
-const weapons=defs.filter(d=>d.kind==="weapon" && !personalKeys.has(d.key) && d.key!=="lance-de-chasse-longue");
-assert.equal(defs.filter(d=>d.kind==="weapon").length,44);
+const weapons=defs.filter(d=>d.kind==="weapon" && !personalKeys.has(d.key) && d.key!=="lance-de-chasse-longue" && d.catalogue?.statut==="integree_v015");
+assert.equal(defs.filter(d=>d.kind==="weapon").length,50);
 assert.equal(weapons.length,28);
 const expected={ "dent-ambre":11,"caravanes-libres":3,"pillards-rouges":8,"culte-renouveau":2,"heritiers-soleil":4 };
 for(const [origin,count] of Object.entries(expected)) assert.equal(weapons.filter(w=>w.originKey===origin).length,count);
@@ -462,7 +462,7 @@ for(const w of weapons.filter(w=>w.catalogue.risque_batterie_pillarde))
  assert.ok(!w.catalogue.risque_batterie_pillarde.table_d6,"Une table de surcharge non validée est encore active.");
 const culte = armures.filter(x=>x.originKey==="culte-renouveau");
 assert.equal(culte.length,7);
-assert.equal(defs.length,200 + 31 + 26 + 1 + 13 + 1);
+assert.equal(defs.length,200 + 31 + 26 + 1 + 13 + 1 + 6);
 const byKey = Object.fromEntries(culte.map(d=>[d.key,d]));
 for (const a of culte) {
   assert.equal(a.templateKey,"item-armure");
@@ -675,3 +675,31 @@ assert.equal(slingAmmo.props.H0D_Objet_Munition_Famille,"Projectile");
 assert.equal(slingWeapon.props.H0D_Arme_Degats,"1d6");
 assert.equal(slingWeapon.props.H0D_Arme_Carac_Degats,"FOR");
 assert.equal(slingWeapon.props.H0D_Arme_Mode_Munition,"Chargeur");
+
+// v0.1.29 — Consolidation de six lames : valeurs MJ conservées, fiches CSB incomplètes protégées.
+const lamesConsolidees=load("data/catalogue-armes-consolidees.json");
+assert.equal(lamesConsolidees.definitions.length,6);
+assert.deepEqual(lamesConsolidees.definitions.map(d=>d.key),[
+  "lame-courte","lame-courte-de-fosse","lame-silencieuse","lame-inquisition","lame-solaire","lame-solaire-lourde"
+]);
+for(const d of lamesConsolidees.definitions){
+  assert.equal(d.kind,"weapon");
+  assert.equal(d.catalogue.prix_ressources,null);
+  assert.equal(d.catalogue.pret_pour_builder,false);
+  assert.equal(d.catalogue.visible_au_stock_standard,false);
+  assert.equal(d.catalogue.generable_stock_aleatoire,false);
+  assert.ok(d.catalogue.references_source.length>0);
+  assert.ok(defs.some(x=>x.key===d.key));
+}
+const dByKey=Object.fromEntries(lamesConsolidees.definitions.map(d=>[d.key,d]));
+assert.equal(dByKey["lame-courte"].props.H0D_Arme_Degats,"1d8");
+assert.equal(dByKey["lame-courte-de-fosse"].props.H0D_Arme_Bonus_Degats,"1");
+assert.equal(dByKey["lame-courte-de-fosse"].catalogue.divergence_source.actions_npc,"1d6+1 tranchant");
+assert.equal(dByKey["lame-silencieuse"].catalogue.variante_de,"lame-courte");
+assert.equal(dByKey["lame-silencieuse"].props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Type,"secret");
+assert.equal(dByKey["lame-inquisition"].props.H0D_Arme_Type_Degats,undefined);
+assert.equal(dByKey["lame-inquisition"].props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Type,"lourd");
+assert.equal(dByKey["lame-solaire"].catalogue.degats_elementaires_valides,"1d6 Feu");
+assert.equal(dByKey["lame-solaire-lourde"].catalogue.degats_elementaires_valides,"1d8 Feu");
+assert.equal(defs.find(d=>d.key==="lame-masquee").catalogue.alias.includes("Couteau de contrat dissimulé"),true);
+assert.equal(lamesConsolidees.principes.regle_armes_elysium.statut,"Conservé comme contrainte de consolidation, pas encore automatisé.");
