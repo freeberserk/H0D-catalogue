@@ -42,10 +42,13 @@ await api.whenReady();
 const s=api.getStatus();
 assert.equal(s.version,manifest.version);
 assert.equal(api.version,manifest.version);
-assert.equal(s.references,272);
+assert.equal(s.references,278);
 assert.equal(api.resolveDefinition({key:"couteau-de-depecage",kind:"weapon"}).status,"key");
 assert.equal(api.resolveDefinition({name:"Couteau de dépeçage",kind:"weapon"}).key,"couteau-de-depecage");
 assert.equal(api.resolveDefinition({name:"COUTEAU DE DEPECAGE",kind:"weapon"}).status,"name");
+assert.equal(api.resolveDefinition({name:"Couteau de contrat dissimulé",kind:"weapon"}).key,"lame-masquee");
+assert.equal(api.getDefinition("lame-courte-de-fosse").catalogue.pret_pour_builder,false);
+assert.ok(!api.getStockEligibleDefinitions().some(d=>d.key==="lame-courte-de-fosse"));
 assert.equal(api.resolveDefinition({key:"couteau-de-depecage",kind:"armor"}).status,"kind-mismatch");
 assert.equal(api.resolveDefinition({name:"Inconnu sans correspondance",kind:"weapon"}).status,"missing");
 assert.ok(api.getStockEligibleDefinitions().every(x=>x.catalogue.visible_au_stock_standard===true));
@@ -53,10 +56,10 @@ assert.ok(api.getStockEligibleDefinitions().every(x=>x.catalogue.generable_stock
 assert.ok(!api.getStockEligibleDefinitions().some(x=>x.catalogue.pret_pour_builder===false));
 
 assert.equal(s.stocks,1);
-assert.equal(s.protected,137);
+assert.equal(s.protected,143);
 assert.equal(s.bridge.added,134); // 16 nouvelles ressources standard.
 assert.equal(s.bridge.skipped,1);
-assert.equal(s.bridge.protected,137);
+assert.equal(s.bridge.protected,143);
 assert.equal(builder.getDefinition("billes-de-fuite").name,"DÉFINITION EXISTANTE À PRÉSERVER");
 assert.equal(api.getStockResolved("longue-corde-senn-p03").offres.length,21);
 assert.equal(api.getRecipes().length,80);
@@ -75,7 +78,7 @@ assert.equal(builder.getDefinition("crochet-de-sauvetage-caravanier").props.H0D_
 assert.equal(api.getRecipes({includeRestricted:true}).length,80);
 assert.equal(api.getRecipes({includeRestricted:false}).length,37);
 assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:false}).length,13);
-assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:true}).length,44);
+assert.equal(api.getDefinitions({kind:"weapon",includeRestricted:true}).length,50);
 assert.equal(api.getDefinition("marteau-de-brok").props.H0D_Arme_Degats,"1d8");
 assert.equal(api.getDefinition("marteau-de-brok").props.H0D_Arme_Traits_Table["0"].H0D_Arme_Trait_Type,"outil");
 assert.ok(!api.getStockEligibleDefinitions().some(d=>d.key==="marteau-de-brok"));
@@ -171,7 +174,7 @@ assert.equal(plans.filter(x=>x.kind==="object").length,4);
 assert.ok(!builder.getDefinition("echo-armure-traqueur-plus-1"));
 assert.ok(!builder.getDefinition("echo-module-bouclier"));
 const includeReserved=api.syncToEquipmentBuilder({includeRestricted:true});
-assert.equal(includeReserved.protected,19);
+assert.equal(includeReserved.protected,25);
 assert.ok(!builder.getDefinition("echo-armure-traqueur-plus-1"));
 assert.ok(!builder.getDefinition("echo-module-bouclier"));
 // Le MJ peut cibler uniquement l'armure blanche de fin de campagne.
@@ -186,7 +189,7 @@ assert.ok(denied.errors.length);
 const noOp=api.syncToEquipmentBuilder();
 assert.equal(noOp.added,0);
 assert.equal(noOp.skipped,135);
-assert.equal(noOp.protected,137);
+assert.equal(noOp.protected,143);
 
 // Robustesse: modifications client n'affectent pas l'état du catalogue.
 const original=api.getDefinition("rations-2-jours");
@@ -196,5 +199,5 @@ assert.notEqual(api.getDefinition("rations-2-jours").name,"MUTÉ");
 const after=api.syncToEquipmentBuilder();
 assert.equal(after.added,0);
 assert.equal(after.skipped,135);
-assert.equal(after.protected,137);
-console.log("OK — API Foundry simulée, 272 références, 44 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");
+assert.equal(after.protected,143);
+console.log("OK — API Foundry simulée, 278 références, 50 armes, 41 munitions concernées, 21 offres, 80 fabrications (37 standards), 80 protégées, import non destructif, aucun doublon.");
